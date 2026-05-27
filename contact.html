@@ -8,31 +8,26 @@
 <style>
 .page-title-wrap{padding-top:96px}
 .contact-section{padding:60px 0}
-.contact-intro{text-align:center;margin-bottom:40px}
-.contact-intro h2{font-size:32px;color:#333;margin-bottom:10px}
-.contact-intro p{color:#666;font-size:15px}
 .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px}
-.contact-info h3{font-size:18px;color:#333;margin-bottom:20px;text-transform:uppercase;letter-spacing:.08em}
-.contact-detail{display:flex;align-items:flex-start;gap:14px;margin-bottom:24px}
-.contact-detail-icon{width:38px;height:38px;background:#2ea3f2;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;color:#fff;flex-shrink:0}
+.contact-info h3,.contact-form h3{font-size:13px;color:#333;margin-bottom:22px;text-transform:uppercase;letter-spacing:.1em;font-weight:700;border-bottom:2px solid #2ea3f2;padding-bottom:10px}
+.contact-detail{display:flex;align-items:flex-start;gap:16px;margin-bottom:22px}
+.contact-detail-icon{width:36px;height:36px;background:#f5f5f5;border:1px solid #e0e0e0;border-radius:2px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#2ea3f2;font-size:15px;font-weight:700;line-height:1}
 .contact-detail-text p{margin:0;font-size:13px;color:#666;line-height:1.7}
-.contact-detail-text strong{display:block;font-size:12px;color:#333;text-transform:uppercase;letter-spacing:.08em;margin-bottom:3px}
-.contact-form h3{font-size:18px;color:#333;margin-bottom:20px;text-transform:uppercase;letter-spacing:.08em}
-.form-group{margin-bottom:18px}
-.form-group label{display:block;font-size:12px;color:#999;text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px;font-weight:600}
-.form-group input,.form-group textarea,.form-group select{width:100%;border:1px solid #ddd;padding:10px 14px;font-family:'Open Sans',Arial,sans-serif;font-size:13px;color:#666;background:#fff;outline:none;transition:border-color .2s}
+.contact-detail-text strong{display:block;font-size:11px;color:#999;text-transform:uppercase;letter-spacing:.08em;margin-bottom:3px;font-weight:700}
+.form-group{margin-bottom:16px}
+.form-group label{display:block;font-size:11px;color:#999;text-transform:uppercase;letter-spacing:.08em;margin-bottom:5px;font-weight:700}
+.form-group input,.form-group textarea{width:100%;border:1px solid #ddd;padding:10px 14px;font-family:'Open Sans',Arial,sans-serif;font-size:13px;color:#666;background:#fff;outline:none;transition:border-color .2s;border-radius:0}
 .form-group input:focus,.form-group textarea:focus{border-color:#2ea3f2}
-.form-group textarea{height:120px;resize:vertical}
-.form-submit{margin-top:6px}
-.form-submit button{background:#2ea3f2;color:#fff;border:none;padding:.5em 2em;font-family:'Open Sans',Arial,sans-serif;font-size:12px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;cursor:pointer;transition:background .2s}
+.form-group textarea{height:110px;resize:vertical}
+.form-submit button{background:#2ea3f2;color:#fff;border:none;padding:.5em 2.2em;font-family:'Open Sans',Arial,sans-serif;font-size:12px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;cursor:pointer;transition:background .2s;border-radius:0}
 .form-submit button:hover{background:#1a8fd8}
 .newsletter-section{background:#f9f9f9;padding:50px 0;text-align:center;border-top:1px solid #eee}
-.newsletter-section h3{font-size:22px;color:#333;margin-bottom:10px}
-.newsletter-section p{color:#666;font-size:14px;margin-bottom:20px}
-.newsletter-form{display:flex;justify-content:center;gap:0;max-width:480px;margin:0 auto}
+.newsletter-section h3{font-size:20px;color:#333;margin-bottom:8px}
+.newsletter-section p{color:#888;font-size:13px;margin-bottom:20px}
+.newsletter-form{display:flex;justify-content:center;max-width:460px;margin:0 auto}
 .newsletter-form input{flex:1;border:1px solid #ddd;border-right:none;padding:10px 16px;font-family:'Open Sans',Arial,sans-serif;font-size:13px;color:#666;outline:none}
 .newsletter-form input:focus{border-color:#2ea3f2}
-.newsletter-form button{background:#2ea3f2;color:#fff;border:none;padding:10px 22px;font-family:'Open Sans',Arial,sans-serif;font-size:12px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;cursor:pointer;white-space:nowrap;transition:background .2s}
+.newsletter-form button{background:#2ea3f2;color:#fff;border:none;padding:10px 20px;font-family:'Open Sans',Arial,sans-serif;font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;cursor:pointer;white-space:nowrap;transition:background .2s}
 .newsletter-form button:hover{background:#1a8fd8}
 @media(max-width:768px){
   .contact-grid{grid-template-columns:1fr}
@@ -85,19 +80,21 @@
   </div>
 </div>
 
+<div class="page-intro" style="padding-bottom:10px">
+  <div class="container">
+    <h2>Get In Touch</h2>
+    <p class="intro-sub">Reach out for a discovery conversation about how we can help.</p>
+  </div>
+</div>
+
 <div class="contact-section">
   <div class="container">
-    <div class="contact-intro">
-      <h2>Get In Touch</h2>
-      <p>We'd love to hear from you. Reach out for a conversation about how we can help.</p>
-    </div>
-
     <div class="contact-grid">
       <div class="contact-info">
         <h3>Contact Information</h3>
 
         <div class="contact-detail">
-          <div class="contact-detail-icon">📍</div>
+          <div class="contact-detail-icon">&#9679;</div>
           <div class="contact-detail-text">
             <strong>Address</strong>
             <p>50 Raffles Place, Singapore Land Tower #30-00<br>Singapore 048623</p>
@@ -105,7 +102,7 @@
         </div>
 
         <div class="contact-detail">
-          <div class="contact-detail-icon">📞</div>
+          <div class="contact-detail-icon">T</div>
           <div class="contact-detail-text">
             <strong>Phone</strong>
             <p><a href="tel:+818065151778" style="color:#2ea3f2">+81 806515 1778</a></p>
@@ -113,7 +110,7 @@
         </div>
 
         <div class="contact-detail">
-          <div class="contact-detail-icon">✉</div>
+          <div class="contact-detail-icon">@</div>
           <div class="contact-detail-text">
             <strong>Email</strong>
             <p><a href="mailto:isabelle@bhdasia.com" style="color:#2ea3f2">isabelle@bhdasia.com</a></p>
@@ -121,7 +118,7 @@
         </div>
 
         <div class="contact-detail">
-          <div class="contact-detail-icon">🏢</div>
+          <div class="contact-detail-icon">ID</div>
           <div class="contact-detail-text">
             <strong>Company</strong>
             <p>Business &amp; Human Development Consulting Pte Ltd<br>ACRA Number: 201201974K</p>

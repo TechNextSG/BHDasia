@@ -104,6 +104,25 @@ strong{font-weight:700}em{font-style:italic}
 .section_has_divider{overflow:hidden}
 .et_pb_top_inside_divider,.et_pb_bottom_inside_divider{height:50px}
 
+/* ── PAGE INTRO ──────────────────────────────── */
+.page-intro{padding:48px 0 28px;text-align:center}
+.page-intro h2{font-size:30px;color:#333;margin-bottom:8px}
+.page-intro .intro-sub{font-size:15px;color:#888;margin:0}
+.page-intro .intro-accent{font-size:17px;color:#333;font-weight:600;margin:8px 0 0}
+
+/* ── CLIENT TAGS ─────────────────────────────── */
+.client-tags{display:flex;flex-wrap:wrap;gap:8px;padding:0;list-style:none;margin:0}
+.client-tags li{background:#fff;border:1px solid #e0e0e0;border-radius:2px;padding:4px 12px;font-size:12px;color:#555;font-weight:600;white-space:nowrap}
+
+/* ── DARK CALLOUT ────────────────────────────── */
+.dark-callout{background:#2b2b2b;padding:60px 0;text-align:center}
+.dark-callout p{color:rgba(255,255,255,.8);font-size:20px;margin:0}
+
+/* ── CTA STRIP ───────────────────────────────── */
+.cta-strip{padding:50px 0;text-align:center;background:#f9f9f9;border-top:1px solid #eee}
+.cta-strip h2{font-size:26px;color:#333;margin-bottom:10px}
+.cta-strip p{font-size:14px;color:#888;margin-bottom:22px}
+
 /* ── FOOTER ─────────────────────────────────── */
 #main-footer{background:#2b2b2b}
 #footer-widgets{padding:40px 0;border-bottom:1px solid rgba(255,255,255,.06)}
