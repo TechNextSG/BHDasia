@@ -4,46 +4,63 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0"/>
 <title>Home - BHD Asia</title>
-<meta name="description" content="BHD Asia boutique HR/OD consulting and Executive Coaching as well as Conflict Management, Stress management and Prevention."/>
+<meta name="description" content="BHD Asia — boutique HR consulting, executive coaching, resilience building and leadership development across Asia Pacific."/>
 <link rel="stylesheet" href="style.css"/>
 <style>
-/* ── HERO ──────────────────────────────────────── */
-.et_pb_section_0{position:relative;overflow:hidden}
-.et_pb_fullwidth_header{position:relative;background-position:50%;background-size:cover;overflow:hidden}
-.et_pb_fullscreen{min-height:100vh}
-.et_parallax_bg_wrap{position:absolute;top:0;left:0;right:0;bottom:0;overflow:hidden}
-.et_parallax_bg{position:absolute;top:-15%;left:0;right:0;height:130%;background-image:url('hero.jpg');background-size:cover;background-position:center;will-change:transform}
-.et_pb_fullwidth_header_overlay{position:absolute;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.42);z-index:1}
-.et_pb_fullwidth_header_container{position:relative;z-index:3;width:80%;max-width:none;margin:0 auto;min-height:100vh;display:flex;flex-flow:column nowrap;align-items:center;justify-content:center}
-.header-content-container{width:100%;display:flex;flex-flow:row wrap;justify-content:center;align-self:center}
-.header-content{text-align:center;width:100%;padding:80px 0 60px}
-.et_pb_module_header{font-family:'Open Sans',Arial,sans-serif;font-size:52px;font-weight:700;line-height:1.3em;color:#fff;margin-bottom:30px;max-width:700px;margin-left:auto;margin-right:auto}
-.et_pb_header_content_wrapper{margin-bottom:10px}
-.et_pb_fullwidth_header_scroll{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);z-index:4;color:rgba(255,255,255,.7);font-size:26px;animation:scrollBounce 2s ease-in-out infinite;cursor:pointer}
-.et_pb_fullwidth_header_scroll::before{content:'⌄'}
-@keyframes scrollBounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(8px)}}
+/* ── HERO ─────────────────────────────── */
+.hero{position:relative;min-height:calc(100vh - 68px);display:flex;align-items:center;margin-top:68px;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background-image:url('hero.jpg');background-size:cover;background-position:center;will-change:transform}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(11,34,56,.9) 0%,rgba(11,34,56,.58) 100%)}
+.hero-inner{position:relative;z-index:2;padding:80px 0 60px;width:100%}
+.hero-label{font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--blue);display:block;margin-bottom:18px}
+.hero-title{font-size:50px;font-weight:700;color:#fff;line-height:1.15;max-width:680px;margin-bottom:20px}
+.hero-sub{font-size:17px;color:rgba(255,255,255,.7);max-width:500px;line-height:1.75;margin-bottom:36px;padding-bottom:0}
+.hero-ctas{display:flex;gap:4px;flex-wrap:wrap}
+.hero-scroll{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);z-index:3;display:flex;flex-direction:column;align-items:center;gap:8px;cursor:pointer}
+.hero-scroll-line{width:1px;height:40px;background:rgba(255,255,255,.25);position:relative;overflow:hidden}
+.hero-scroll-line::after{content:'';position:absolute;top:-100%;left:0;width:100%;height:100%;background:var(--blue);animation:scrollLine 1.8s ease-in-out infinite}
+@keyframes scrollLine{0%{top:-100%}100%{top:100%}}
 
-/* ── FEATURED SECTION ──────────────────────────── */
-.et_pb_section_1{padding:60px 0;background:#fff;text-align:center}
-.et_pb_text{margin-bottom:20px}
-.et_pb_text_0 .et_pb_text_inner h1{font-size:30px;font-weight:700;color:#474747}
-.et_pb_text_1 .et_pb_text_inner h1{font-size:22px;font-weight:600;color:#333}
-.et_pb_code_inner{display:flex;justify-content:center;padding:10px 0 20px}
-.et_pb_code_inner iframe{border:0 !important;height:135px;margin:12px 0;padding:0;width:235px}
+/* ── PILLARS ──────────────────────────── */
+.pillars-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:8px}
+.pillar-card{border-top:3px solid var(--blue);background:#fff;padding:30px 26px;box-shadow:var(--shadow-sm);transition:var(--t)}
+.pillar-card:hover{box-shadow:var(--shadow);transform:translateY(-4px)}
+.pillar-icon{font-size:26px;margin-bottom:14px;display:block;color:var(--blue)}
+.pillar-card h3{font-size:16px;color:var(--text);margin-bottom:10px;font-weight:700}
+.pillar-card p{font-size:13px;color:var(--muted);line-height:1.75;margin-bottom:16px;padding-bottom:0}
+
+/* ── FEATURED / VOICE RECORD ──────────── */
+.featured-wrap{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.featured-text h2{font-size:28px;margin-bottom:10px}
+.featured-text p{font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:20px;padding-bottom:0}
+.featured-media{display:flex;flex-direction:column;align-items:flex-start;gap:10px}
+.noomii-label{font-size:10px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.12em}
+
+/* ── MEDIA SECTION ────────────────────── */
+.media-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.media-thumb{position:relative;border-radius:var(--r);overflow:hidden;aspect-ratio:4/3}
+.media-thumb img{width:100%;height:100%;object-fit:cover;display:block;opacity:.65;transition:var(--t)}
+.media-thumb:hover img{opacity:.8}
+.media-play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+.play-btn{width:62px;height:62px;background:var(--blue);border-radius:50%;display:flex;align-items:center;justify-content:center;transition:var(--t);cursor:pointer;box-shadow:0 4px 24px rgba(46,163,242,.55)}
+.play-btn:hover{transform:scale(1.1);background:var(--blue-dk)}
+.play-btn::after{content:'';border-left:22px solid #fff;border-top:13px solid transparent;border-bottom:13px solid transparent;margin-left:5px}
+.media-info h2{color:#fff;font-size:26px;margin-bottom:10px}
+.media-info p{color:rgba(255,255,255,.65);font-size:14px;line-height:1.8;margin-bottom:22px;padding-bottom:0}
 
 @media(max-width:980px){
-  .et_pb_module_header{font-size:32px}
-  .et_pb_fullwidth_header_container{width:90%}
-  .header-content{padding:100px 0 60px}
+  .hero-title{font-size:32px}
+  .hero-sub{font-size:15px}
+  .pillars-grid,.featured-wrap,.media-grid{grid-template-columns:1fr}
 }
 </style>
 </head>
-<body class="home page-id-135 et_fixed_nav et_cover_background et_divi_theme">
+<body class="home et_fixed_nav et_divi_theme">
 <div id="page-container">
 
 <!-- HEADER -->
 <header id="main-header">
-  <div class="et_menu_container container clearfix">
+  <div class="et_menu_container">
     <div class="logo_container">
       <a href="index.html">
         <img src="https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img/https://bhdasia.com/wp-content/uploads/2020/10/BHDASIA.png" alt="BHD Asia" onerror="this.style.display='none';document.querySelector('.logo-text').style.display='block'"/>
@@ -60,10 +77,10 @@
           <li class="menu-item menu-item-has-children">
             <a href="services.html">Services<span class="caret">▾</span></a>
             <ul class="sub-menu">
-              <li class="menu-item"><a href="privacy.html">Privacy statement</a></li>
-              <li class="menu-item"><a href="terms.html">Terms &amp; Conditions</a></li>
-              <li class="menu-item"><a href="code.html">Code of Practice</a></li>
-              <li class="menu-item"><a href="inclusivity.html">Inclusivity Statement</a></li>
+              <li><a href="privacy.html">Privacy Statement</a></li>
+              <li><a href="terms.html">Terms &amp; Conditions</a></li>
+              <li><a href="code.html">Code of Practice</a></li>
+              <li><a href="inclusivity.html">Inclusivity Statement</a></li>
             </ul>
           </li>
           <li class="menu-item"><a href="contact.html">Contact</a></li>
@@ -75,96 +92,157 @@
   </div>
 </header>
 
-<!-- HERO -->
 <div id="et-main-area">
-<div id="main-content">
-<div class="et_pb_section et_pb_section_0 et_pb_fullwidth_section">
-  <section class="et_pb_module et_pb_fullwidth_header et_pb_fullwidth_header_0 et_pb_section_parallax et_pb_text_align_center et_pb_bg_layout_light et_pb_fullscreen">
-    <span class="et_parallax_bg_wrap"><span class="et_parallax_bg" id="parallax-bg"></span></span>
-    <div class="et_pb_fullwidth_header_overlay"></div>
-    <div class="et_pb_fullwidth_header_container center">
-      <div class="header-content-container center">
-        <div class="header-content">
-          <h6 class="et_pb_module_header">Honor, strengthen and leverage your Humanity and show up at your best.</h6>
-          <div class="et_pb_header_content_wrapper"></div>
-          <a class="et_pb_button et_pb_more_button et_pb_button_one" href="isabelle.html">Meet Isabelle</a>
-          <a class="et_pb_button et_pb_more_button et_pb_button_two" href="services.html">Services</a>
-        </div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg" id="parallax-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-inner">
+    <div class="container">
+      <span class="hero-label">Leadership &amp; Human Development &nbsp;·&nbsp; Asia Pacific</span>
+      <h1 class="hero-title">Honor, strengthen and leverage your Humanity.</h1>
+      <p class="hero-sub">Boutique HR consulting, executive coaching, and resilience building — tailored for leaders ready to show up at their best.</p>
+      <div class="hero-ctas">
+        <a class="et_pb_button btn-white" href="isabelle.html">Meet Isabelle</a>
+        <a class="et_pb_button btn-white-outline" href="services.html">Our Services</a>
       </div>
     </div>
-    <div class="et_pb_fullwidth_header_scroll"></div>
-  </section>
-</div>
+  </div>
+  <div class="hero-scroll" onclick="document.getElementById('pillars').scrollIntoView({behavior:'smooth'})">
+    <div class="hero-scroll-line"></div>
+  </div>
+</section>
 
-<!-- FEATURED -->
-<div class="et_pb_section et_pb_section_1">
-  <div class="et_pb_row">
-    <div class="et_pb_column_4_4">
-      <div class="et_pb_module et_pb_text et_pb_text_0 et_pb_text_align_center">
-        <div class="et_pb_text_inner"><h1><span style="color:#474747;">Featured</span></h1></div>
+<!-- THREE PILLARS -->
+<div class="section" id="pillars">
+  <div class="container">
+    <div class="section-head center">
+      <span class="section-label">What We Do</span>
+      <h2>Three Pillars of Human Development</h2>
+      <hr class="divider-line"/>
+      <p>Co-designed, bespoke solutions built around your people — not off-the-shelf programmes.</p>
+    </div>
+    <div class="pillars-grid">
+      <div class="pillar-card">
+        <span class="pillar-icon">◈</span>
+        <h3>Organisation Development</h3>
+        <p>Leadership programme design, culture change, team coaching, talent management, and effectiveness diagnostics for companies across Asia and beyond.</p>
+        <a class="et_pb_button btn-outline" href="services.html">Learn more</a>
       </div>
-      <div class="et_pb_module et_pb_text et_pb_text_1 et_pb_text_align_center">
-        <div class="et_pb_text_inner"><h1>Interview by Noomi- Gettting to know Isabelle</h1></div>
+      <div class="pillar-card">
+        <span class="pillar-icon">◉</span>
+        <h3>Resilience Building</h3>
+        <p>TRE®, stress management, burnout prevention, conflict resolution, and psychological safety — helping people sustain high performance over the long term.</p>
+        <a class="et_pb_button btn-outline" href="services.html">Learn more</a>
       </div>
-      <div class="et_pb_module et_pb_code et_pb_code_0 et_pb_text_align_center">
-        <div class="et_pb_code_inner">
-          <iframe style="border:0;height:135px;margin:12px 0;padding:0;width:235px;" src="https://www.noomii.com/users/isabelle-claus_teixeira/get_user_interview_widget" scrolling="no" title="Isabelle Interview"></iframe>
-        </div>
+      <div class="pillar-card">
+        <span class="pillar-icon">◎</span>
+        <h3>Individual Development</h3>
+        <p>Executive coaching, career transition, life coaching, accredited mediation, and intercultural competence — for leaders ready to create lasting change.</p>
+        <a class="et_pb_button btn-outline" href="services.html">Learn more</a>
       </div>
     </div>
   </div>
 </div>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <span class="stat-n">27+</span>
+        <span class="stat-l">Years HR Experience</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-n">1,300+</span>
+        <span class="stat-l">Coaching Hours Delivered</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-n">9</span>
+        <span class="stat-l">Countries Lived &amp; Worked In</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-n">2012</span>
+        <span class="stat-l">Certified Coach Since</span>
+      </div>
+    </div>
+  </div>
 </div>
+
+<!-- FEATURED INTERVIEW — VOICE RECORD -->
+<div class="section section-light">
+  <div class="container">
+    <div class="featured-wrap">
+      <div class="featured-text">
+        <span class="section-label">Featured Interview</span>
+        <h2>Getting to Know Isabelle</h2>
+        <hr class="divider-line"/>
+        <p>An in-depth interview exploring Isabelle's journey, her coaching philosophy, and what drives her passion for human development. Hear her story in her own words.</p>
+        <a class="et_pb_button" href="isabelle.html">Full Profile</a>
+        <a class="et_pb_button btn-outline" href="contact.html">Book a Call</a>
+      </div>
+      <div class="featured-media">
+        <span class="noomii-label">Voice Interview — Isabelle Claus Teixeira</span>
+        <iframe style="border:0;height:135px;width:235px;display:block;" src="https://www.noomii.com/users/isabelle-claus_teixeira/get_user_interview_widget" scrolling="no" title="Isabelle Claus Teixeira — Noomii Interview"></iframe>
+        <p style="font-size:12px;color:var(--muted);margin:0;padding:0">Powered by Noomii — The Professional Coach Directory</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MEDIA HIGHLIGHT — Forbes / Linked Section -->
+<div class="section section-navy">
+  <div class="container">
+    <div class="media-grid">
+      <div class="media-thumb">
+        <img src="https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img,w_700,h_467/https://bhdasia.com/wp-content/uploads/2018/06/isagrey.jpg" alt="Isabelle Claus Teixeira — Forbes Coaches Council"/>
+        <div class="media-play">
+          <a class="play-btn" href="https://coaches.forbes.com/" target="_blank" rel="noopener" aria-label="Visit Forbes Coaches Council"></a>
+        </div>
+      </div>
+      <div class="media-info">
+        <span class="section-label">Forbes Coaches Council</span>
+        <h2>Featured Thought Leader</h2>
+        <hr class="divider-line" style="background:rgba(255,255,255,.25)"/>
+        <p>Isabelle is an active contributor to the Forbes Coaches Council — sharing expert insights on leadership, culture, and human development with a global audience of business leaders.</p>
+        <a class="et_pb_button btn-white-outline" href="https://coaches.forbes.com/" target="_blank" rel="noopener">Read Articles</a>
+        <a class="et_pb_button btn-white" href="isabelle.html">About Isabelle</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta-strip">
+  <div class="container">
+    <span class="section-label" style="display:block">Get Started</span>
+    <h2>Start Shaping Your New Life Today</h2>
+    <p>All our services are co-designed with you. Begin with a no-obligation discovery conversation.</p>
+    <a class="et_pb_button" href="contact.html">Book a Discovery Call</a>
+    <a class="et_pb_button btn-outline" href="events.html">View Upcoming Events</a>
+  </div>
+</div>
+
 </div>
 
 <!-- FOOTER -->
 <footer id="main-footer">
-  <div id="footer-widgets">
-    <div class="container">
-      <div class="footer-widget">
-        <h4>BHD Asia</h4>
-        <p>Highlight, Enhance and Appreciate Human in Business.</p>
-        <p>Business &amp; Human Development Consulting Pte Ltd</p>
-      </div>
-      <div class="footer-widget">
-        <h4>Navigate</h4>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="events.html">Events</a></li>
-          <li><a href="partners.html">Partners</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </div>
-      <div class="footer-widget">
-        <h4>Legal</h4>
-        <ul>
-          <li><a href="privacy.html">Privacy Statement</a></li>
-          <li><a href="terms.html">Terms &amp; Conditions</a></li>
-          <li><a href="code.html">Code of Practice</a></li>
-          <li><a href="inclusivity.html">Inclusivity Statement</a></li>
-        </ul>
-      </div>
-      <div class="footer-widget">
-        <h4>Contact</h4>
-        <p>50 Raffles Place, Singapore Land Tower #30-00<br>Singapore 048623</p>
-        <p>Phone: +81 806515 1778</p>
-        <p><a href="mailto:isabelle@bhdasia.com" style="color:rgba(255,255,255,.4)">isabelle@bhdasia.com</a></p>
-      </div>
-    </div>
-  </div>
-  <div id="footer-bottom">
-    <div class="container clearfix">
-      <div id="footer-info">Highlight, Enhance and Appreciate Human in Business | BHD Asia | All rights reserved &nbsp;&nbsp;Business &amp; Human Development Consulting Pte Ltd 50 Raffles Place, Singapore Land Tower #30-00, Singapore 048623 &nbsp;&nbsp;ACRA Number 201201974K &nbsp;&nbsp;Phone: +81 806515 1778</div>
-    </div>
-  </div>
+  <div id="footer-widgets"><div class="container">
+    <div class="footer-widget"><h4>BHD Asia</h4><p>Highlight, Enhance and Appreciate Human in Business.</p><p>Business &amp; Human Development Consulting Pte Ltd</p></div>
+    <div class="footer-widget"><h4>Navigate</h4><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="events.html">Events</a></li><li><a href="partners.html">Partners</a></li><li><a href="services.html">Services</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+    <div class="footer-widget"><h4>Legal</h4><ul><li><a href="privacy.html">Privacy Statement</a></li><li><a href="terms.html">Terms &amp; Conditions</a></li><li><a href="code.html">Code of Practice</a></li><li><a href="inclusivity.html">Inclusivity Statement</a></li></ul></div>
+    <div class="footer-widget"><h4>Contact</h4><p>50 Raffles Place, Singapore Land Tower #30-00<br>Singapore 048623</p><p>Phone: +81 806515 1778</p><p><a href="mailto:isabelle@bhdasia.com" style="color:rgba(255,255,255,.45)">isabelle@bhdasia.com</a></p></div>
+  </div></div>
+  <div id="footer-bottom"><div class="container"><div id="footer-info">Highlight, Enhance and Appreciate Human in Business | BHD Asia | All rights reserved &nbsp;&nbsp;Business &amp; Human Development Consulting Pte Ltd &nbsp;&nbsp;50 Raffles Place, Singapore Land Tower #30-00, Singapore 048623 &nbsp;&nbsp;ACRA Number 201201974K</div></div></div>
 </footer>
 </div>
 <script src="shared.js"></script>
 <script>
-var bg=document.getElementById('parallax-bg');
-window.addEventListener('scroll',function(){if(bg)bg.style.transform='translateY('+(window.scrollY*.35)+'px)';},{passive:true});
+var bg = document.getElementById('parallax-bg');
+window.addEventListener('scroll', function(){
+  if(bg) bg.style.transform = 'translateY(' + (window.scrollY * .28) + 'px)';
+}, {passive:true});
 </script>
 </body>
 </html>

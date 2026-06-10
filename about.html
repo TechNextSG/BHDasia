@@ -6,22 +6,19 @@
 <title>About - BHD Asia</title>
 <link rel="stylesheet" href="style.css"/>
 <style>
-.page-title-wrap{padding-top:96px}
-.et_pb_section{padding:60px 0}
-.et_pb_section_dark{background:#2b2b2b;padding:60px 0;text-align:center}
-.et_pb_section_dark p{color:rgba(255,255,255,.8);font-size:18px;margin:0}
-.et_pb_section_grey{background:#f5f5f5;padding:60px 0}
-.team-member{margin-bottom:30px}
-.team-member img{width:100%;display:block;margin-bottom:16px}
-.team-member h4{font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:#333;margin-bottom:6px}
-.team-member .role{font-size:13px;color:#999;font-style:italic;margin-bottom:12px}
-.team-member p{font-size:13px;color:#666;line-height:1.7}
-.blurb-item{display:flex;gap:16px;align-items:flex-start;margin-bottom:28px}
-.blurb-icon{width:40px;height:40px;background:#2ea3f2;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:18px;color:#fff}
-.blurb-item h4{font-size:14px;color:#333;margin-bottom:6px}
-.blurb-item p{font-size:13px;color:#666;line-height:1.7;margin:0;padding:0}
-.clients-section{background:#f9f9f9;padding:40px 0;border-top:1px solid #eee;border-bottom:1px solid #eee}
-.clients-text{font-size:13px;color:#666;line-height:1.9}
+.et_pb_section{padding:80px 0}
+.et_pb_section_grey{background:var(--off-white);padding:80px 0}
+.team-member{margin-bottom:10px}
+.team-member img{width:100%;display:block;margin-bottom:14px;filter:grayscale(15%);transition:var(--t)}
+.team-member img:hover{filter:grayscale(0%)}
+.team-member h4{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--text);margin-bottom:4px;font-weight:700}
+.team-member .role{font-size:13px;color:var(--blue);font-style:italic;margin-bottom:10px}
+.team-member p{font-size:13px;color:var(--muted);line-height:1.75}
+.blurb-item{display:flex;gap:18px;align-items:flex-start;margin-bottom:28px}
+.blurb-icon{width:42px;height:42px;background:var(--blue);border-radius:var(--r);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:18px;color:#fff}
+.blurb-item h4{font-size:14px;color:var(--text);margin-bottom:6px;font-weight:700}
+.blurb-item p{font-size:13px;color:var(--muted);line-height:1.75;margin:0;padding:0}
+.clients-section{background:#fff;padding:40px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
 </style>
 </head>
 <body class="page et_fixed_nav et_divi_theme">
@@ -75,13 +72,15 @@
 <div class="et_pb_section section_has_divider">
   <div class="et_pb_row">
     <div class="et_pb_column_1_2">
-      <h1>Our Story</h1>
+      <span class="section-label">Our Story</span>
+      <h2>Built on Diversity.<br>Driven by People.</h2>
+      <hr class="divider-line"/>
       <p>BHD Asia leverages language, cultural, generational and professional diversity — along with the unique experiences of our team's personal journeys — to deliver impactful, tailored solutions for clients around the world.</p>
     </div>
     <div class="et_pb_column_1_2">
-      <p>Established by Isabelle Claus Teixeira and Rouviere Teixeira in Singapore in 2012, Business and Human Development Consulting partners with clients across the world.</p>
-      <p>Business and Human Development Pte Ltd is a Leadership Coaching and Leadership Development boutique company, and also offers Language consulting and teaching in French.</p>
-      <p>We work in close collaboration with our clients and offer tailored-made co-designed solutions, and not "off the shelf" training programs. Diagnostic is always part of our work.</p>
+      <p>Established by <strong>Isabelle Claus Teixeira</strong> and <strong>Rouviere Teixeira</strong> in Singapore in 2012, Business and Human Development Consulting partners with clients across the globe.</p>
+      <p>We are a boutique Leadership Coaching and Leadership Development consultancy, also offering French language consulting and teaching. Our work spans Asia Pacific, Japan, Russia, Europe, and the US.</p>
+      <p>We work in close collaboration with our clients, offering co-designed, tailored solutions — never off-the-shelf programmes. Diagnostics are always part of our process.</p>
     </div>
   </div>
   <div class="clients-section">
@@ -103,7 +102,7 @@
 </div>
 
 <!-- TEAM -->
-<div class="et_pb_section et_pb_section_grey section_has_divider">
+<div class="et_pb_section et_pb_section_grey section_has_divider" id="team">
   <div class="et_pb_row">
     <div class="et_pb_column_1_3">
       <div class="team-member">
@@ -138,7 +137,7 @@
 </div>
 
 <!-- BRINGING OUT THE BEST -->
-<div class="et_pb_section_dark">
+<div class="dark-callout">
   <div class="container"><p>Bringing out the best in each of us</p></div>
 </div>
 
@@ -146,7 +145,9 @@
 <div class="et_pb_section section_has_divider">
   <div class="et_pb_row">
     <div class="et_pb_column_1_2">
-      <h1>Mission</h1>
+      <span class="section-label">Our Mission</span>
+      <h2>Why We Do What We Do</h2>
+      <hr class="divider-line"/>
       <p>We will be recognised as an international, competent, professional and caring business partner by our clients and associates.</p>
       <p>Our mission is to co-create business and HR bespoke solutions relevant and impactful for our clients, through a collaborative consulting and delivery process.</p>
       <p>We partner and demand from our associates entrepreneurial attitudes and mindset, high personal accountability, passion and commitment to deliver true add-value to our clients versus personal high financial gains.</p>
@@ -154,7 +155,9 @@
       <p>With our partners and clients, we role model collaboration versus competition.</p>
     </div>
     <div class="et_pb_column_1_2">
-      <h1>Values &amp; Beliefs</h1>
+      <span class="section-label">Values &amp; Beliefs</span>
+      <h2>What We Stand For</h2>
+      <hr class="divider-line"/>
       <div class="blurb-item">
         <div class="blurb-icon">♡</div>
         <div>
