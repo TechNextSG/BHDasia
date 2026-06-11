@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en-US">
 <head>
 <meta charset="UTF-8"/>
@@ -82,6 +82,60 @@
       <hr class="divider-line"/>
       <p>A complete record of all versions, changes, and improvements made to the BHD Asia static website mockup. The site is a faithful HTML/CSS replica of <a href="https://bhdasia.com" target="_blank" style="color:var(--blue)">bhdasia.com</a>, built as a multi-page static site and hosted on GitHub Pages.</p>
       <p>Live site: <a href="https://technextsg.github.io/BHDasia/" target="_blank" style="color:var(--blue)">technextsg.github.io/BHDasia</a> &nbsp;·&nbsp; Repository: <a href="https://github.com/TechNextSG/BHDasia" target="_blank" style="color:var(--blue)">github.com/TechNextSG/BHDasia</a></p>
+    </div>
+
+    <!-- VERSION 5 -->
+    <div class="version-block">
+      <div class="version-header">
+        <span class="version-badge v3">v5.0</span>
+        <span class="version-date">11 June 2026</span>
+        <h3 class="version-title">Corporate Compact — Header &amp; Footer</h3>
+      </div>
+
+      <div class="change-group">
+        <p class="change-group-label">Header</p>
+        <ul class="change-list">
+          <li><strong>Top bar</strong> slimmed to 28px; collapses to height 0 with fade transition when scrolled — leaves a clean 60px nav bar only</li>
+          <li><strong>Main nav height</strong> reduced from 68px → 60px; total at-rest height: 88px (was 104px)</li>
+          <li>Nav font-size reduced to 12px; letter-spacing tightened; search icon removed</li>
+          <li>Sub-menu border-top reduced to 2px; item padding tightened to 9px 18px</li>
+          <li>Page title banner padding reduced from 100px/48px → 60px/24px; font-size 34px → 28px</li>
+          <li>All page offsets updated: <code>margin-top:88px</code>; mobile override: <code>margin-top:60px</code></li>
+          <li>Hero updated: <code>margin-top:88px</code>, <code>min-height:calc(100vh - 88px)</code></li>
+          <li>Removed per-page <code>.page-title-wrap{padding-top:96px}</code> overrides from all 6 affected pages</li>
+        </ul>
+      </div>
+
+      <div class="change-group">
+        <p class="change-group-label">Footer</p>
+        <ul class="change-list">
+          <li>Widget area padding reduced from 60px → 40px</li>
+          <li>Column grid changed from <code>2fr 1fr 1fr 1fr</code> → <code>1.8fr 1fr 1fr 1fr</code></li>
+          <li>Widget heading font-size 11px → 10px; margin-bottom 18px → 12px; color softened</li>
+          <li>Widget link font-size 13px → 12px; colour opacity reduced for subtlety</li>
+          <li>Footer bottom padding 22px → 12px; layout changed to flex space-between</li>
+          <li>Footer bottom text replaced across all pages — left: copyright line; right: ACRA number</li>
+        </ul>
+      </div>
+
+      <div class="change-group">
+        <p class="change-group-label">Files Modified</p>
+        <div class="files-added">
+          <span class="file-tag">style.css</span>
+          <span class="file-tag">index.html</span>
+          <span class="file-tag">about.html</span>
+          <span class="file-tag">events.html</span>
+          <span class="file-tag">partners.html</span>
+          <span class="file-tag">services.html</span>
+          <span class="file-tag">contact.html</span>
+          <span class="file-tag">isabelle.html</span>
+          <span class="file-tag">privacy.html</span>
+          <span class="file-tag">terms.html</span>
+          <span class="file-tag">code.html</span>
+          <span class="file-tag">inclusivity.html</span>
+          <span class="file-tag">changelog.html</span>
+        </div>
+      </div>
     </div>
 
     <!-- VERSION 4 -->
@@ -312,9 +366,10 @@
     <div class="footer-widget"><h4>Legal</h4><ul><li><a href="privacy.html">Privacy Statement</a></li><li><a href="terms.html">Terms &amp; Conditions</a></li><li><a href="code.html">Code of Practice</a></li><li><a href="inclusivity.html">Inclusivity Statement</a></li></ul></div>
     <div class="footer-widget"><h4>Contact</h4><p>50 Raffles Place, Singapore Land Tower #30-00<br>Singapore 048623</p><p>Phone: +81 806515 1778</p><p><a href="mailto:isabelle@bhdasia.com" style="color:rgba(255,255,255,.45)">isabelle@bhdasia.com</a></p></div>
   </div></div>
-  <div id="footer-bottom"><div class="container"><div id="footer-info">Highlight, Enhance and Appreciate Human in Business | BHD Asia | All rights reserved &nbsp;&nbsp;Business &amp; Human Development Consulting Pte Ltd &nbsp;&nbsp;50 Raffles Place, Singapore Land Tower #30-00, Singapore 048623 &nbsp;&nbsp;ACRA Number 201201974K</div></div></div>
+  <div id="footer-bottom"><div class="container"><div id="footer-info"><span>&copy; 2025 BHD Asia &mdash; Business &amp; Human Development Consulting Pte Ltd. All rights reserved.</span><span>ACRA 201201974K</span></div></div></div>
 </footer>
 </div>
 <script src="shared.js"></script>
 </body>
 </html>
+
