@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en-US">
 <head>
 <meta charset="UTF-8"/>
@@ -8,11 +8,11 @@
 <style>
 .isabelle-section{padding:60px 0}
 .isabelle-photo{width:100%;display:block;margin-bottom:10px}
-.isabelle-photo-caption{font-size:12px;color:#999;text-align:center;margin-bottom:0;line-height:1.6}
+.isabelle-photo-caption{font-size:12px;color:var(--muted);text-align:center;margin-bottom:0;line-height:1.6}
 .isabelle-stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:24px 0}
-.stat-box{padding:14px 16px;background:#f9f9f9;border-top:3px solid #2ea3f2;text-align:center}
-.stat-box .stat-number{font-size:26px;font-weight:700;color:#2ea3f2;display:block;line-height:1.1}
-.stat-box .stat-label{font-size:10px;color:#999;text-transform:uppercase;letter-spacing:.07em}
+.stat-box{padding:14px 16px;background:var(--off-white);border-top:3px solid var(--blue);text-align:center}
+.stat-box .stat-number{font-size:26px;font-weight:700;color:var(--blue);display:block;line-height:1.1}
+.stat-box .stat-label{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.07em}
 .isabelle-body h2{font-size:26px;color:var(--text);margin-bottom:6px}
 .isabelle-body .bio-role{font-size:13px;color:var(--blue);font-style:italic;margin-bottom:20px}
 .isabelle-body h3{font-size:11px;color:var(--blue);margin-bottom:10px;margin-top:24px;text-transform:uppercase;letter-spacing:.1em;font-weight:700;border-bottom:1px solid var(--border);padding-bottom:8px}
@@ -20,6 +20,10 @@
 .credential-list{list-style:none;padding:0;margin:0 0 16px}
 .credential-list li{padding:7px 0;border-bottom:1px solid var(--border);font-size:13px;color:var(--body);display:flex;align-items:flex-start;gap:10px;line-height:1.5}
 .credential-list li::before{content:'✓';color:var(--blue);font-weight:700;flex-shrink:0}
+@media(max-width:980px){
+  .isabelle-section .et_pb_column_1_3,
+  .isabelle-section .et_pb_column_2_3{width:100%;float:none;padding:0}
+}
 </style>
 </head>
 <body class="page et_fixed_nav et_divi_theme">
@@ -40,15 +44,8 @@
           <li class="menu-item"><a href="about.html">About</a></li>
           <li class="menu-item"><a href="events.html">Events</a></li>
           <li class="menu-item"><a href="partners.html">Partners</a></li>
-          <li class="menu-item menu-item-has-children">
-            <a href="services.html">Services<span class="caret">▾</span></a>
-            <ul class="sub-menu">
-              <li><a href="privacy.html">Privacy statement</a></li>
-              <li><a href="terms.html">Terms &amp; Conditions</a></li>
-              <li><a href="code.html">Code of Practice</a></li>
-              <li><a href="inclusivity.html">Inclusivity Statement</a></li>
-            </ul>
-          </li>
+          <li class="menu-item current-menu-item"><a href="isabelle.html">Isabelle</a></li>
+          <li class="menu-item"><a href="services.html">Services</a></li>
           <li class="menu-item"><a href="contact.html">Contact</a></li>
         </ul>
       </nav>
@@ -88,7 +85,7 @@
           </div>
           <div class="stat-box">
             <span class="stat-number">2012</span>
-            <span class="stat-label">Certified Coach</span>
+            <span class="stat-label">Certified Coach Since</span>
           </div>
         </div>
 
@@ -99,7 +96,7 @@
           <h2>Isabelle Claus Teixeira</h2>
           <p class="bio-role">Co-Founder &amp; Director — Business and Human Development Consulting Pte Ltd</p>
 
-          <p>With 27+ years in Senior HR Business Partnering, Regional Talent Management, and Organisational Effectiveness across Asia Pacific, Japan, Russia, the US and Europe, Isabelle brings a rare breadth of experience to every engagement. Having lived and worked in 9 countries, she understands the human complexity behind international business firsthand.</p>
+          <p>Isabelle brings 27+ years of Senior HR Business Partnering, Regional Talent Management, and Organisational Effectiveness experience across Asia Pacific, Japan, Russia, the US and Europe. Having lived and worked in 9 countries, she connects authentically with clients navigating the human complexities of international business.</p>
 
           <h3>Coaching Specialisations</h3>
           <ul class="credential-list">
@@ -122,10 +119,10 @@
           </ul>
 
           <h3>Global Perspective</h3>
-          <p>Fluent in French and English (conversational Portuguese), Isabelle's multicultural background enables her to connect authentically with clients across cultures and industries — from Automotive and Pharma to Technology, FMCG, and Financial Services.</p>
+          <p>Fluent in French and English (conversational Portuguese), Isabelle's multicultural background lets her engage meaningfully across cultures and industries — from Automotive and Pharma to Technology, FMCG, and Financial Services.</p>
 
           <h3>Working with Isabelle</h3>
-          <p>Isabelle works with senior executives, emerging leaders, and entrepreneurs ready to create meaningful change. Her approach is always diagnostic and collaborative — no off-the-shelf solutions. Whether navigating leadership transition, burnout, or a major life pivot, she brings warmth, rigour, and deep respect for who you are.</p>
+          <p>Isabelle works with senior executives, emerging leaders, and entrepreneurs ready to create meaningful change. Every engagement starts with a diagnostic conversation — no off-the-shelf solutions. Whether navigating leadership transition, burnout, or a major life pivot, she brings rigour, warmth, and deep respect for who you are.</p>
 
           <div style="margin-top:20px">
             <a class="et_pb_button" href="contact.html">Book a Discovery Call</a>
@@ -148,7 +145,7 @@
 <footer id="main-footer">
   <div id="footer-widgets"><div class="container">
     <div class="footer-widget"><h4>BHD Asia</h4><p>Highlight, Enhance and Appreciate Human in Business.</p><p>Business &amp; Human Development Consulting Pte Ltd</p></div>
-    <div class="footer-widget"><h4>Navigate</h4><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="events.html">Events</a></li><li><a href="partners.html">Partners</a></li><li><a href="services.html">Services</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+    <div class="footer-widget"><h4>Navigate</h4><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="events.html">Events</a></li><li><a href="partners.html">Partners</a></li><li><a href="isabelle.html">Isabelle</a></li><li><a href="services.html">Services</a></li><li><a href="contact.html">Contact</a></li><li><a href="changelog.html">Changelog</a></li></ul></div>
     <div class="footer-widget"><h4>Legal</h4><ul><li><a href="privacy.html">Privacy Statement</a></li><li><a href="terms.html">Terms &amp; Conditions</a></li><li><a href="code.html">Code of Practice</a></li><li><a href="inclusivity.html">Inclusivity Statement</a></li></ul></div>
     <div class="footer-widget"><h4>Contact</h4><p>50 Raffles Place, Singapore Land Tower #30-00<br>Singapore 048623</p><p>Phone: +81 806515 1778</p><p><a href="mailto:isabelle@bhdasia.com" style="color:rgba(255,255,255,.4)">isabelle@bhdasia.com</a></p></div>
   </div></div>
@@ -158,4 +155,3 @@
 <script src="shared.js"></script>
 </body>
 </html>
-

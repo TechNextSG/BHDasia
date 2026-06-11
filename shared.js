@@ -1,4 +1,11 @@
 (function(){
+  // Skip-to-content link (accessibility)
+  var skip = document.createElement('a');
+  skip.href = '#et-main-area';
+  skip.className = 'skip-link';
+  skip.textContent = 'Skip to content';
+  document.body.insertBefore(skip, document.body.firstChild);
+
   // Inject top bar into header
   var header = document.getElementById('main-header');
   if(header){
@@ -8,7 +15,7 @@
     header.insertBefore(topbar, header.firstChild);
   }
 
-  // Scroll shadow
+  // Scroll shadow / topbar collapse
   function updateHeader(){
     if(window.scrollY > 10){
       header.classList.add('et-fixed-header');
@@ -25,4 +32,14 @@
       document.body.classList.remove('mobile-nav-open');
     });
   });
+
+  // Parallax — disable on mobile or when user prefers reduced motion
+  var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var isMobile = window.matchMedia('(max-width:980px)').matches;
+  var parallaxBg = document.getElementById('parallax-bg');
+  if(parallaxBg && !prefersReducedMotion && !isMobile){
+    window.addEventListener('scroll', function(){
+      parallaxBg.style.transform = 'translateY(' + (window.scrollY * .28) + 'px)';
+    }, {passive:true});
+  }
 })();

@@ -10,7 +10,7 @@
   --white:#fff;
   --text:#1c2b3a;
   --body:#4a5568;
-  --muted:#8a9ab0;
+  --muted:#6d7e96;
   --border:#e2e8f0;
   --shadow-sm:0 2px 8px rgba(0,0,0,.06);
   --shadow:0 4px 20px rgba(0,0,0,.09);
@@ -184,7 +184,7 @@ strong{font-weight:700}em{font-style:italic}
 .dark-callout p{color:rgba(255,255,255,.75);font-size:22px;margin:0;font-weight:300;letter-spacing:.02em}
 
 /* ── CTA STRIP ────────────────────────────────── */
-.cta-strip{padding:70px 0;text-align:center;background:var(--off-white)}
+.cta-strip{padding:80px 0;text-align:center;background:var(--off-white)}
 .cta-strip h2{font-size:28px;color:var(--text);margin-bottom:10px}
 .cta-strip p{font-size:15px;color:var(--muted);margin-bottom:26px}
 
@@ -243,3 +243,29 @@ body.mobile-nav-open #top-menu>li{padding:0;border-bottom:1px solid var(--border
 body.mobile-nav-open #top-menu>li>a{color:var(--body)!important;padding:12px 0}
 body.mobile-nav-open #top-menu>li:last-child>a{background:none;color:var(--body)!important;padding:12px 0;border-radius:0;letter-spacing:normal;text-transform:none;font-size:14px;font-weight:400;margin-left:0;border:none}
 body.mobile-nav-open #top-menu .sub-menu{position:static;box-shadow:none;background:var(--off-white);padding-left:12px;display:block;border-top:none}
+
+/* ── ACCESSIBILITY ─────────────────────────────── */
+.skip-link{position:absolute;top:-40px;left:0;background:var(--blue);color:#fff;padding:8px 16px;font-size:13px;font-weight:700;text-decoration:none;z-index:100000;border-radius:0 0 var(--r) 0;transition:top .2s}
+.skip-link:focus{top:0}
+
+/* ── FORM FOCUS ───────────────────────────────── */
+input:focus,textarea:focus,select:focus{box-shadow:0 0 0 3px rgba(46,163,242,.15)!important;outline:none}
+
+/* ── MOBILE OVERRIDES ─────────────────────────── */
+@media(max-width:600px){
+  .client-tags li{white-space:normal}
+}
+
+/* ── PRINT ────────────────────────────────────── */
+@media print{
+  #main-header,#main-footer,#header-topbar,.hero-scroll,.et_pb_button,.cta-strip,.dark-callout{display:none!important}
+  body{font-size:12pt;color:#000;background:#fff}
+  a{color:#000;text-decoration:underline}
+  .page-title-wrap{margin-top:0!important;background:none;padding:20px 0}
+  .page-title,.page-breadcrumb,.page-breadcrumb a{color:#000}
+  .page-title{font-size:18pt}
+  .container,.et_pb_row{max-width:100%;padding:0}
+  .stats-bar{background:none;border-top:1px solid #ccc;border-bottom:1px solid #ccc}
+  .stat-item .stat-n{color:#000}
+  .stat-item .stat-l{color:#555}
+}

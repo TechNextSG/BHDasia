@@ -25,7 +25,7 @@
 .pillars-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:8px}
 .pillar-card{border-top:3px solid var(--blue);background:#fff;padding:30px 26px;box-shadow:var(--shadow-sm);transition:var(--t)}
 .pillar-card:hover{box-shadow:var(--shadow);transform:translateY(-4px)}
-.pillar-icon{font-size:26px;margin-bottom:14px;display:block;color:var(--blue)}
+.pillar-icon{width:42px;height:42px;border-radius:50%;background:var(--blue);color:#fff;font-size:18px;font-weight:800;display:flex;align-items:center;justify-content:center;margin-bottom:16px}
 .pillar-card h3{font-size:16px;color:var(--text);margin-bottom:10px;font-weight:700}
 .pillar-card p{font-size:13px;color:var(--muted);line-height:1.75;margin-bottom:16px;padding-bottom:0}
 
@@ -39,8 +39,8 @@
 /* ── MEDIA SECTION ────────────────────── */
 .media-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
 .media-thumb{position:relative;border-radius:var(--r);overflow:hidden;aspect-ratio:4/3}
-.media-thumb img{width:100%;height:100%;object-fit:cover;display:block;opacity:.65;transition:var(--t)}
-.media-thumb:hover img{opacity:.8}
+.media-thumb img{width:100%;height:100%;object-fit:cover;display:block;opacity:.85;transition:var(--t)}
+.media-thumb:hover img{opacity:1}
 .media-play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
 .play-btn{width:62px;height:62px;background:var(--blue);border-radius:50%;display:flex;align-items:center;justify-content:center;transition:var(--t);cursor:pointer;box-shadow:0 4px 24px rgba(46,163,242,.55)}
 .play-btn:hover{transform:scale(1.1);background:var(--blue-dk)}
@@ -74,15 +74,8 @@
           <li class="menu-item"><a href="about.html">About</a></li>
           <li class="menu-item"><a href="events.html">Events</a></li>
           <li class="menu-item"><a href="partners.html">Partners</a></li>
-          <li class="menu-item menu-item-has-children">
-            <a href="services.html">Services<span class="caret">▾</span></a>
-            <ul class="sub-menu">
-              <li><a href="privacy.html">Privacy Statement</a></li>
-              <li><a href="terms.html">Terms &amp; Conditions</a></li>
-              <li><a href="code.html">Code of Practice</a></li>
-              <li><a href="inclusivity.html">Inclusivity Statement</a></li>
-            </ul>
-          </li>
+          <li class="menu-item"><a href="isabelle.html">Isabelle</a></li>
+          <li class="menu-item"><a href="services.html">Services</a></li>
           <li class="menu-item"><a href="contact.html">Contact</a></li>
         </ul>
       </nav>
@@ -101,10 +94,10 @@
   <div class="hero-inner">
     <div class="container">
       <span class="hero-label">Leadership &amp; Human Development &nbsp;·&nbsp; Asia Pacific</span>
-      <h1 class="hero-title">Honor, strengthen and leverage your Humanity.</h1>
-      <p class="hero-sub">Boutique HR consulting, executive coaching, and resilience building — tailored for leaders ready to show up at their best.</p>
+      <h1 class="hero-title">Executive coaching and leadership development across Asia Pacific.</h1>
+      <p class="hero-sub">Boutique HR consulting, resilience building, and ICF-certified coaching — co-designed around your people, not off-the-shelf.</p>
       <div class="hero-ctas">
-        <a class="et_pb_button btn-white" href="isabelle.html">Meet Isabelle</a>
+        <a class="et_pb_button btn-white" href="contact.html">Book a Discovery Call</a>
         <a class="et_pb_button btn-white-outline" href="services.html">Our Services</a>
       </div>
     </div>
@@ -125,19 +118,19 @@
     </div>
     <div class="pillars-grid">
       <div class="pillar-card">
-        <span class="pillar-icon">◈</span>
+        <span class="pillar-icon">1</span>
         <h3>Organisation Development</h3>
         <p>Leadership programme design, culture change, team coaching, talent management, and effectiveness diagnostics for companies across Asia and beyond.</p>
         <a class="et_pb_button btn-outline" href="services.html">Learn more</a>
       </div>
       <div class="pillar-card">
-        <span class="pillar-icon">◉</span>
+        <span class="pillar-icon">2</span>
         <h3>Resilience Building</h3>
         <p>TRE®, stress management, burnout prevention, conflict resolution, and psychological safety — helping people sustain high performance over the long term.</p>
         <a class="et_pb_button btn-outline" href="services.html">Learn more</a>
       </div>
       <div class="pillar-card">
-        <span class="pillar-icon">◎</span>
+        <span class="pillar-icon">3</span>
         <h3>Individual Development</h3>
         <p>Executive coaching, career transition, life coaching, accredited mediation, and intercultural competence — for leaders ready to create lasting change.</p>
         <a class="et_pb_button btn-outline" href="services.html">Learn more</a>
@@ -184,7 +177,7 @@
       </div>
       <div class="featured-media">
         <span class="noomii-label">Voice Interview — Isabelle Claus Teixeira</span>
-        <iframe style="border:0;height:135px;width:235px;display:block;" src="https://www.noomii.com/users/isabelle-claus_teixeira/get_user_interview_widget" scrolling="no" title="Isabelle Claus Teixeira — Noomii Interview"></iframe>
+        <iframe style="border:0;height:135px;width:100%;max-width:320px;display:block;" src="https://www.noomii.com/users/isabelle-claus_teixeira/get_user_interview_widget" scrolling="no" title="Isabelle Claus Teixeira — Noomii Interview"></iframe>
         <p style="font-size:12px;color:var(--muted);margin:0;padding:0">Powered by Noomii — The Professional Coach Directory</p>
       </div>
     </div>
@@ -230,7 +223,7 @@
 <footer id="main-footer">
   <div id="footer-widgets"><div class="container">
     <div class="footer-widget"><h4>BHD Asia</h4><p>Highlight, Enhance and Appreciate Human in Business.</p><p>Business &amp; Human Development Consulting Pte Ltd</p></div>
-    <div class="footer-widget"><h4>Navigate</h4><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="events.html">Events</a></li><li><a href="partners.html">Partners</a></li><li><a href="services.html">Services</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+    <div class="footer-widget"><h4>Navigate</h4><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="events.html">Events</a></li><li><a href="partners.html">Partners</a></li><li><a href="isabelle.html">Isabelle</a></li><li><a href="services.html">Services</a></li><li><a href="contact.html">Contact</a></li><li><a href="changelog.html">Changelog</a></li></ul></div>
     <div class="footer-widget"><h4>Legal</h4><ul><li><a href="privacy.html">Privacy Statement</a></li><li><a href="terms.html">Terms &amp; Conditions</a></li><li><a href="code.html">Code of Practice</a></li><li><a href="inclusivity.html">Inclusivity Statement</a></li></ul></div>
     <div class="footer-widget"><h4>Contact</h4><p>50 Raffles Place, Singapore Land Tower #30-00<br>Singapore 048623</p><p>Phone: +81 806515 1778</p><p><a href="mailto:isabelle@bhdasia.com" style="color:rgba(255,255,255,.45)">isabelle@bhdasia.com</a></p></div>
   </div></div>
@@ -238,12 +231,9 @@
 </footer>
 </div>
 <script src="shared.js"></script>
-<script>
-var bg = document.getElementById('parallax-bg');
-window.addEventListener('scroll', function(){
-  if(bg) bg.style.transform = 'translateY(' + (window.scrollY * .28) + 'px)';
-}, {passive:true});
-</script>
 </body>
 </html>
+
+
+
 

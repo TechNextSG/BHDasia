@@ -47,15 +47,8 @@
           <li class="menu-item"><a href="about.html">About</a></li>
           <li class="menu-item"><a href="events.html">Events</a></li>
           <li class="menu-item"><a href="partners.html">Partners</a></li>
-          <li class="menu-item menu-item-has-children">
-            <a href="services.html">Services<span class="caret">▾</span></a>
-            <ul class="sub-menu">
-              <li><a href="privacy.html">Privacy Statement</a></li>
-              <li><a href="terms.html">Terms &amp; Conditions</a></li>
-              <li><a href="code.html">Code of Practice</a></li>
-              <li><a href="inclusivity.html">Inclusivity Statement</a></li>
-            </ul>
-          </li>
+          <li class="menu-item"><a href="isabelle.html">Isabelle</a></li>
+          <li class="menu-item"><a href="services.html">Services</a></li>
           <li class="menu-item"><a href="contact.html">Contact</a></li>
         </ul>
       </nav>
@@ -82,6 +75,122 @@
       <hr class="divider-line"/>
       <p>A complete record of all versions, changes, and improvements made to the BHD Asia static website mockup. The site is a faithful HTML/CSS replica of <a href="https://bhdasia.com" target="_blank" style="color:var(--blue)">bhdasia.com</a>, built as a multi-page static site and hosted on GitHub Pages.</p>
       <p>Live site: <a href="https://technextsg.github.io/BHDasia/" target="_blank" style="color:var(--blue)">technextsg.github.io/BHDasia</a> &nbsp;·&nbsp; Repository: <a href="https://github.com/TechNextSG/BHDasia" target="_blank" style="color:var(--blue)">github.com/TechNextSG/BHDasia</a></p>
+    </div>
+
+    <!-- VERSION 5.2 -->
+    <div class="version-block">
+      <div class="version-header">
+        <span class="version-badge v3">v5.2</span>
+        <span class="version-date">11 June 2026</span>
+        <h3 class="version-title">Full Audit Fix — Navigation, Accessibility, Content &amp; Design</h3>
+      </div>
+
+      <div class="change-group">
+        <p class="change-group-label">Navigation</p>
+        <ul class="change-list">
+          <li><strong>Isabelle page added to main nav</strong> — now appears between Partners and Services on all 12 pages</li>
+          <li><strong>Services submenu removed</strong> — legal pages are now accessible via the footer Legal widget only; Services is a direct link</li>
+          <li><strong>Footer Navigate widget updated</strong> — Isabelle and Changelog links added across all pages</li>
+          <li><strong>isabelle.html</strong> — nav shows current-menu-item correctly on the Isabelle page</li>
+          <li><strong>services.html</strong> — restored current-menu-item class after submenu removal</li>
+        </ul>
+      </div>
+
+      <div class="change-group">
+        <p class="change-group-label">Home Page (index.html)</p>
+        <ul class="change-list">
+          <li><strong>Hero headline</strong> rewritten to lead with what the business does: "Executive coaching and leadership development across Asia Pacific."</li>
+          <li><strong>Hero CTAs reordered</strong> — primary: "Book a Discovery Call" (contact.html); secondary: "Our Services"</li>
+          <li><strong>Pillar icons</strong> — unequal Unicode symbols (◈◉◎) replaced with consistent numbered CSS circles (1/2/3)</li>
+          <li><strong>Noomii iframe</strong> width changed from fixed 235px to <code>width:100%;max-width:320px</code> for responsive fit</li>
+          <li><strong>Forbes image opacity</strong> increased: 0.65 → 0.85; hover → 1.0</li>
+          <li><strong>Parallax script</strong> moved from inline to shared.js (centralised); per-page inline script removed</li>
+        </ul>
+      </div>
+
+      <div class="change-group">
+        <p class="change-group-label">Contact Page (contact.html)</p>
+        <ul class="change-list">
+          <li><strong>Contact icons</strong> replaced: ●→📍, T→☎, @→✉, ID→🏢</li>
+          <li><strong>Form JS validation</strong> added — contact form and newsletter form both show a success message on submit; form hides after submission</li>
+          <li><strong>All hardcoded #2ea3f2 colours</strong> replaced with <code>var(--blue)</code> throughout contact.html styles</li>
+        </ul>
+      </div>
+
+      <div class="change-group">
+        <p class="change-group-label">Isabelle Page (isabelle.html)</p>
+        <ul class="change-list">
+          <li><strong>Stat label</strong> — "Certified Coach" → "Certified Coach Since" (now reads "2012 / Certified Coach Since")</li>
+          <li><strong>Mobile responsive</strong> — explicit @media(max-width:980px) override added for .isabelle-section columns</li>
+          <li><strong>Bio rewritten</strong> in active voice — removes passive constructions, leads with Isabelle's experience</li>
+          <li><strong>Per-page colours</strong> updated to use CSS variables (<code>var(--blue)</code>, <code>var(--off-white)</code>, <code>var(--muted)</code>)</li>
+        </ul>
+      </div>
+
+      <div class="change-group">
+        <p class="change-group-label">About Page (about.html)</p>
+        <ul class="change-list">
+          <li><strong>Alt text</strong> changed from ALL CAPS to sentence case on all 3 team member images</li>
+          <li><strong>Rouviere Teixeira</strong> — "Read more" button added, linking to languagesagogo.com (matching Clement's existing button)</li>
+        </ul>
+      </div>
+
+      <div class="change-group">
+        <p class="change-group-label">Events Page (events.html)</p>
+        <ul class="change-list">
+          <li><strong>Typo fixed</strong> — "One client" → "one client" in Module 2 description</li>
+          <li><strong>TRE® explanation added</strong> — explanatory paragraph in the page intro explaining what TRE® is (Tension &amp; Trauma Releasing Exercises, developed by Dr. David Berceli)</li>
+          <li><strong>Pricing tables</strong> wrapped in <code>.pricing-table-wrap</code> with <code>overflow-x:auto</code> to prevent mobile overflow</li>
+        </ul>
+      </div>
+
+      <div class="change-group">
+        <p class="change-group-label">Legal Pages (privacy, terms, code, inclusivity)</p>
+        <ul class="change-list">
+          <li><strong>Last updated date</strong> changed from "January 2024" → "June 2026" on all 4 legal pages</li>
+        </ul>
+      </div>
+
+      <div class="change-group">
+        <p class="change-group-label">style.css</p>
+        <ul class="change-list">
+          <li><strong>Muted text contrast</strong> improved — <code>--muted</code> darkened from #8a9ab0 → #6d7e96 for better WCAG legibility</li>
+          <li><strong>CTA strip padding</strong> standardised to 80px (was 70px)</li>
+          <li><strong>Form focus ring</strong> — global <code>input:focus,textarea:focus</code> rule adds a 3px rgba blue glow</li>
+          <li><strong>Skip-to-content link</strong> styles added (<code>.skip-link</code>) — visually hidden until focused</li>
+          <li><strong>Print stylesheet</strong> added — hides header, footer, buttons, and CTA strip; resets colours and margins for clean printing</li>
+          <li><strong>Client tags mobile</strong> — <code>white-space:normal</code> applied at ≤600px to prevent long tag overflow</li>
+        </ul>
+      </div>
+
+      <div class="change-group">
+        <p class="change-group-label">shared.js</p>
+        <ul class="change-list">
+          <li><strong>Skip-to-content link</strong> injected into <code>&lt;body&gt;</code> on every page via JS (links to <code>#et-main-area</code>)</li>
+          <li><strong>Parallax motion check</strong> — parallax disabled if <code>prefers-reduced-motion</code> is set or viewport ≤ 980px</li>
+          <li><strong>Parallax script centralised</strong> — removed from index.html inline; now handled in shared.js for all pages</li>
+        </ul>
+      </div>
+
+      <div class="change-group">
+        <p class="change-group-label">Files Modified</p>
+        <div class="files-added">
+          <span class="file-tag">style.css</span>
+          <span class="file-tag">shared.js</span>
+          <span class="file-tag">index.html</span>
+          <span class="file-tag">about.html</span>
+          <span class="file-tag">events.html</span>
+          <span class="file-tag">partners.html</span>
+          <span class="file-tag">services.html</span>
+          <span class="file-tag">contact.html</span>
+          <span class="file-tag">isabelle.html</span>
+          <span class="file-tag">privacy.html</span>
+          <span class="file-tag">terms.html</span>
+          <span class="file-tag">code.html</span>
+          <span class="file-tag">inclusivity.html</span>
+          <span class="file-tag">changelog.html</span>
+        </div>
+      </div>
     </div>
 
     <!-- VERSION 5.1 -->
@@ -391,7 +500,7 @@
 <footer id="main-footer">
   <div id="footer-widgets"><div class="container">
     <div class="footer-widget"><h4>BHD Asia</h4><p>Highlight, Enhance and Appreciate Human in Business.</p><p>Business &amp; Human Development Consulting Pte Ltd</p></div>
-    <div class="footer-widget"><h4>Navigate</h4><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="events.html">Events</a></li><li><a href="partners.html">Partners</a></li><li><a href="services.html">Services</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+    <div class="footer-widget"><h4>Navigate</h4><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="events.html">Events</a></li><li><a href="partners.html">Partners</a></li><li><a href="isabelle.html">Isabelle</a></li><li><a href="services.html">Services</a></li><li><a href="contact.html">Contact</a></li><li><a href="changelog.html">Changelog</a></li></ul></div>
     <div class="footer-widget"><h4>Legal</h4><ul><li><a href="privacy.html">Privacy Statement</a></li><li><a href="terms.html">Terms &amp; Conditions</a></li><li><a href="code.html">Code of Practice</a></li><li><a href="inclusivity.html">Inclusivity Statement</a></li></ul></div>
     <div class="footer-widget"><h4>Contact</h4><p>50 Raffles Place, Singapore Land Tower #30-00<br>Singapore 048623</p><p>Phone: +81 806515 1778</p><p><a href="mailto:isabelle@bhdasia.com" style="color:rgba(255,255,255,.45)">isabelle@bhdasia.com</a></p></div>
   </div></div>
@@ -401,4 +510,7 @@
 <script src="shared.js"></script>
 </body>
 </html>
+
+
+
 
