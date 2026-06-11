@@ -84,6 +84,54 @@
       <p>Live site: <a href="https://technextsg.github.io/BHDasia/" target="_blank" style="color:var(--blue)">technextsg.github.io/BHDasia</a> &nbsp;·&nbsp; Repository: <a href="https://github.com/TechNextSG/BHDasia" target="_blank" style="color:var(--blue)">github.com/TechNextSG/BHDasia</a></p>
     </div>
 
+    <!-- VERSION 4 -->
+    <div class="version-block">
+      <div class="version-header">
+        <span class="version-badge v3">v4.0</span>
+        <span class="version-date">11 June 2026</span>
+        <h3 class="version-title">Header Redesign</h3>
+      </div>
+
+      <div class="change-group">
+        <p class="change-group-label">New: Slim Top Bar</p>
+        <ul class="change-list">
+          <li><strong>Navy top bar</strong> (36px) added above the main nav — injected via <code>shared.js</code> so all pages receive it automatically with no HTML edits</li>
+          <li>Left side: site tagline "Business &amp; Human Development · Asia Pacific"</li>
+          <li>Right side: phone (+81 806515 1778) and email (isabelle@bhdasia.com) as clickable links with hover-blue effect</li>
+          <li>Top bar hidden on mobile (&lt;980px) so the main nav header stays compact at 68px</li>
+          <li>Total fixed header height on desktop: <strong>104px</strong> (36px topbar + 68px nav)</li>
+        </ul>
+      </div>
+
+      <div class="change-group">
+        <p class="change-group-label">Nav Refinements</p>
+        <ul class="change-list">
+          <li><strong>Underline hover effect</strong> — blue 2px line slides in from the left on nav link hover; active page link shows the underline persistently</li>
+          <li><strong>Contact → CTA button</strong> — last nav item styled as a blue filled button with uppercase text, replacing a plain link</li>
+          <li>Mobile menu: Contact item resets to plain text style in the mobile dropdown</li>
+          <li>Logo height increased from 32px to 36px</li>
+          <li>Sub-menu item padding increased to 11px 22px for better touch targets</li>
+        </ul>
+      </div>
+
+      <div class="change-group">
+        <p class="change-group-label">Layout Offset Updates</p>
+        <ul class="change-list">
+          <li><code>.page-title-wrap</code> <code>margin-top</code> updated from 68px → 104px across all pages</li>
+          <li>Hero section on home page updated: <code>margin-top:104px</code> and <code>min-height:calc(100vh - 104px)</code></li>
+        </ul>
+      </div>
+
+      <div class="change-group">
+        <p class="change-group-label">Files Modified</p>
+        <div class="files-added">
+          <span class="file-tag">style.css</span>
+          <span class="file-tag">shared.js</span>
+          <span class="file-tag">index.html</span>
+        </div>
+      </div>
+    </div>
+
     <!-- VERSION 3 -->
     <div class="version-block">
       <div class="version-header">
