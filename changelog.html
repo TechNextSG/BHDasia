@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0"/>
+<title>Changelog - BHD Asia</title>
+<link rel="stylesheet" href="style.css"/>
+<style>
+.changelog-section{padding:60px 0 80px}
+.changelog-intro{max-width:680px}
+.changelog-intro p{font-size:14px;color:var(--muted);line-height:1.8}
+.version-block{margin-bottom:48px;padding-bottom:48px;border-bottom:1px solid var(--border)}
+.version-block:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+.version-header{display:flex;align-items:center;gap:16px;margin-bottom:20px;flex-wrap:wrap}
+.version-badge{background:var(--blue);color:#fff;font-size:11px;font-weight:700;letter-spacing:.1em;padding:5px 14px;border-radius:2px;text-transform:uppercase;white-space:nowrap}
+.version-badge.v1{background:var(--muted)}
+.version-badge.v2{background:var(--navy-mid)}
+.version-badge.v3{background:var(--blue)}
+.version-date{font-size:12px;color:var(--muted);font-weight:600}
+.version-title{font-size:20px;color:var(--text);font-weight:700;margin:0}
+.change-group{margin-bottom:20px}
+.change-group-label{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:10px}
+.change-list{list-style:none;padding:0;margin:0}
+.change-list li{font-size:13px;color:var(--body);padding:7px 0 7px 20px;border-bottom:1px solid var(--border);line-height:1.65;position:relative}
+.change-list li:last-child{border-bottom:none}
+.change-list li::before{content:'';position:absolute;left:0;top:15px;width:6px;height:6px;border-radius:50%;background:var(--blue);flex-shrink:0}
+.change-list li strong{color:var(--text)}
+.files-added{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.file-tag{background:var(--off-white);border:1px solid var(--border);border-radius:2px;padding:3px 10px;font-size:11px;font-family:monospace;color:var(--body)}
+</style>
+</head>
+<body class="page et_fixed_nav et_divi_theme">
+<div id="page-container">
+
+<header id="main-header">
+  <div class="et_menu_container">
+    <div class="logo_container">
+      <a href="index.html">
+        <img src="https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img/https://bhdasia.com/wp-content/uploads/2020/10/BHDASIA.png" alt="BHD Asia" onerror="this.style.display='none';document.querySelector('.logo-text').style.display='block'"/>
+        <span class="logo-text">BHD Asia</span>
+      </a>
+    </div>
+    <div id="et-top-navigation">
+      <nav id="top-menu-nav">
+        <ul id="top-menu" class="nav">
+          <li class="menu-item"><a href="index.html">Home</a></li>
+          <li class="menu-item"><a href="about.html">About</a></li>
+          <li class="menu-item"><a href="events.html">Events</a></li>
+          <li class="menu-item"><a href="partners.html">Partners</a></li>
+          <li class="menu-item menu-item-has-children">
+            <a href="services.html">Services<span class="caret">▾</span></a>
+            <ul class="sub-menu">
+              <li><a href="privacy.html">Privacy Statement</a></li>
+              <li><a href="terms.html">Terms &amp; Conditions</a></li>
+              <li><a href="code.html">Code of Practice</a></li>
+              <li><a href="inclusivity.html">Inclusivity Statement</a></li>
+            </ul>
+          </li>
+          <li class="menu-item"><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <div id="et_top_search"><span id="et_search_icon"></span></div>
+      <div id="et_mobile_nav_menu"><span class="mobile_menu_bar" onclick="document.body.classList.toggle('mobile-nav-open')"></span></div>
+    </div>
+  </div>
+</header>
+
+<div id="et-main-area">
+<div class="page-title-wrap">
+  <div class="container">
+    <h1 class="page-title">Changelog</h1>
+    <p class="page-breadcrumb"><a href="index.html">Home</a> &rsaquo; Changelog</p>
+  </div>
+</div>
+
+<div class="changelog-section">
+  <div class="container" style="max-width:860px">
+
+    <div class="changelog-intro" style="margin-bottom:50px">
+      <span class="section-label">Project History</span>
+      <h2>BHD Asia — Website Mockup</h2>
+      <hr class="divider-line"/>
+      <p>A complete record of all versions, changes, and improvements made to the BHD Asia static website mockup. The site is a faithful HTML/CSS replica of <a href="https://bhdasia.com" target="_blank" style="color:var(--blue)">bhdasia.com</a>, built as a multi-page static site and hosted on GitHub Pages.</p>
+      <p>Live site: <a href="https://technextsg.github.io/BHDasia/" target="_blank" style="color:var(--blue)">technextsg.github.io/BHDasia</a> &nbsp;·&nbsp; Repository: <a href="https://github.com/TechNextSG/BHDasia" target="_blank" style="color:var(--blue)">github.com/TechNextSG/BHDasia</a></p>
+    </div>
+
+    <!-- VERSION 3 -->
+    <div class="version-block">
+      <div class="version-header">
+        <span class="version-badge v3">v3.0</span>
+        <span class="version-date">11 June 2026</span>
+        <h3 class="version-title">Corporate Redesign</h3>
+      </div>
+
+      <div class="change-group">
+        <p class="change-group-label">Design System</p>
+        <ul class="change-list">
+          <li><strong>CSS custom properties</strong> introduced — <code>--navy</code>, <code>--blue</code>, <code>--off-white</code>, <code>--text</code>, <code>--body</code>, <code>--muted</code>, <code>--shadow</code>, <code>--r</code>, <code>--t</code> — one place to change the entire palette</li>
+          <li><strong>Header</strong> changed to always-solid white with bottom border and scroll-triggered shadow — proper corporate standard, removing transparent/scroll-toggle behaviour</li>
+          <li><strong>Dark sections</strong> now use deep navy <code>#0b2238</code> instead of plain grey <code>#2b2b2b</code> — more premium feel</li>
+          <li><strong>Section labels</strong> added — small blue uppercase text above all major section headings for consistent visual hierarchy</li>
+          <li><strong>Buttons</strong> redesigned — solid blue fill as primary, plus <code>btn-outline</code>, <code>btn-white</code>, and <code>btn-white-outline</code> variants</li>
+          <li><strong>Cards</strong> upgraded — box-shadow depth with hover lift effect replaces flat border treatment</li>
+          <li><strong>Divider lines</strong> — short 48px blue horizontal rules added under section headings</li>
+        </ul>
+      </div>
+
+      <div class="change-group">
+        <p class="change-group-label">Home Page</p>
+        <ul class="change-list">
+          <li><strong>Hero</strong> — gradient overlay (navy to transparent) replaces flat black; animated scroll indicator added; hero-label, large headline, subtitle, and two CTA buttons</li>
+          <li><strong>Three Pillar section</strong> added — Organisation Development, Resilience Building, Individual Development — hover cards with border-top accent</li>
+          <li><strong>Stats bar</strong> added — deep navy strip displaying 27+ years, 1,300+ coaching hours, 9 countries, and certified since 2012</li>
+          <li><strong>Voice record (Noomii widget)</strong> kept and given a dedicated Featured Interview section with supporting copy</li>
+          <li><strong>Forbes Coaches Council section</strong> added — linked media highlight with Isabelle's photo and external link</li>
+          <li><strong>CTA strip</strong> — discovery call + upcoming events CTAs</li>
+        </ul>
+      </div>
+
+      <div class="change-group">
+        <p class="change-group-label">All Pages</p>
+        <ul class="change-list">
+          <li>All page-specific styles updated to use CSS variables</li>
+          <li>Event cards — navy header background, blue left border, shadow on hover</li>
+          <li>Service cards — bordered-top blue, box shadow, consistent grid layout</li>
+          <li>Partner cards — hover lift, shadow depth, tighter typography</li>
+          <li>Footer widgets — deeper navy, headings with bottom rule separator</li>
+          <li>About page — section labels, divider lines, mission and values headings updated</li>
+        </ul>
+      </div>
+
+      <div class="change-group">
+        <p class="change-group-label">Files Modified</p>
+        <div class="files-added">
+          <span class="file-tag">style.css</span>
+          <span class="file-tag">index.html</span>
+          <span class="file-tag">about.html</span>
+          <span class="file-tag">events.html</span>
+          <span class="file-tag">partners.html</span>
+          <span class="file-tag">services.html</span>
+          <span class="file-tag">contact.html</span>
+          <span class="file-tag">isabelle.html</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- VERSION 2 -->
+    <div class="version-block">
+      <div class="version-header">
+        <span class="version-badge v2">v2.0</span>
+        <span class="version-date">11 June 2026</span>
+        <h3 class="version-title">Design Polish &amp; Content Summarisation</h3>
+      </div>
+
+      <div class="change-group">
+        <p class="change-group-label">Design Improvements</p>
+        <ul class="change-list">
+          <li><strong>Partners page</strong> — rebuilt from stacked full-width cards to compact 2-column grid; border-top accent added; descriptions tightened to 1–2 sentences per partner</li>
+          <li><strong>Isabelle page</strong> — stat boxes changed from awkward vertical column to clean 2×2 grid layout</li>
+          <li><strong>Contact page</strong> — emoji icons (📍📞✉🏢) replaced with clean CSS symbol tiles; typography hierarchy tightened</li>
+          <li><strong>Services page</strong> — inline <code>max-width:none</code> row style hack replaced with proper CSS grid; service lists trimmed from 10 to 8 items per column</li>
+        </ul>
+      </div>
+
+      <div class="change-group">
+        <p class="change-group-label">Content Fixes</p>
+        <ul class="change-list">
+          <li><strong>About page</strong> — incomplete sentence "…the unique experiences of the personal journeys" completed; client list converted from run-on paragraph to scannable tag pills</li>
+          <li><strong>Services page</strong> — duplicate items consolidated (e.g. "TRE® for Individuals / Teams / Organisations" merged into one line)</li>
+          <li>Shared CSS utilities added to <code>style.css</code> — <code>.page-intro</code>, <code>.client-tags</code>, <code>.dark-callout</code>, <code>.cta-strip</code></li>
+        </ul>
+      </div>
+
+      <div class="change-group">
+        <p class="change-group-label">Files Modified</p>
+        <div class="files-added">
+          <span class="file-tag">style.css</span>
+          <span class="file-tag">about.html</span>
+          <span class="file-tag">partners.html</span>
+          <span class="file-tag">services.html</span>
+          <span class="file-tag">contact.html</span>
+          <span class="file-tag">isabelle.html</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- VERSION 1 -->
+    <div class="version-block">
+      <div class="version-header">
+        <span class="version-badge v1">v1.0</span>
+        <span class="version-date">11 June 2026</span>
+        <h3 class="version-title">Initial Build — Full Multi-Page Mockup</h3>
+      </div>
+
+      <div class="change-group">
+        <p class="change-group-label">New Files Created</p>
+        <ul class="change-list">
+          <li><strong>style.css</strong> — shared stylesheet for all pages; Open Sans font, container layout (max-width 1080px), sticky header, Divi button styles, 4-column footer, responsive breakpoints</li>
+          <li><strong>shared.js</strong> — sticky header scroll behaviour and mobile navigation toggle</li>
+          <li><strong>hero.jpg</strong> — hero background image downloaded directly from bhdasia.com CDN</li>
+          <li><strong>index.html</strong> — home page with parallax hero, Noomii voice interview widget (Featured section)</li>
+          <li><strong>about.html</strong> — Our Story, full client list, 3-column team section (Isabelle, Rouviere, Clement), Mission and Values</li>
+          <li><strong>events.html</strong> — TRE® workshop listings with pricing tables (Super Early Bird / Early Bird / Normal tiers) for Aug and Sep 2026</li>
+          <li><strong>partners.html</strong> — 8 partner profiles: Mindfulness Now, GloCoach, Dr. Mandy Zimmermann, Lauren Houghton, Leadership Et Humanité, Sean Crichton-Browne, Kelvin Kan, Marshall Goldsmith</li>
+          <li><strong>services.html</strong> — 3-column service categories (Organisation Development, Resilience Building, Individual Development) + 8-Week Coaching Package (SGD 2,200)</li>
+          <li><strong>contact.html</strong> — contact form (Email, Name, Phone, Message), contact info, newsletter signup</li>
+          <li><strong>isabelle.html</strong> — full bio, 27+ years HR, 9 countries, 1,300+ coaching hours, credentials, Forbes Coaches Council</li>
+          <li><strong>privacy.html</strong> — 12-clause PDPA-compliant privacy statement</li>
+          <li><strong>terms.html</strong> — 21-clause Terms &amp; Conditions</li>
+          <li><strong>code.html</strong> — 15 Standards of Ethical Conduct</li>
+          <li><strong>inclusivity.html</strong> — 6 core commitment areas</li>
+        </ul>
+      </div>
+
+      <div class="change-group">
+        <p class="change-group-label">Design Reference</p>
+        <ul class="change-list">
+          <li>Site built as a faithful static HTML replica of <a href="https://bhdasia.com" target="_blank" style="color:var(--blue)">bhdasia.com</a> (WordPress + Divi theme v4.7.7)</li>
+          <li>Divi class naming conventions preserved — <code>et_pb_section</code>, <code>et_pb_row</code>, <code>et_pb_column_*</code>, <code>et_pb_fullwidth_header</code>, <code>et_pb_button</code></li>
+          <li>Primary accent colour <code>#2ea3f2</code> (Divi blue), body text <code>#666</code>, headings <code>#333</code>, footer background <code>#2b2b2b</code></li>
+          <li>Font: Open Sans (Divi default), weights 300–800</li>
+          <li>All team photos and logo loaded from bhdasia.com CDN with fallbacks</li>
+        </ul>
+      </div>
+
+      <div class="change-group">
+        <p class="change-group-label">Deployment</p>
+        <ul class="change-list">
+          <li>Repository created: <a href="https://github.com/TechNextSG/BHDasia" target="_blank" style="color:var(--blue)">github.com/TechNextSG/BHDasia</a></li>
+          <li>GitHub Pages enabled — live at <a href="https://technextsg.github.io/BHDasia/" target="_blank" style="color:var(--blue)">technextsg.github.io/BHDasia</a></li>
+          <li>Files also synced to shared drive: <code>G:\Shared drives\Marketing\00. Client Folder\BHDasia\</code></li>
+        </ul>
+      </div>
+
+      <div class="change-group">
+        <p class="change-group-label">All Files (14 total)</p>
+        <div class="files-added">
+          <span class="file-tag">style.css</span>
+          <span class="file-tag">shared.js</span>
+          <span class="file-tag">hero.jpg</span>
+          <span class="file-tag">index.html</span>
+          <span class="file-tag">about.html</span>
+          <span class="file-tag">events.html</span>
+          <span class="file-tag">partners.html</span>
+          <span class="file-tag">services.html</span>
+          <span class="file-tag">contact.html</span>
+          <span class="file-tag">isabelle.html</span>
+          <span class="file-tag">privacy.html</span>
+          <span class="file-tag">terms.html</span>
+          <span class="file-tag">code.html</span>
+          <span class="file-tag">inclusivity.html</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</div>
+
+<footer id="main-footer">
+  <div id="footer-widgets"><div class="container">
+    <div class="footer-widget"><h4>BHD Asia</h4><p>Highlight, Enhance and Appreciate Human in Business.</p><p>Business &amp; Human Development Consulting Pte Ltd</p></div>
+    <div class="footer-widget"><h4>Navigate</h4><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="events.html">Events</a></li><li><a href="partners.html">Partners</a></li><li><a href="services.html">Services</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+    <div class="footer-widget"><h4>Legal</h4><ul><li><a href="privacy.html">Privacy Statement</a></li><li><a href="terms.html">Terms &amp; Conditions</a></li><li><a href="code.html">Code of Practice</a></li><li><a href="inclusivity.html">Inclusivity Statement</a></li></ul></div>
+    <div class="footer-widget"><h4>Contact</h4><p>50 Raffles Place, Singapore Land Tower #30-00<br>Singapore 048623</p><p>Phone: +81 806515 1778</p><p><a href="mailto:isabelle@bhdasia.com" style="color:rgba(255,255,255,.45)">isabelle@bhdasia.com</a></p></div>
+  </div></div>
+  <div id="footer-bottom"><div class="container"><div id="footer-info">Highlight, Enhance and Appreciate Human in Business | BHD Asia | All rights reserved &nbsp;&nbsp;Business &amp; Human Development Consulting Pte Ltd &nbsp;&nbsp;50 Raffles Place, Singapore Land Tower #30-00, Singapore 048623 &nbsp;&nbsp;ACRA Number 201201974K</div></div></div>
+</footer>
+</div>
+<script src="shared.js"></script>
+</body>
+</html>
