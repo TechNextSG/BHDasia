@@ -112,7 +112,7 @@ strong{font-weight:700}em{font-style:italic}
 #top-menu{list-style:none;display:flex;align-items:center;height:60px;gap:4px}
 #top-menu>li{display:inline-block;font-size:12px;padding-right:22px;position:relative}
 #top-menu>li:last-child{padding-right:0}
-#top-menu>li>a{color:var(--body);display:block;padding:8px 0;transition:var(--t);white-space:nowrap;font-weight:700;position:relative;letter-spacing:.04em;text-transform:uppercase;font-size:11px}
+#top-menu>li>a{color:var(--body);display:block;padding:8px 0;transition:var(--t);white-space:nowrap;font-weight:700;position:relative;letter-spacing:.04em;text-transform:uppercase;font-size:13px}
 
 /* underline hover */
 #top-menu>li:not(:last-child)>a::after{
@@ -137,7 +137,7 @@ strong{font-weight:700}em{font-style:italic}
 #top-menu>li:last-child>a:hover{background:var(--blue-dk);border-color:var(--blue-dk);color:#fff}
 
 /* Contact CTA standalone button in header right */
-.header-contact-btn{background:var(--blue);color:#fff!important;padding:7px 18px;border-radius:var(--r);font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;transition:var(--t);white-space:nowrap;margin-right:12px;border:2px solid var(--blue);display:none}
+.header-contact-btn{background:var(--blue);color:#fff!important;padding:9px 22px;border-radius:var(--r);font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;transition:var(--t);white-space:nowrap;margin-right:12px;border:2px solid var(--blue);display:none}
 @media(min-width:981px){.header-contact-btn{display:inline-flex;align-items:center}}
 .header-contact-btn:hover{background:var(--blue-dk);border-color:var(--blue-dk);color:#fff!important}
 
@@ -159,7 +159,7 @@ strong{font-weight:700}em{font-style:italic}
 .page-title-wrap{
   background:linear-gradient(135deg,var(--navy) 0%,var(--navy-mid) 100%);
   padding:90px 0 70px;
-  margin-top:88px;
+  margin-top:60px;
   border-bottom:3px solid var(--blue);
   position:relative;
   overflow:hidden;
@@ -327,7 +327,7 @@ strong{font-weight:700}em{font-style:italic}
 .footer-widget p a{color:rgba(255,255,255,.46)}
 .footer-widget p a:hover{color:var(--gold)}
 #footer-bottom{padding:13px 0;background:#060f18}
-#footer-bottom .container{display:flex;justify-content:center;align-items:center}
+#footer-bottom .container{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
 #footer-info{color:rgba(255,255,255,.34);font-size:11px;line-height:1.6;display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px 20px;width:100%}
 
 /* ── SECTION DIVIDERS ─────────────────────────── */
@@ -468,3 +468,26 @@ input:focus,textarea:focus,select:focus{box-shadow:0 0 0 3px rgba(200,85,26,.15)
 .bhd-chat-input button svg{width:18px;height:18px}
 @media(max-width:480px){#bhd-chat{right:12px;left:12px;width:auto;bottom:86px;height:70vh}#bhd-fab{right:16px;bottom:16px}}
 @media print{#bhd-fab,#bhd-chat{display:none!important}}
+
+/* ── BOT MESSAGE LABEL + ACTION BUTTONS ───────── */
+.bhd-msg-label{font-size:9.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:6px}
+.bhd-msg-btns{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.bhd-msg-btn{font-size:11.5px;font-weight:600;font-family:inherit;color:var(--blue);background:#fff;border:1.5px solid var(--blue);border-radius:20px;padding:4px 12px;cursor:pointer;text-decoration:none;transition:var(--t);display:inline-block}
+.bhd-msg-btn:hover{background:var(--blue);color:#fff}
+
+/* ── FOOTER SOCIAL ICONS ──────────────────────── */
+.footer-social{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap}
+.footer-soc-btn{width:34px;height:34px;border-radius:6px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.10);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.45);transition:var(--t)}
+.footer-soc-btn:hover{background:var(--blue);border-color:var(--blue);color:#fff}
+.footer-soc-btn svg{width:16px;height:16px}
+
+/* ── FOOTER TECHEXT CREDIT ────────────────────── */
+#footer-credit{font-size:11px;color:rgba(255,255,255,.28);white-space:nowrap;flex-shrink:0}
+#footer-credit a{color:rgba(255,255,255,.45);font-weight:600;transition:var(--t)}
+#footer-credit a:hover{color:var(--gold)}
+
+/* ── CLIENTS SECTION (homepage) ───────────────── */
+.clients-home{padding:54px 0;border-top:1px solid var(--border)}
+.clients-home .section-label{margin-bottom:18px}
+@media(max-width:600px){.footer-social{gap:6px}}
+@media(max-width:480px){#footer-credit{text-align:center;width:100%}#footer-info{text-align:center;justify-content:center}}

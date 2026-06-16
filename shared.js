@@ -6,30 +6,21 @@
   skip.textContent = 'Skip to content';
   document.body.insertBefore(skip, document.body.firstChild);
 
-  // Inject top bar into header
+  // Header scroll: shadow + auto-hide on scroll down, reveal on scroll up
   var header = document.getElementById('main-header');
-  if(header){
-    var topbar = document.createElement('div');
-    topbar.id = 'header-topbar';
-    topbar.innerHTML = '<div class="container"><span class="topbar-tagline">Business &amp; Human Development · Asia Pacific</span><div class="topbar-contact"><a href="tel:+818065151778"><span class="tc-icon">&#9990;</span> +81 806515 1778</a><a href="mailto:isabelle@bhdasia.com"><span class="tc-icon">&#9993;</span> isabelle@bhdasia.com</a></div></div>';
-    header.insertBefore(topbar, header.firstChild);
-  }
-
-  // Scroll shadow / topbar collapse + auto-hide on scroll down, reveal on scroll up
   var lastY = window.scrollY;
   function updateHeader(){
     var y = window.scrollY;
     if(y > 10){ header.classList.add('et-fixed-header'); }
     else { header.classList.remove('et-fixed-header'); }
-    // Never hide while the mobile menu is open
     if(document.body.classList.contains('mobile-nav-open')){
       header.classList.remove('header-hidden');
       lastY = y; return;
     }
     if(y > 180 && y > lastY + 4){
-      header.classList.add('header-hidden');     // scrolling down
+      header.classList.add('header-hidden');
     } else if(y < lastY - 4 || y <= 10){
-      header.classList.remove('header-hidden');  // scrolling up (or at top)
+      header.classList.remove('header-hidden');
     }
     lastY = y;
   }
@@ -47,7 +38,7 @@
   var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var srSelectors = [
     '.pillar-card','.partner-card','.event-card','.value-card',
-    '.service-category','.coaching-package','.team-member',
+    '.service-category','.coaching-package','.team-card','.team-member',
     '.interview-grid','.stats-bar','.countdown-section',
     '.et_pb_section','.et_pb_section_grey',
     '.featured-wrap','.isabelle-section','.contact-grid',
@@ -86,31 +77,119 @@
 (function(){
   var WA = 'https://wa.me/818065151778?text=' + encodeURIComponent("Hi BHD Asia, I'd like to know more about your services.");
 
-  // Rule-based knowledge base — scoped to BHD Asia website content.
-  var KB = [
-    {re:/\b(service|services|offer|offering|do you (do|provide)|help with|programmes?|programs?)\b/, a:"We focus on three areas: <strong>Organisation Development</strong>, <strong>Resilience Building</strong> (TRE®, somatic coaching, stress &amp; burnout), and <strong>Individual Development</strong> (executive, career &amp; transition coaching). See the <a href='services.html'>Services</a> page."},
-    {re:/\b(tre|tension|trauma|somatic|tremor)\b/, a:"TRE® (Tension &amp; Trauma Releasing Exercises) is a neurogenic method that helps the body release deep tension and stress. We run open workshops — Module 1 (personal use) and Module 2/3 (provider certification). Details on the <a href='events.html'>Events</a> page."},
-    {re:/\b(event|events|workshop|workshops|upcoming|module|when|date|dates)\b/, a:"Our next workshop is <strong>TRE® for Personal Use (Module 1)</strong> on <strong>29–30 August 2026</strong> in Singapore, followed by <strong>Certification (Module 2)</strong> on 26–27 September 2026. See <a href='events.html'>Events</a> to book."},
-    {re:/\b(price|prices|pricing|cost|costs|fee|fees|how much|rate|sgd|dollar)\b/, a:"TRE® Module 1: Super Early Bird <strong>SGD 1,290</strong>, Early Bird 1,500, Normal 1,800. Our 8-week coaching package is <strong>SGD 2,200</strong>. Full pricing on <a href='services.html'>Services</a> and <a href='events.html'>Events</a>."},
-    {re:/\b(contact|email|e-mail|phone|call|reach|whatsapp|enquire|inquire|message)\b/, a:"Email <a href='mailto:isabelle@bhdasia.com'>isabelle@bhdasia.com</a>, call or WhatsApp <strong>+81 80 6515 1778</strong>, or use our <a href='contact.html'>Contact</a> form."},
-    {re:/\b(location|where|address|office|located|based)\b/, a:"We're based at <strong>50 Raffles Place, Singapore Land Tower #30-00, Singapore 048623</strong>, working with clients across Asia Pacific and beyond."},
-    {re:/\b(isabelle|founder|founders|who runs|coach|coaches|rouviere|team|experience)\b/, a:"Isabelle Claus Teixeira is our co-founder &amp; director — 27+ years in HR and talent management, a certified leadership coach since 2012, and a Forbes Coaches Council contributor."},
-    {re:/\b(about|company|bhd|background|history)\b/, a:"BHD Asia is a boutique HR consulting, executive coaching and leadership development firm, founded in Singapore in 2012. We co-design bespoke solutions — never off-the-shelf. More on the <a href='about.html'>About</a> page."},
-    {re:/\b(book|booking|appointment|sign ?up|register|registration|enrol|enroll|reserve)\b/, a:"To book, use our <a href='contact.html'>Contact</a> form or our Calendly intake link for a free 1:1 call. You can also WhatsApp us at +81 80 6515 1778."},
-    {re:/\b(partner|partners|associate|clients?)\b/, a:"We collaborate with a global network of associates and have worked with clients including ByteDance, Novartis, Philips, VISA and Mastercard. See <a href='partners.html'>Partners</a> and <a href='about.html'>About</a>."},
-    {re:/\b(hi|hello|hey|hiya|greetings|good (morning|afternoon|evening))\b/, a:"Hello! I'm the BHD Asia assistant. I can help with our services, TRE® workshops, pricing, events, location and contact. What would you like to know?"},
-    {re:/\b(thank|thanks|cheers|appreciate)\b/, a:"You're most welcome! Is there anything else I can help you with?"},
-    {re:/\b(bye|goodbye|see you|farewell)\b/, a:"Thanks for visiting BHD Asia. Have a wonderful day!"}
+  // Suggestion pool — rotates randomly so repeats are minimised
+  var ALL_SUG = [
+    'What services do you offer?',
+    'TRE® workshops',
+    'Pricing & packages',
+    'Upcoming events',
+    'How to contact you',
+    'About BHD Asia',
+    'Who is Isabelle?',
+    'Where are you located?',
+    'How to book a session',
+    'Tell me about coaching',
+    'Partner organisations',
+    'Team & experience'
   ];
-  var FALLBACK = "I can help with our <strong>services</strong>, <strong>TRE® workshops</strong>, <strong>pricing</strong>, <strong>events</strong>, <strong>location</strong> and <strong>contact</strong>. For anything specific, reach Isabelle at <a href='mailto:isabelle@bhdasia.com'>isabelle@bhdasia.com</a> or WhatsApp +81 80 6515 1778.";
+  var usedSug = [];
 
-  function answer(text){
-    var t = ' ' + text.toLowerCase() + ' ';
-    for(var i=0;i<KB.length;i++){ if(KB[i].re.test(t)) return KB[i].a; }
-    return FALLBACK;
+  function freshSuggestions(){
+    var available = ALL_SUG.filter(function(s){ return usedSug.indexOf(s) === -1; });
+    if(available.length < 5){ usedSug = []; available = ALL_SUG.slice(); }
+    // Shuffle
+    for(var i = available.length - 1; i > 0; i--){
+      var j = Math.floor(Math.random() * (i + 1));
+      var tmp = available[i]; available[i] = available[j]; available[j] = tmp;
+    }
+    var picked = available.slice(0, 5);
+    picked.forEach(function(s){ usedSug.push(s); });
+    return picked;
   }
 
-  // Floating action buttons
+  // Knowledge base with action buttons per topic
+  var KB = [
+    {
+      re:/(service|services|offer|offering|programme|programs?|help with|what do you|what you do)/,
+      a:"We focus on three areas: <strong>Organisation Development</strong>, <strong>Resilience Building</strong> (TRE®, somatic coaching, stress &amp; burnout), and <strong>Individual Development</strong> (executive, career &amp; transition coaching). Each solution is co-designed with you.",
+      btns:[{t:'View All Services',u:'services.html'},{t:'Book a Free Call',u:'contact.html'}]
+    },
+    {
+      re:/(tre|tension|trauma|somatic|tremor|neurogenic|releasing exercise)/,
+      a:"<strong>TRE® (Tension &amp; Trauma Releasing Exercises)</strong> is a neurogenic method that helps the body release deep muscle tension and stress without detailed discussion of past events. We run open workshops — Module 1 (personal use) and Module 2/3 (provider certification).",
+      btns:[{t:'See TRE® Events',u:'events.html'},{t:'Enquire Now',u:'contact.html'}]
+    },
+    {
+      re:/(event|events|workshop|workshops|upcoming|module|when|next date|schedule|calendar)/,
+      a:"Our next workshops are <strong>TRE® for Personal Use (Module 1)</strong> on <strong>29–30 Aug 2026</strong> and <strong>Certification (Module 2)</strong> on 26–27 Sep 2026 — both in Singapore.",
+      btns:[{t:'View All Events',u:'events.html'},{t:'Reserve a Spot',u:'contact.html'}]
+    },
+    {
+      re:/(price|pricing|cost|fee|how much|rate|sgd|dollar|package|invest)/,
+      a:"TRE® Module 1: Super Early Bird <strong>SGD 1,290</strong>, Early Bird 1,500, Normal 1,800. Our 8-week individual coaching package is <strong>SGD 2,200</strong>. Group and corporate rates available on request.",
+      btns:[{t:'Full Pricing',u:'services.html'},{t:'Ask About Rates',u:'contact.html'}]
+    },
+    {
+      re:/(contact|email|phone|call|reach|whatsapp|enquire|inquire|message|get in touch)/,
+      a:"You can reach us by email at <a href='mailto:isabelle@bhdasia.com'>isabelle@bhdasia.com</a>, call or WhatsApp <strong>+81 80 6515 1778</strong>, or fill in our online contact form.",
+      btns:[{t:'Contact Form',u:'contact.html'}]
+    },
+    {
+      re:/(location|where|address|office|located|based|singapore|raffles)/,
+      a:"We are based at <strong>50 Raffles Place, Singapore Land Tower #30-00, Singapore 048623</strong> and work with clients across Asia Pacific, Japan, Europe and beyond.",
+      btns:[{t:'Contact Us',u:'contact.html'},{t:'About BHD Asia',u:'about.html'}]
+    },
+    {
+      re:/(isabelle|founder|who runs|co.?founder|director|coach|rouviere|team|staff|people)/,
+      a:"<strong>Isabelle Claus Teixeira</strong> is our co-founder and director — 27+ years in HR leadership across nine countries, a certified leadership coach since 2012, TRE® certified provider, and Forbes Coaches Council contributor.",
+      btns:[{t:'Meet Isabelle',u:'isabelle.html'},{t:'Our Team',u:'about.html#team'}]
+    },
+    {
+      re:/(about|company|bhd|background|history|who are you|what is bhd)/,
+      a:"<strong>BHD Asia</strong> is a boutique HR consulting, executive coaching and leadership development firm. Founded in Singapore in 2012 by Isabelle and Rouviere Teixeira, we co-design bespoke solutions for clients across Asia Pacific and globally.",
+      btns:[{t:'About Us',u:'about.html'},{t:'Our Services',u:'services.html'}]
+    },
+    {
+      re:/(book|booking|appointment|sign.?up|register|enrol|enroll|reserve|1.?on.?1|one.?on.?one|free call)/,
+      a:"To book, use our <a href='contact.html'>Contact</a> form or reach us directly via WhatsApp at +81 80 6515 1778 to schedule a free discovery conversation.",
+      btns:[{t:'Book a Free 1:1',u:'contact.html'}]
+    },
+    {
+      re:/(partner|associate|network|client|clients|who.*(work|worked)|companies)/,
+      a:"We’ve worked with global organisations including ByteDance (TikTok), Novartis, Philips, VISA, Mastercard, Heineken APAC and many more. Our global associate network spans coaching, facilitation and HR advisory.",
+      btns:[{t:'Our Partners',u:'partners.html'},{t:'Our Story',u:'about.html'}]
+    },
+    {
+      re:/(coaching|executive coaching|leadership|career|transition|performance|life coach)/,
+      a:"Our coaching services include <strong>Executive Coaching</strong>, <strong>Transition Coaching</strong>, <strong>Performance Coaching</strong>, <strong>Career Coaching</strong>, Self-Awareness Development and 360° Debriefs. Packages are fully co-designed.",
+      btns:[{t:'Coaching Services',u:'services.html'},{t:'Book a Consult',u:'contact.html'}]
+    },
+    {
+      re:/(hi|hello|hey|hiya|greetings|good (morning|afternoon|evening)|how are you)/,
+      a:"Hello! I’m the BHD Asia assistant 👋 I can help with services, TRE® workshops, pricing, events, our team, and how to get in touch. What would you like to know?",
+      btns:[]
+    },
+    {
+      re:/(thank|thanks|cheers|appreciate|great|perfect|helpful)/,
+      a:"You’re very welcome! Feel free to ask anything else, or reach us directly at <a href='mailto:isabelle@bhdasia.com'>isabelle@bhdasia.com</a>.",
+      btns:[]
+    },
+    {re:/(bye|goodbye|see you|farewell|that.s all)/, a:"Thanks for visiting BHD Asia. Have a wonderful day! 😊", btns:[]}
+  ];
+
+  var FALLBACK_A = "I can help with our <strong>services</strong>, <strong>TRE® workshops</strong>, <strong>pricing</strong>, <strong>events</strong>, <strong>location</strong> and <strong>contact</strong>. For anything specific, reach Isabelle at <a href='mailto:isabelle@bhdasia.com'>isabelle@bhdasia.com</a> or WhatsApp +81 80 6515 1778.";
+  var FALLBACK_BTNS = [{t:'Services',u:'services.html'},{t:'Events',u:'events.html'},{t:'Contact Us',u:'contact.html'}];
+
+  function answerFor(raw){
+    // Normalise: lowercase, strip punctuation
+    var t = raw.toLowerCase().replace(/['".,!?;:()–—]/g,' ').replace(/\s+/g,' ');
+    for(var i=0;i<KB.length;i++){
+      if(KB[i].re.test(t)) return {a:KB[i].a, btns:KB[i].btns};
+    }
+    return {a:FALLBACK_A, btns:FALLBACK_BTNS};
+  }
+
+  // FAB
   var fab = document.createElement('div');
   fab.id = 'bhd-fab';
   fab.innerHTML =
@@ -125,10 +204,10 @@
   chat.setAttribute('role','dialog');
   chat.setAttribute('aria-label','BHD Asia assistant');
   chat.innerHTML =
-    '<div class="bhd-chat-head"><div class="bhd-chat-head-info"><span class="bhd-chat-title">BHD Asia Assistant</span><span class="bhd-chat-status">Typically replies instantly</span></div><button class="bhd-chat-close" aria-label="Close chat">×</button></div>' +
+    '<div class="bhd-chat-head"><div class="bhd-chat-head-info"><span class="bhd-chat-title">BHD Asia Assistant</span><span class="bhd-chat-status"><span class="bhd-status-dot"></span>Typically replies instantly</span></div><button class="bhd-chat-close" aria-label="Close chat">×</button></div>' +
     '<div class="bhd-chat-msgs" id="bhd-chat-msgs"></div>' +
     '<div class="bhd-chat-quick" id="bhd-chat-quick"></div>' +
-    '<form class="bhd-chat-input" id="bhd-chat-form"><input type="text" id="bhd-chat-text" placeholder="Ask about our services..." autocomplete="off"/><button type="submit" aria-label="Send"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></button></form>';
+    '<form class="bhd-chat-input" id="bhd-chat-form"><input type="text" id="bhd-chat-text" placeholder="Ask about our services…" autocomplete="off"/><button type="submit" aria-label="Send"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></button></form>';
   document.body.appendChild(chat);
 
   var msgs = chat.querySelector('#bhd-chat-msgs');
@@ -140,13 +219,42 @@
   var greeted = false;
 
   function esc(s){ return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
-  function addMsg(html, who){
+
+  function addUserMsg(text){
     var d = document.createElement('div');
-    d.className = 'bhd-msg bhd-msg-' + who;
+    d.className = 'bhd-msg bhd-msg-user';
+    d.textContent = text;
+    msgs.appendChild(d);
+    msgs.scrollTop = msgs.scrollHeight;
+  }
+
+  function addBotMsg(result){
+    var d = document.createElement('div');
+    d.className = 'bhd-msg bhd-msg-bot';
+    var html = '<div class="bhd-msg-label">BHD Asia</div>' + result.a;
+    if(result.btns && result.btns.length){
+      html += '<div class="bhd-msg-btns">' +
+        result.btns.map(function(b){
+          return '<a href="' + b.u + '" class="bhd-msg-btn">' + b.t + '</a>';
+        }).join('') + '</div>';
+    }
     d.innerHTML = html;
     msgs.appendChild(d);
     msgs.scrollTop = msgs.scrollHeight;
   }
+
+  function renderSuggestions(){
+    quick.innerHTML = '';
+    freshSuggestions().forEach(function(q){
+      var b = document.createElement('button');
+      b.className = 'bhd-quick-btn';
+      b.type = 'button';
+      b.textContent = q;
+      b.addEventListener('click', function(){ send(q); });
+      quick.appendChild(b);
+    });
+  }
+
   function botReply(text){
     var typing = document.createElement('div');
     typing.className = 'bhd-chat-typing';
@@ -155,24 +263,19 @@
     msgs.scrollTop = msgs.scrollHeight;
     setTimeout(function(){
       if(typing.parentNode) typing.parentNode.removeChild(typing);
-      addMsg(answer(text), 'bot');
-    }, 550);
+      addBotMsg(answerFor(text));
+      renderSuggestions();
+    }, 600);
   }
+
   function send(text){
     text = (text || '').trim();
     if(!text) return;
-    addMsg(esc(text), 'user');
+    addUserMsg(text);
     botReply(text);
   }
 
-  ['Services','TRE® workshops','Pricing','Events','Contact'].forEach(function(q){
-    var b = document.createElement('button');
-    b.className = 'bhd-quick-btn';
-    b.type = 'button';
-    b.textContent = q;
-    b.addEventListener('click', function(){ send(q); });
-    quick.appendChild(b);
-  });
+  renderSuggestions();
 
   function openChat(){
     chat.classList.remove('bhd-chat-closed');
@@ -185,5 +288,10 @@
     if(chat.classList.contains('bhd-chat-closed')) openChat(); else closeChat();
   });
   closeBtn.addEventListener('click', closeChat);
-  form.addEventListener('submit', function(e){ e.preventDefault(); send(input.value); input.value = ''; });
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var v = input.value;
+    input.value = '';
+    send(v);
+  });
 })();
