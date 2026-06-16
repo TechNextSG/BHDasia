@@ -33,8 +33,36 @@
     });
   });
 
-  // Parallax — disable on mobile or when user prefers reduced motion
+  // Scroll-reveal — animate sections into view
   var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var srSelectors = [
+    '.pillar-card','.partner-card','.event-card','.value-card',
+    '.service-category','.coaching-package','.team-member',
+    '.interview-grid','.stats-bar','.countdown-section',
+    '.et_pb_section','.et_pb_section_grey',
+    '.featured-wrap','.isabelle-section','.contact-grid',
+    '.section-head','.page-intro','.mission-card',
+    '.newsletter-section','.blurb-item','.clients-section',
+  ];
+  if(!prefersReducedMotion){
+    var observer = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    },{threshold:0.08,rootMargin:'0px 0px -40px 0px'});
+    srSelectors.forEach(function(sel){
+      document.querySelectorAll(sel).forEach(function(el,i){
+        el.classList.add('sr');
+        if(i<4) el.classList.add('sr-d'+(i+1));
+        observer.observe(el);
+      });
+    });
+  }
+
+  // Parallax — disable on mobile or when user prefers reduced motion
   var isMobile = window.matchMedia('(max-width:980px)').matches;
   var parallaxBg = document.getElementById('parallax-bg');
   if(parallaxBg && !prefersReducedMotion && !isMobile){

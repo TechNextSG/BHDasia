@@ -68,7 +68,10 @@
 <div id="et-main-area">
 <div class="page-title-wrap">
   <div class="container">
-    <h1 class="page-title">Changelog</h1>
+        <span class="section-label">Version History</span>
+    <h1 class="page-title">Website Changelog</h1>
+    <p class="page-hero-sub">A complete record of all versions, changes, and improvements to the BHD Asia website mockup.</p>
+    <div class="page-hero-ctas"><a class="et_pb_button btn-white-outline" href="index.html">&larr; Back to Home</a></div>
     <p class="page-breadcrumb"><a href="index.html">Home</a> &rsaquo; Changelog</p>
   </div>
 </div>
@@ -82,6 +85,88 @@
       <hr class="divider-line"/>
       <p>A complete record of all versions, changes, and improvements made to the BHD Asia static website mockup. The site is a faithful HTML/CSS replica of <a href="https://bhdasia.com" target="_blank" style="color:var(--blue)">bhdasia.com</a>, built as a multi-page static site and hosted on GitHub Pages.</p>
       <p>Live site: <a href="https://technextsg.github.io/BHDasia/" target="_blank" style="color:var(--blue)">technextsg.github.io/BHDasia</a> &nbsp;·&nbsp; Repository: <a href="https://github.com/TechNextSG/BHDasia" target="_blank" style="color:var(--blue)">github.com/TechNextSG/BHDasia</a></p>
+    </div>
+
+    <!-- VERSION 5.9 -->
+    <div class="version-block">
+      <div class="version-header">
+        <span class="version-badge v3">v5.9</span>
+        <span class="version-date">17 June 2026</span>
+        <h3 class="version-title">Full-Site Enhancement &mdash; Heroes, Animations, Interactive Cards &amp; Icon Refresh</h3>
+      </div>
+      <div class="change-group">
+        <p class="change-group-label">Typography &amp; Scale</p>
+        <ul class="change-list">
+          <li><strong>Larger type across all pages</strong> &mdash; h1 increased to 50px, h2 to 38px, h3 to 27px, body to 16px (was 14px). Stronger visual hierarchy on all screens.</li>
+        </ul>
+      </div>
+      <div class="change-group">
+        <p class="change-group-label">Page Heroes &mdash; All Inner Pages</p>
+        <ul class="change-list">
+          <li><strong>Full hero banner added to all 11 inner pages</strong> &mdash; each page now opens with a navy gradient hero: section label, large h1, subtitle, and two CTA buttons. Pages updated: about, services, events, partners, isabelle, contact, privacy, terms, code, inclusivity, changelog.</li>
+          <li><strong>Decorative circle accent</strong> &mdash; translucent amber ring positioned top-right of every hero for visual depth.</li>
+        </ul>
+      </div>
+      <div class="change-group">
+        <p class="change-group-label">Button Animations</p>
+        <ul class="change-list">
+          <li><strong>Shine sweep on hover</strong> &mdash; all <code>.et_pb_button</code> elements gain a diagonal white-glint animation on hover via CSS <code>::after</code> pseudo-element and <code>@keyframes btnShine</code>.</li>
+          <li><strong>Lift &amp; press states</strong> &mdash; hover lifts the button 2px with a deeper box-shadow; active press pushes it down 1px. Applied site-wide.</li>
+        </ul>
+      </div>
+      <div class="change-group">
+        <p class="change-group-label">Scroll-Reveal Animations</p>
+        <ul class="change-list">
+          <li><strong>IntersectionObserver fade-up on every section</strong> &mdash; <code>shared.js</code> wires up scroll-reveal to all major section classes (pillar cards, event cards, service categories, stats bar, team members, contact grid, and more). Respects <code>prefers-reduced-motion</code>.</li>
+          <li><strong>Staggered delays</strong> &mdash; first four items in each group animate at 0.1&ndash;0.4 s intervals for a cascading effect.</li>
+        </ul>
+      </div>
+      <div class="change-group">
+        <p class="change-group-label">About Page &mdash; Mission &amp; Values</p>
+        <ul class="change-list">
+          <li><strong>Interactive value cards</strong> &mdash; the plain blurb-list replaced by a 2&times;2 grid of hover-lift cards, each with a dark gradient image placeholder, amber badge icon, title, and description.</li>
+          <li><strong>Mission card</strong> &mdash; mission text now sits in a navy card with amber left border for strong visual contrast.</li>
+          <li><strong>Story section CTA</strong> &mdash; amber CTA strip added between the Our Story section and Team section.</li>
+        </ul>
+      </div>
+      <div class="change-group">
+        <p class="change-group-label">Contact Page &mdash; Icons</p>
+        <ul class="change-list">
+          <li><strong>Emoji icons replaced with clean SVGs</strong> &mdash; the four contact detail icons (location pin, phone, envelope, building) are now crisp inline SVG line icons, consistent with the corporate design language.</li>
+        </ul>
+      </div>
+      <div class="change-group">
+        <p class="change-group-label">Character &amp; Text Fixes</p>
+        <ul class="change-list">
+          <li><strong>Corrupted characters resolved</strong> &mdash; all &mdash;, &reg;, &deg; and &middot; characters replaced with correct HTML entities across index.html and services.html. Caused by PowerShell UTF-8 encoding issue.</li>
+          <li><strong>CSS bullet fix in services.html</strong> &mdash; list bullet <code>content</code> property restored to a CSS-drawn circle after corruption.</li>
+        </ul>
+      </div>
+      <div class="change-group">
+        <p class="change-group-label">Footer</p>
+        <ul class="change-list">
+          <li><strong>Compact footer applied to all pages</strong> &mdash; reduced padding (28px top/bottom), tighter info bar, consistent across all 12 pages.</li>
+        </ul>
+      </div>
+      <div class="change-group">
+        <p class="change-group-label">Files Modified</p>
+        <div class="files-added">
+          <span class="file-tag">style.css</span>
+          <span class="file-tag">shared.js</span>
+          <span class="file-tag">index.html</span>
+          <span class="file-tag">about.html</span>
+          <span class="file-tag">services.html</span>
+          <span class="file-tag">contact.html</span>
+          <span class="file-tag">events.html</span>
+          <span class="file-tag">partners.html</span>
+          <span class="file-tag">isabelle.html</span>
+          <span class="file-tag">privacy.html</span>
+          <span class="file-tag">terms.html</span>
+          <span class="file-tag">code.html</span>
+          <span class="file-tag">inclusivity.html</span>
+          <span class="file-tag">changelog.html</span>
+        </div>
+      </div>
     </div>
 
     <!-- VERSION 5.8 -->
