@@ -124,8 +124,10 @@ strong{font-weight:700}em{font-style:italic}
 #top-menu>li:not(:last-child)>a:hover::after,
 #top-menu>li.current-menu-item:not(:last-child)>a::after{transform:scaleX(1)}
 #top-menu>li>a:hover,#top-menu li.current-menu-item>a{color:var(--blue)}
+/* hide Contact from centered desktop nav — shown as standalone .header-contact-btn */
+#top-menu>li:last-child{display:none}
 
-/* Contact CTA button */
+/* Contact CTA button (kept for mobile nav-open fallback) */
 #top-menu>li:last-child>a{
   background:var(--blue);color:#fff;
   padding:7px 18px;border-radius:var(--r);
@@ -133,6 +135,11 @@ strong{font-weight:700}em{font-style:italic}
   margin-left:4px;border:2px solid var(--blue);
 }
 #top-menu>li:last-child>a:hover{background:var(--blue-dk);border-color:var(--blue-dk);color:#fff}
+
+/* Contact CTA standalone button in header right */
+.header-contact-btn{background:var(--blue);color:#fff!important;padding:7px 18px;border-radius:var(--r);font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;transition:var(--t);white-space:nowrap;margin-right:12px;border:2px solid var(--blue);display:none}
+@media(min-width:981px){.header-contact-btn{display:inline-flex;align-items:center}}
+.header-contact-btn:hover{background:var(--blue-dk);border-color:var(--blue-dk);color:#fff!important}
 
 /* sub-menu */
 #top-menu .sub-menu{display:none;position:absolute;top:100%;left:-16px;background:#fff;box-shadow:var(--shadow-lg);list-style:none;z-index:9999;min-width:200px;border-top:2px solid var(--blue)}
@@ -355,6 +362,7 @@ body.mobile-nav-open #top-menu-nav{display:block;position:fixed;top:60px;left:0;
 body.mobile-nav-open #top-menu{flex-direction:column;height:auto;align-items:stretch;padding:0 20px}
 body.mobile-nav-open #top-menu>li{padding:0;border-bottom:1px solid var(--border)}
 body.mobile-nav-open #top-menu>li>a{color:var(--body)!important;padding:12px 0}
+body.mobile-nav-open #top-menu>li:last-child{display:block}
 body.mobile-nav-open #top-menu>li:last-child>a{background:none;color:var(--body)!important;padding:12px 0;border-radius:0;letter-spacing:normal;text-transform:none;font-size:14px;font-weight:400;margin-left:0;border:none}
 body.mobile-nav-open #top-menu .sub-menu{position:static;box-shadow:none;background:var(--off-white);padding-left:12px;display:block;border-top:none}
 

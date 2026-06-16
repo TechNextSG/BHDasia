@@ -23,6 +23,20 @@
 .story-img-inner{position:absolute;inset:0;background:linear-gradient(135deg,#0c1c2e 0%,#1c3e63 55%,#0a1521 100%)}
 .story-img::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 60%,rgba(0,0,0,.32));pointer-events:none}
 .story-img-ph{position:relative;z-index:1;width:56px;height:56px;color:rgba(255,255,255,.2)}
+/* Team cards */
+.team-section{background:var(--off-white);padding:80px 0}
+.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;align-items:stretch}
+.team-card{background:#fff;border:1px solid var(--border);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;box-shadow:var(--shadow-sm);transition:var(--t)}
+.team-card:hover{box-shadow:var(--shadow);transform:translateY(-4px)}
+.team-card-img{height:260px;overflow:hidden;position:relative;border-top:3px solid var(--blue)}
+.team-card-img img{width:100%;height:100%;object-fit:cover;object-position:center top;filter:grayscale(20%);transition:filter .3s ease}
+.team-card:hover .team-card-img img{filter:grayscale(0%)}
+.team-card-body{padding:24px;display:flex;flex-direction:column;flex:1}
+.team-card h4{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--text);margin-bottom:4px;font-weight:700}
+.team-card .role{font-size:13.5px;color:var(--blue);font-style:italic;margin-bottom:14px;display:block}
+.team-card p{font-size:14px;color:var(--body);line-height:1.75;margin-bottom:8px}
+.team-card .et_pb_button{margin-top:auto;align-self:flex-start}
+@media(max-width:768px){.team-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body class="page et_fixed_nav et_divi_theme">
@@ -45,17 +59,11 @@
           <li class="menu-item"><a href="events.html">Events</a></li>
           <li class="menu-item"><a href="partners.html">Partners</a></li>
           
-          <li class="menu-item menu-item-has-children"><a href="services.html">Services</a>
-          <ul class="sub-menu">
-            <li class="menu-item"><a href="privacy.html">Privacy Statement</a></li>
-            <li class="menu-item"><a href="terms.html">Terms &amp; Conditions</a></li>
-            <li class="menu-item"><a href="code.html">Code of Practice</a></li>
-            <li class="menu-item"><a href="inclusivity.html">Inclusivity Statement</a></li>
-          </ul>
-        </li>
+          <li class="menu-item"><a href="services.html">Services</a></li>
           <li class="menu-item"><a href="contact.html">Contact</a></li>
         </ul>
       </nav>
+      <a href="contact.html" class="header-contact-btn">Contact</a>
       <div id="et_top_search"><span id="et_search_icon"></span></div>
       <div id="et_mobile_nav_menu"><span class="mobile_menu_bar" onclick="document.body.classList.toggle('mobile-nav-open')"></span></div>
     </div>
@@ -78,7 +86,7 @@
 </div>
 
 <!-- OUR STORY -->
-<div class="et_pb_section section_has_divider">
+<div class="et_pb_section section_has_divider" style="padding-bottom:0">
   <div class="et_pb_row">
     <div class="et_pb_column_1_2">
       <span class="section-label">Our Story</span>
@@ -128,36 +136,49 @@
 </div>
 
 <!-- TEAM -->
-<div class="et_pb_section et_pb_section_grey section_has_divider" id="team">
-  <div class="et_pb_row">
-    <div class="et_pb_column_1_3">
-      <div class="team-member">
-        <img src="https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img,w_700,h_467/https://bhdasia.com/wp-content/uploads/2018/06/isagrey.jpg" alt="Isabelle Claus Teixeira"/>
-        <h4>ISABELLE CLAUS TEIXEIRA</h4>
-        <p class="role"><em>Co-Founder and Director</em></p>
-        <p>Isabelle has over 27 years of experience in Senior HR Business partnering and regional Talent Management and Organisational Effectiveness experiences across Asia Pacific, Japan, Russia, US and Europe and is also a certified Leadership coach since 2012.</p>
-        <p>Since 1996, Isabelle has fulfilled global, regional and country HR roles in several industries (Automotive, Software Development, IT Technologies, Clinical Research, Trading, Shipping, Semi-conductors, Pharmaceuticals, Medical Devices).</p>
-        <a class="et_pb_button" href="isabelle.html">Read more</a>
-      </div>
+<div class="team-section" id="team">
+  <div class="container">
+    <div class="section-head center" style="margin-bottom:36px">
+      <span class="section-label">Our People</span>
+      <h2>The People Behind BHD Asia</h2>
+      <hr class="divider-line"/>
     </div>
-    <div class="et_pb_column_1_3">
-      <div class="team-member">
-        <img src="https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img,w_700,h_467/https://bhdasia.com/wp-content/uploads/2018/06/rougrey.jpg" alt="Rouviere Teixeira"/>
-        <h4>ROUVIERE TEIXEIRA</h4>
-        <p class="role"><em>Co-Founder and Director</em></p>
-        <p>Co-founder of Business and Lead trainer of Languages a Gogo, a brand from Human Development Pte Ltd and Business and Human Development Japan KK, Rouviere is dedicated to helping his students connect and communicate with the world.</p>
-        <p>He customizes every lesson and brings back in the center of his teaching WHO you are, WHY you want to learn and WHAT you need to learn to achieve your goals.</p>
-        <a class="et_pb_button" href="https://languagesagogo.com/" target="_blank" rel="noopener">Read more</a>
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="team-card-img">
+          <img src="https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img,w_700,h_467/https://bhdasia.com/wp-content/uploads/2018/06/isagrey.jpg" alt="Isabelle Claus Teixeira"/>
+        </div>
+        <div class="team-card-body">
+          <h4>Isabelle Claus Teixeira</h4>
+          <span class="role">Co-Founder and Director</span>
+          <p>Isabelle has over 27 years of experience in Senior HR Business partnering and regional Talent Management and Organisational Effectiveness experiences across Asia Pacific, Japan, Russia, US and Europe and is also a certified Leadership coach since 2012.</p>
+          <p>Since 1996, Isabelle has fulfilled global, regional and country HR roles in several industries (Automotive, Software Development, IT Technologies, Clinical Research, Trading, Shipping, Semi-conductors, Pharmaceuticals, Medical Devices).</p>
+          <a class="et_pb_button" href="isabelle.html">Read more</a>
+        </div>
       </div>
-    </div>
-    <div class="et_pb_column_1_3">
-      <div class="team-member">
-        <img src="https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img,w_700,h_467/https://bhdasia.com/wp-content/uploads/2018/06/cle.jpg" alt="Clement Koh"/>
-        <h4>CLEMENT KOH</h4>
-        <p class="role"><em>Singapore Representative Director</em></p>
-        <p>Well versed in business and technology, Clement currently spends his time dwelling in the latest trends for businesses looking to expand into Singapore and the region.</p>
-        <p>Clement's interest in human optimisation have led him to have a unique skillset. The synthesis of large amount of human related data — medical reports, biochemical, air quality, light, radio frequencies, nutrition, sleep, home and work data and more.</p>
-        <a class="et_pb_button" href="https://languagesagogo.com/" target="_blank" rel="noopener">Read more</a>
+      <div class="team-card">
+        <div class="team-card-img">
+          <img src="https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img,w_700,h_467/https://bhdasia.com/wp-content/uploads/2018/06/rougrey.jpg" alt="Rouviere Teixeira"/>
+        </div>
+        <div class="team-card-body">
+          <h4>Rouviere Teixeira</h4>
+          <span class="role">Co-Founder and Director</span>
+          <p>Co-founder of Business and Lead trainer of Languages a Gogo, a brand from Human Development Pte Ltd and Business and Human Development Japan KK, Rouviere is dedicated to helping his students connect and communicate with the world.</p>
+          <p>He customizes every lesson and brings back in the center of his teaching WHO you are, WHY you want to learn and WHAT you need to learn to achieve your goals.</p>
+          <a class="et_pb_button" href="https://languagesagogo.com/" target="_blank" rel="noopener">Read more</a>
+        </div>
+      </div>
+      <div class="team-card">
+        <div class="team-card-img">
+          <img src="https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img,w_700,h_467/https://bhdasia.com/wp-content/uploads/2018/06/cle.jpg" alt="Clement Koh"/>
+        </div>
+        <div class="team-card-body">
+          <h4>Clement Koh</h4>
+          <span class="role">Singapore Representative Director</span>
+          <p>Well versed in business and technology, Clement currently spends his time dwelling in the latest trends for businesses looking to expand into Singapore and the region.</p>
+          <p>Clement's interest in human optimisation have led him to have a unique skillset. The synthesis of large amount of human related data &mdash; medical reports, biochemical, air quality, light, radio frequencies, nutrition, sleep, home and work data and more.</p>
+          <a class="et_pb_button" href="https://languagesagogo.com/" target="_blank" rel="noopener">Read more</a>
+        </div>
       </div>
     </div>
   </div>

@@ -23,11 +23,16 @@
 
 /* -- PILLARS ---------------------------- */
 .pillars-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:8px}
-.pillar-card{border-top:3px solid var(--blue);background:#fff;padding:30px 26px;box-shadow:var(--shadow-sm);transition:var(--t)}
+.pillar-card{border-top:3px solid var(--blue);background:#fff;box-shadow:var(--shadow-sm);transition:var(--t);overflow:hidden;display:flex;flex-direction:column}
 .pillar-card:hover{box-shadow:var(--shadow);transform:translateY(-4px)}
 .pillar-icon{width:42px;height:42px;border-radius:50%;background:var(--blue);color:#fff;font-size:18px;font-weight:800;display:flex;align-items:center;justify-content:center;margin-bottom:16px}
 .pillar-card h3{font-size:16px;color:var(--text);margin-bottom:10px;font-weight:700}
 .pillar-card p{font-size:14.5px;color:var(--muted);line-height:1.75;margin-bottom:16px;padding-bottom:0}
+.pillar-img{height:150px;position:relative;overflow:hidden;background:#0c1622;display:flex;align-items:center;justify-content:center}
+.pillar-img-inner{position:absolute;inset:0;background:linear-gradient(135deg,#0c1c2e 0%,#1c3e63 55%,#0a1521 100%)}
+.pillar-img::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(0,0,0,.3));pointer-events:none}
+.pillar-img-ph{position:relative;z-index:1;width:44px;height:44px;color:rgba(255,255,255,.22)}
+.pillar-body{padding:30px 26px;flex:1;display:flex;flex-direction:column}
 
 /* -- PODCAST / VOICE INTERVIEW ---------- */
 .podcast-head{text-align:center;margin-bottom:44px}
@@ -43,11 +48,11 @@
 @keyframes ppEq{0%,100%{height:5px}50%{height:18px}}
 .podcast-player{min-width:0}
 .pp-show{font-size:11px;color:var(--gold);text-transform:uppercase;letter-spacing:.14em;font-weight:700;margin:0 0 6px}
-.pp-title{color:#fff;font-size:26px;font-weight:800;margin:0 0 10px;letter-spacing:-.01em}
-.pp-desc{color:rgba(255,255,255,.6);font-size:14.5px;line-height:1.8;margin:0 0 20px}
-.pp-caption{background:rgba(255,255,255,.05);border:1px solid rgba(232,184,48,.2);border-left:3px solid var(--gold);border-radius:var(--r);padding:14px 18px;margin-bottom:22px;min-height:62px}
+.pp-title{color:var(--text);font-size:26px;font-weight:800;margin:0 0 10px;letter-spacing:-.01em}
+.pp-desc{color:var(--body);font-size:14.5px;line-height:1.8;margin:0 0 20px}
+.pp-caption{background:var(--off-white);border:1px solid var(--border);border-left:3px solid var(--gold);border-radius:var(--r);padding:14px 18px;margin-bottom:22px;min-height:62px}
 .pp-caption-label{display:block;font-size:9.5px;color:var(--gold);text-transform:uppercase;letter-spacing:.16em;font-weight:700;margin-bottom:5px}
-.pp-caption-text{color:rgba(255,255,255,.92);font-size:16px;line-height:1.5;margin:0;font-family:Georgia,'Times New Roman',serif;font-style:italic;transition:opacity .2s ease}
+.pp-caption-text{color:var(--text);font-size:16px;line-height:1.5;margin:0;font-family:Georgia,'Times New Roman',serif;font-style:italic;transition:opacity .2s ease}
 .pp-controls{display:flex;align-items:center;gap:16px}
 .pp-play{flex-shrink:0;width:58px;height:58px;border-radius:50%;background:var(--gold);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--navy);transition:transform .2s ease,background .2s ease;box-shadow:0 6px 20px rgba(232,184,48,.4)}
 .pp-play:hover{transform:scale(1.07);background:var(--gold-dk)}
@@ -56,10 +61,10 @@
 .pp-play.playing .pp-ico-play{display:none}
 .pp-play.playing .pp-ico-pause{display:block}
 .pp-bar-wrap{flex:1;min-width:0}
-.pp-time{display:flex;justify-content:space-between;font-size:12px;color:rgba(255,255,255,.5);font-variant-numeric:tabular-nums;margin-bottom:7px}
-.pp-bar{height:6px;background:rgba(255,255,255,.12);border-radius:3px;cursor:pointer;position:relative;overflow:hidden}
+.pp-time{display:flex;justify-content:space-between;font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums;margin-bottom:7px}
+.pp-bar{height:6px;background:rgba(0,0,0,.1);border-radius:3px;cursor:pointer;position:relative;overflow:hidden}
 .pp-bar-fill{position:absolute;left:0;top:0;height:100%;width:0;background:var(--gold);border-radius:3px}
-.pp-dl{flex-shrink:0;width:42px;height:42px;border-radius:50%;border:1px solid rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.6);transition:var(--t)}
+.pp-dl{flex-shrink:0;width:42px;height:42px;border-radius:50%;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--muted);transition:var(--t)}
 .pp-dl:hover{color:var(--gold);border-color:var(--gold)}
 .pp-dl svg{width:18px;height:18px}
 @media(max-width:768px){.podcast-grid{grid-template-columns:1fr;gap:30px;justify-items:center}.podcast-player{width:100%}}
@@ -103,17 +108,11 @@
           <li class="menu-item"><a href="events.html">Events</a></li>
           <li class="menu-item"><a href="partners.html">Partners</a></li>
           
-          <li class="menu-item menu-item-has-children"><a href="services.html">Services</a>
-          <ul class="sub-menu">
-            <li class="menu-item"><a href="privacy.html">Privacy Statement</a></li>
-            <li class="menu-item"><a href="terms.html">Terms &amp; Conditions</a></li>
-            <li class="menu-item"><a href="code.html">Code of Practice</a></li>
-            <li class="menu-item"><a href="inclusivity.html">Inclusivity Statement</a></li>
-          </ul>
-        </li>
+          <li class="menu-item"><a href="services.html">Services</a></li>
           <li class="menu-item"><a href="contact.html">Contact</a></li>
         </ul>
       </nav>
+      <a href="contact.html" class="header-contact-btn">Contact</a>
       <div id="et_top_search"><span id="et_search_icon"></span></div>
       <div id="et_mobile_nav_menu"><span class="mobile_menu_bar" onclick="document.body.classList.toggle('mobile-nav-open')"></span></div>
     </div>
@@ -197,34 +196,43 @@
     </div>
     <div class="pillars-grid">
       <div class="pillar-card">
-        <span class="pillar-icon">1</span>
-        <h3>Organisation Development</h3>
-        <p>Leadership programme design, culture change, team coaching, talent management, and effectiveness diagnostics for companies across Asia and beyond.</p>
-        <a class="et_pb_button btn-outline" href="services.html">Learn more</a>
+        <div class="pillar-img"><div class="pillar-img-inner"></div><svg class="pillar-img-ph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div>
+        <div class="pillar-body">
+          <span class="pillar-icon">1</span>
+          <h3>Organisation Development</h3>
+          <p>Leadership programme design, culture change, team coaching, talent management, and effectiveness diagnostics for companies across Asia and beyond.</p>
+          <a class="et_pb_button btn-outline" href="services.html">Learn more</a>
+        </div>
       </div>
       <div class="pillar-card">
-        <span class="pillar-icon">2</span>
-        <h3>Resilience Building</h3>
-        <p>TRE&reg;, stress management, burnout prevention, conflict resolution, and psychological safety &mdash; helping people sustain high performance over the long term.</p>
-        <a class="et_pb_button btn-outline" href="services.html">Learn more</a>
+        <div class="pillar-img"><div class="pillar-img-inner"></div><svg class="pillar-img-ph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div>
+        <div class="pillar-body">
+          <span class="pillar-icon">2</span>
+          <h3>Resilience Building</h3>
+          <p>TRE&reg;, stress management, burnout prevention, conflict resolution, and psychological safety &mdash; helping people sustain high performance over the long term.</p>
+          <a class="et_pb_button btn-outline" href="services.html">Learn more</a>
+        </div>
       </div>
       <div class="pillar-card">
-        <span class="pillar-icon">3</span>
-        <h3>Individual Development</h3>
-        <p>Executive coaching, career transition, life coaching, accredited mediation, and intercultural competence &mdash; for leaders ready to create lasting change.</p>
-        <a class="et_pb_button btn-outline" href="services.html">Learn more</a>
+        <div class="pillar-img"><div class="pillar-img-inner"></div><svg class="pillar-img-ph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div>
+        <div class="pillar-body">
+          <span class="pillar-icon">3</span>
+          <h3>Individual Development</h3>
+          <p>Executive coaching, career transition, life coaching, accredited mediation, and intercultural competence &mdash; for leaders ready to create lasting change.</p>
+          <a class="et_pb_button btn-outline" href="services.html">Learn more</a>
+        </div>
       </div>
     </div>
   </div>
 </div>
 
 <!-- VOICE INTERVIEW — PODCAST -->
-<div class="section section-navy podcast-section" id="interview" style="padding:80px 0">
+<div class="section podcast-section section-light" id="interview" style="padding:80px 0">
   <div class="container">
     <div class="podcast-head">
       <span class="section-label">Voice Interview &middot; Podcast</span>
       <h2>Hear Isabelle in Her Own Words</h2>
-      <hr class="divider-line" style="background:rgba(255,255,255,.2)"/>
+      <hr class="divider-line"/>
     </div>
     <div class="podcast-grid">
       <div class="podcast-portrait" id="pp-portrait">
