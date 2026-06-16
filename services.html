@@ -7,19 +7,31 @@
 <link rel="stylesheet" href="style.css"/>
 <style>
 .services-section{padding:50px 0 60px}
-.services-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
-.service-category{background:#fff;padding:28px 24px;box-shadow:var(--shadow-sm);border-top:3px solid var(--blue)}
-.service-category h2{font-size:14.5px;color:var(--blue);border-bottom:1px solid var(--border);padding-bottom:12px;margin-bottom:16px;text-transform:uppercase;letter-spacing:.1em;font-weight:700}
-.service-list{list-style:none;padding:0;margin:0}
-.service-list li{padding:9px 0;border-bottom:1px solid var(--border);font-size:14.5px;color:var(--body);display:flex;align-items:center;gap:8px;line-height:1.5}
+.services-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;align-items:stretch}
+.service-category{background:#fff;box-shadow:var(--shadow-sm);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;transition:transform .25s ease,box-shadow .25s ease}
+.service-category:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg)}
+.svc-img{height:140px;position:relative;overflow:hidden;background:#0c1622;display:flex;align-items:center;justify-content:center;border-top:3px solid var(--blue)}
+.svc-img-inner{position:absolute;inset:0;background:linear-gradient(135deg,#0c1c2e 0%,#1c3e63 55%,#0a1521 100%)}
+.svc-img::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(0,0,0,.3));pointer-events:none}
+.svc-img-ph{position:relative;z-index:1;width:44px;height:44px;color:rgba(255,255,255,.22)}
+.svc-body{padding:24px;display:flex;flex-direction:column;flex:1}
+.service-category h2{font-size:14.5px;color:var(--blue);border-bottom:1px solid var(--border);padding-bottom:12px;margin-bottom:14px;text-transform:uppercase;letter-spacing:.1em;font-weight:700}
+.service-list{list-style:none;padding:0;margin:0 0 14px}
+.service-list li{padding:9px 0;border-bottom:1px solid var(--border);font-size:14.5px;color:var(--body);display:flex;align-items:flex-start;gap:10px;line-height:1.5}
 .service-list li:last-child{border-bottom:none}
-.service-list li::before{content:'';width:8px;height:8px;background:var(--blue);border-radius:50%;flex-shrink:0;margin-top:8px;display:block}
-.coaching-package{background:#FEF3EC;border-left:4px solid var(--blue);padding:30px 32px;margin:40px 0}
+.service-list li::before{content:'';width:8px;height:8px;background:var(--blue);border-radius:50%;flex-shrink:0;margin-top:6px;display:block}
+.service-category .et_pb_button{margin-top:auto;align-self:flex-start}
+.coaching-package{background:#FEF3EC;border-left:4px solid var(--blue);margin:40px 0;display:flex;overflow:hidden}
+.coaching-pkg-img{flex:0 0 210px;position:relative;background:#0c1622;overflow:hidden}
+.coaching-pkg-img-inner{position:absolute;inset:0;background:linear-gradient(135deg,#0c1c2e 0%,#1c3e63 55%,#0a1521 100%)}
+.coaching-pkg-img::after{content:'';position:absolute;inset:0;background:linear-gradient(120deg,transparent 55%,rgba(0,0,0,.32));pointer-events:none}
+.coaching-pkg-img-ph{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:48px;height:48px;color:rgba(255,255,255,.22);z-index:1}
+.coaching-pkg-body{flex:1;padding:30px 32px;min-width:0}
 .coaching-package h3{font-size:18px;color:var(--text);margin-bottom:8px}
 .coaching-package .price{font-size:30px;font-weight:800;color:var(--blue);margin-bottom:12px}
 .coaching-package .price span{font-size:14.5px;color:var(--muted);font-weight:400}
 .coaching-package p{font-size:14.5px;color:var(--body);line-height:1.8;margin-bottom:0}
-@media(max-width:768px){.services-cols{grid-template-columns:1fr}}
+@media(max-width:768px){.services-cols{grid-template-columns:1fr}.coaching-package{flex-direction:column}.coaching-pkg-img{flex:0 0 150px}}
 </style>
 </head>
 <body class="page et_fixed_nav et_divi_theme">
@@ -92,59 +104,74 @@
     <div class="services-cols" id="services-grid">
 
       <div class="service-category">
-        <h2>Organisation Development</h2>
-        <ul class="service-list">
-          <li>HR &amp; Talent Management Advisory</li>
-          <li>High Performing Teams Facilitation</li>
-          <li>Challenging Conversations &amp; Constructive Conflict Management</li>
-          <li>Leadership Skills Development</li>
-          <li>Organisation Culture Transformation</li>
-          <li>Change Management Skills</li>
-          <li>Mediation Services</li>
-        </ul>
-        <a class="et_pb_button btn-outline" href="contact.html" style="margin-top:18px;display:inline-block">Enquire</a>
+        <div class="svc-img"><div class="svc-img-inner"></div><svg class="svc-img-ph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div>
+        <div class="svc-body">
+          <h2>Organisation Development</h2>
+          <ul class="service-list">
+            <li>HR &amp; Talent Management Advisory</li>
+            <li>High Performing Teams Facilitation</li>
+            <li>Challenging Conversations &amp; Constructive Conflict Management</li>
+            <li>Leadership Skills Development</li>
+            <li>Organisation Culture Transformation</li>
+            <li>Change Management Skills</li>
+            <li>Mediation Services</li>
+          </ul>
+          <a class="et_pb_button btn-outline" href="contact.html">Enquire</a>
+        </div>
       </div>
 
       <div class="service-category">
-        <h2>Resilience Building</h2>
-        <ul class="service-list">
-          <li>Somatic Coaching &mdash; body-based work integrated with neuroscience and energy psychology</li>
-          <li>Tension &amp; Trauma Releasing Exercises (TRE&reg;) &mdash; neurogenic stress release without detailed discussion</li>
-          <li>Stress Management &amp; Burnout Prevention</li>
-          <li>Psychological Safety Workshops</li>
-          <li>Conflict Resolution &amp; Mediation</li>
-        </ul>
-        <a class="et_pb_button btn-outline" href="contact.html" style="margin-top:18px;display:inline-block">Enquire</a>
+        <div class="svc-img"><div class="svc-img-inner"></div><svg class="svc-img-ph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div>
+        <div class="svc-body">
+          <h2>Resilience Building</h2>
+          <ul class="service-list">
+            <li>Somatic Coaching &mdash; body-based work integrated with neuroscience and energy psychology</li>
+            <li>Tension &amp; Trauma Releasing Exercises (TRE&reg;) &mdash; neurogenic stress release without detailed discussion</li>
+            <li>Stress Management &amp; Burnout Prevention</li>
+            <li>Psychological Safety Workshops</li>
+            <li>Conflict Resolution &amp; Mediation</li>
+          </ul>
+          <a class="et_pb_button btn-outline" href="contact.html">Enquire</a>
+        </div>
       </div>
 
       <div class="service-category">
-        <h2>Individual Development</h2>
-        <ul class="service-list">
-          <li>Executive Coaching</li>
-          <li>Transition Coaching</li>
-          <li>Performance Coaching</li>
-          <li>Career Coaching</li>
-          <li>Self Awareness Development</li>
-          <li>360&deg; Debrief</li>
-        </ul>
-        <a class="et_pb_button btn-outline" href="contact.html" style="margin-top:18px;display:inline-block">Enquire</a>
+        <div class="svc-img"><div class="svc-img-inner"></div><svg class="svc-img-ph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div>
+        <div class="svc-body">
+          <h2>Individual Development</h2>
+          <ul class="service-list">
+            <li>Executive Coaching</li>
+            <li>Transition Coaching</li>
+            <li>Performance Coaching</li>
+            <li>Career Coaching</li>
+            <li>Self Awareness Development</li>
+            <li>360&deg; Debrief</li>
+          </ul>
+          <a class="et_pb_button btn-outline" href="contact.html">Enquire</a>
+        </div>
       </div>
 
     </div>
 
     <div class="coaching-package">
-      <h3>8-Week Coaching Package</h3>
-      <div class="price">SGD 2,200 <span>/ package</span></div>
-      <p>Our signature 8-week individual coaching programme is designed to create meaningful, lasting change. Each package includes an initial diagnostic session, eight weekly one-on-one coaching sessions, targeted exercises between sessions, and a follow-up session at 3 months. Topics are fully customised to your goals &mdash; whether leadership development, career transition, stress resilience, or personal growth.</p>
-      <a class="et_pb_button" href="contact.html" style="margin-top:14px;display:inline-block">Buy Now &mdash; Schedule a Free 1:1</a>
+      <div class="coaching-pkg-img"><div class="coaching-pkg-img-inner"></div><svg class="coaching-pkg-img-ph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div>
+      <div class="coaching-pkg-body">
+        <h3>8-Week Coaching Package</h3>
+        <div class="price">SGD 2,200 <span>/ package</span></div>
+        <p>Our signature 8-week individual coaching programme is designed to create meaningful, lasting change. Each package includes an initial diagnostic session, eight weekly one-on-one coaching sessions, targeted exercises between sessions, and a follow-up session at 3 months. Topics are fully customised to your goals &mdash; whether leadership development, career transition, stress resilience, or personal growth.</p>
+        <a class="et_pb_button" href="contact.html" style="margin-top:14px;display:inline-block">Buy Now &mdash; Schedule a Free 1:1</a>
+      </div>
     </div>
 
     <div class="coaching-package" style="margin-top:0;border-left-color:var(--gold)">
-      <h3>New Leader Accelerator Program</h3>
-      <div class="price" style="font-size:22px;margin-bottom:10px;color:var(--gold)">For Leaders in Transition</div>
-      <p>Designed for newly appointed managers, directors, or executives stepping into an expanded role, this programme accelerates the critical first 90 days. Through a blend of structured coaching, stakeholder alignment, and leadership diagnostics, new leaders build confidence, establish credibility, and avoid the common pitfalls that derail early-tenure success.</p>
-      <p style="margin-top:8px;padding-top:0;font-size:13px;color:var(--muted)">Includes role diagnostics, up to 6 coaching sessions, stakeholder feedback, and a personalised leadership action plan. Duration and pricing tailored to the individual engagement.</p>
-      <a class="et_pb_button btn-outline" href="contact.html" style="margin-top:14px;display:inline-block">Enquire About This Programme</a>
+      <div class="coaching-pkg-img"><div class="coaching-pkg-img-inner"></div><svg class="coaching-pkg-img-ph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div>
+      <div class="coaching-pkg-body">
+        <h3>New Leader Accelerator Program</h3>
+        <div class="price" style="font-size:22px;margin-bottom:10px;color:var(--gold)">For Leaders in Transition</div>
+        <p>Designed for newly appointed managers, directors, or executives stepping into an expanded role, this programme accelerates the critical first 90 days. Through a blend of structured coaching, stakeholder alignment, and leadership diagnostics, new leaders build confidence, establish credibility, and avoid the common pitfalls that derail early-tenure success.</p>
+        <p style="margin-top:8px;padding-top:0;font-size:13px;color:var(--muted)">Includes role diagnostics, up to 6 coaching sessions, stakeholder feedback, and a personalised leadership action plan. Duration and pricing tailored to the individual engagement.</p>
+        <a class="et_pb_button btn-outline" href="contact.html" style="margin-top:14px;display:inline-block">Enquire About This Programme</a>
+      </div>
     </div>
 
   </div>

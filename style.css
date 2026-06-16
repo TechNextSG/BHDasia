@@ -97,18 +97,19 @@ strong{font-weight:700}em{font-style:italic}
   position:fixed;top:0;left:0;right:0;z-index:99999;
   background:#fff;
   border-bottom:1px solid var(--border);
-  transition:box-shadow .3s,border-color .3s;
+  transition:box-shadow .3s,border-color .3s,transform .35s ease;
 }
 #main-header.et-fixed-header{box-shadow:0 2px 16px rgba(0,0,0,.1);border-bottom-color:transparent}
-.et_menu_container{display:flex;align-items:center;height:60px;max-width:1100px;margin:0 auto;padding:0 40px}
+#main-header.header-hidden{transform:translateY(-100%)}
+.et_menu_container{display:flex;align-items:center;height:60px;max-width:1100px;margin:0 auto;padding:0 40px;position:relative}
 
 .logo_container{display:flex;align-items:center;margin-right:auto;flex-shrink:0}
 .logo_container img{height:34px;display:block}
 .logo_container .logo-text{display:none;font-size:1.2rem;font-weight:800;letter-spacing:.06em;color:var(--navy)}
 
 #et-top-navigation{display:flex;align-items:center}
-#top-menu-nav{display:inline-block;line-height:0}
-#top-menu{list-style:none;display:flex;align-items:center;height:60px;float:left;gap:4px}
+#top-menu-nav{position:absolute;left:50%;top:0;transform:translateX(-50%);display:flex;align-items:center;height:60px}
+#top-menu{list-style:none;display:flex;align-items:center;height:60px;gap:4px}
 #top-menu>li{display:inline-block;font-size:12px;padding-right:22px;position:relative}
 #top-menu>li:last-child{padding-right:0}
 #top-menu>li>a{color:var(--body);display:block;padding:8px 0;transition:var(--t);white-space:nowrap;font-weight:700;position:relative;letter-spacing:.04em;text-transform:uppercase;font-size:11px}
@@ -295,8 +296,11 @@ strong{font-weight:700}em{font-style:italic}
 .countdown-title{color:var(--text);font-size:24px;font-weight:700;margin-bottom:4px}
 .countdown-meta{color:var(--muted);font-size:15px;margin:0;padding:0}
 .countdown-timer{display:flex;gap:16px;flex-wrap:wrap}
-.c-unit{text-align:center;background:#fff;border:1px solid var(--border);border-top:4px solid var(--gold);border-radius:var(--r);padding:22px 28px;min-width:104px;box-shadow:var(--shadow-sm)}
-.c-n{display:block;font-size:56px;font-weight:800;color:var(--navy);line-height:1;margin-bottom:8px;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.c-unit{text-align:center;background:#fff;border:1px solid var(--border);border-top:4px solid var(--gold);border-radius:var(--r);padding:22px 28px;min-width:104px;box-shadow:var(--shadow-sm);transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease}
+.c-unit:hover{transform:translateY(-5px);box-shadow:0 14px 30px rgba(11,34,56,.16);border-top-color:var(--blue)}
+.c-n{display:block;font-size:56px;font-weight:800;color:var(--navy);line-height:1;margin-bottom:8px;letter-spacing:-.03em;font-variant-numeric:tabular-nums;transform-origin:center}
+.c-n.c-flip{animation:cPop .5s cubic-bezier(.2,.8,.2,1)}
+@keyframes cPop{0%{transform:scale(.55);opacity:.25}55%{transform:scale(1.12)}100%{transform:scale(1);opacity:1}}
 .c-l{display:block;font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.14em;font-weight:700}
 @media(max-width:768px){.countdown-inner{flex-direction:column;align-items:flex-start}.countdown-timer{gap:10px}.c-unit{min-width:80px;padding:16px 18px}.c-n{font-size:42px}.c-l{font-size:11px}}
 
@@ -344,7 +348,7 @@ strong{font-weight:700}em{font-style:italic}
   .stats-grid{grid-template-columns:repeat(2,1fr)}
   .client-tags li{white-space:normal}
 }
-body.mobile-nav-open #top-menu-nav{display:block;position:fixed;top:60px;left:0;right:0;background:#fff;box-shadow:0 4px 24px rgba(0,0,0,.1);z-index:99998;padding:8px 0}
+body.mobile-nav-open #top-menu-nav{display:block;position:fixed;top:60px;left:0;right:0;transform:none;height:auto;background:#fff;box-shadow:0 4px 24px rgba(0,0,0,.1);z-index:99998;padding:8px 0}
 body.mobile-nav-open #top-menu{flex-direction:column;height:auto;align-items:stretch;padding:0 20px}
 body.mobile-nav-open #top-menu>li{padding:0;border-bottom:1px solid var(--border)}
 body.mobile-nav-open #top-menu>li>a{color:var(--body)!important;padding:12px 0}

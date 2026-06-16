@@ -15,13 +15,23 @@
     header.insertBefore(topbar, header.firstChild);
   }
 
-  // Scroll shadow / topbar collapse
+  // Scroll shadow / topbar collapse + auto-hide on scroll down, reveal on scroll up
+  var lastY = window.scrollY;
   function updateHeader(){
-    if(window.scrollY > 10){
-      header.classList.add('et-fixed-header');
-    } else {
-      header.classList.remove('et-fixed-header');
+    var y = window.scrollY;
+    if(y > 10){ header.classList.add('et-fixed-header'); }
+    else { header.classList.remove('et-fixed-header'); }
+    // Never hide while the mobile menu is open
+    if(document.body.classList.contains('mobile-nav-open')){
+      header.classList.remove('header-hidden');
+      lastY = y; return;
     }
+    if(y > 180 && y > lastY + 4){
+      header.classList.add('header-hidden');     // scrolling down
+    } else if(y < lastY - 4 || y <= 10){
+      header.classList.remove('header-hidden');  // scrolling up (or at top)
+    }
+    lastY = y;
   }
   window.addEventListener('scroll', updateHeader, {passive:true});
   updateHeader();

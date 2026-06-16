@@ -29,18 +29,40 @@
 .pillar-card h3{font-size:16px;color:var(--text);margin-bottom:10px;font-weight:700}
 .pillar-card p{font-size:14.5px;color:var(--muted);line-height:1.75;margin-bottom:16px;padding-bottom:0}
 
-/* -- INTERVIEW SECTION ------------------ */
-.interview-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
-.interview-content h2{color:#fff;font-size:28px;margin-bottom:10px}
-.interview-quote{font-size:17px;font-style:italic;color:rgba(255,255,255,.85);border-left:3px solid var(--gold);padding:4px 0 4px 20px;margin:22px 0;font-family:Georgia,'Times New Roman',serif;line-height:1.65}
-.interview-content p{color:rgba(255,255,255,.55);font-size:14px;line-height:1.85;margin-bottom:24px;padding-bottom:0}
-.player-card{background:rgba(255,255,255,.06);border:1px solid rgba(232,184,48,.25);border-top:3px solid var(--gold);padding:26px;border-radius:var(--r)}
-.player-header{margin-bottom:14px}
-.player-label{display:block;font-size:14px;font-weight:700;color:#fff;margin-bottom:3px}
-.player-sub{font-size:11px;color:rgba(255,255,255,.38);text-transform:uppercase;letter-spacing:.1em}
-.player-footer{display:flex;justify-content:space-between;align-items:center;margin-top:14px;padding-top:12px;border-top:1px solid rgba(255,255,255,.09)}
-.noomii-badge{font-size:11px;color:rgba(255,255,255,.35);font-weight:600;letter-spacing:.08em;text-transform:uppercase}
-@media(max-width:980px){.interview-grid{grid-template-columns:1fr}}
+/* -- PODCAST / VOICE INTERVIEW ---------- */
+.podcast-head{text-align:center;margin-bottom:44px}
+.podcast-head .divider-line{margin-left:auto;margin-right:auto}
+.podcast-grid{display:grid;grid-template-columns:300px 1fr;gap:56px;align-items:center}
+.podcast-portrait{position:relative;display:flex;align-items:center;justify-content:center;min-height:280px}
+.pp-ring{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:236px;height:236px;border-radius:50%;background:rgba(232,184,48,.05);box-shadow:0 0 18px 2px rgba(232,184,48,.25);will-change:box-shadow,transform}
+.pp-img{position:relative;z-index:1;width:220px;height:220px;border-radius:50%;background-size:cover;background-position:center 15%;border:4px solid rgba(255,255,255,.12);box-shadow:0 10px 40px rgba(0,0,0,.45)}
+.pp-eq{position:absolute;z-index:2;bottom:12px;left:50%;transform:translateX(-50%);display:flex;gap:3px;align-items:flex-end;height:20px;opacity:0;transition:opacity .3s;background:rgba(11,34,56,.7);padding:6px 10px;border-radius:20px}
+.podcast-portrait.playing .pp-eq{opacity:1}
+.pp-eq span{width:3px;background:var(--gold);height:6px;border-radius:2px;animation:ppEq .9s ease-in-out infinite}
+.pp-eq span:nth-child(2){animation-delay:.15s}.pp-eq span:nth-child(3){animation-delay:.3s}.pp-eq span:nth-child(4){animation-delay:.45s}.pp-eq span:nth-child(5){animation-delay:.6s}
+@keyframes ppEq{0%,100%{height:5px}50%{height:18px}}
+.podcast-player{min-width:0}
+.pp-show{font-size:11px;color:var(--gold);text-transform:uppercase;letter-spacing:.14em;font-weight:700;margin:0 0 6px}
+.pp-title{color:#fff;font-size:26px;font-weight:800;margin:0 0 10px;letter-spacing:-.01em}
+.pp-desc{color:rgba(255,255,255,.6);font-size:14.5px;line-height:1.8;margin:0 0 20px}
+.pp-caption{background:rgba(255,255,255,.05);border:1px solid rgba(232,184,48,.2);border-left:3px solid var(--gold);border-radius:var(--r);padding:14px 18px;margin-bottom:22px;min-height:62px}
+.pp-caption-label{display:block;font-size:9.5px;color:var(--gold);text-transform:uppercase;letter-spacing:.16em;font-weight:700;margin-bottom:5px}
+.pp-caption-text{color:rgba(255,255,255,.92);font-size:16px;line-height:1.5;margin:0;font-family:Georgia,'Times New Roman',serif;font-style:italic;transition:opacity .2s ease}
+.pp-controls{display:flex;align-items:center;gap:16px}
+.pp-play{flex-shrink:0;width:58px;height:58px;border-radius:50%;background:var(--gold);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--navy);transition:transform .2s ease,background .2s ease;box-shadow:0 6px 20px rgba(232,184,48,.4)}
+.pp-play:hover{transform:scale(1.07);background:var(--gold-dk)}
+.pp-play svg{width:24px;height:24px}
+.pp-play .pp-ico-pause{display:none}
+.pp-play.playing .pp-ico-play{display:none}
+.pp-play.playing .pp-ico-pause{display:block}
+.pp-bar-wrap{flex:1;min-width:0}
+.pp-time{display:flex;justify-content:space-between;font-size:12px;color:rgba(255,255,255,.5);font-variant-numeric:tabular-nums;margin-bottom:7px}
+.pp-bar{height:6px;background:rgba(255,255,255,.12);border-radius:3px;cursor:pointer;position:relative;overflow:hidden}
+.pp-bar-fill{position:absolute;left:0;top:0;height:100%;width:0;background:var(--gold);border-radius:3px}
+.pp-dl{flex-shrink:0;width:42px;height:42px;border-radius:50%;border:1px solid rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.6);transition:var(--t)}
+.pp-dl:hover{color:var(--gold);border-color:var(--gold)}
+.pp-dl svg{width:18px;height:18px}
+@media(max-width:768px){.podcast-grid{grid-template-columns:1fr;gap:30px;justify-items:center}.podcast-player{width:100%}}
 
 /* -- MEDIA SECTION ---------------------- */
 .media-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
@@ -196,35 +218,40 @@
   </div>
 </div>
 
-<!-- FEATURED INTERVIEW — VOICE RECORD -->
-<div class="section section-navy" style="padding:80px 0">
+<!-- VOICE INTERVIEW — PODCAST -->
+<div class="section section-navy podcast-section" id="interview" style="padding:80px 0">
   <div class="container">
-    <div class="interview-grid">
-      <div class="interview-content">
-        <span class="section-label">Voice Interview</span>
-        <h2>Hear Isabelle in Her Own Words</h2>
-        <hr class="divider-line" style="background:rgba(255,255,255,.2)"/>
-        <blockquote class="interview-quote">
-          "I don't give people answers. I help them find their own — because lasting change only comes from within."
-        </blockquote>
-        <p>An in-depth interview hosted by Noomii exploring Isabelle's journey across 9 countries, 27 years of HR leadership, and what drew her to executive coaching and somatic work.</p>
-        <div style="display:flex;gap:8px;flex-wrap:wrap">
-          <a class="et_pb_button" href="isabelle.html">Full Profile</a>
-          <a class="et_pb_button btn-white-outline" href="contact.html">Book a Call</a>
-        </div>
+    <div class="podcast-head">
+      <span class="section-label">Voice Interview &middot; Podcast</span>
+      <h2>Hear Isabelle in Her Own Words</h2>
+      <hr class="divider-line" style="background:rgba(255,255,255,.2)"/>
+    </div>
+    <div class="podcast-grid">
+      <div class="podcast-portrait" id="pp-portrait">
+        <div class="pp-ring" id="pp-ring"></div>
+        <div class="pp-img" style="background-image:url('https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img,w_700,h_467/https://bhdasia.com/wp-content/uploads/2018/06/isagrey.jpg')"></div>
+        <div class="pp-eq" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
       </div>
-      <div class="interview-player">
-        <div class="player-card">
-          <div class="player-header">
-            <span class="player-label">Isabelle Claus Teixeira</span>
-            <span class="player-sub">Interview by Noomii &nbsp;&middot;&nbsp; The Coaching Experts</span>
-          </div>
-          <iframe style="border:0;height:135px;width:100%;display:block;" src="https://www.noomii.com/users/isabelle-claus_teixeira/get_user_interview_widget" scrolling="no" title="Isabelle Claus Teixeira — Noomii Interview"></iframe>
-          <div class="player-footer">
-            <span class="noomii-badge">Powered by Noomii</span>
-            <a href="https://www.noomii.com/" target="_blank" rel="noopener" style="font-size:11px;color:rgba(255,255,255,.35);transition:color .2s">noomii.com</a>
-          </div>
+      <div class="podcast-player">
+        <p class="pp-show">The Coaching Experts &middot; Interview by Noomii</p>
+        <h3 class="pp-title">Isabelle Claus Teixeira</h3>
+        <p class="pp-desc">An in-depth conversation on her journey across nine countries, 27 years of HR leadership, and what drew her to executive coaching and somatic work.</p>
+        <div class="pp-caption" aria-live="polite">
+          <span class="pp-caption-label">Now Playing &middot; Chapter</span>
+          <p class="pp-caption-text" id="pp-caption-text">Press play to begin the interview.</p>
         </div>
+        <div class="pp-controls">
+          <button class="pp-play" id="pp-play" aria-label="Play interview">
+            <svg class="pp-ico-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+            <svg class="pp-ico-pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
+          </button>
+          <div class="pp-bar-wrap">
+            <div class="pp-time"><span id="pp-cur">0:00</span><span id="pp-dur">10:04</span></div>
+            <div class="pp-bar" id="pp-bar"><div class="pp-bar-fill" id="pp-bar-fill"></div></div>
+          </div>
+          <a class="pp-dl" href="isabelle-interview.mp3" download aria-label="Download episode"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></a>
+        </div>
+        <audio id="pp-audio" preload="metadata" src="isabelle-interview.mp3"></audio>
       </div>
     </div>
   </div>
@@ -281,6 +308,12 @@
 (function(){
   var target=new Date('2026-08-29T10:00:00+08:00');
   function pad(n){return String(n).padStart(2,'0')}
+  function setNum(id,val){
+    var el=document.getElementById(id);
+    if(!el||el.textContent===val) return;
+    el.textContent=val;
+    el.classList.remove('c-flip'); void el.offsetWidth; el.classList.add('c-flip');
+  }
   function tick(){
     var diff=target-new Date();
     if(diff<=0){
@@ -288,13 +321,84 @@
       if(el) el.innerHTML='<p style="color:var(--blue);font-weight:700;font-size:16px;margin:0">This event has started!</p>';
       return;
     }
-    document.getElementById('c-days').textContent=pad(Math.floor(diff/86400000));
-    document.getElementById('c-hours').textContent=pad(Math.floor(diff%86400000/3600000));
-    document.getElementById('c-mins').textContent=pad(Math.floor(diff%3600000/60000));
-    document.getElementById('c-secs').textContent=pad(Math.floor(diff%60000/1000));
+    setNum('c-days',pad(Math.floor(diff/86400000)));
+    setNum('c-hours',pad(Math.floor(diff%86400000/3600000)));
+    setNum('c-mins',pad(Math.floor(diff%3600000/60000)));
+    setNum('c-secs',pad(Math.floor(diff%60000/1000)));
     setTimeout(tick,1000);
   }
   tick();
+})();
+</script>
+<script>
+/* Podcast player: custom controls + voice-reactive glow + chapter captions */
+(function(){
+  var audio=document.getElementById('pp-audio');
+  if(!audio) return;
+  var playBtn=document.getElementById('pp-play'),
+      ring=document.getElementById('pp-ring'),
+      portrait=document.getElementById('pp-portrait'),
+      fill=document.getElementById('pp-bar-fill'),
+      bar=document.getElementById('pp-bar'),
+      cur=document.getElementById('pp-cur'),
+      dur=document.getElementById('pp-dur'),
+      capText=document.getElementById('pp-caption-text');
+
+  /* Chapter timeline (descriptive). For word-for-word live captions,
+     drop a timed transcript into CUES as {t:<seconds>, c:'<spoken text>'}. */
+  var CUES=[
+    {t:0,   c:'Introduction — meet Isabelle Claus Teixeira.'},
+    {t:75,  c:'A journey across nine countries.'},
+    {t:195, c:'Twenty-seven years in HR and talent leadership.'},
+    {t:315, c:'What drew her to executive coaching.'},
+    {t:450, c:'Somatic work and TRE®.'},
+    {t:545, c:'Bringing out the best in each of us.'}
+  ];
+
+  function fmt(s){ if(isNaN(s)||!isFinite(s)) return '0:00'; var m=Math.floor(s/60), r=Math.floor(s%60); return m+':'+(r<10?'0':'')+r; }
+
+  var ac, analyser, data, glow=0, raf;
+  function initCtx(){
+    if(ac) return;
+    try{
+      ac=new (window.AudioContext||window.webkitAudioContext)();
+      var src=ac.createMediaElementSource(audio);
+      analyser=ac.createAnalyser(); analyser.fftSize=256;
+      data=new Uint8Array(analyser.frequencyBinCount);
+      src.connect(analyser); analyser.connect(ac.destination);
+    }catch(e){ analyser=null; }
+  }
+  function frame(){
+    if(analyser){
+      analyser.getByteFrequencyData(data);
+      var sum=0; for(var i=0;i<data.length;i++) sum+=data[i];
+      var lvl=Math.min(1,(sum/data.length)/95);
+      glow += (lvl-glow)*0.28;
+    } else { glow=0.45+0.3*Math.sin(Date.now()/170); }
+    var blur=(18+glow*62).toFixed(1), spread=(2+glow*10).toFixed(1), op=(0.25+glow*0.55).toFixed(3), sc=(1+glow*0.07).toFixed(3);
+    ring.style.boxShadow='0 0 '+blur+'px '+spread+'px rgba(232,184,48,'+op+')';
+    ring.style.transform='translate(-50%,-50%) scale('+sc+')';
+    raf=requestAnimationFrame(frame);
+  }
+  function stopFrame(){ cancelAnimationFrame(raf); ring.style.boxShadow='0 0 18px 2px rgba(232,184,48,.25)'; ring.style.transform='translate(-50%,-50%) scale(1)'; }
+
+  playBtn.addEventListener('click', function(){
+    initCtx();
+    if(ac && ac.state==='suspended') ac.resume();
+    if(audio.paused) audio.play(); else audio.pause();
+  });
+  audio.addEventListener('play', function(){ playBtn.classList.add('playing'); portrait.classList.add('playing'); frame(); });
+  audio.addEventListener('pause', function(){ playBtn.classList.remove('playing'); portrait.classList.remove('playing'); stopFrame(); });
+  audio.addEventListener('ended', function(){ playBtn.classList.remove('playing'); portrait.classList.remove('playing'); stopFrame(); fill.style.width='0%'; });
+  audio.addEventListener('loadedmetadata', function(){ dur.textContent=fmt(audio.duration); });
+  audio.addEventListener('timeupdate', function(){
+    if(audio.duration){ fill.style.width=(audio.currentTime/audio.duration*100)+'%'; }
+    cur.textContent=fmt(audio.currentTime);
+    var c=CUES[0].c;
+    for(var i=0;i<CUES.length;i++){ if(audio.currentTime>=CUES[i].t) c=CUES[i].c; }
+    if(capText.textContent!==c){ capText.style.opacity='0'; setTimeout(function(){ capText.textContent=c; capText.style.opacity='1'; },180); }
+  });
+  bar.addEventListener('click', function(e){ if(!audio.duration) return; var r=bar.getBoundingClientRect(); audio.currentTime=(e.clientX-r.left)/r.width*audio.duration; });
 })();
 </script>
 </body>
