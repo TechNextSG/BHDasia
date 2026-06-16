@@ -415,3 +415,41 @@ input:focus,textarea:focus,select:focus{box-shadow:0 0 0 3px rgba(200,85,26,.15)
   .stat-item .stat-n{color:#000}
   .stat-item .stat-l{color:#555}
 }
+
+/* ── FLOATING WIDGETS — WhatsApp + chat assistant ─ */
+#bhd-fab{position:fixed;right:22px;bottom:22px;z-index:99990;display:flex;flex-direction:column;gap:12px;align-items:center}
+.bhd-fab-btn{width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;border:none;box-shadow:0 6px 20px rgba(0,0,0,.22);transition:transform .2s ease,box-shadow .2s ease;padding:0}
+.bhd-fab-btn:hover{transform:translateY(-3px) scale(1.05);box-shadow:0 10px 28px rgba(0,0,0,.3)}
+.bhd-fab-btn svg{width:30px;height:30px}
+.bhd-wa{background:#25D366;color:#fff}
+.bhd-chat-toggle{background:var(--blue);color:#fff}
+.bhd-chat-toggle.bhd-open svg{transform:rotate(0)}
+#bhd-chat{position:fixed;right:22px;bottom:92px;z-index:99991;width:362px;max-width:calc(100vw - 32px);height:524px;max-height:calc(100vh - 132px);background:#fff;border-radius:14px;box-shadow:0 18px 50px rgba(0,0,0,.32);display:flex;flex-direction:column;overflow:hidden;transform-origin:bottom right;transition:opacity .22s ease,transform .22s ease}
+#bhd-chat.bhd-chat-closed{opacity:0;transform:translateY(16px) scale(.96);pointer-events:none;visibility:hidden}
+.bhd-chat-head{background:var(--navy);color:#fff;padding:15px 18px;display:flex;align-items:center;justify-content:space-between;border-top:3px solid var(--gold);flex-shrink:0}
+.bhd-chat-head-info{display:flex;flex-direction:column;gap:2px}
+.bhd-chat-title{font-size:15px;font-weight:700;letter-spacing:.01em}
+.bhd-chat-status{font-size:11px;color:rgba(255,255,255,.55)}
+.bhd-chat-status::before{content:'';display:inline-block;width:7px;height:7px;border-radius:50%;background:#25D366;margin-right:6px;vertical-align:middle}
+.bhd-chat-close{background:none;border:none;color:rgba(255,255,255,.7);font-size:26px;line-height:1;cursor:pointer;padding:0 2px}
+.bhd-chat-close:hover{color:#fff}
+.bhd-chat-msgs{flex:1;overflow-y:auto;padding:18px;background:var(--off-white);display:flex;flex-direction:column;gap:11px}
+.bhd-msg{max-width:85%;padding:10px 14px;border-radius:14px;font-size:13.5px;line-height:1.55}
+.bhd-msg-bot{background:#fff;border:1px solid var(--border);color:var(--text);align-self:flex-start;border-bottom-left-radius:4px}
+.bhd-msg-user{background:var(--blue);color:#fff;align-self:flex-end;border-bottom-right-radius:4px}
+.bhd-msg-bot a{color:var(--blue-dk);font-weight:600;text-decoration:underline}
+.bhd-chat-typing{align-self:flex-start;display:flex;gap:4px;padding:13px 14px;background:#fff;border:1px solid var(--border);border-radius:14px}
+.bhd-chat-typing span{width:7px;height:7px;border-radius:50%;background:var(--muted);animation:bhdTyping 1s infinite}
+.bhd-chat-typing span:nth-child(2){animation-delay:.15s}
+.bhd-chat-typing span:nth-child(3){animation-delay:.3s}
+@keyframes bhdTyping{0%,60%,100%{opacity:.3;transform:translateY(0)}30%{opacity:1;transform:translateY(-4px)}}
+.bhd-chat-quick{display:flex;flex-wrap:wrap;gap:6px;padding:10px 14px 4px;background:#fff;border-top:1px solid var(--border);flex-shrink:0}
+.bhd-quick-btn{font-size:11.5px;border:1px solid var(--blue);color:var(--blue);background:#fff;border-radius:20px;padding:5px 12px;cursor:pointer;transition:var(--t);font-weight:600;font-family:inherit}
+.bhd-quick-btn:hover{background:var(--blue);color:#fff}
+.bhd-chat-input{display:flex;border-top:1px solid var(--border);background:#fff;flex-shrink:0}
+.bhd-chat-input input{flex:1;border:none;padding:14px 16px;font-size:13.5px;outline:none;font-family:inherit;color:var(--text);background:none}
+.bhd-chat-input button{background:var(--blue);color:#fff;border:none;width:50px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s}
+.bhd-chat-input button:hover{background:var(--blue-dk)}
+.bhd-chat-input button svg{width:18px;height:18px}
+@media(max-width:480px){#bhd-chat{right:12px;left:12px;width:auto;bottom:86px;height:70vh}#bhd-fab{right:16px;bottom:16px}}
+@media print{#bhd-fab,#bhd-chat{display:none!important}}

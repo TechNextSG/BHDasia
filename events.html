@@ -7,16 +7,23 @@
 <link rel="stylesheet" href="style.css"/>
 <style>
 .events-grid{padding:40px 0 70px}
-.event-card{background:#fff;box-shadow:var(--shadow-sm);margin-bottom:36px;overflow:hidden;border-left:4px solid var(--blue);transition:var(--t)}
-.event-card:hover{box-shadow:var(--shadow)}
-.event-header{background:var(--navy);padding:28px 30px}
+.events-cols{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:stretch}
+.event-card{background:#fff;box-shadow:var(--shadow-sm);overflow:hidden;border-left:4px solid var(--blue);transition:transform .25s ease,box-shadow .25s ease;display:flex;flex-direction:column}
+.event-card:hover{box-shadow:var(--shadow);transform:translateY(-4px)}
+.event-img{height:170px;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;background:#0c1622}
+.event-img-inner{position:absolute;inset:0;background:linear-gradient(135deg,#0c1c2e 0%,#1c3e63 55%,#0a1521 100%)}
+.event-img::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(0,0,0,.35));pointer-events:none}
+.event-img-ph{position:relative;z-index:1;width:50px;height:50px;color:rgba(255,255,255,.22)}
+.event-img-tag{position:absolute;top:14px;left:14px;z-index:2;background:var(--gold);color:var(--navy);font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:5px 12px;border-radius:var(--r)}
+.event-header{background:var(--navy);padding:24px 30px}
+@media(max-width:880px){.events-cols{grid-template-columns:1fr}}
 .event-date{display:inline-block;background:var(--blue);color:#fff;padding:10px 16px;text-align:center;margin-bottom:14px;border-radius:var(--r)}
 .event-date .day{display:block;font-size:28px;font-weight:800;line-height:1}
 .event-date .month{display:block;font-size:10px;letter-spacing:.12em;text-transform:uppercase;opacity:.9}
 .event-title-h2{font-size:20px;color:#fff;margin-bottom:12px;font-weight:700}
 .event-meta{display:flex;flex-wrap:wrap;gap:18px}
 .event-meta span{font-size:12px;color:rgba(255,255,255,.55);display:flex;align-items:center;gap:5px}
-.event-body{padding:28px 30px}
+.event-body{padding:28px 30px;flex:1}
 .event-desc{color:var(--muted);font-size:14.5px;line-height:1.8;margin-bottom:22px}
 .tre-note{background:var(--off-white);border-left:3px solid var(--blue);padding:12px 16px;font-size:12px;color:var(--body);line-height:1.7;margin-bottom:20px}
 .tre-note strong{color:var(--text)}
@@ -111,10 +118,15 @@
 </div>
 
 <div class="events-grid">
-  <div class="container">
+  <div class="container events-cols">
 
     <!-- EVENT 1 -->
     <div class="event-card">
+      <div class="event-img">
+        <div class="event-img-inner"></div>
+        <svg class="event-img-ph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+        <span class="event-img-tag">TRE&reg; Workshop</span>
+      </div>
       <div class="event-header">
         <div class="event-date"><span class="day">29</span><span class="month">Aug 2026</span></div>
         <h2 class="event-title-h2">TRE® for Personal Use (Module 1)</h2>
@@ -143,6 +155,11 @@
 
     <!-- EVENT 2 -->
     <div class="event-card">
+      <div class="event-img">
+        <div class="event-img-inner"></div>
+        <svg class="event-img-ph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+        <span class="event-img-tag">TRE&reg; Workshop</span>
+      </div>
       <div class="event-header">
         <div class="event-date"><span class="day">26</span><span class="month">Sep 2026</span></div>
         <h2 class="event-title-h2">TRE® Certification (Module 2)</h2>
@@ -177,7 +194,7 @@
 <footer id="main-footer">
   <div id="footer-widgets"><div class="container">
     <div class="footer-widget"><h4>BHD Asia</h4><p>Highlight, Enhance and Appreciate Human in Business.</p><p>Business &amp; Human Development Consulting Pte Ltd</p></div>
-    <div class="footer-widget"><h4>Navigate</h4><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="events.html">Events</a></li><li><a href="partners.html">Partners</a></li><li><a href="isabelle.html">Isabelle</a></li><li><a href="services.html">Services</a></li><li><a href="contact.html">Contact</a></li><li><a href="changelog.html">Changelog</a></li></ul></div>
+    <div class="footer-widget"><h4>Navigate</h4><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="events.html">Events</a></li><li><a href="partners.html">Partners</a></li><li><a href="services.html">Services</a></li><li><a href="contact.html">Contact</a></li></ul></div>
     <div class="footer-widget"><h4>Legal</h4><ul><li><a href="privacy.html">Privacy Statement</a></li><li><a href="terms.html">Terms &amp; Conditions</a></li><li><a href="code.html">Code of Practice</a></li><li><a href="inclusivity.html">Inclusivity Statement</a></li></ul></div>
     <div class="footer-widget"><h4>Contact</h4><p>50 Raffles Place, Singapore Land Tower #30-00<br>Singapore 048623</p><p>Phone: +81 806515 1778</p><p><a href="mailto:isabelle@bhdasia.com" style="color:rgba(255,255,255,.4)">isabelle@bhdasia.com</a></p></div>
   </div></div>
