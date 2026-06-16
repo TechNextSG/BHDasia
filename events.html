@@ -29,6 +29,17 @@
 .pricing-table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin-bottom:22px}
 .event-contact{font-size:12px;color:var(--muted);margin-top:12px}
 .event-contact a{color:var(--blue)}
+/* -- COUNTDOWN ----------------------------------- */
+.countdown-section{background:var(--navy);padding:48px 0;border-bottom:1px solid rgba(255,255,255,.06)}
+.countdown-inner{display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap}
+.countdown-text .section-label{display:block;margin-bottom:6px}
+.countdown-title{color:#fff;font-size:20px;font-weight:700;margin-bottom:4px}
+.countdown-meta{color:rgba(255,255,255,.45);font-size:13px;margin:0;padding:0}
+.countdown-timer{display:flex;gap:12px;flex-wrap:wrap}
+.c-unit{text-align:center;background:rgba(255,255,255,.05);border:1px solid rgba(232,184,48,.2);border-top:3px solid var(--gold);padding:14px 18px;min-width:68px}
+.c-n{display:block;font-size:34px;font-weight:800;color:var(--gold);line-height:1;margin-bottom:5px;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.c-l{display:block;font-size:10px;color:rgba(255,255,255,.38);text-transform:uppercase;letter-spacing:.12em;font-weight:700}
+@media(max-width:768px){.countdown-inner{flex-direction:column;align-items:flex-start}.countdown-timer{gap:8px}.c-unit{min-width:60px;padding:12px 14px}.c-n{font-size:26px}}
 </style>
 </head>
 <body class="page et_fixed_nav et_divi_theme">
@@ -81,6 +92,26 @@
     <h2>Upcoming Workshops</h2>
     <p class="intro-sub">Open to all — start shaping your new life today.</p>
     <p class="intro-sub" style="margin-top:8px;font-size:13px;color:var(--body);max-width:680px;margin-left:auto;margin-right:auto"><strong>TRE® (Tension &amp; Trauma Releasing Exercises)</strong> is a series of neurogenic exercises that help the body release deep patterns of muscular tension and stress. Developed by Dr. David Berceli, TRE® supports recovery from stress, overwhelm, and long-held physical tension. It is safe for most individuals and can be practised independently once learned.</p>
+  </div>
+</div>
+
+<!-- COUNTDOWN -->
+<div class="countdown-section">
+  <div class="container">
+    <div class="countdown-inner">
+      <div class="countdown-text">
+        <span class="section-label">Next Event</span>
+        <h3 class="countdown-title">TRE&reg; for Personal Use &mdash; Module 1</h3>
+        <p class="countdown-meta">29&ndash;30 August 2026 &nbsp;&middot;&nbsp; In-person, Singapore</p>
+      </div>
+      <div class="countdown-timer" id="event-countdown">
+        <div class="c-unit"><span class="c-n" id="c-days">--</span><span class="c-l">Days</span></div>
+        <div class="c-unit"><span class="c-n" id="c-hours">--</span><span class="c-l">Hours</span></div>
+        <div class="c-unit"><span class="c-n" id="c-mins">--</span><span class="c-l">Mins</span></div>
+        <div class="c-unit"><span class="c-n" id="c-secs">--</span><span class="c-l">Secs</span></div>
+      </div>
+      <a class="et_pb_button" href="https://calendly.com/bhdasia/tre-certification-intake-call" target="_blank" rel="noopener">Book Your Spot</a>
+    </div>
   </div>
 </div>
 
@@ -159,5 +190,24 @@
 </footer>
 </div>
 <script src="shared.js"></script>
+<script>
+(function(){
+  var target=new Date('2026-08-29T10:00:00+08:00');
+  function pad(n){return String(n).padStart(2,'0')}
+  function tick(){
+    var diff=target-new Date();
+    if(diff<=0){
+      document.getElementById('event-countdown').innerHTML='<p style="color:var(--gold);font-weight:700;font-size:16px">This event has started!</p>';
+      return;
+    }
+    document.getElementById('c-days').textContent=pad(Math.floor(diff/86400000));
+    document.getElementById('c-hours').textContent=pad(Math.floor(diff%86400000/3600000));
+    document.getElementById('c-mins').textContent=pad(Math.floor(diff%3600000/60000));
+    document.getElementById('c-secs').textContent=pad(Math.floor(diff%60000/1000));
+    setTimeout(tick,1000);
+  }
+  tick();
+})();
+</script>
 </body>
 </html>

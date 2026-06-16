@@ -29,12 +29,18 @@
 .pillar-card h3{font-size:16px;color:var(--text);margin-bottom:10px;font-weight:700}
 .pillar-card p{font-size:13px;color:var(--muted);line-height:1.75;margin-bottom:16px;padding-bottom:0}
 
-/* -- FEATURED / VOICE RECORD ------------ */
-.featured-wrap{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
-.featured-text h2{font-size:28px;margin-bottom:10px}
-.featured-text p{font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:20px;padding-bottom:0}
-.featured-media{display:flex;flex-direction:column;align-items:flex-start;gap:10px}
-.noomii-label{font-size:10px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.12em}
+/* -- INTERVIEW SECTION ------------------ */
+.interview-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.interview-content h2{color:#fff;font-size:28px;margin-bottom:10px}
+.interview-quote{font-size:17px;font-style:italic;color:rgba(255,255,255,.85);border-left:3px solid var(--gold);padding:4px 0 4px 20px;margin:22px 0;font-family:Georgia,'Times New Roman',serif;line-height:1.65}
+.interview-content p{color:rgba(255,255,255,.55);font-size:14px;line-height:1.85;margin-bottom:24px;padding-bottom:0}
+.player-card{background:rgba(255,255,255,.06);border:1px solid rgba(232,184,48,.25);border-top:3px solid var(--gold);padding:26px;border-radius:var(--r)}
+.player-header{margin-bottom:14px}
+.player-label{display:block;font-size:14px;font-weight:700;color:#fff;margin-bottom:3px}
+.player-sub{font-size:11px;color:rgba(255,255,255,.38);text-transform:uppercase;letter-spacing:.1em}
+.player-footer{display:flex;justify-content:space-between;align-items:center;margin-top:14px;padding-top:12px;border-top:1px solid rgba(255,255,255,.09)}
+.noomii-badge{font-size:11px;color:rgba(255,255,255,.35);font-weight:600;letter-spacing:.08em;text-transform:uppercase}
+@media(max-width:980px){.interview-grid{grid-template-columns:1fr}}
 
 /* -- MEDIA SECTION ---------------------- */
 .media-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
@@ -170,22 +176,35 @@
   </div>
 </div>
 
-<!-- FEATURED INTERVIEW � VOICE RECORD -->
-<div class="section section-light">
+<!-- FEATURED INTERVIEW — VOICE RECORD -->
+<div class="section section-navy" style="padding:80px 0">
   <div class="container">
-    <div class="featured-wrap">
-      <div class="featured-text">
-        <span class="section-label">Featured Interview</span>
-        <h2>Interview by Noomii � Getting to know Isabelle</h2>
-        <hr class="divider-line"/>
-        <p>An in-depth interview exploring Isabelle's journey, her coaching philosophy, and what drives her passion for human development. Hear her story in her own words.</p>
-        <a class="et_pb_button" href="isabelle.html">Full Profile</a>
-        <a class="et_pb_button btn-outline" href="contact.html">Book a Call</a>
+    <div class="interview-grid">
+      <div class="interview-content">
+        <span class="section-label">Voice Interview</span>
+        <h2>Hear Isabelle in Her Own Words</h2>
+        <hr class="divider-line" style="background:rgba(255,255,255,.2)"/>
+        <blockquote class="interview-quote">
+          "I don't give people answers. I help them find their own — because lasting change only comes from within."
+        </blockquote>
+        <p>An in-depth interview hosted by Noomii exploring Isabelle's journey across 9 countries, 27 years of HR leadership, and what drew her to executive coaching and somatic work.</p>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <a class="et_pb_button" href="isabelle.html">Full Profile</a>
+          <a class="et_pb_button btn-white-outline" href="contact.html">Book a Call</a>
+        </div>
       </div>
-      <div class="featured-media">
-        <span class="noomii-label">Voice Interview � Isabelle Claus Teixeira</span>
-        <iframe style="border:0;height:135px;width:100%;max-width:320px;display:block;" src="https://www.noomii.com/users/isabelle-claus_teixeira/get_user_interview_widget" scrolling="no" title="Isabelle Claus Teixeira � Noomii Interview"></iframe>
-        <p style="font-size:12px;color:var(--muted);margin:0;padding:0">Powered by Noomii � The Professional Coach Directory</p>
+      <div class="interview-player">
+        <div class="player-card">
+          <div class="player-header">
+            <span class="player-label">Isabelle Claus Teixeira</span>
+            <span class="player-sub">Interview by Noomii &nbsp;&middot;&nbsp; The Coaching Experts</span>
+          </div>
+          <iframe style="border:0;height:135px;width:100%;display:block;" src="https://www.noomii.com/users/isabelle-claus_teixeira/get_user_interview_widget" scrolling="no" title="Isabelle Claus Teixeira — Noomii Interview"></iframe>
+          <div class="player-footer">
+            <span class="noomii-badge">Powered by Noomii</span>
+            <a href="https://www.noomii.com/" target="_blank" rel="noopener" style="font-size:11px;color:rgba(255,255,255,.35);transition:color .2s">noomii.com</a>
+          </div>
+        </div>
       </div>
     </div>
   </div>
