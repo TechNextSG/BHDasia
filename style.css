@@ -265,21 +265,24 @@ strong{font-weight:700}em{font-style:italic}
 .stat-item .stat-n{display:block;font-size:36px;font-weight:800;color:var(--gold);line-height:1.1;margin-bottom:6px;letter-spacing:-.02em}
 .stat-item .stat-l{display:block;font-size:11px;color:rgba(255,255,255,.45);text-transform:uppercase;letter-spacing:.1em;font-weight:600}
 
-/* ── COUNTDOWN (events + home) ────────────────── */
-.countdown-section{background:var(--navy);padding:48px 0;border-top:3px solid var(--gold);border-bottom:1px solid rgba(255,255,255,.06)}
+/* ── COUNTDOWN (events + home) — light band ───── */
+.countdown-section{background:var(--off-white);padding:42px 0;border-top:3px solid var(--gold);border-bottom:1px solid var(--border)}
 .countdown-inner{display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap}
-.countdown-text .section-label{display:block;margin-bottom:6px}
-.countdown-title{color:#fff;font-size:22px;font-weight:700;margin-bottom:4px}
-.countdown-meta{color:rgba(255,255,255,.5);font-size:14px;margin:0;padding:0}
+.countdown-text .section-label{display:block;margin-bottom:6px;color:var(--blue)}
+.countdown-title{color:var(--text);font-size:22px;font-weight:700;margin-bottom:4px}
+.countdown-meta{color:var(--muted);font-size:14px;margin:0;padding:0}
 .countdown-timer{display:flex;gap:12px;flex-wrap:wrap}
-.c-unit{text-align:center;background:rgba(255,255,255,.05);border:1px solid rgba(232,184,48,.2);border-top:3px solid var(--gold);padding:14px 18px;min-width:72px}
-.c-n{display:block;font-size:36px;font-weight:800;color:var(--gold);line-height:1;margin-bottom:5px;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
-.c-l{display:block;font-size:10px;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.12em;font-weight:700}
-@media(max-width:768px){.countdown-inner{flex-direction:column;align-items:flex-start}.countdown-timer{gap:8px}.c-unit{min-width:62px;padding:12px 14px}.c-n{font-size:28px}}
+.c-unit{text-align:center;background:#fff;border:1px solid var(--border);border-top:3px solid var(--gold);border-radius:var(--r);padding:14px 18px;min-width:72px;box-shadow:var(--shadow-sm)}
+.c-n{display:block;font-size:38px;font-weight:800;color:var(--navy);line-height:1;margin-bottom:5px;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.c-l{display:block;font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.12em;font-weight:700}
+@media(max-width:768px){.countdown-inner{flex-direction:column;align-items:flex-start}.countdown-timer{gap:8px}.c-unit{min-width:62px;padding:12px 14px}.c-n{font-size:30px}}
 
 /* ── FOOTER ───────────────────────────────────── */
 #main-footer{background:var(--navy);position:relative;z-index:1}
 #footer-widgets{padding:40px 0;border-bottom:1px solid rgba(255,255,255,.06);border-top:3px solid var(--blue)}
+/* When the diagonal gold callout sits directly above the footer (isabelle, partners),
+   push footer content clear of the diagonal so headings aren't overlapped. */
+#et-main-area:has(> .dark-callout:last-child) ~ #main-footer #footer-widgets{padding-top:108px;border-top:none}
 #footer-widgets .container{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr;gap:36px}
 .footer-widget h4{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid rgba(212,138,26,.2)}
 .footer-widget ul{list-style:none;padding:0}

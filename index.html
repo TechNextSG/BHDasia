@@ -285,7 +285,7 @@
     var diff=target-new Date();
     if(diff<=0){
       var el=document.getElementById('event-countdown');
-      if(el) el.innerHTML='<p style="color:var(--gold);font-weight:700;font-size:16px;margin:0">This event has started!</p>';
+      if(el) el.innerHTML='<p style="color:var(--blue);font-weight:700;font-size:16px;margin:0">This event has started!</p>';
       return;
     }
     document.getElementById('c-days').textContent=pad(Math.floor(diff/86400000));
