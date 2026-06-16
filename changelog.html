@@ -86,6 +86,36 @@
       <p>Live site: <a href="https://technextsg.github.io/BHDasia/" target="_blank" style="color:var(--blue)">technextsg.github.io/BHDasia</a> &nbsp;·&nbsp; Repository: <a href="https://github.com/TechNextSG/BHDasia" target="_blank" style="color:var(--blue)">github.com/TechNextSG/BHDasia</a></p>
     </div>
 
+    <!-- VERSION 5.9.5 -->
+    <div class="version-block">
+      <div class="version-header">
+        <span class="version-badge v3">v5.9.5</span>
+        <span class="version-date">17 June 2026</span>
+        <h3 class="version-title">Footer Rebuilt &mdash; Clean Callout Transition &amp; Single Source CSS</h3>
+      </div>
+      <div class="change-group">
+        <p class="change-group-label">Callout &rarr; Footer Transition</p>
+        <ul class="change-list">
+          <li><strong>Replaced the fragile overlap hack</strong> &mdash; on pages where the gold &ldquo;Bringing out the best&rdquo; diagonal sits directly above the footer (Isabelle, Partners), the callout is now self-contained: a gold diagonal painted on a navy base that flows straight into the navy footer. No negative-margin overlap, no clipped gap, and the footer&rsquo;s headings are never covered.</li>
+          <li><strong>Other pages unchanged</strong> &mdash; where the callout is followed by a light section (About, Services), it keeps its original gold-on-light diagonal.</li>
+        </ul>
+      </div>
+      <div class="change-group">
+        <p class="change-group-label">Footer CSS Cleanup</p>
+        <ul class="change-list">
+          <li><strong>Removed duplicate/conflicting footer blocks</strong> &mdash; the stylesheet had two competing <code>#footer-widgets</code> definitions. Consolidated into a single source of truth.</li>
+          <li><strong>Improved legibility</strong> &mdash; footer link and text opacity raised for readability; Contact column widened so the address no longer wraps awkwardly; copyright / ACRA line reliably splits left and right.</li>
+        </ul>
+      </div>
+      <div class="change-group">
+        <p class="change-group-label">Files Modified</p>
+        <div class="files-added">
+          <span class="file-tag">style.css</span>
+          <span class="file-tag">changelog.html</span>
+        </div>
+      </div>
+    </div>
+
     <!-- VERSION 5.9.4 -->
     <div class="version-block">
       <div class="version-header">

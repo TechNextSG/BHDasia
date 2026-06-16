@@ -241,6 +241,29 @@ strong{font-weight:700}em{font-style:italic}
   clip-path:polygon(0 0,100% 0,100% 68%,0 100%);
   margin-bottom:-80px;
 }
+/* When the callout sits directly above the footer (isabelle, partners),
+   make it self-contained: a gold diagonal painted on a navy base that flows
+   straight into the navy footer — no overlap, no clipped gap, footer keeps
+   its normal padding and its headings are never covered. */
+#et-main-area > .dark-callout:last-child{
+  background:var(--navy);
+  margin-bottom:0;
+  padding:78px 0 100px;
+  -webkit-clip-path:none;
+  clip-path:none;
+}
+#et-main-area > .dark-callout:last-child::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:var(--blue);
+  -webkit-clip-path:polygon(0 0,100% 0,100% 64%,0 100%);
+  clip-path:polygon(0 0,100% 0,100% 64%,0 100%);
+}
+#et-main-area > .dark-callout:last-child .container{
+  position:relative;
+  z-index:1;
+}
 .dark-callout p{
   color:#fff;
   font-size:28px;
@@ -277,23 +300,21 @@ strong{font-weight:700}em{font-style:italic}
 .c-l{display:block;font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.12em;font-weight:700}
 @media(max-width:768px){.countdown-inner{flex-direction:column;align-items:flex-start}.countdown-timer{gap:8px}.c-unit{min-width:62px;padding:12px 14px}.c-n{font-size:30px}}
 
-/* ── FOOTER ───────────────────────────────────── */
+/* ── FOOTER (single source of truth) ──────────── */
 #main-footer{background:var(--navy);position:relative;z-index:1}
-#footer-widgets{padding:40px 0;border-bottom:1px solid rgba(255,255,255,.06);border-top:3px solid var(--blue)}
-/* When the diagonal gold callout sits directly above the footer (isabelle, partners),
-   push footer content clear of the diagonal so headings aren't overlapped. */
-#et-main-area:has(> .dark-callout:last-child) ~ #main-footer #footer-widgets{padding-top:108px;border-top:none}
-#footer-widgets .container{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr;gap:36px}
-.footer-widget h4{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid rgba(212,138,26,.2)}
-.footer-widget ul{list-style:none;padding:0}
-.footer-widget ul li{margin-bottom:7px}
-.footer-widget ul li a{font-size:13px;color:rgba(255,255,255,.4);transition:var(--t)}
+#footer-widgets{padding:36px 0;border-bottom:1px solid rgba(255,255,255,.07);border-top:3px solid var(--blue)}
+#footer-widgets .container{display:grid;grid-template-columns:1.8fr 1fr 1fr 1.2fr;gap:32px;align-items:start}
+.footer-widget h4{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.58);margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid rgba(232,184,48,.22)}
+.footer-widget ul{list-style:none;padding:0;margin:0}
+.footer-widget ul li{margin-bottom:6px}
+.footer-widget ul li a{font-size:12.5px;color:rgba(255,255,255,.46);transition:var(--t)}
 .footer-widget ul li a:hover{color:var(--gold)}
-.footer-widget p{font-size:13px;color:rgba(255,255,255,.4);line-height:1.85;padding-bottom:.6em}
-#footer-bottom{padding:14px 0;background:#060f18}
-#footer-bottom .container{display:flex;justify-content:space-between;align-items:center}
-#footer-info{color:rgba(255,255,255,.22);font-size:11px;line-height:1.6}
-#footer-info span{display:inline}
+.footer-widget p{font-size:12.5px;color:rgba(255,255,255,.46);line-height:1.8;padding-bottom:.4em;margin:0}
+.footer-widget p a{color:rgba(255,255,255,.46)}
+.footer-widget p a:hover{color:var(--gold)}
+#footer-bottom{padding:13px 0;background:#060f18}
+#footer-bottom .container{display:flex;justify-content:center;align-items:center}
+#footer-info{color:rgba(255,255,255,.34);font-size:11px;line-height:1.6;display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px 20px;width:100%}
 
 /* ── SECTION DIVIDERS ─────────────────────────── */
 .section_has_divider{overflow:hidden}
@@ -372,15 +393,7 @@ body.mobile-nav-open #top-menu .sub-menu{position:static;box-shadow:none;backgro
 /* ── SECTION CTA INLINE ───────────────────────── */
 .section-cta{text-align:center;padding:36px 0 0}
 
-/* ── FOOTER COMPACT ───────────────────────────── */
-#footer-widgets{padding:28px 0;border-bottom:1px solid rgba(255,255,255,.06);border-top:3px solid var(--blue)}
-#footer-widgets .container{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr;gap:30px}
-.footer-widget h4{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid rgba(232,184,48,.18)}
-.footer-widget ul li{margin-bottom:5px}
-.footer-widget ul li a{font-size:12px;color:rgba(255,255,255,.38)}
-.footer-widget p{font-size:12px;color:rgba(255,255,255,.38);line-height:1.8;padding-bottom:.4em}
-#footer-bottom{padding:11px 0;background:#060f18}
-#footer-info{color:rgba(255,255,255,.2);font-size:11px;line-height:1.5;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+/* (footer styles consolidated above — duplicate compact block removed) */
 
 /* ── ACCESSIBILITY ─────────────────────────────── */
 .skip-link{position:absolute;top:-40px;left:0;background:var(--blue);color:#fff;padding:8px 16px;font-size:13px;font-weight:700;text-decoration:none;z-index:100000;border-radius:0 0 var(--r) 0;transition:top .2s}
