@@ -289,20 +289,23 @@ strong{font-weight:700}em{font-style:italic}
 .stat-item .stat-n{display:block;font-size:36px;font-weight:800;color:var(--gold);line-height:1.1;margin-bottom:6px;letter-spacing:-.02em}
 .stat-item .stat-l{display:block;font-size:11px;color:rgba(255,255,255,.45);text-transform:uppercase;letter-spacing:.1em;font-weight:600}
 
-/* ── COUNTDOWN (events + home) — light band ───── */
-.countdown-section{background:var(--off-white);padding:42px 0;border-top:3px solid var(--gold);border-bottom:1px solid var(--border)}
+/* ── COUNTDOWN (events + home) — flip-clock tiles ─ */
+.countdown-section{background:linear-gradient(180deg,#fff 0%,var(--off-white) 100%);padding:48px 0;border-top:3px solid var(--gold);border-bottom:1px solid var(--border)}
 .countdown-inner{display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap}
-.countdown-text .section-label{display:block;margin-bottom:6px;color:var(--blue)}
+.countdown-text .section-label{display:inline-flex;align-items:center;gap:8px;margin-bottom:8px;color:var(--blue)}
+.countdown-text .section-label::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 0 rgba(232,184,48,.6);animation:cPulse 1.8s ease-out infinite}
+@keyframes cPulse{0%{box-shadow:0 0 0 0 rgba(232,184,48,.6)}70%{box-shadow:0 0 0 9px rgba(232,184,48,0)}100%{box-shadow:0 0 0 0 rgba(232,184,48,0)}}
 .countdown-title{color:var(--text);font-size:24px;font-weight:700;margin-bottom:4px}
 .countdown-meta{color:var(--muted);font-size:15px;margin:0;padding:0}
-.countdown-timer{display:flex;gap:16px;flex-wrap:wrap}
-.c-unit{text-align:center;background:#fff;border:1px solid var(--border);border-top:4px solid var(--gold);border-radius:var(--r);padding:22px 28px;min-width:104px;box-shadow:var(--shadow-sm);transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease}
-.c-unit:hover{transform:translateY(-5px);box-shadow:0 14px 30px rgba(11,34,56,.16);border-top-color:var(--blue)}
-.c-n{display:block;font-size:56px;font-weight:800;color:var(--navy);line-height:1;margin-bottom:8px;letter-spacing:-.03em;font-variant-numeric:tabular-nums;transform-origin:center}
-.c-n.c-flip{animation:cPop .5s cubic-bezier(.2,.8,.2,1)}
-@keyframes cPop{0%{transform:scale(.55);opacity:.25}55%{transform:scale(1.12)}100%{transform:scale(1);opacity:1}}
-.c-l{display:block;font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.14em;font-weight:700}
-@media(max-width:768px){.countdown-inner{flex-direction:column;align-items:flex-start}.countdown-timer{gap:10px}.c-unit{min-width:80px;padding:16px 18px}.c-n{font-size:42px}.c-l{font-size:11px}}
+.countdown-timer{display:flex;gap:14px;flex-wrap:wrap;perspective:600px}
+.c-unit{text-align:center;background:#0b2238;border:1px solid rgba(255,255,255,.06);border-radius:12px;overflow:hidden;min-width:106px;box-shadow:0 16px 34px rgba(11,34,56,.28);transition:transform .25s ease,box-shadow .25s ease}
+.c-unit:hover{transform:translateY(-6px);box-shadow:0 24px 44px rgba(11,34,56,.36)}
+.c-n{display:block;position:relative;font-size:56px;font-weight:800;color:#fff;line-height:1;padding:20px 14px 17px;letter-spacing:-.02em;font-variant-numeric:tabular-nums;background:linear-gradient(180deg,#1c3e60 0%,#0b2238 100%);transform-origin:center top;backface-visibility:hidden}
+.c-n::after{content:'';position:absolute;left:0;right:0;bottom:0;height:2px;background:rgba(0,0,0,.5)}
+.c-n.c-flip{animation:cFlip .5s cubic-bezier(.3,.7,.3,1)}
+@keyframes cFlip{0%{transform:rotateX(-88deg);opacity:0}45%{opacity:1}100%{transform:rotateX(0);opacity:1}}
+.c-l{display:block;font-size:10px;color:var(--gold);text-transform:uppercase;letter-spacing:.16em;font-weight:700;padding:9px 10px;background:#081826}
+@media(max-width:768px){.countdown-inner{flex-direction:column;align-items:flex-start}.countdown-timer{gap:10px}.c-unit{min-width:72px}.c-n{font-size:38px;padding:14px 8px 11px}.c-l{font-size:9px;padding:7px 6px}}
 
 /* ── FOOTER (single source of truth) ──────────── */
 #main-footer{background:var(--navy);position:relative;z-index:1}
