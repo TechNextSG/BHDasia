@@ -21,7 +21,7 @@
 .change-group{margin-bottom:20px}
 .change-group-label{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:10px}
 .change-list{list-style:none;padding:0;margin:0}
-.change-list li{font-size:13px;color:var(--body);padding:7px 0 7px 20px;border-bottom:1px solid var(--border);line-height:1.65;position:relative}
+.change-list li{font-size:14.5px;color:var(--body);padding:7px 0 7px 20px;border-bottom:1px solid var(--border);line-height:1.65;position:relative}
 .change-list li:last-child{border-bottom:none}
 .change-list li::before{content:'';position:absolute;left:0;top:15px;width:6px;height:6px;border-radius:50%;background:var(--blue);flex-shrink:0}
 .change-list li strong{color:var(--text)}
@@ -72,7 +72,6 @@
     <h1 class="page-title">Website Changelog</h1>
     <p class="page-hero-sub">A complete record of all versions, changes, and improvements to the BHD Asia website mockup.</p>
     <div class="page-hero-ctas"><a class="et_pb_button btn-white-outline" href="index.html">&larr; Back to Home</a></div>
-    <p class="page-breadcrumb"><a href="index.html">Home</a> &rsaquo; Changelog</p>
   </div>
 </div>
 
@@ -85,6 +84,67 @@
       <hr class="divider-line"/>
       <p>A complete record of all versions, changes, and improvements made to the BHD Asia static website mockup. The site is a faithful HTML/CSS replica of <a href="https://bhdasia.com" target="_blank" style="color:var(--blue)">bhdasia.com</a>, built as a multi-page static site and hosted on GitHub Pages.</p>
       <p>Live site: <a href="https://technextsg.github.io/BHDasia/" target="_blank" style="color:var(--blue)">technextsg.github.io/BHDasia</a> &nbsp;·&nbsp; Repository: <a href="https://github.com/TechNextSG/BHDasia" target="_blank" style="color:var(--blue)">github.com/TechNextSG/BHDasia</a></p>
+    </div>
+
+    <!-- VERSION 5.9.2 -->
+    <div class="version-block">
+      <div class="version-header">
+        <span class="version-badge v3">v5.9.2</span>
+        <span class="version-date">17 June 2026</span>
+        <h3 class="version-title">Audit Fixes &mdash; Homepage Countdown, Breadcrumb Removal &amp; Text Cleanup</h3>
+      </div>
+      <div class="change-group">
+        <p class="change-group-label">Homepage Countdown</p>
+        <ul class="change-list">
+          <li><strong>Live countdown added to homepage</strong> &mdash; the same real-time event countdown (Days / Hours / Mins / Secs to TRE&reg; Module 1 on 29 August 2026) now appears as the <strong>third section</strong> of the homepage, directly after the stats bar.</li>
+          <li><strong>Shared countdown styles</strong> &mdash; countdown CSS moved into the global stylesheet so the events page and homepage stay visually identical.</li>
+        </ul>
+      </div>
+      <div class="change-group">
+        <p class="change-group-label">Breadcrumb Removal</p>
+        <ul class="change-list">
+          <li><strong>Breadcrumbs removed from all pages</strong> &mdash; the &ldquo;Home &rsaquo; Page&rdquo; breadcrumb line was removed from every page hero across the site, per request.</li>
+        </ul>
+      </div>
+      <div class="change-group">
+        <p class="change-group-label">Text Formatting</p>
+        <ul class="change-list">
+          <li><strong>All corrupted characters fixed site-wide</strong> &mdash; remaining &#65533; replacement characters across code, terms, inclusivity, services, isabelle and index pages replaced with correct entities (&amp;mdash;, &amp;ndash;, &amp;reg;).</li>
+          <li><strong>Inclusivity icons restored</strong> &mdash; the six commitment icons (previously showing &ldquo;?&rdquo;) replaced with clean SVG line icons in branded circles.</li>
+        </ul>
+      </div>
+      <div class="change-group">
+        <p class="change-group-label">Brand Colour Cleanup</p>
+        <ul class="change-list">
+          <li><strong>Legal pages fully de-blued</strong> &mdash; all remaining hardcoded Divi blue (#2ea3f2) link colours on privacy, terms, code and inclusivity replaced with brand amber. Second CTA added to each legal page hero.</li>
+          <li><strong>Events icons</strong> &mdash; emoji in event meta rows replaced with inline SVG icons. Service category cards each gained an Enquire CTA.</li>
+        </ul>
+      </div>
+      <div class="change-group">
+        <p class="change-group-label">Bigger Type</p>
+        <ul class="change-list">
+          <li><strong>Buttons enlarged</strong> &mdash; <code>.et_pb_button</code> font-size raised to 13.5px with more generous padding.</li>
+          <li><strong>Body text enlarged</strong> &mdash; content text across all page style blocks bumped from 13px to 14.5px for better readability.</li>
+        </ul>
+      </div>
+      <div class="change-group">
+        <p class="change-group-label">Files Modified</p>
+        <div class="files-added">
+          <span class="file-tag">style.css</span>
+          <span class="file-tag">index.html</span>
+          <span class="file-tag">events.html</span>
+          <span class="file-tag">privacy.html</span>
+          <span class="file-tag">terms.html</span>
+          <span class="file-tag">code.html</span>
+          <span class="file-tag">inclusivity.html</span>
+          <span class="file-tag">services.html</span>
+          <span class="file-tag">isabelle.html</span>
+          <span class="file-tag">about.html</span>
+          <span class="file-tag">contact.html</span>
+          <span class="file-tag">partners.html</span>
+          <span class="file-tag">changelog.html</span>
+        </div>
+      </div>
     </div>
 
     <!-- VERSION 5.9 -->

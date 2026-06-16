@@ -27,7 +27,7 @@
 .pillar-card:hover{box-shadow:var(--shadow);transform:translateY(-4px)}
 .pillar-icon{width:42px;height:42px;border-radius:50%;background:var(--blue);color:#fff;font-size:18px;font-weight:800;display:flex;align-items:center;justify-content:center;margin-bottom:16px}
 .pillar-card h3{font-size:16px;color:var(--text);margin-bottom:10px;font-weight:700}
-.pillar-card p{font-size:13px;color:var(--muted);line-height:1.75;margin-bottom:16px;padding-bottom:0}
+.pillar-card p{font-size:14.5px;color:var(--muted);line-height:1.75;margin-bottom:16px;padding-bottom:0}
 
 /* -- INTERVIEW SECTION ------------------ */
 .interview-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
@@ -144,6 +144,26 @@
   </div>
 </div>
 
+<!-- COUNTDOWN — next event -->
+<div class="countdown-section">
+  <div class="container">
+    <div class="countdown-inner">
+      <div class="countdown-text">
+        <span class="section-label">Next Upcoming Event</span>
+        <h3 class="countdown-title">TRE&reg; for Personal Use &mdash; Module 1</h3>
+        <p class="countdown-meta">29&ndash;30 August 2026 &nbsp;&middot;&nbsp; In-person, Singapore</p>
+      </div>
+      <div class="countdown-timer" id="event-countdown">
+        <div class="c-unit"><span class="c-n" id="c-days">--</span><span class="c-l">Days</span></div>
+        <div class="c-unit"><span class="c-n" id="c-hours">--</span><span class="c-l">Hours</span></div>
+        <div class="c-unit"><span class="c-n" id="c-mins">--</span><span class="c-l">Mins</span></div>
+        <div class="c-unit"><span class="c-n" id="c-secs">--</span><span class="c-l">Secs</span></div>
+      </div>
+      <a class="et_pb_button" href="events.html">View Event Details</a>
+    </div>
+  </div>
+</div>
+
 <!-- THREE PILLARS -->
 <div class="section" id="pillars">
   <div class="container">
@@ -210,12 +230,12 @@
   </div>
 </div>
 
-<!-- MEDIA HIGHLIGHT � Forbes / Linked Section -->
+<!-- MEDIA HIGHLIGHT &mdash; Forbes / Linked Section -->
 <div class="section section-navy">
   <div class="container">
     <div class="media-grid">
       <div class="media-thumb">
-        <img src="https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img,w_700,h_467/https://bhdasia.com/wp-content/uploads/2018/06/isagrey.jpg" alt="Isabelle Claus Teixeira � Forbes Coaches Council"/>
+        <img src="https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img,w_700,h_467/https://bhdasia.com/wp-content/uploads/2018/06/isagrey.jpg" alt="Isabelle Claus Teixeira &mdash; Forbes Coaches Council"/>
         <div class="media-play">
           <a class="play-btn" href="https://coaches.forbes.com/" target="_blank" rel="noopener" aria-label="Visit Forbes Coaches Council"></a>
         </div>
@@ -257,6 +277,26 @@
 </footer>
 </div>
 <script src="shared.js"></script>
+<script>
+(function(){
+  var target=new Date('2026-08-29T10:00:00+08:00');
+  function pad(n){return String(n).padStart(2,'0')}
+  function tick(){
+    var diff=target-new Date();
+    if(diff<=0){
+      var el=document.getElementById('event-countdown');
+      if(el) el.innerHTML='<p style="color:var(--gold);font-weight:700;font-size:16px;margin:0">This event has started!</p>';
+      return;
+    }
+    document.getElementById('c-days').textContent=pad(Math.floor(diff/86400000));
+    document.getElementById('c-hours').textContent=pad(Math.floor(diff%86400000/3600000));
+    document.getElementById('c-mins').textContent=pad(Math.floor(diff%3600000/60000));
+    document.getElementById('c-secs').textContent=pad(Math.floor(diff%60000/1000));
+    setTimeout(tick,1000);
+  }
+  tick();
+})();
+</script>
 </body>
 </html>
 
