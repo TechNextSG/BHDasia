@@ -47,8 +47,15 @@
           <li class="menu-item"><a href="about.html">About</a></li>
           <li class="menu-item"><a href="events.html">Events</a></li>
           <li class="menu-item"><a href="partners.html">Partners</a></li>
-          <li class="menu-item"><a href="isabelle.html">Isabelle</a></li>
-          <li class="menu-item"><a href="services.html">Services</a></li>
+          
+          <li class="menu-item menu-item-has-children"><a href="services.html">Services</a>
+          <ul class="sub-menu">
+            <li class="menu-item"><a href="privacy.html">Privacy Statement</a></li>
+            <li class="menu-item"><a href="terms.html">Terms &amp; Conditions</a></li>
+            <li class="menu-item"><a href="code.html">Code of Practice</a></li>
+            <li class="menu-item"><a href="inclusivity.html">Inclusivity Statement</a></li>
+          </ul>
+        </li>
           <li class="menu-item"><a href="contact.html">Contact</a></li>
         </ul>
       </nav>
@@ -75,6 +82,26 @@
       <hr class="divider-line"/>
       <p>A complete record of all versions, changes, and improvements made to the BHD Asia static website mockup. The site is a faithful HTML/CSS replica of <a href="https://bhdasia.com" target="_blank" style="color:var(--blue)">bhdasia.com</a>, built as a multi-page static site and hosted on GitHub Pages.</p>
       <p>Live site: <a href="https://technextsg.github.io/BHDasia/" target="_blank" style="color:var(--blue)">technextsg.github.io/BHDasia</a> &nbsp;·&nbsp; Repository: <a href="https://github.com/TechNextSG/BHDasia" target="_blank" style="color:var(--blue)">github.com/TechNextSG/BHDasia</a></p>
+    </div>
+
+    <!-- VERSION 5.6 -->
+    <div class="version-block">
+      <div class="version-header">
+        <span class="version-badge v3">v5.6</span>
+        <span class="version-date">16 June 2026</span>
+        <h3 class="version-title">Nav Fixed &mdash; Match Live Site Header Exactly</h3>
+      </div>
+      <div class="change-group">
+        <p class="change-group-label">Navigation (all 12 pages)</p>
+        <ul class="change-list">
+          <li><strong>Isabelle removed from main nav</strong> &mdash; live bhdasia.com nav is: Home, About, Events, Partners, Services, Contact. &ldquo;Isabelle&rdquo; was added in v5.2 but does not appear in the live site header. Page remains accessible via &ldquo;Meet Isabelle&rdquo; hero CTA and &ldquo;Read more&rdquo; on the About page.</li>
+          <li><strong>Services submenu restored</strong> &mdash; Services now shows a dropdown with: Privacy Statement, Terms &amp; Conditions, Code of Practice, Inclusivity Statement. Matches live site dropdown behaviour. CSS for <code>.sub-menu</code> and <code>.menu-item-has-children</code> was already in style.css.</li>
+        </ul>
+      </div>
+      <div class="change-group">
+        <p class="change-group-label">Files Modified</p>
+        <div class="files-added"><span class="file-tag">All 12 HTML pages</span></div>
+      </div>
     </div>
 
     <!-- VERSION 5.5 -->
