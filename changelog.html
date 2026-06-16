@@ -77,6 +77,68 @@
       <p>Live site: <a href="https://technextsg.github.io/BHDasia/" target="_blank" style="color:var(--blue)">technextsg.github.io/BHDasia</a> &nbsp;·&nbsp; Repository: <a href="https://github.com/TechNextSG/BHDasia" target="_blank" style="color:var(--blue)">github.com/TechNextSG/BHDasia</a></p>
     </div>
 
+    <!-- VERSION 5.3 -->
+    <div class="version-block">
+      <div class="version-header">
+        <span class="version-badge v3">v5.3</span>
+        <span class="version-date">16 June 2026</span>
+        <h3 class="version-title">Corporate Brand Redesign — Logo Colour System</h3>
+      </div>
+
+      <div class="change-group">
+        <p class="change-group-label">Brand Colour System</p>
+        <ul class="change-list">
+          <li><strong>Primary accent updated</strong> — <code>--blue</code> value changed from Divi-default #2ea3f2 (generic blue) to <strong>#C8551A</strong> (burnt orange, matching BHD Asia logo "BHD" letterforms). Variable name preserved to avoid mass file edits.</li>
+          <li><strong>Hover state updated</strong> — <code>--blue-dk</code> changed from #1a8fd8 to <strong>#A84010</strong> (darker orange for hover)</li>
+          <li><strong>Amber accent added</strong> — new <code>--gold: #D48A1A</code> token (amber from logo's left geometric bar); used for section labels and stat numbers to create a two-tier brand system</li>
+          <li><strong>Off-white warmed</strong> — <code>--off-white</code> changed from cool #f5f8fb to warm cream <strong>#FAF7F4</strong></li>
+          <li><strong>Border warmed</strong> — <code>--border</code> changed from cool #e2e8f0 to warm <strong>#E5DDD5</strong></li>
+        </ul>
+      </div>
+
+      <div class="change-group">
+        <p class="change-group-label">Two-Tier Accent System</p>
+        <ul class="change-list">
+          <li><strong>Section labels</strong> now use <code>var(--gold)</code> — amber/gold for supporting labels like "WHAT WE DO" and "FEATURED INTERVIEW"</li>
+          <li><strong>Stats bar numbers</strong> now use <code>var(--gold)</code> — prestige/achievement in amber, action elements in orange</li>
+          <li><strong>Primary CTAs, borders, dividers</strong> remain orange — clear action hierarchy distinct from the label tier</li>
+        </ul>
+      </div>
+
+      <div class="change-group">
+        <p class="change-group-label">Corporate Typography</p>
+        <ul class="change-list">
+          <li><strong>h1 letter-spacing</strong> tightened to <code>-0.025em</code>; font-weight increased to 800</li>
+          <li><strong>h2 letter-spacing</strong> tightened to <code>-0.015em</code> for a premium corporate feel</li>
+          <li><strong>h3 letter-spacing</strong> tightened to <code>-0.01em</code></li>
+          <li><strong>Hero title</strong> updated to font-weight:800 + letter-spacing:-.025em (index.html per-page style)</li>
+        </ul>
+      </div>
+
+      <div class="change-group">
+        <p class="change-group-label">Design Details</p>
+        <ul class="change-list">
+          <li><strong>Dark callout</strong> — orange brand stripe added: <code>border-top:3px solid var(--blue)</code></li>
+          <li><strong>Stats bar</strong> — orange brand stripe added: <code>border-top:3px solid var(--blue)</code></li>
+          <li><strong>Page title banner</strong> — orange stripe at bottom: <code>border-bottom:3px solid var(--blue)</code></li>
+          <li><strong>Footer widgets</strong> — orange hint on h4 dividers: <code>border-bottom:1px solid rgba(212,138,26,.2)</code></li>
+          <li><strong>Top bar</strong> — gold hint on bottom border: <code>border-bottom:1px solid rgba(212,138,26,.18)</code></li>
+          <li><strong>Hardcoded rgba(46,163,242,...)</strong> updated throughout — button hover shadow, form focus ring, and play button shadow all updated to brand orange rgba(200,85,26,...)</li>
+          <li><strong>Events pricing highlight row</strong> — warm #FEF3EC background replacing cool-tinted #f0f9ff</li>
+        </ul>
+      </div>
+
+      <div class="change-group">
+        <p class="change-group-label">Files Modified</p>
+        <div class="files-added">
+          <span class="file-tag">style.css</span>
+          <span class="file-tag">index.html</span>
+          <span class="file-tag">events.html</span>
+          <span class="file-tag">changelog.html</span>
+        </div>
+      </div>
+    </div>
+
     <!-- VERSION 5.2 -->
     <div class="version-block">
       <div class="version-header">
