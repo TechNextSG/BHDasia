@@ -296,8 +296,9 @@ strong{font-weight:700}em{font-style:italic}
 .footer-widget p a{color:rgba(255,255,255,.46)}
 .footer-widget p a:hover{color:var(--gold)}
 #footer-bottom{padding:13px 0;background:#060f18}
-#footer-bottom .container{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
-#footer-info{color:rgba(255,255,255,.34);font-size:11px;line-height:1.6;display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px 20px;width:100%}
+#footer-bottom .container{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:nowrap}
+#footer-info{color:rgba(255,255,255,.34);font-size:11px;line-height:1.6;display:flex;align-items:center;gap:20px;flex:1;min-width:0}
+#footer-info span:first-child{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
 
 /* ── SECTION DIVIDERS ─────────────────────────── */
 .section_has_divider{overflow:hidden}
