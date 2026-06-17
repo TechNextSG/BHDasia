@@ -286,10 +286,10 @@ strong{font-weight:700}em{font-style:italic}
 /* ── FOOTER ──────────────────────────────────── */
 #main-footer{background:var(--off-white);position:relative;z-index:1;border-top:1px solid var(--border)}
 #footer-widgets{padding:36px 0 28px}
-#footer-widgets .container{display:grid;grid-template-columns:1.1fr 0.9fr 1.1fr 0.85fr 1.1fr;gap:24px;align-items:start}
+#footer-widgets .container{display:grid;grid-template-columns:1.1fr 0.85fr 1.2fr 0.75fr 1.1fr;gap:24px;align-items:start}
 .footer-brand-name{font-size:20px;font-weight:800;color:var(--text);margin-bottom:8px;letter-spacing:-.02em;display:block}
 .footer-brand-name span{color:var(--blue)}
-.footer-widget h4{font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--text);margin-bottom:10px;border-bottom:none;padding-bottom:0}
+.footer-widget h4{font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--blue);margin-bottom:10px;border-bottom:none;padding-bottom:0}
 .footer-widget ul{list-style:none;padding:0;margin:0}
 .footer-widget ul li{margin-bottom:2px}
 .footer-widget ul li a{font-size:12.5px;color:var(--body);transition:var(--t);font-weight:400;line-height:1.4;display:block}
