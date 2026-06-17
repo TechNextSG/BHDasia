@@ -47,7 +47,7 @@ li{line-height:1.8em;margin-bottom:.3em}
 strong{font-weight:700}em{font-style:italic}
 
 /* ── LAYOUT ───────────────────────────────────── */
-.container{max-width:1100px;margin:0 auto;padding:0 40px}
+.container{max-width:1100px;margin:0 auto;padding:0 64px}
 .clearfix::after{content:'';display:table;clear:both}
 .et_pb_row{max-width:1100px;margin:0 auto;padding:30px 40px}
 .et_pb_section{position:relative}
