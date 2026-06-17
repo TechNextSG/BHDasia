@@ -285,16 +285,16 @@ strong{font-weight:700}em{font-style:italic}
 
 /* ── FOOTER ──────────────────────────────────── */
 #main-footer{background:var(--off-white);position:relative;z-index:1;border-top:1px solid var(--border)}
-#footer-widgets{padding:60px 0 48px}
+#footer-widgets{padding:40px 0 32px}
 #footer-widgets .container{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr 1.3fr;gap:32px;align-items:start}
-.footer-brand-name{font-size:20px;font-weight:800;color:var(--text);margin-bottom:10px;letter-spacing:-.02em;display:block}
+.footer-brand-name{font-size:20px;font-weight:800;color:var(--text);margin-bottom:8px;letter-spacing:-.02em;display:block}
 .footer-brand-name span{color:var(--blue)}
-.footer-widget h4{font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--text);margin-bottom:16px;border-bottom:none;padding-bottom:0}
+.footer-widget h4{font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--text);margin-bottom:10px;border-bottom:none;padding-bottom:0}
 .footer-widget ul{list-style:none;padding:0;margin:0}
-.footer-widget ul li{margin-bottom:9px}
-.footer-widget ul li a{font-size:13px;color:var(--body);transition:var(--t);font-weight:400}
+.footer-widget ul li{margin-bottom:4px}
+.footer-widget ul li a{font-size:12.5px;color:var(--body);transition:var(--t);font-weight:400}
 .footer-widget ul li a:hover{color:var(--blue)}
-.footer-widget p{font-size:13px;color:var(--body);line-height:1.8;padding-bottom:.5em;margin:0}
+.footer-widget p{font-size:12.5px;color:var(--body);line-height:1.7;padding-bottom:.3em;margin:0}
 .footer-widget p a{color:var(--body);transition:var(--t)}
 .footer-widget p a:hover{color:var(--blue)}
 #footer-bottom{padding:16px 0;background:var(--off-white);border-top:1px solid var(--border)}
