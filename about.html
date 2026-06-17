@@ -25,18 +25,31 @@
 .story-img-ph{position:relative;z-index:1;width:56px;height:56px;color:rgba(255,255,255,.2)}
 /* Team cards */
 .team-section{background:var(--off-white);padding:80px 0}
-.team-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:28px;align-items:stretch}
+/* Main horizontal featured card */
+.team-main{display:flex;background:#fff;border:1px solid var(--border);border-top:3px solid var(--blue);border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow-sm);margin-bottom:28px;transition:var(--t)}
+.team-main:hover{box-shadow:var(--shadow);transform:translateY(-3px)}
+.team-main-img{width:280px;flex-shrink:0;overflow:hidden}
+.team-main-img img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;filter:grayscale(15%);transition:filter .3s}
+.team-main:hover .team-main-img img{filter:grayscale(0%)}
+.team-main-body{padding:40px 44px;flex:1;display:flex;flex-direction:column;justify-content:center}
+.team-main-body h4{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--text);margin-bottom:6px;font-weight:700}
+.team-main-body .role{font-size:14px;color:var(--blue);font-style:italic;margin-bottom:18px;display:block}
+.team-main-body p{font-size:14px;color:var(--body);line-height:1.75;margin-bottom:10px}
+.team-main-body .et_pb_button{align-self:flex-start;margin-top:8px}
+/* Sub cards grid (up to 4 columns) */
+.team-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:24px;align-items:stretch}
 .team-card{background:#fff;border:1px solid var(--border);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;box-shadow:var(--shadow-sm);transition:var(--t)}
 .team-card:hover{box-shadow:var(--shadow);transform:translateY(-4px)}
-.team-card-img{height:260px;overflow:hidden;position:relative;border-top:3px solid var(--blue)}
+.team-card-img{height:220px;overflow:hidden;position:relative;border-top:3px solid var(--blue)}
 .team-card-img img{width:100%;height:100%;object-fit:cover;object-position:center top;filter:grayscale(20%);transition:filter .3s ease}
 .team-card:hover .team-card-img img{filter:grayscale(0%)}
-.team-card-body{padding:24px;display:flex;flex-direction:column;flex:1}
-.team-card h4{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--text);margin-bottom:4px;font-weight:700}
-.team-card .role{font-size:13.5px;color:var(--blue);font-style:italic;margin-bottom:14px;display:block}
-.team-card p{font-size:14px;color:var(--body);line-height:1.75;margin-bottom:8px}
+.team-card-body{padding:20px;display:flex;flex-direction:column;flex:1}
+.team-card h4{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--text);margin-bottom:4px;font-weight:700}
+.team-card .role{font-size:12.5px;color:var(--blue);font-style:italic;margin-bottom:12px;display:block}
+.team-card p{font-size:13px;color:var(--body);line-height:1.7;margin-bottom:8px}
 .team-card .et_pb_button{margin-top:auto;align-self:flex-start}
-@media(max-width:768px){.team-grid{grid-template-columns:1fr}}
+@media(max-width:900px){.team-main{flex-direction:column}.team-main-img{width:100%;height:240px}}
+@media(max-width:600px){.team-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body class="page et_fixed_nav et_divi_theme">
@@ -118,19 +131,19 @@
       <h2>The People Behind BHD Asia</h2>
       <hr class="divider-line"/>
     </div>
-    <div class="team-grid">
-      <div class="team-card">
-        <div class="team-card-img">
-          <img src="https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img,w_700,h_467/https://bhdasia.com/wp-content/uploads/2018/06/isagrey.jpg" alt="Isabelle Claus Teixeira"/>
-        </div>
-        <div class="team-card-body">
-          <h4>Isabelle Claus Teixeira</h4>
-          <span class="role">Co-Founder and Director</span>
-          <p>Isabelle has over 27 years of experience in Senior HR Business partnering and regional Talent Management and Organisational Effectiveness experiences across Asia Pacific, Japan, Russia, US and Europe and is also a certified Leadership coach since 2012.</p>
-          <p>Since 1996, Isabelle has fulfilled global, regional and country HR roles in several industries (Automotive, Software Development, IT Technologies, Clinical Research, Trading, Shipping, Semi-conductors, Pharmaceuticals, Medical Devices).</p>
-          <a class="et_pb_button" href="isabelle.html">Read more</a>
-        </div>
+    <div class="team-main">
+      <div class="team-main-img">
+        <img src="https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img,w_700,h_467/https://bhdasia.com/wp-content/uploads/2018/06/isagrey.jpg" alt="Isabelle Claus Teixeira"/>
       </div>
+      <div class="team-main-body">
+        <h4>Isabelle Claus Teixeira</h4>
+        <span class="role">Co-Founder and Director</span>
+        <p>Isabelle has over 27 years of experience in Senior HR Business partnering and regional Talent Management and Organisational Effectiveness experiences across Asia Pacific, Japan, Russia, US and Europe and is also a certified Leadership coach since 2012.</p>
+        <p>Since 1996, Isabelle has fulfilled global, regional and country HR roles in several industries (Automotive, Software Development, IT Technologies, Clinical Research, Trading, Shipping, Semi-conductors, Pharmaceuticals, Medical Devices).</p>
+        <a class="et_pb_button" href="isabelle.html">Read more</a>
+      </div>
+    </div>
+    <div class="team-grid">
       <div class="team-card">
         <div class="team-card-img">
           <img src="https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img,w_700,h_467/https://bhdasia.com/wp-content/uploads/2018/06/rougrey.jpg" alt="Rouviere Teixeira"/>

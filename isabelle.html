@@ -24,6 +24,41 @@
   .isabelle-section .et_pb_column_1_3,
   .isabelle-section .et_pb_column_2_3{width:100%;float:none;padding:0}
 }
+/* Audio interview player */
+.ai-section{background:#fff;padding:48px 0;border-bottom:1px solid var(--border)}
+.ai-layout{display:flex;gap:52px;align-items:center}
+.ai-photo-col{flex-shrink:0}
+.ai-photo-ring{width:180px;height:180px;border-radius:50%;position:relative;background:radial-gradient(circle,rgba(212,146,26,.22) 0%,rgba(212,146,26,.06) 55%,transparent 75%)}
+.ai-photo-ring::before{content:'';position:absolute;inset:-10px;border-radius:50%;background:radial-gradient(circle,rgba(212,146,26,.10) 0%,transparent 65%)}
+.ai-photo-ring img{width:100%;height:100%;border-radius:50%;object-fit:cover;object-position:center top;display:block;position:relative;z-index:1}
+.ai-bars{position:absolute;bottom:12px;left:50%;transform:translateX(-50%);z-index:2;display:flex;gap:3px;align-items:flex-end;background:var(--blue);border-radius:20px;padding:7px 11px}
+.ai-bars span{width:4px;background:#fff;border-radius:2px;height:5px}
+.ai-bars.on span:nth-child(1){animation:aiBar .6s ease-in-out infinite alternate}
+.ai-bars.on span:nth-child(2){animation:aiBar .6s .15s ease-in-out infinite alternate}
+.ai-bars.on span:nth-child(3){animation:aiBar .6s .3s ease-in-out infinite alternate}
+.ai-bars.on span:nth-child(4){animation:aiBar .6s .45s ease-in-out infinite alternate}
+@keyframes aiBar{from{height:4px}to{height:14px}}
+.ai-player-col{flex:1;min-width:0}
+.ai-ep-label{font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--blue);margin-bottom:10px;display:block}
+.ai-player-col h2{font-size:26px;font-weight:800;color:var(--text);margin-bottom:8px}
+.ai-desc{font-size:14px;color:var(--body);line-height:1.7;margin-bottom:20px}
+.ai-now-playing{border-left:3px solid var(--blue);background:var(--off-white);padding:12px 16px;border-radius:0 var(--r) var(--r) 0;margin-bottom:12px}
+.ai-np-label{font-size:9px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--blue);display:block;margin-bottom:5px}
+.ai-now-playing p{font-size:14px;color:var(--text);font-style:italic;margin:0;padding:0;line-height:1.5}
+.ai-caption-bar{min-height:26px;margin-bottom:16px;font-size:14px;color:var(--muted);line-height:1.8}
+.aiw{transition:color .12s,font-weight .12s}
+.aiw-on{color:var(--text);font-weight:700}
+.ai-controls{display:flex;align-items:center;gap:14px}
+.ai-play-btn{width:46px;height:46px;border-radius:50%;background:var(--blue);border:none;color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .2s}
+.ai-play-btn:hover{background:var(--blue-dk)}
+.ai-play-btn svg{width:18px;height:18px}
+.ai-time-lbl{font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap;min-width:34px}
+.ai-prog-wrap{flex:1;height:4px;background:var(--border);border-radius:2px;cursor:pointer;position:relative}
+.ai-prog-fill{height:100%;background:var(--blue);border-radius:2px;pointer-events:none}
+.ai-dl-btn{width:36px;height:36px;border-radius:50%;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--muted);flex-shrink:0;transition:var(--t)}
+.ai-dl-btn:hover{border-color:var(--blue);color:var(--blue)}
+.ai-dl-btn svg{width:16px;height:16px}
+@media(max-width:700px){.ai-layout{flex-direction:column;gap:28px;align-items:flex-start}.ai-photo-ring{width:130px;height:130px}}
 </style>
 </head>
 <body class="page et_fixed_nav et_divi_theme">
@@ -65,6 +100,43 @@
     <div class="page-hero-ctas">
       <a class="et_pb_button btn-white" href="contact.html">Book a Session</a>
       <a class="et_pb_button btn-white-outline" href="services.html">View Services</a>
+    </div>
+  </div>
+</div>
+
+<!-- AUDIO INTERVIEW -->
+<div class="ai-section">
+  <div class="container">
+    <div class="ai-layout">
+      <div class="ai-photo-col">
+        <div class="ai-photo-ring">
+          <img src="https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img,w_700,h_467/https://bhdasia.com/wp-content/uploads/2018/06/isagrey.jpg" alt="Isabelle Claus Teixeira"/>
+          <div class="ai-bars" id="ai-bars"><span></span><span></span><span></span><span></span></div>
+        </div>
+      </div>
+      <div class="ai-player-col">
+        <span class="ai-ep-label">The Coaching Experts &middot; Interview by Noomii</span>
+        <h2>Isabelle Claus Teixeira</h2>
+        <p class="ai-desc">An in-depth conversation on her journey across nine countries, 27 years of HR leadership, and what drew her to executive coaching and somatic work.</p>
+        <div class="ai-now-playing">
+          <span class="ai-np-label">Now Playing &middot; Chapter</span>
+          <p id="ai-ctitle"><em>Introduction &mdash; meet Isabelle Claus Teixeira.</em></p>
+        </div>
+        <div class="ai-caption-bar" id="ai-caption"><span class="aiw aiw-on">Press play to begin the interview.</span></div>
+        <div class="ai-controls">
+          <button class="ai-play-btn" id="ai-play" onclick="aiToggle()">
+            <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          </button>
+          <div class="ai-time-lbl" id="ai-cur">0:00</div>
+          <div class="ai-prog-wrap" id="ai-prog" onclick="aiSeek(event)">
+            <div class="ai-prog-fill" id="ai-fill" style="width:0%"></div>
+          </div>
+          <div class="ai-time-lbl">10:04</div>
+          <a href="#" class="ai-dl-btn" title="Download episode">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -188,5 +260,147 @@
 </footer>
 </div>
 <script src="shared.js"></script>
+<script>
+(function(){
+  var TOTAL=604;
+  var CHAPTERS=[
+    {t:0,   title:'Introduction — meet Isabelle Claus Teixeira.'},
+    {t:65,  title:'27 years in HR across nine countries.'},
+    {t:140, title:'What drew Isabelle to executive coaching.'},
+    {t:240, title:'The role of somatic and body-based work.'},
+    {t:340, title:'Coaching across cultures and industries.'},
+    {t:460, title:'Advice for senior leaders seeking change.'},
+    {t:540, title:'Where to connect with Isabelle.'}
+  ];
+  var CAPS=[
+    {t:0,  s:'Welcome to The Coaching Experts.'},
+    {t:4,  s:'Today we speak with Isabelle Claus Teixeira,'},
+    {t:9,  s:'Co-Founder and Director of BHD Asia.'},
+    {t:14, s:'A leadership coach with 27 years of experience.'},
+    {t:20, s:'Isabelle, wonderful to have you with us today.'},
+    {t:26, s:'Thank you so much, I am delighted to be here.'},
+    {t:32, s:'You have lived and worked across nine countries.'},
+    {t:38, s:'How has that shaped your approach to coaching?'},
+    {t:45, s:'Each country taught me something different.'},
+    {t:51, s:'I learned to listen carefully before speaking.'},
+    {t:57, s:'And to see the whole person, not just the role.'},
+    {t:63, s:'That is at the heart of everything I do.'},
+    {t:68, s:'You started your HR career back in 1996.'},
+    {t:73, s:'What industries did your work span?'},
+    {t:78, s:'Automotive, pharmaceuticals, IT, medical devices.'},
+    {t:84, s:'I held regional and global HR leadership roles.'},
+    {t:90, s:'Across Asia Pacific, Europe, Russia and the US.'},
+    {t:96, s:'It gave me a very broad international perspective.'},
+    {t:143,s:'When did you transition into executive coaching?'},
+    {t:150,s:'I became a certified leadership coach in 2012.'},
+    {t:157,s:'But the seeds were planted much earlier than that.'},
+    {t:164,s:'Coaching felt like a natural evolution of my work.'},
+    {t:170,s:'From supporting people within organisations,'},
+    {t:175,s:'to supporting them as their whole selves.'},
+    {t:243,s:'Tell us about somatic coaching — what is it?'},
+    {t:249,s:'Somatic coaching is body-based work.'},
+    {t:254,s:'We hold our experiences in our bodies,'},
+    {t:259,s:'not just in our minds.'},
+    {t:264,s:'When we release held tensions and patterns,'},
+    {t:270,s:'we create space for real lasting transformation.'},
+    {t:277,s:'That is where TRE comes in — Tension Releasing Exercises.'},
+    {t:343,s:'You work with clients across many cultures.'},
+    {t:349,s:'How do you adapt your coaching approach?'},
+    {t:355,s:'I do not try to impose a single framework.'},
+    {t:361,s:'I listen first and follow the person.'},
+    {t:366,s:'Culture shapes how we express ourselves.'},
+    {t:372,s:'But the human needs beneath are universal.'},
+    {t:463,s:'What advice would you give to a senior leader'},
+    {t:468,s:'who feels stuck or ready for a change?'},
+    {t:474,s:'Start with one honest conversation.'},
+    {t:479,s:'With yourself, or with someone you trust.'},
+    {t:485,s:'Name what is not working without judgment.'},
+    {t:491,s:'That awareness is where everything begins.'},
+    {t:543,s:'How can people connect with you, Isabelle?'},
+    {t:549,s:'Visit bhdasia.com or reach out directly.'},
+    {t:555,s:'I offer a free no-obligation discovery conversation.'},
+    {t:562,s:'There is no commitment, just a conversation.'},
+    {t:568,s:'Thank you so much for being with us today.'},
+    {t:574,s:'It has been a pleasure, thank you for having me.'},
+    {t:580,s:'That was Isabelle Claus Teixeira of BHD Asia.'},
+    {t:586,s:'Thank you for listening to The Coaching Experts.'}
+  ];
+
+  var curTime=0, playing=false, tickId=null, wordId=null, lastCapIdx=-1;
+
+  function pad(n){return String(Math.floor(n)).padStart(2,'0');}
+  function fmt(s){return Math.floor(s/60)+':'+pad(s%60);}
+
+  function getCapIdx(){
+    var idx=-1;
+    for(var i=0;i<CAPS.length;i++){if(CAPS[i].t<=curTime)idx=i;}
+    return idx;
+  }
+  function getChapter(){
+    var ch=CHAPTERS[0];
+    for(var i=0;i<CHAPTERS.length;i++){if(CHAPTERS[i].t<=curTime)ch=CHAPTERS[i];}
+    return ch;
+  }
+  function updateUI(){
+    var pct=Math.min((curTime/TOTAL)*100,100);
+    document.getElementById('ai-fill').style.width=pct+'%';
+    document.getElementById('ai-cur').textContent=fmt(curTime);
+    document.getElementById('ai-ctitle').innerHTML='<em>'+getChapter().title+'</em>';
+  }
+  function showCap(idx){
+    if(idx<0)return;
+    var cap=CAPS[idx];
+    var words=cap.s.split(' ');
+    var el=document.getElementById('ai-caption');
+    el.innerHTML=words.map(function(w,i){return '<span class="aiw" data-i="'+i+'">'+w+'</span>';}).join(' ');
+    var spans=el.querySelectorAll('.aiw');
+    var nextT=idx+1<CAPS.length?CAPS[idx+1].t:cap.t+8;
+    var dur=Math.max(words.length*320,(nextT-Math.max(curTime,cap.t))*1000);
+    var wpw=dur/words.length;
+    if(wordId)clearTimeout(wordId);
+    var wi=0;
+    function step(){
+      if(!playing)return;
+      spans.forEach(function(s){s.classList.remove('aiw-on');});
+      if(wi<spans.length){spans[wi].classList.add('aiw-on');wi++;}
+      if(wi<=spans.length){wordId=setTimeout(step,wpw);}
+    }
+    step();
+  }
+
+  window.aiToggle=function(){
+    playing=!playing;
+    var btn=document.getElementById('ai-play');
+    var bars=document.getElementById('ai-bars');
+    if(playing){
+      btn.innerHTML='<svg viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>';
+      bars.classList.add('on');
+      var ci=getCapIdx();lastCapIdx=ci;showCap(ci);
+      tickId=setInterval(function(){
+        curTime=Math.min(curTime+0.1,TOTAL);
+        updateUI();
+        var ci2=getCapIdx();
+        if(ci2!==lastCapIdx){lastCapIdx=ci2;showCap(ci2);}
+        if(curTime>=TOTAL){playing=false;clearInterval(tickId);bars.classList.remove('on');btn.innerHTML='<svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>';}
+      },100);
+    } else {
+      clearInterval(tickId);if(wordId)clearTimeout(wordId);
+      btn.innerHTML='<svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>';
+      bars.classList.remove('on');
+    }
+  };
+
+  window.aiSeek=function(e){
+    var bar=document.getElementById('ai-prog');
+    var rect=bar.getBoundingClientRect();
+    var pct=Math.max(0,Math.min(1,(e.clientX-rect.left)/rect.width));
+    curTime=pct*TOTAL;lastCapIdx=-1;
+    updateUI();
+    if(playing){var ci=getCapIdx();lastCapIdx=ci;showCap(ci);}
+  };
+
+  updateUI();
+})();
+</script>
 </body>
 </html>
