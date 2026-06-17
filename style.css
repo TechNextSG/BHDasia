@@ -226,23 +226,23 @@ strong{font-weight:700}em{font-style:italic}
 
 /* ── DARK CALLOUT — clean quote band ─────────── */
 .dark-callout{
-  background:var(--navy);
-  padding:60px 0;
+  background:var(--off-white);
+  padding:48px 0;
   text-align:center;
-  border-top:3px solid var(--blue);
-  border-bottom:1px solid rgba(255,255,255,.07);
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
   position:relative;
   z-index:2;
 }
 .dark-callout p{
-  color:rgba(255,255,255,.9);
-  font-size:26px;
-  margin:0;
-  font-weight:300;
-  letter-spacing:.03em;
+  color:var(--text);
+  font-size:22px;
+  margin:0 auto;
+  font-weight:400;
+  letter-spacing:.02em;
   font-style:italic;
   font-family:Georgia,'Times New Roman',serif;
-  max-width:700px;
+  max-width:640px;
   margin:0 auto;
   line-height:1.6;
 }
