@@ -202,8 +202,8 @@ strong{font-weight:700}em{font-style:italic}
 .et_pb_button:hover{background:var(--blue-dk);border-color:var(--blue-dk);transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.18)}
 .et_pb_button:hover::after{animation:btnShine .55s ease forwards;opacity:1}
 .et_pb_button:active{transform:translateY(1px);box-shadow:0 2px 8px rgba(0,0,0,.1)}
-.et_pb_button.btn-outline{background:var(--navy);color:#fff;border-color:var(--navy)}
-.et_pb_button.btn-outline:hover{background:#0d2d48;border-color:#0d2d48;color:#fff}
+.et_pb_button.btn-outline{background:transparent;color:var(--blue);border-color:var(--blue)}
+.et_pb_button.btn-outline:hover{background:var(--blue);border-color:var(--blue);color:#fff;transform:translateY(-2px)}
 .et_pb_button.btn-white{background:#fff;color:var(--navy);border-color:#fff}
 .et_pb_button.btn-white:hover{background:var(--blue);color:#fff;border-color:var(--blue)}
 .et_pb_button.btn-white-outline{background:transparent;color:#fff;border-color:rgba(255,255,255,.55)}
