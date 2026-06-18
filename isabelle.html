@@ -132,10 +132,11 @@
             <div class="ai-prog-fill" id="ai-fill" style="width:0%"></div>
           </div>
           <div class="ai-time-lbl">10:04</div>
-          <a href="#" class="ai-dl-btn" title="Download episode">
+          <a href="isabelle-interview.mp3" download class="ai-dl-btn" title="Download episode">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
           </a>
         </div>
+        <audio id="ai-audio" preload="metadata" src="isabelle-interview.mp3"></audio>
       </div>
     </div>
   </div>
@@ -263,7 +264,9 @@
 <script src="shared.js"></script>
 <script>
 (function(){
-  var TOTAL=604;
+  var audio=document.getElementById('ai-audio');
+  if(!audio)return;
+
   var CHAPTERS=[
     {t:0,   title:'Introduction — meet Isabelle Claus Teixeira.'},
     {t:65,  title:'27 years in HR across nine countries.'},
@@ -327,41 +330,34 @@
     {t:586,s:'Thank you for listening to The Coaching Experts.'}
   ];
 
-  var curTime=0, playing=false, tickId=null, wordId=null, lastCapIdx=-1;
+  var btn=document.getElementById('ai-play');
+  var bars=document.getElementById('ai-bars');
+  var fill=document.getElementById('ai-fill');
+  var prog=document.getElementById('ai-prog');
+  var curEl=document.getElementById('ai-cur');
+  var ctitle=document.getElementById('ai-ctitle');
+  var capEl=document.getElementById('ai-caption');
+  var wordId=null, lastCapIdx=-1;
 
   function pad(n){return String(Math.floor(n)).padStart(2,'0');}
-  function fmt(s){return Math.floor(s/60)+':'+pad(s%60);}
+  function fmt(s){if(isNaN(s)||!isFinite(s))return'0:00';return Math.floor(s/60)+':'+pad(s%60);}
 
-  function getCapIdx(){
-    var idx=-1;
-    for(var i=0;i<CAPS.length;i++){if(CAPS[i].t<=curTime)idx=i;}
-    return idx;
-  }
-  function getChapter(){
-    var ch=CHAPTERS[0];
-    for(var i=0;i<CHAPTERS.length;i++){if(CHAPTERS[i].t<=curTime)ch=CHAPTERS[i];}
-    return ch;
-  }
-  function updateUI(){
-    var pct=Math.min((curTime/TOTAL)*100,100);
-    document.getElementById('ai-fill').style.width=pct+'%';
-    document.getElementById('ai-cur').textContent=fmt(curTime);
-    document.getElementById('ai-ctitle').innerHTML='<em>'+getChapter().title+'</em>';
-  }
-  function showCap(idx){
-    if(idx<0)return;
+  function getChapter(t){var ch=CHAPTERS[0];for(var i=0;i<CHAPTERS.length;i++){if(CHAPTERS[i].t<=t)ch=CHAPTERS[i];}return ch;}
+  function getCapIdx(t){var idx=-1;for(var i=0;i<CAPS.length;i++){if(CAPS[i].t<=t)idx=i;}return idx;}
+
+  function showCap(idx,t){
+    if(idx<0){capEl.innerHTML='<span class="aiw aiw-on">Press play to begin the interview.</span>';return;}
     var cap=CAPS[idx];
     var words=cap.s.split(' ');
-    var el=document.getElementById('ai-caption');
-    el.innerHTML=words.map(function(w,i){return '<span class="aiw" data-i="'+i+'">'+w+'</span>';}).join(' ');
-    var spans=el.querySelectorAll('.aiw');
+    capEl.innerHTML=words.map(function(w,i){return'<span class="aiw" data-i="'+i+'">'+w+'</span>';}).join(' ');
+    var spans=capEl.querySelectorAll('.aiw');
     var nextT=idx+1<CAPS.length?CAPS[idx+1].t:cap.t+8;
-    var dur=Math.max(words.length*320,(nextT-Math.max(curTime,cap.t))*1000);
+    var dur=Math.max(words.length*320,(nextT-Math.max(t,cap.t))*1000);
     var wpw=dur/words.length;
     if(wordId)clearTimeout(wordId);
     var wi=0;
     function step(){
-      if(!playing)return;
+      if(audio.paused)return;
       spans.forEach(function(s){s.classList.remove('aiw-on');});
       if(wi<spans.length){spans[wi].classList.add('aiw-on');wi++;}
       if(wi<=spans.length){wordId=setTimeout(step,wpw);}
@@ -370,37 +366,46 @@
   }
 
   window.aiToggle=function(){
-    playing=!playing;
-    var btn=document.getElementById('ai-play');
-    var bars=document.getElementById('ai-bars');
-    if(playing){
-      btn.innerHTML='<svg viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>';
-      bars.classList.add('on');
-      var ci=getCapIdx();lastCapIdx=ci;showCap(ci);
-      tickId=setInterval(function(){
-        curTime=Math.min(curTime+0.1,TOTAL);
-        updateUI();
-        var ci2=getCapIdx();
-        if(ci2!==lastCapIdx){lastCapIdx=ci2;showCap(ci2);}
-        if(curTime>=TOTAL){playing=false;clearInterval(tickId);bars.classList.remove('on');btn.innerHTML='<svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>';}
-      },100);
-    } else {
-      clearInterval(tickId);if(wordId)clearTimeout(wordId);
-      btn.innerHTML='<svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>';
-      bars.classList.remove('on');
-    }
+    if(audio.paused)audio.play();else audio.pause();
   };
 
   window.aiSeek=function(e){
-    var bar=document.getElementById('ai-prog');
-    var rect=bar.getBoundingClientRect();
+    if(!audio.duration)return;
+    var rect=prog.getBoundingClientRect();
     var pct=Math.max(0,Math.min(1,(e.clientX-rect.left)/rect.width));
-    curTime=pct*TOTAL;lastCapIdx=-1;
-    updateUI();
-    if(playing){var ci=getCapIdx();lastCapIdx=ci;showCap(ci);}
+    audio.currentTime=pct*audio.duration;
+    lastCapIdx=-1;
   };
 
-  updateUI();
+  audio.addEventListener('play',function(){
+    btn.innerHTML='<svg viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>';
+    bars.classList.add('on');
+    var ci=getCapIdx(audio.currentTime);lastCapIdx=ci;showCap(ci,audio.currentTime);
+  });
+  audio.addEventListener('pause',function(){
+    btn.innerHTML='<svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>';
+    bars.classList.remove('on');
+    if(wordId)clearTimeout(wordId);
+  });
+  audio.addEventListener('ended',function(){
+    btn.innerHTML='<svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>';
+    bars.classList.remove('on');
+    fill.style.width='0%';
+    if(wordId)clearTimeout(wordId);
+    ctitle.innerHTML='<em>'+CHAPTERS[0].title+'</em>';
+    showCap(-1,0);
+  });
+  audio.addEventListener('loadedmetadata',function(){
+    /* duration label is hard-coded 10:04 — matches actual file */
+  });
+  audio.addEventListener('timeupdate',function(){
+    var t=audio.currentTime,dur=audio.duration||604;
+    fill.style.width=(t/dur*100)+'%';
+    curEl.textContent=fmt(t);
+    ctitle.innerHTML='<em>'+getChapter(t).title+'</em>';
+    var ci=getCapIdx(t);
+    if(ci!==lastCapIdx){lastCapIdx=ci;showCap(ci,t);}
+  });
 })();
 </script>
 </body>
