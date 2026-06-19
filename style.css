@@ -145,12 +145,14 @@ strong{font-weight:700}em{font-style:italic}
 
 /* ── PAGE HERO BANNER ─────────────────────────── */
 .page-title-wrap{
-  background:linear-gradient(135deg,var(--navy) 0%,var(--navy-mid) 100%);
-  padding:90px 0 70px;
+  min-height:100vh;
+  display:flex;
+  align-items:center;
   margin-top:60px;
   border-bottom:3px solid var(--blue);
   position:relative;
   overflow:hidden;
+  background:var(--navy);
 }
 .page-title-wrap::before{
   content:'';position:absolute;
@@ -166,7 +168,9 @@ strong{font-weight:700}em{font-style:italic}
   border:40px solid rgba(232,184,48,.04);
   border-radius:50%;pointer-events:none;
 }
-.page-title-wrap .container{position:relative;z-index:1}
+.page-hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.page-hero-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(11,34,56,.88) 0%,rgba(11,34,56,.6) 100%);z-index:1}
+.page-title-wrap .container{position:relative;z-index:2;padding:80px 0 60px}
 .page-title{font-size:46px;font-weight:800;letter-spacing:-.025em;color:#fff;margin-bottom:14px}
 .page-hero-sub{font-size:18px;color:rgba(255,255,255,.65);max-width:620px;line-height:1.75;margin-bottom:28px;padding-bottom:0}
 .page-hero-ctas{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
