@@ -75,29 +75,30 @@
 
 /* ── Floating WhatsApp button + website-aware assistant ─────── */
 (function(){
-  var WA = 'https://wa.me/818065151778?text=' + encodeURIComponent("Hi BHD Asia, I'd like to know more about your services.");
+  var WA = ‘https://wa.me/818065151778?text=’ + encodeURIComponent("Hi BHD Asia, I’d like to know more about your services.");
 
   // Suggestion pool — rotates randomly so repeats are minimised
   var ALL_SUG = [
-    'What services do you offer?',
-    'TRE® workshops',
-    'Pricing & packages',
-    'Upcoming events',
-    'How to contact you',
-    'About BHD Asia',
-    'Who is Isabelle?',
-    'Where are you located?',
-    'How to book a session',
-    'Tell me about coaching',
-    'Partner organisations',
-    'Team & experience'
+    ‘What services do you offer?’,
+    ‘TRE® workshops’,
+    ‘Pricing & packages’,
+    ‘Upcoming events’,
+    ‘How to book a session’,
+    ‘About BHD Asia’,
+    ‘Who is Isabelle?’,
+    ‘Stress & burnout support’,
+    ‘Tell me about coaching’,
+    ‘Conflict & mediation’,
+    ‘Partner organisations’,
+    ‘Is there online support?’,
+    ‘How does it work?’,
+    ‘Where are you located?’
   ];
   var usedSug = [];
 
   function freshSuggestions(){
     var available = ALL_SUG.filter(function(s){ return usedSug.indexOf(s) === -1; });
     if(available.length < 5){ usedSug = []; available = ALL_SUG.slice(); }
-    // Shuffle
     for(var i = available.length - 1; i > 0; i--){
       var j = Math.floor(Math.random() * (i + 1));
       var tmp = available[i]; available[i] = available[j]; available[j] = tmp;
@@ -107,84 +108,145 @@
     return picked;
   }
 
-  // Knowledge base with action buttons per topic
+  // Knowledge base — single-word exact matches first, then broader topic patterns
   var KB = [
+
+    // ── Single-word / short exact-match handlers ──────────────
     {
-      re:/(service|services|offer|offering|programme|programs?|help with|what do you|what you do)/,
+      re:/^how$/,
+      a:"Happy to help! Are you asking about <strong>how to book</strong>, <strong>how our sessions work</strong>, or <strong>how much it costs</strong>? Tap a topic below or just type.",
+      btns:[{t:’How to Book’,u:’contact.html’},{t:’Pricing’,u:’services.html’},{t:’Our Approach’,u:’about.html’}]
+    },
+    {
+      re:/^(who|whose)$/,
+      a:"We’re <strong>BHD Asia</strong> — led by <strong>Isabelle Claus Teixeira</strong> (27+ years in HR &amp; coaching) and co-founded with <strong>Rouviere Teixeira</strong>.",
+      btns:[{t:’Meet the Team’,u:’about.html’},{t:’About Isabelle’,u:’isabelle.html’}]
+    },
+    {
+      re:/^what$/,
+      a:"We offer <strong>Organisation Development</strong>, <strong>Resilience Building</strong> (incl. TRE®), and <strong>Individual Coaching</strong>. What area interests you?",
+      btns:[{t:’All Services’,u:’services.html’},{t:’TRE® Workshops’,u:’events.html’}]
+    },
+    {
+      re:/^why$/,
+      a:"<strong>Why BHD Asia?</strong> We co-design bespoke solutions — not off-the-shelf programmes. 27+ years across 9 countries, blending executive coaching, somatic methods, and real HR expertise.",
+      btns:[{t:’Our Story’,u:’about.html’},{t:’Book a Free Call’,u:’contact.html’}]
+    },
+    {
+      re:/^(help|\?+|start|menu|topics?|options?)$/,
+      a:"Here’s what I can help with:<br>• <strong>Services</strong> — what we offer<br>• <strong>TRE® workshops</strong> — dates &amp; pricing<br>• <strong>Coaching</strong> — executive &amp; career<br>• <strong>Events</strong> — upcoming workshops<br>• <strong>Team</strong> — about Isabelle &amp; Rouviere<br>• <strong>Location &amp; online</strong> — where we work<br>• <strong>Contact</strong> — how to reach us<br><br>Just type any topic!",
+      btns:[{t:’Services’,u:’services.html’},{t:’Events’,u:’events.html’},{t:’Contact’,u:’contact.html’}]
+    },
+    {
+      re:/^(yes|yeah|yep|yup|ok|okay|sure|go ahead|sounds good)$/,
+      a:"Great! What would you like to know? Ask about our <strong>services</strong>, <strong>pricing</strong>, <strong>TRE® workshops</strong>, or how to <strong>book a session</strong>.",
+      btns:[{t:’Services’,u:’services.html’},{t:’Events’,u:’events.html’},{t:’Contact’,u:’contact.html’}]
+    },
+    {
+      re:/^(no|nope|nah|not now|later)$/,
+      a:"No problem at all! Feel free to come back anytime. You can always reach us at <a href=’mailto:isabelle@bhdasia.com’>isabelle@bhdasia.com</a>.",
+      btns:[]
+    },
+
+    // ── Topic handlers ────────────────────────────────────────
+    {
+      re:/(service|services|offer|offering|programme|programs?|help with|what do you|what you do|specialise|specialize|expertise|capabilities?|solutions?)/,
       a:"We focus on three areas: <strong>Organisation Development</strong>, <strong>Resilience Building</strong> (TRE®, somatic coaching, stress &amp; burnout), and <strong>Individual Development</strong> (executive, career &amp; transition coaching). Each solution is co-designed with you.",
-      btns:[{t:'View All Services',u:'services.html'},{t:'Book a Free Call',u:'contact.html'}]
+      btns:[{t:’View All Services’,u:’services.html’},{t:’Book a Free Call’,u:’contact.html’}]
     },
     {
-      re:/(tre|tension|trauma|somatic|tremor|neurogenic|releasing exercise)/,
-      a:"<strong>TRE® (Tension &amp; Trauma Releasing Exercises)</strong> is a neurogenic method that helps the body release deep muscle tension and stress without detailed discussion of past events. We run open workshops — Module 1 (personal use) and Module 2/3 (provider certification).",
-      btns:[{t:'See TRE® Events',u:'events.html'},{t:'Enquire Now',u:'contact.html'}]
+      re:/(\btre\b|tension|trauma|somatic|tremor|neurogenic|releasing exercise|nervous system|body.?based|bodywork)/,
+      a:"<strong>TRE® (Tension &amp; Trauma Releasing Exercises)</strong> is a neurogenic method that helps the body release deep muscle tension and stress without detailed discussion of past events. We run open workshops — Module 1 (personal use) and Modules 2/3 (provider certification).",
+      btns:[{t:’See TRE® Events’,u:’events.html’},{t:’Enquire Now’,u:’contact.html’}]
     },
     {
-      re:/(event|events|workshop|workshops|upcoming|module|when|next date|schedule|calendar)/,
-      a:"Our next workshops are <strong>TRE® for Personal Use (Module 1)</strong> on <strong>29–30 Aug 2026</strong> and <strong>Certification (Module 2)</strong> on 26–27 Sep 2026 — both in Singapore.",
-      btns:[{t:'View All Events',u:'events.html'},{t:'Reserve a Spot',u:'contact.html'}]
+      re:/(event|events|workshop|workshops|upcoming|module|when|next date|schedule|calendar|dates?|availability|timetable|course|training|certif)/,
+      a:"Our next workshops: <strong>TRE® for Personal Use (Module 1)</strong> — <strong>29–30 Aug 2026</strong>, and <strong>TRE® Certification (Module 2)</strong> — 26–27 Sep 2026. Both in-person, Singapore.",
+      btns:[{t:’View All Events’,u:’events.html’},{t:’Reserve a Spot’,u:’contact.html’}]
     },
     {
-      re:/(price|pricing|cost|fee|how much|rate|sgd|dollar|package|invest)/,
-      a:"TRE® Module 1: Super Early Bird <strong>SGD 1,290</strong>, Early Bird 1,500, Normal 1,800. Our 8-week individual coaching package is <strong>SGD 2,200</strong>. Group and corporate rates available on request.",
-      btns:[{t:'Full Pricing',u:'services.html'},{t:'Ask About Rates',u:'contact.html'}]
+      re:/(price|pricing|cost|fee|how much|rate|sgd|dollar|package|invest|money|budget|afford|pay|payment)/,
+      a:"TRE® Module 1: Super Early Bird <strong>SGD 1,290</strong>, Early Bird 1,500, Normal 1,800. Our 8-week individual coaching package is <strong>SGD 2,200</strong>. Group and corporate rates on request.",
+      btns:[{t:’Full Pricing’,u:’services.html’},{t:’Ask About Rates’,u:’contact.html’}]
     },
     {
-      re:/(contact|email|phone|call|reach|whatsapp|enquire|inquire|message|get in touch)/,
-      a:"You can reach us by email at <a href='mailto:isabelle@bhdasia.com'>isabelle@bhdasia.com</a>, call or WhatsApp <strong>+81 80 6515 1778</strong>, or fill in our online contact form.",
-      btns:[{t:'Contact Form',u:'contact.html'}]
+      re:/(contact|email|phone|call|reach|whatsapp|enquire|inquire|message|get in touch|speak|talk|connect)/,
+      a:"You can reach us by email at <a href=’mailto:isabelle@bhdasia.com’>isabelle@bhdasia.com</a>, call or WhatsApp <strong>+81 80 6515 1778</strong>, or fill in our online contact form.",
+      btns:[{t:’Contact Form’,u:’contact.html’}]
     },
     {
-      re:/(location|where|address|office|located|based|singapore|raffles)/,
-      a:"We are based at <strong>50 Raffles Place, Singapore Land Tower #30-00, Singapore 048623</strong> and work with clients across Asia Pacific, Japan, Europe and beyond.",
-      btns:[{t:'Contact Us',u:'contact.html'},{t:'About BHD Asia',u:'about.html'}]
+      re:/(location|where|address|office|located|based|singapore|raffles|online|virtual|remote|in.?person|hybrid)/,
+      a:"Based at <strong>50 Raffles Place, Singapore Land Tower #30-00, Singapore 048623</strong>. We also work remotely with clients across Asia Pacific, Japan, Europe, and beyond.",
+      btns:[{t:’Contact Us’,u:’contact.html’},{t:’About BHD Asia’,u:’about.html’}]
     },
     {
-      re:/(isabelle|founder|who runs|co.?founder|director|coach|rouviere|team|staff|people)/,
-      a:"<strong>Isabelle Claus Teixeira</strong> is our co-founder and director — 27+ years in HR leadership across nine countries, a certified leadership coach since 2012, TRE® certified provider, and Forbes Coaches Council contributor.",
-      btns:[{t:'Meet Isabelle',u:'isabelle.html'},{t:'Our Team',u:'about.html#team'}]
+      re:/(isabelle|rouviere|founder|who runs|co.?founder|director|team|staff|people|credentials?|qualif)/,
+      a:"<strong>Isabelle Claus Teixeira</strong> is our co-founder — 27+ years in HR leadership across 9 countries, certified coach since 2012, TRE® provider, and Forbes Coaches Council contributor. Co-founded with <strong>Rouviere Teixeira</strong>.",
+      btns:[{t:’Meet Isabelle’,u:’isabelle.html’},{t:’Our Team’,u:’about.html#team’}]
     },
     {
-      re:/(about|company|bhd|background|history|who are you|what is bhd)/,
-      a:"<strong>BHD Asia</strong> is a boutique HR consulting, executive coaching and leadership development firm. Founded in Singapore in 2012 by Isabelle and Rouviere Teixeira, we co-design bespoke solutions for clients across Asia Pacific and globally.",
-      btns:[{t:'About Us',u:'about.html'},{t:'Our Services',u:'services.html'}]
+      re:/(resilience|resilient|stress|burnout|burn.?out|anxiety|overwhelm|wellbeing|well.?being|mental.?health|pressure|fatigue|exhaust|psychological.?safety)/,
+      a:"Our <strong>Resilience Building</strong> programmes include TRE® (neurogenic stress release), somatic coaching, burnout prevention, stress management, and psychological safety workshops.",
+      btns:[{t:’Resilience Services’,u:’services.html’},{t:’TRE® Events’,u:’events.html’}]
     },
     {
-      re:/(book|booking|appointment|sign.?up|register|enrol|enroll|reserve|1.?on.?1|one.?on.?one|free call)/,
-      a:"To book, use our <a href='contact.html'>Contact</a> form or reach us directly via WhatsApp at +81 80 6515 1778 to schedule a free discovery conversation.",
-      btns:[{t:'Book a Free 1:1',u:'contact.html'}]
+      re:/(hr|human.?resource|talent|organisat|organizat|culture|change.?management|facilitat|corporate|leadership.?develop|workforce)/,
+      a:"Our <strong>Organisation Development</strong> practice covers HR &amp; Talent Management advisory, high-performing team facilitation, culture transformation, leadership development, change management, and mediation.",
+      btns:[{t:’Org Development’,u:’services.html’},{t:’Talk to Us’,u:’contact.html’}]
     },
     {
-      re:/(partner|associate|network|client|clients|who.*(work|worked)|companies)/,
-      a:"We’ve worked with global organisations including ByteDance (TikTok), Novartis, Philips, VISA, Mastercard, Heineken APAC and many more. Our global associate network spans coaching, facilitation and HR advisory.",
-      btns:[{t:'Our Partners',u:'partners.html'},{t:'Our Story',u:'about.html'}]
+      re:/(mediat|conflict|dispute|disagree|difficult.?conversation|resolution|simi)/,
+      a:"Isabelle is a <strong>SIMI-accredited mediator</strong> offering professional conflict resolution and mediation. We also facilitate <em>Challenging Conversations &amp; Constructive Conflict</em> workshops.",
+      btns:[{t:’Our Services’,u:’services.html’},{t:’Book a Consult’,u:’contact.html’}]
     },
     {
-      re:/(coaching|executive coaching|leadership|career|transition|performance|life coach)/,
-      a:"Our coaching services include <strong>Executive Coaching</strong>, <strong>Transition Coaching</strong>, <strong>Performance Coaching</strong>, <strong>Career Coaching</strong>, Self-Awareness Development and 360° Debriefs. Packages are fully co-designed.",
-      btns:[{t:'Coaching Services',u:'services.html'},{t:'Book a Consult',u:'contact.html'}]
+      re:/(about|company|bhd|background|history|who are you|what is bhd|mission|values?|philosophy|approach|methodology|how.*work|how does)/,
+      a:"<strong>BHD Asia</strong> is a boutique HR consulting, executive coaching and leadership development firm. Founded in Singapore in 2012, we co-design bespoke solutions for clients across Asia Pacific and globally.",
+      btns:[{t:’About Us’,u:’about.html’},{t:’Our Services’,u:’services.html’}]
     },
     {
-      re:/(hi|hello|hey|hiya|greetings|good (morning|afternoon|evening)|how are you)/,
+      re:/(book|booking|appointment|sign.?up|register|enrol|enroll|reserve|1.?on.?1|one.?on.?one|free call|consult|discovery|get started|next step|how do i|how to)/,
+      a:"To book, use our <a href=’contact.html’>Contact form</a> or WhatsApp <strong>+81 80 6515 1778</strong> to schedule a free discovery conversation — no commitment needed.",
+      btns:[{t:’Book a Free 1:1’,u:’contact.html’}]
+    },
+    {
+      re:/(coaching|executive.?coach|leadership.?coach|career.?coach|transition.?coach|performance.?coach|life.?coach|personal.?develop|growth|goal)/,
+      a:"Our coaching covers <strong>Executive Coaching</strong>, <strong>Transition Coaching</strong>, <strong>Performance Coaching</strong>, <strong>Career Coaching</strong>, Self-Awareness Development, and 360° Debriefs — all fully co-designed.",
+      btns:[{t:’Coaching Services’,u:’services.html’},{t:’Book a Consult’,u:’contact.html’}]
+    },
+    {
+      re:/(partner|associate|network|client|clients|who.*(work|worked)|companies|testimonial|review|results|forbes|icf|noomii)/,
+      a:"We’ve worked with ByteDance (TikTok), Novartis, Philips, VISA, Mastercard, Heineken APAC, and more. Isabelle is a Forbes Coaches Council contributor and ICF-certified coach.",
+      btns:[{t:’Our Partners’,u:’partners.html’},{t:’Our Story’,u:’about.html’}]
+    },
+    {
+      re:/(^(hi|hello|hey|hiya|greetings|yo|howdy|sup)$|^good (morning|afternoon|evening)|how are you)/,
       a:"Hello! I’m the BHD Asia assistant 👋 I can help with services, TRE® workshops, pricing, events, our team, and how to get in touch. What would you like to know?",
       btns:[]
     },
     {
-      re:/(thank|thanks|cheers|appreciate|great|perfect|helpful)/,
-      a:"You’re very welcome! Feel free to ask anything else, or reach us directly at <a href='mailto:isabelle@bhdasia.com'>isabelle@bhdasia.com</a>.",
+      re:/(thank|thanks|cheers|appreciate|great|perfect|helpful|awesome|wonderful)/,
+      a:"You’re very welcome! Feel free to ask anything else, or reach us at <a href=’mailto:isabelle@bhdasia.com’>isabelle@bhdasia.com</a>.",
       btns:[]
     },
-    {re:/(bye|goodbye|see you|farewell|that.s all)/, a:"Thanks for visiting BHD Asia. Have a wonderful day! 😊", btns:[]}
+    {re:/(bye|goodbye|see you|farewell|that.?s all)/, a:"Thanks for visiting BHD Asia. Have a wonderful day! 😊", btns:[]}
   ];
 
-  var FALLBACK_A = "I can help with our <strong>services</strong>, <strong>TRE® workshops</strong>, <strong>pricing</strong>, <strong>events</strong>, <strong>location</strong> and <strong>contact</strong>. For anything specific, reach Isabelle at <a href='mailto:isabelle@bhdasia.com'>isabelle@bhdasia.com</a> or WhatsApp +81 80 6515 1778.";
-  var FALLBACK_BTNS = [{t:'Services',u:'services.html'},{t:'Events',u:'events.html'},{t:'Contact Us',u:'contact.html'}];
+  var FALLBACK_A = "I can help with our <strong>services</strong>, <strong>TRE® workshops</strong>, <strong>pricing</strong>, <strong>events</strong>, <strong>location</strong> and <strong>contact</strong>. For anything specific, reach Isabelle at <a href=’mailto:isabelle@bhdasia.com’>isabelle@bhdasia.com</a> or WhatsApp +81 80 6515 1778.";
+  var FALLBACK_BTNS = [{t:’Services’,u:’services.html’},{t:’Events’,u:’events.html’},{t:’Contact Us’,u:’contact.html’}];
 
   function answerFor(raw){
-    // Normalise: lowercase, strip punctuation
-    var t = raw.toLowerCase().replace(/['".,!?;:()–—]/g,' ').replace(/\s+/g,' ');
+    var t = raw.toLowerCase().replace(/[‘".,!?;:()–—]/g,’ ‘).replace(/\s+/g,’ ‘).trim();
+    if(!t) t = raw.toLowerCase().trim();
     for(var i=0;i<KB.length;i++){
       if(KB[i].re.test(t)) return {a:KB[i].a, btns:KB[i].btns};
+    }
+    // Short unrecognised input — echo the word and redirect helpfully
+    if(t.length <= 25){
+      return {
+        a:"I’m not sure about <em>\"" + esc(raw.trim().substring(0,40)) + "\"</em> — try asking about <strong>services</strong>, <strong>pricing</strong>, <strong>TRE® workshops</strong>, <strong>events</strong>, or <strong>contact</strong>.",
+        btns:[{t:’Services’,u:’services.html’},{t:’Events’,u:’events.html’},{t:’Contact’,u:’contact.html’}]
+      };
     }
     return {a:FALLBACK_A, btns:FALLBACK_BTNS};
   }

@@ -86,6 +86,29 @@
       <p>Live site: <a href="https://technextsg.github.io/BHDasia/" target="_blank" style="color:var(--blue)">technextsg.github.io/BHDasia</a> &nbsp;·&nbsp; Repository: <a href="https://github.com/TechNextSG/BHDasia" target="_blank" style="color:var(--blue)">github.com/TechNextSG/BHDasia</a></p>
     </div>
 
+    <!-- VERSION 5.20 -->
+    <div class="version-block">
+      <div class="version-header">
+        <span class="version-badge v3">v5.20</span>
+        <span class="version-date">19 June 2026</span>
+        <h3 class="version-title">Chatbot — Smarter Single-Word Responses</h3>
+      </div>
+      <div class="change-group">
+        <ul class="change-list">
+          <li class="change-item changed">Single-word exact handlers added: "how", "who", "what", "why", "help", "?", "yes/ok/sure", "no/nope" each return a tailored, contextual response with action buttons</li>
+          <li class="change-item changed">New topic KB entries: Resilience/stress/burnout, Organisation Dev (hr, culture, facilitation), Mediation/conflict — each now route to specific content</li>
+          <li class="change-item changed">Expanded all existing regexes with more keyword synonyms (certification, online, corporate, methodology, discovery, etc.)</li>
+          <li class="change-item fixed">Fixed: "stress" was incorrectly matching TRE handler due to "tre" substring in "stress" — fixed with word-boundary regex <code>\btre\b</code></li>
+          <li class="change-item fixed">Fixed: "?" was stripped to empty string by normalizer — now preserved for HELP handler matching</li>
+          <li class="change-item changed">Short unrecognised queries now echo the typed word in the redirect message instead of generic fallback</li>
+          <li class="change-item changed">Suggestion pool updated with new topics: stress support, conflict, online support, how does it work</li>
+        </ul>
+      </div>
+      <div class="files-added">
+        <span class="file-tag">shared.js</span>
+      </div>
+    </div>
+
     <!-- VERSION 5.19 -->
     <div class="version-block">
       <div class="version-header">
