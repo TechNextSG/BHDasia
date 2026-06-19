@@ -145,7 +145,7 @@ strong{font-weight:700}em{font-style:italic}
 
 /* ── PAGE HERO BANNER ─────────────────────────── */
 .page-title-wrap{
-  min-height:100vh;
+  min-height:calc(100vh - 60px);
   display:flex;
   align-items:center;
   margin-top:60px;
@@ -153,6 +153,7 @@ strong{font-weight:700}em{font-style:italic}
   position:relative;
   overflow:hidden;
   background:var(--navy);
+  isolation:isolate;
 }
 .page-title-wrap::before{
   content:'';position:absolute;
