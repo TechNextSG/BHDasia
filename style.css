@@ -499,10 +499,10 @@ input:focus,textarea:focus,select:focus{box-shadow:0 0 0 3px rgba(200,85,26,.15)
 /* ── 600px additions (supplements existing block) ──── */
 @media(max-width:600px){
   /* Page hero typography */
-  .page-title{font-size:26px}
+  .page-title{font-size:32px}
   .page-hero-sub{font-size:14px;max-width:100%;line-height:1.7}
   /* Homepage hero typography */
-  .hero-title{font-size:26px}
+  .hero-title{font-size:32px}
   .hero-sub{font-size:14px;max-width:100%}
   /* Section spacing */
   .section{padding:44px 0}
@@ -548,7 +548,7 @@ input:focus,textarea:focus,select:focus{box-shadow:0 0 0 3px rgba(200,85,26,.15)
 
   /* — Inner page hero — */
   .page-title-wrap .container{padding-top:38px;padding-bottom:28px}
-  .page-title{font-size:22px;letter-spacing:-.01em}
+  .page-title{font-size:28px;letter-spacing:-.01em}
   .page-hero-sub{font-size:13px;max-width:100%;line-height:1.65}
   .page-hero-ctas{max-width:100%}
   .page-hero-ctas .et_pb_button{
@@ -558,7 +558,7 @@ input:focus,textarea:focus,select:focus{box-shadow:0 0 0 3px rgba(200,85,26,.15)
 
   /* — Homepage hero — */
   .hero-inner{padding:38px 0 28px}
-  .hero-title{font-size:22px;line-height:1.2}
+  .hero-title{font-size:28px;line-height:1.2}
   .hero-sub{font-size:13px;max-width:100%;margin-bottom:22px}
   .hero-ctas{max-width:100%}
   .hero-ctas .et_pb_button{
@@ -642,7 +642,7 @@ input:focus,textarea:focus,select:focus{box-shadow:0 0 0 3px rgba(200,85,26,.15)
 
 /* ── 375px: extra-small (iPhone SE etc.) ──────────── */
 @media(max-width:375px){
-  .hero-title,.page-title{font-size:19px!important}
+  .hero-title,.page-title{font-size:24px!important}
   .hero-sub,.page-hero-sub{font-size:12.5px!important}
   .c-n{font-size:26px!important}
   .c-sep{font-size:20px!important}
@@ -718,12 +718,12 @@ input:focus,textarea:focus,select:focus{box-shadow:0 0 0 3px rgba(200,85,26,.15)
    style.css in cascade order, overriding without !important */
 @media(max-width:600px){
   .hero-inner{padding:44px 0 32px!important}
-  .hero-title{font-size:26px!important}
+  .hero-title{font-size:32px!important}
   .hero-sub{font-size:14px!important;max-width:100%!important}
 }
 @media(max-width:480px){
   .hero-inner{padding:36px 0 24px!important}
-  .hero-title{font-size:22px!important;line-height:1.2!important}
+  .hero-title{font-size:28px!important;line-height:1.2!important}
   .hero-sub{font-size:13px!important;margin-bottom:20px!important}
   .hero-ctas{max-width:100%!important;flex-direction:column!important;align-items:stretch!important}
   .hero-ctas .et_pb_button{width:100%!important;text-align:center!important;margin:4px 0!important;box-sizing:border-box!important}
