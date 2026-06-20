@@ -332,7 +332,7 @@ strong{font-weight:700}em{font-style:italic}
   .page-title-wrap{margin-top:60px}
 }
 @media(max-width:600px){
-  #footer-widgets .container{grid-template-columns:1fr 1fr}
+  #footer-widgets .container{grid-template-columns:1fr;gap:20px}
   #footer-bottom .container{flex-direction:column;gap:8px;text-align:center}
   .footer-bottom-links{justify-content:center;flex-wrap:wrap}
   h1{font-size:24px}h2{font-size:20px}
