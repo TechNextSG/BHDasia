@@ -670,7 +670,8 @@ input:focus,textarea:focus,select:focus{box-shadow:0 0 0 3px rgba(200,85,26,.15)
   .countdown-inner{
     align-items:center;
     gap:20px;
-    flex-direction:column;
+    flex-direction:column-reverse;
+    justify-content:flex-start;
   }
   /* Text block: full-width, centered */
   .countdown-text{
