@@ -331,7 +331,7 @@ body.mobile-nav-open .mobile_menu_bar::before{content:'✕'}
   .page-title-wrap{margin-top:60px}
 }
 @media(max-width:600px){
-  #footer-widgets .container{grid-template-columns:1fr;gap:20px}
+  #footer-widgets .container{grid-template-columns:1fr 1fr;gap:16px 20px}
   #footer-bottom .container{flex-direction:column;gap:8px;text-align:center}
   .footer-bottom-links{justify-content:center;flex-wrap:wrap}
   h1{font-size:24px}h2{font-size:20px}
@@ -624,7 +624,7 @@ input:focus,textarea:focus,select:focus{box-shadow:0 0 0 3px rgba(200,85,26,.15)
   .event-meta span{font-size:11px}
 
   /* — Footer — */
-  #footer-widgets .container{grid-template-columns:1fr!important;gap:16px}
+  #footer-widgets .container{grid-template-columns:1fr 1fr!important;gap:16px}
   #footer-widgets{padding:26px 0 18px}
   .footer-brand-name{font-size:17px}
 
