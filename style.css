@@ -598,12 +598,12 @@ input:focus,textarea:focus,select:focus{box-shadow:0 0 0 3px rgba(200,85,26,.15)
   .pillar-card p{font-size:14px}
 
   /* — Podcast player — */
-  .pp-img{width:120px!important;height:120px!important}
-  .pp-ring{width:136px!important;height:136px!important}
+  .pp-img{width:180px!important;height:180px!important}
+  .pp-ring{width:196px!important;height:196px!important}
   .pp-title{font-size:18px}
   .pp-desc{font-size:13.5px}
   .pp-controls{gap:10px}
-  .pp-play{width:48px!important;height:48px!important}
+  .pp-play{width:54px!important;height:54px!important}
 
   /* — Partners grid — */
   .partners-grid{grid-template-columns:1fr!important}
