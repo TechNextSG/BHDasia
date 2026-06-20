@@ -651,3 +651,139 @@ input:focus,textarea:focus,select:focus{box-shadow:0 0 0 3px rgba(200,85,26,.15)
   .et_pb_button{font-size:12px;padding:.72em 1.5em;letter-spacing:.1em}
   .section-label{font-size:9.5px}
 }
+
+/* ═════════════════════════════════════════════════════
+   v5.23.2 — mobile audit: countdown, CTA centering,
+   hero consistency, edge spacing
+   ═════════════════════════════════════════════════════ */
+
+/* ── COUNTDOWN: fix huge gap caused by flex-basis:320px ─
+   In column layout, flex-basis applies to HEIGHT so the
+   text block gets forced to 320px even when content is ~150px.
+   Fix: override flex on both breakpoints.                   */
+@media(max-width:900px){
+  .countdown-text{flex:0 0 auto;min-width:0}
+}
+@media(max-width:600px){
+  /* Center the whole countdown vertically and tighten gap */
+  .countdown-section{padding:32px 0}
+  .countdown-inner{
+    align-items:center;
+    gap:20px;
+    flex-direction:column;
+  }
+  /* Text block: full-width, centered */
+  .countdown-text{
+    text-align:center;
+    width:100%;
+    flex:0 0 auto!important;
+    min-width:0;
+  }
+  /* Meta row: center the calendar icon + date text */
+  .countdown-meta{
+    justify-content:center;
+    flex-wrap:wrap;
+    text-align:center;
+  }
+  /* Timer: center digits in full-width row */
+  .countdown-timer{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    width:100%;
+  }
+  /* Countdown button: center within text block */
+  .countdown-text .et_pb_button{
+    display:inline-block;
+    margin:12px 0 0!important;
+  }
+  /* Timer font sizes: compact but legible */
+  .c-n{font-size:38px}
+  .c-sep{font-size:32px;padding-bottom:8px}
+  .c-unit{padding:0 8px;min-width:56px}
+}
+@media(max-width:480px){
+  .c-n{font-size:32px!important}
+  .c-sep{font-size:26px!important;padding-bottom:5px!important}
+  .c-unit{min-width:44px!important;padding:0 5px!important}
+}
+@media(max-width:375px){
+  .c-n{font-size:26px!important}
+  .c-sep{font-size:20px!important;padding-bottom:3px!important}
+  .c-unit{min-width:36px!important;padding:0 3px!important}
+}
+
+/* ── HOMEPAGE HERO: force mobile padding
+   index.html has an inline <style> block that comes AFTER
+   style.css in cascade order, overriding without !important */
+@media(max-width:600px){
+  .hero-inner{padding:44px 0 32px!important}
+  .hero-title{font-size:26px!important}
+  .hero-sub{font-size:14px!important;max-width:100%!important}
+}
+@media(max-width:480px){
+  .hero-inner{padding:36px 0 24px!important}
+  .hero-title{font-size:22px!important;line-height:1.2!important}
+  .hero-sub{font-size:13px!important;margin-bottom:20px!important}
+  .hero-ctas{max-width:100%!important;flex-direction:column!important;align-items:stretch!important}
+  .hero-ctas .et_pb_button{width:100%!important;text-align:center!important;margin:4px 0!important;box-sizing:border-box!important}
+}
+
+/* ── CTA BUTTON CENTERING on mobile ──────────────────── */
+@media(max-width:600px){
+  /* Pillar cards: center icon, text and button */
+  .pillar-body{align-items:center;text-align:center}
+  .pillar-body p{text-align:left} /* keep body copy left-aligned */
+
+  /* Partner cards */
+  .partner-card{text-align:center}
+  .partner-card p{text-align:left}
+  .partner-card .et_pb_button{
+    display:block;
+    margin:0 auto;
+    text-align:center;
+  }
+
+  /* Event body button */
+  .event-body .et_pb_button{
+    display:block;
+    text-align:center;
+    margin-left:auto!important;
+    margin-right:auto!important;
+  }
+
+  /* Isabelle / team section buttons */
+  .team-main-body .et_pb_button,
+  .isabelle-body .et_pb_button{
+    display:block;
+    text-align:center;
+    margin-left:auto;
+    margin-right:auto;
+  }
+
+  /* Section-level standalone buttons (not in cards) */
+  .section-cta,.page-intro .et_pb_button,
+  .coaching-pkg-body .et_pb_button{
+    display:block;
+    text-align:center;
+    margin:10px auto 0;
+  }
+}
+
+/* ── EDGE SPACING: ensure 20px min on all containers ── */
+@media(max-width:480px){
+  .container{padding-left:20px!important;padding-right:20px!important}
+  .et_pb_row{padding-left:20px!important;padding-right:20px!important}
+  /* Hero container has its own padding rules above */
+}
+
+/* ── HERO SECTION CONSISTENCY across all pages ────────
+   Inner pages use .page-title-wrap .container (style.css)
+   Homepage uses .hero-inner (index.html inline style)
+   Both are handled with !important above. Align spacing:  */
+@media(max-width:600px){
+  .page-title-wrap .container{padding:44px 0 32px!important}
+}
+@media(max-width:480px){
+  .page-title-wrap .container{padding:36px 0 24px!important}
+}
