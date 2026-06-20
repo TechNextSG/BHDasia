@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap');
-
 /* ── DESIGN TOKENS ────────────────────────────── */
 :root{
   /* Brand — derived from BHD Asia logo */
@@ -17,7 +15,7 @@
   /* Text */
   --text:#1c2b3a;
   --body:#4a5568;
-  --muted:#6d7e96;
+  --muted:#5a6b82;
 
   /* Structure — warm */
   --border:#E5DDD5;        /* warm border, not cool blue-tinted */
@@ -140,8 +138,9 @@ strong{font-weight:700}em{font-style:italic}
 
 #et_top_search{display:none}
 #et_mobile_nav_menu{display:none}
-.mobile_menu_bar{cursor:pointer;padding:4px;font-size:20px;color:var(--body);user-select:none}
+.mobile_menu_bar{cursor:pointer;padding:4px;font-size:20px;color:var(--body);user-select:none;background:none;border:none;line-height:1}
 .mobile_menu_bar::before{content:'☰'}
+body.mobile-nav-open .mobile_menu_bar::before{content:'✕'}
 
 /* ── PAGE HERO BANNER ─────────────────────────── */
 .page-title-wrap{

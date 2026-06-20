@@ -2,7 +2,8 @@
 <html lang="en-US">
 <head>
 <meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0"/>
+<link rel="icon" href="favicon.svg"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>TRE® Workshops Singapore 2026 | BHD Asia</title>
 <meta name="description" content="TRE® workshops in Singapore. Module 1 (personal use) 29–30 Aug 2026. Module 2 certification 26–27 Sep 2026. Facilitated by certified TRE® provider Isabelle Claus Teixeira."/>
 <meta property="og:type" content="website"/>
@@ -20,6 +21,10 @@
 <script type="application/ld+json">
 [{"@context":"https://schema.org","@type":"EducationEvent","name":"TRE® for Personal Use — Module 1","description":"A 2-day TRE® experiential workshop for personal wellbeing, stress release and centering.","startDate":"2026-08-29","endDate":"2026-08-30","eventStatus":"https://schema.org/EventScheduled","eventAttendanceMode":"https://schema.org/OfflineEventAttendanceMode","location":{"@type":"Place","name":"Singapore","address":{"@type":"PostalAddress","addressLocality":"Singapore","addressCountry":"SG"}},"organizer":{"@type":"Organization","name":"BHD Asia","url":"https://technextsg.github.io/BHDasia/"},"offers":[{"@type":"Offer","name":"Super Early Bird","price":"1290","priceCurrency":"SGD"},{"@type":"Offer","name":"Normal","price":"1800","priceCurrency":"SGD"}]},{"@context":"https://schema.org","@type":"EducationEvent","name":"TRE® Certification — Module 2","description":"A 2-day TRE® certification workshop for those learning to teach TRE® to one client. Includes 4 online supervisions.","startDate":"2026-09-26","endDate":"2026-09-27","eventStatus":"https://schema.org/EventScheduled","eventAttendanceMode":"https://schema.org/OfflineEventAttendanceMode","location":{"@type":"Place","name":"Singapore","address":{"@type":"PostalAddress","addressLocality":"Singapore","addressCountry":"SG"}},"organizer":{"@type":"Organization","name":"BHD Asia","url":"https://technextsg.github.io/BHDasia/"},"offers":[{"@type":"Offer","name":"Super Early Bird","price":"3699","priceCurrency":"SGD"},{"@type":"Offer","name":"Normal","price":"4500","priceCurrency":"SGD"}]}]
 </script>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link rel="preconnect" href="https://sp-ao.shortpixel.ai"/>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&amp;family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400&amp;display=swap"/>
 <link rel="stylesheet" href="style.css"/>
 <style>
 .events-grid{padding:40px 0 70px}
@@ -62,7 +67,7 @@
   <div class="et_menu_container container clearfix">
     <div class="logo_container">
       <a href="index.html">
-        <img src="https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img/https://bhdasia.com/wp-content/uploads/2020/10/BHDASIA.png" alt="BHD Asia" onerror="this.style.display='none';document.querySelector('.logo-text').style.display='block'"/>
+        <img src="https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img/https://bhdasia.com/wp-content/uploads/2020/10/BHDASIA.png" alt="BHD Asia" width="136" height="34" onerror="this.style.display='none';document.querySelector('.logo-text').style.display='block'"/>
         <span class="logo-text">BHD Asia</span>
       </a>
     </div>
@@ -79,14 +84,14 @@
       </nav>
       <a href="contact.html" class="header-contact-btn">Contact</a>
       <div id="et_top_search"><span id="et_search_icon"></span></div>
-      <div id="et_mobile_nav_menu"><span class="mobile_menu_bar" onclick="document.body.classList.toggle('mobile-nav-open')"></span></div>
+      <div id="et_mobile_nav_menu"><button class="mobile_menu_bar" id="mobile-menu-btn" aria-expanded="false" aria-controls="top-menu-nav" aria-label="Open navigation"></button></div>
     </div>
   </div>
 </header>
 
-<div id="et-main-area">
+<div id="et-main-area" tabindex="-1">
 <div class="page-title-wrap">
-  <video class="page-hero-video" autoplay muted loop playsinline poster="hero-events.png">
+  <video class="page-hero-video" autoplay muted loop playsinline preload="none" poster="hero-events.png">
     <source src="hero-events.mp4" type="video/mp4">
   </video>
   <div class="page-hero-overlay"></div>

@@ -27,10 +27,24 @@
   window.addEventListener('scroll', updateHeader, {passive:true});
   updateHeader();
 
+  // Hamburger toggle with aria-expanded
+  var hamburgerBtn = document.getElementById('mobile-menu-btn');
+  if(hamburgerBtn){
+    hamburgerBtn.addEventListener('click', function(){
+      var isOpen = document.body.classList.toggle('mobile-nav-open');
+      this.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      this.setAttribute('aria-label', isOpen ? 'Close navigation' : 'Open navigation');
+    });
+  }
+
   // Close mobile nav on link click
   document.querySelectorAll('#top-menu a').forEach(function(a){
     a.addEventListener('click', function(){
       document.body.classList.remove('mobile-nav-open');
+      if(hamburgerBtn){
+        hamburgerBtn.setAttribute('aria-expanded','false');
+        hamburgerBtn.setAttribute('aria-label','Open navigation');
+      }
     });
   });
 

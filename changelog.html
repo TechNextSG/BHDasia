@@ -86,6 +86,62 @@
       <p>Live site: <a href="https://technextsg.github.io/BHDasia/" target="_blank" style="color:var(--blue)">technextsg.github.io/BHDasia</a> &nbsp;·&nbsp; Repository: <a href="https://github.com/TechNextSG/BHDasia" target="_blank" style="color:var(--blue)">github.com/TechNextSG/BHDasia</a></p>
     </div>
 
+    <!-- VERSION 5.24 -->
+    <div class="version-block">
+      <div class="version-header">
+        <span class="version-badge v3">v5.24</span>
+        <span class="version-date">20 June 2026</span>
+        <h3 class="version-title">Full Site Audit — Performance, Accessibility &amp; SEO</h3>
+      </div>
+      <div class="change-group">
+        <p class="change-group-label">Performance</p>
+        <ul class="change-list">
+          <li><strong>Render-blocking fonts eliminated:</strong> Removed <code>@import url(…)</code> from line 1 of <code>style.css</code>; moved Google Fonts to <code>&lt;link&gt;</code> tags with <code>preconnect</code> hints on all 7 pages. Browsers now fetch fonts in parallel with CSS.</li>
+          <li><strong>Video preload removed:</strong> Added <code>preload="none"</code> to all hero <code>&lt;video&gt;</code> elements — prevents large video downloads on page load before the user initiates playback.</li>
+          <li><strong>CDN warm-up:</strong> Added <code>&lt;link rel="preconnect" href="https://sp-ao.shortpixel.ai"&gt;</code> on all pages to reduce cold-start latency on Shortpixel image CDN requests.</li>
+          <li><strong>CLS fix — logo dimensions:</strong> Added explicit <code>width="136" height="34"</code> to all logo <code>&lt;img&gt;</code> tags; browser now reserves space before the image loads, eliminating layout shift.</li>
+          <li><strong>Lazy loading:</strong> Added <code>loading="lazy"</code> to below-fold team photos on <code>about.html</code> and portrait images on <code>isabelle.html</code>.</li>
+        </ul>
+      </div>
+      <div class="change-group">
+        <p class="change-group-label">Accessibility (WCAG)</p>
+        <ul class="change-list">
+          <li><strong>Viewport zoom restored (WCAG 1.4.4):</strong> Removed <code>maximum-scale=1.0,user-scalable=0</code> from viewport meta on all 7 pages — users can now pinch-zoom as required by accessibility standards.</li>
+          <li><strong>Hamburger button semantics:</strong> Replaced non-semantic <code>&lt;span onclick&gt;</code> with a proper <code>&lt;button id="mobile-menu-btn"&gt;</code> element carrying <code>aria-expanded</code>, <code>aria-controls</code>, and <code>aria-label</code>. State managed in <code>shared.js</code>; CSS icon swaps on <code>body.mobile-nav-open</code>.</li>
+          <li><strong>Skip link target:</strong> Added <code>tabindex="-1"</code> to <code>&lt;div id="et-main-area"&gt;</code> on all pages so the skip-to-content link is actually focusable.</li>
+          <li><strong>Muted colour contrast:</strong> Darkened <code>--muted</code> from <code>#6d7e96</code> to <code>#5a6b82</code> — improves contrast ratio for small label text toward WCAG AA compliance.</li>
+        </ul>
+      </div>
+      <div class="change-group">
+        <p class="change-group-label">SEO &amp; Discoverability</p>
+        <ul class="change-list">
+          <li><strong>Favicon:</strong> Created <code>favicon.svg</code> (navy background, gold "B") and added <code>&lt;link rel="icon"&gt;</code> to all 7 pages — eliminates 404 on every page load.</li>
+          <li><strong>Sitemap:</strong> Created <code>sitemap.xml</code> with 12 URLs covering all main and legal pages, priority weights, and weekly change frequency.</li>
+          <li><strong>robots.txt:</strong> Created with <code>Allow: /</code> and Sitemap pointer for all search engine crawlers.</li>
+        </ul>
+      </div>
+      <div class="change-group">
+        <p class="change-group-label">Contact Form</p>
+        <ul class="change-list">
+          <li><strong>Formspree integration:</strong> Replaced fake <code>setTimeout</code> stub with a real <code>fetch()</code> POST to <code>https://formspree.io/f/YOUR_FORM_ID</code>. Handles success, server error, and network failure with user feedback. Added hidden <code>_subject</code> field. Owner must replace <code>YOUR_FORM_ID</code> with their Formspree form ID after sign-up.</li>
+        </ul>
+      </div>
+      <div class="files-added">
+        <span class="file-tag">style.css</span>
+        <span class="file-tag">shared.js</span>
+        <span class="file-tag">index.html</span>
+        <span class="file-tag">about.html</span>
+        <span class="file-tag">contact.html</span>
+        <span class="file-tag">events.html</span>
+        <span class="file-tag">isabelle.html</span>
+        <span class="file-tag">partners.html</span>
+        <span class="file-tag">services.html</span>
+        <span class="file-tag">favicon.svg ✦ new</span>
+        <span class="file-tag">sitemap.xml ✦ new</span>
+        <span class="file-tag">robots.txt ✦ new</span>
+      </div>
+    </div>
+
     <!-- VERSION 5.23.9 -->
     <div class="version-block">
       <div class="version-header">
