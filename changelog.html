@@ -86,6 +86,33 @@
       <p>Live site: <a href="https://technextsg.github.io/BHDasia/" target="_blank" style="color:var(--blue)">technextsg.github.io/BHDasia</a> &nbsp;·&nbsp; Repository: <a href="https://github.com/TechNextSG/BHDasia" target="_blank" style="color:var(--blue)">github.com/TechNextSG/BHDasia</a></p>
     </div>
 
+    <!-- VERSION 5.25 -->
+    <div class="version-block">
+      <div class="version-header">
+        <span class="version-badge v3">v5.25</span>
+        <span class="version-date">20 June 2026</span>
+        <h3 class="version-title">Bug Fixes — Logo Distortion &amp; Shared JS Parse Error</h3>
+      </div>
+      <div class="change-group">
+        <span class="change-group-label">Bug Fix</span>
+        <ul class="change-list">
+          <li><strong>Logo distortion fixed:</strong> Removed incorrect <code>width="136"</code> HTML attribute from the logo <code>&lt;img&gt;</code> on all 7 pages. The natural image is 60×45px; forcing 136×34 was stretching it ~3× wider. Now <code>height="34"</code> alone is set, with <code>width:auto</code> added to CSS so the logo scales at correct proportions.</li>
+          <li><strong>shared.js curly-quote parse error fixed:</strong> 240 Unicode curly/smart quote characters (U+2018/U+2019 <code>'</code><code>'</code>) had been used as JavaScript string delimiters throughout <code>shared.js</code>. JavaScript only recognises straight quotes (U+0027), so the entire script was silently failing — no skip-link, no FAB, no chat widget, no hamburger listener. All 240 instances replaced with straight quotes.</li>
+        </ul>
+      </div>
+      <div class="files-added">
+        <span class="file-tag">shared.js</span>
+        <span class="file-tag">style.css</span>
+        <span class="file-tag">index.html</span>
+        <span class="file-tag">about.html</span>
+        <span class="file-tag">contact.html</span>
+        <span class="file-tag">events.html</span>
+        <span class="file-tag">isabelle.html</span>
+        <span class="file-tag">partners.html</span>
+        <span class="file-tag">services.html</span>
+      </div>
+    </div>
+
     <!-- VERSION 5.24.1 -->
     <div class="version-block">
       <div class="version-header">
