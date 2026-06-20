@@ -86,6 +86,70 @@
       <p>Live site: <a href="https://technextsg.github.io/BHDasia/" target="_blank" style="color:var(--blue)">technextsg.github.io/BHDasia</a> &nbsp;·&nbsp; Repository: <a href="https://github.com/TechNextSG/BHDasia" target="_blank" style="color:var(--blue)">github.com/TechNextSG/BHDasia</a></p>
     </div>
 
+    <!-- VERSION 5.23 -->
+    <div class="version-block">
+      <div class="version-header">
+        <span class="version-badge v3">v5.23</span>
+        <span class="version-date">20 June 2026</span>
+        <h3 class="version-title">Full Mobile UI Overhaul — All Sections, All Pages</h3>
+      </div>
+      <div class="change-group">
+        <div class="change-group-label">768px breakpoint — CTA stacking &amp; card refinements</div>
+        <ul class="change-list">
+          <li><strong>Hero CTAs:</strong> Both <code>.hero-ctas</code> and <code>.page-hero-ctas</code> now stack vertically (<code>flex-direction:column</code>) with buttons stretching to full width (max 300px) — no more cramped side-by-side buttons on mid-size mobile screens</li>
+          <li><strong>Pillar cards:</strong> Body padding reduced for narrower viewports</li>
+          <li><strong>Dark callout quote:</strong> Font size reduced to 19px at tablet width</li>
+          <li><strong>Newsletter form:</strong> Subscribe button forced full-width when form stacks vertically</li>
+        </ul>
+      </div>
+      <div class="change-group">
+        <div class="change-group-label">600px breakpoint — typography, grids, spacing</div>
+        <ul class="change-list">
+          <li><strong>Page hero titles:</strong> <code>.page-title</code> reduced to 26px; <code>.page-hero-sub</code> to 14px with full-width wrapping</li>
+          <li><strong>Homepage hero:</strong> <code>.hero-title</code> reduced to 26px; <code>.hero-sub</code> to 14px</li>
+          <li><strong>Partners grid:</strong> Forced 1-column layout (was 2-col down to 480px, leaving cards too narrow at ~160px)</li>
+          <li><strong>Section vertical spacing:</strong> <code>.section</code> 44px, <code>.section-sm</code> 30px, page intro 32px, CTA strip 50px, stats bar 34px</li>
+          <li><strong>Dark callout:</strong> Quote font reduced to 18px</li>
+          <li><strong>Stats numbers:</strong> Reduced to 30px</li>
+          <li><strong>Hamburger icon:</strong> Increased to 22px with larger padding for easier tap target</li>
+          <li><strong>Mobile nav items:</strong> Increased link padding to 14px and font to 14.5px for better touch UX</li>
+        </ul>
+      </div>
+      <div class="change-group">
+        <div class="change-group-label">480px breakpoint — comprehensive deep-mobile pass</div>
+        <ul class="change-list">
+          <li><strong>Page heroes (inner pages):</strong> Container padding reduced from 80px/60px to 38px/28px; title to 22px; sub-text to 13px; buttons 100% width full-screen</li>
+          <li><strong>Homepage hero:</strong> Inner padding reduced; hero title 22px; sub-text 13px; scroll indicator hidden (space-saving)</li>
+          <li><strong>CTA strip:</strong> All buttons forced to 100% width stacked — replaces the side-by-side layout that overflowed on narrow screens</li>
+          <li><strong>Stats bar:</strong> Numbers reduced to 24px, tighter cell padding</li>
+          <li><strong>Countdown timer:</strong> Numbers reduced to 32px, separators to 26px, units min-width 44px — all 4 digits fit without overflow on 375px screens</li>
+          <li><strong>Footer:</strong> Forced to 1-column grid (was 2-col at ≤600px, leaving 5 widgets in awkward 2+2+1 arrangement); condensed vertical padding</li>
+          <li><strong>Podcast player:</strong> Portrait photo reduced to 120×120px; ring ring to match; play button to 48px</li>
+          <li><strong>Partners cards:</strong> Confirmed 1-column (second override for full certainty)</li>
+          <li><strong>Coaching package:</strong> Image strip reduced to 100px height; body padding and font sizes tightened</li>
+          <li><strong>Pricing tables:</strong> Cell padding and font size reduced for readable tables on narrow screens</li>
+          <li><strong>Event cards:</strong> Header and body padding tightened; date number 22px; meta tag font 11px</li>
+          <li><strong>Team main cards:</strong> Body padding reduced to 22px/18px</li>
+          <li><strong>Page intro:</strong> H2 reduced to 20px; sub-text to 14px; padding tightened</li>
+          <li><strong>Contact form:</strong> Submit button forced full-width for easier tap</li>
+          <li><strong>About page sections:</strong> <code>.et_pb_section</code> padding overridden to 40px (from 80px desktop)</li>
+          <li><strong>General buttons:</strong> Margin reduced to 3px to prevent over-spaced stacking</li>
+        </ul>
+      </div>
+      <div class="change-group">
+        <div class="change-group-label">375px breakpoint — iPhone SE / extra-small screens</div>
+        <ul class="change-list">
+          <li><strong>Hero/page titles:</strong> Reduced to 19px to prevent wrapping to 5+ lines</li>
+          <li><strong>Countdown:</strong> Numbers 26px, separators 20px, units min-width 36px</li>
+          <li><strong>Stats numbers:</strong> 20px</li>
+          <li><strong>Buttons:</strong> Font 12px, reduced padding and letter-spacing</li>
+        </ul>
+      </div>
+      <div class="files-added">
+        <span class="file-tag">style.css</span>
+      </div>
+    </div>
+
     <!-- VERSION 5.22.1 -->
     <div class="version-block">
       <div class="version-header">

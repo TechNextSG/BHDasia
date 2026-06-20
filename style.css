@@ -466,3 +466,188 @@ input:focus,textarea:focus,select:focus{box-shadow:0 0 0 3px rgba(200,85,26,.15)
 .clients-home .section-label{margin-bottom:18px}
 @media(max-width:600px){.footer-social{gap:6px}}
 @media(max-width:480px){#footer-credit{text-align:center;width:100%}#footer-info{text-align:center}}
+
+/* ═════════════════════════════════════════════════════
+   MOBILE OVERHAUL — v5.23
+   Full mobile UX pass: all 7 pages
+   ═════════════════════════════════════════════════════ */
+
+/* ── 768px: CTA stacking, card padding ─────────────── */
+@media(max-width:768px){
+  /* Hero CTA buttons stack vertically */
+  .hero-ctas,
+  .page-hero-ctas{
+    flex-direction:column;
+    align-items:stretch;
+    max-width:300px;
+  }
+  .hero-ctas .et_pb_button,
+  .page-hero-ctas .et_pb_button{
+    width:100%;
+    text-align:center;
+    margin:4px 0;
+    box-sizing:border-box;
+  }
+  /* Newsletter form: button full-width when stacked */
+  .newsletter-form button{width:100%;text-align:center}
+  /* Pillar card: tighter padding */
+  .pillar-body{padding:20px 18px}
+  /* Dark callout: slightly smaller */
+  .dark-callout p{font-size:19px}
+}
+
+/* ── 600px additions (supplements existing block) ──── */
+@media(max-width:600px){
+  /* Page hero typography */
+  .page-title{font-size:26px}
+  .page-hero-sub{font-size:14px;max-width:100%;line-height:1.7}
+  /* Homepage hero typography */
+  .hero-title{font-size:26px}
+  .hero-sub{font-size:14px;max-width:100%}
+  /* Section spacing */
+  .section{padding:44px 0}
+  .section-sm{padding:30px 0}
+  .page-intro{padding:32px 0 14px}
+  .cta-strip{padding:50px 0}
+  .stats-bar{padding:34px 0}
+  /* Dark callout */
+  .dark-callout p{font-size:18px}
+  /* Partners grid: 2-col → 1-col */
+  .partners-grid{grid-template-columns:1fr}
+  /* Stats numbers */
+  .stat-item .stat-n{font-size:30px}
+  /* Hamburger: slightly larger */
+  .mobile_menu_bar{font-size:22px;padding:6px 4px}
+  /* Mobile nav items: bigger tap target */
+  body.mobile-nav-open #top-menu>li>a{padding:14px 0;font-size:14.5px}
+}
+
+/* ── 480px: comprehensive deep-mobile ──────────────── */
+@media(max-width:480px){
+
+  /* — Global section spacing — */
+  .section{padding:36px 0}
+  .section-sm{padding:24px 0}
+  .page-intro{padding:26px 0 12px}
+  .cta-strip{padding:40px 0}
+  .stats-bar{padding:28px 0}
+  .countdown-section{padding:28px 0}
+  .dark-callout{padding:26px 0}
+  .clients-home{padding:34px 0}
+  .et_pb_section{padding:40px 0!important}
+  .et_pb_section_grey{padding:40px 0!important}
+  .team-section{padding:40px 0!important}
+  .et_pb_row{padding:16px 20px}
+
+  /* — Typography — */
+  h3{font-size:20px}
+  h4{font-size:16px}
+  .section-label{font-size:10px;letter-spacing:.12em}
+  .dark-callout p{font-size:15px;line-height:1.6}
+  .dark-callout p::before,.dark-callout p::after{font-size:32px;line-height:.4}
+
+  /* — Inner page hero — */
+  .page-title-wrap .container{padding:38px 0 28px}
+  .page-title{font-size:22px;letter-spacing:-.01em}
+  .page-hero-sub{font-size:13px;max-width:100%;line-height:1.65}
+  .page-hero-ctas{max-width:100%}
+  .page-hero-ctas .et_pb_button{
+    width:100%;margin:4px 0;
+    text-align:center;box-sizing:border-box;
+  }
+
+  /* — Homepage hero — */
+  .hero-inner{padding:38px 0 28px}
+  .hero-title{font-size:22px;line-height:1.2}
+  .hero-sub{font-size:13px;max-width:100%;margin-bottom:22px}
+  .hero-ctas{max-width:100%}
+  .hero-ctas .et_pb_button{
+    width:100%;margin:4px 0;
+    text-align:center;box-sizing:border-box;
+  }
+  .hero-label{font-size:10px;letter-spacing:.14em}
+  .hero-scroll{display:none}
+
+  /* — Stats bar — */
+  .stat-item .stat-n{font-size:24px}
+  .stat-item .stat-l{font-size:10px}
+  .stat-item{padding:8px 10px}
+
+  /* — Countdown — */
+  .countdown-title{font-size:15px;line-height:1.35}
+  .countdown-meta{font-size:12.5px}
+  .c-n{font-size:32px!important}
+  .c-sep{font-size:26px!important;padding-bottom:5px!important}
+  .c-unit{min-width:44px!important;padding:0 4px!important}
+
+  /* — CTA strip — */
+  .cta-strip h2{font-size:20px}
+  .cta-strip p{font-size:13.5px}
+  .cta-strip .et_pb_button{
+    display:block;width:100%;
+    text-align:center;margin:5px 0;
+    box-sizing:border-box;
+  }
+
+  /* — Buttons: compact margin — */
+  .et_pb_button{margin:3px 0}
+
+  /* — Pillar cards — */
+  .pillar-body{padding:16px 14px}
+  .pillar-card h3{font-size:15px}
+  .pillar-card p{font-size:14px}
+
+  /* — Podcast player — */
+  .pp-img{width:120px!important;height:120px!important}
+  .pp-ring{width:136px!important;height:136px!important}
+  .pp-title{font-size:18px}
+  .pp-desc{font-size:13.5px}
+  .pp-controls{gap:10px}
+  .pp-play{width:48px!important;height:48px!important}
+
+  /* — Partners grid — */
+  .partners-grid{grid-template-columns:1fr!important}
+
+  /* — Coaching package — */
+  .coaching-pkg-img{flex:0 0 100px!important}
+  .coaching-pkg-body{padding:20px 22px}
+  .coaching-package h3{font-size:16px}
+  .coaching-package .price{font-size:24px}
+
+  /* — Pricing table — */
+  .pricing-table th,.pricing-table td{padding:8px 10px;font-size:12.5px}
+
+  /* — Event cards — */
+  .event-header{padding:18px 20px}
+  .event-body{padding:20px}
+  .event-date .day{font-size:22px}
+  .event-meta{gap:8px}
+  .event-meta span{font-size:11px}
+
+  /* — Footer — */
+  #footer-widgets .container{grid-template-columns:1fr!important;gap:16px}
+  #footer-widgets{padding:26px 0 18px}
+  .footer-brand-name{font-size:17px}
+
+  /* — Page intro — */
+  .page-intro h2{font-size:20px}
+  .page-intro .intro-sub{font-size:14px}
+
+  /* — Contact form — */
+  .form-submit button{width:100%;justify-content:center;padding:13px 24px}
+
+  /* — Team cards — */
+  .team-main-body{padding:22px 18px}
+}
+
+/* ── 375px: extra-small (iPhone SE etc.) ──────────── */
+@media(max-width:375px){
+  .hero-title,.page-title{font-size:19px!important}
+  .hero-sub,.page-hero-sub{font-size:12.5px!important}
+  .c-n{font-size:26px!important}
+  .c-sep{font-size:20px!important}
+  .c-unit{min-width:36px!important;padding:0 2px!important}
+  .stat-item .stat-n{font-size:20px}
+  .et_pb_button{font-size:12px;padding:.72em 1.5em;letter-spacing:.1em}
+  .section-label{font-size:9.5px}
+}
