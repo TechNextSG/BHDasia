@@ -86,6 +86,79 @@
       <p>Live site: <a href="https://technextsg.github.io/BHDasia/" target="_blank" style="color:var(--blue)">technextsg.github.io/BHDasia</a> &nbsp;·&nbsp; Repository: <a href="https://github.com/TechNextSG/BHDasia" target="_blank" style="color:var(--blue)">github.com/TechNextSG/BHDasia</a></p>
     </div>
 
+    <!-- VERSION 5.23.3 -->
+    <div class="version-block">
+      <div class="version-header">
+        <span class="version-badge v3">v5.23.3</span>
+        <span class="version-date">20 June 2026</span>
+        <h3 class="version-title">Inner Page Hero Padding Fix — Left/Right Edge Spacing</h3>
+      </div>
+      <div class="change-group">
+        <ul class="change-list">
+          <li><strong>Root cause fixed:</strong> All <code>.page-title-wrap .container</code> padding rules used the CSS 3-value shorthand <code>padding: top 0 bottom</code> — the middle <code>0</code> applied to BOTH left AND right, overriding the container's inherited <code>padding:0 20px</code> on mobile. Text on Services, About, Events, Partners, Contact, and Isabelle hero sections was flush against the screen edge with zero horizontal margin.</li>
+          <li><strong>Base rule (line 174):</strong> <code>padding:80px 0 60px</code> → <code>padding-top:80px;padding-bottom:60px</code> — horizontal padding now falls through from the <code>.container</code> class (64px desktop / 20px mobile).</li>
+          <li><strong>480px tablet rule:</strong> <code>padding:38px 0 28px</code> → <code>padding-top:38px;padding-bottom:28px</code></li>
+          <li><strong>600px mobile rule:</strong> <code>padding:44px 0 32px!important</code> → <code>padding-top:44px!important;padding-bottom:32px!important</code></li>
+          <li><strong>480px mobile rule:</strong> <code>padding:36px 0 24px!important</code> → <code>padding-top:36px!important;padding-bottom:24px!important</code></li>
+          <li><strong>Homepage unaffected:</strong> Homepage hero uses <code>.hero-inner &gt; .container</code> — the <code>.page-title-wrap .container</code> rule was never applied there, which is why it already had correct 20px left/right padding.</li>
+        </ul>
+      </div>
+      <div class="files-added">
+        <span class="file-tag">style.css</span>
+      </div>
+    </div>
+
+    <!-- VERSION 5.23.2 -->
+    <div class="version-block">
+      <div class="version-header">
+        <span class="version-badge v3">v5.23.2</span>
+        <span class="version-date">20 June 2026</span>
+        <h3 class="version-title">Mobile Audit — Countdown Fix, Hero Spacing Consistency, CTA Centering</h3>
+      </div>
+      <div class="change-group">
+        <div class="change-group-label">Countdown section</div>
+        <ul class="change-list">
+          <li><strong>Massive gap fixed:</strong> <code>.countdown-text{flex:1 1 320px}</code> — in <code>flex-direction:column</code>, <code>flex-basis:320px</code> applied to HEIGHT not width, forcing the text block to be 320px tall minimum. Fixed to <code>flex:0 0 auto</code> at ≤900px.</li>
+          <li><strong>Mobile layout:</strong> At ≤600px, countdown stacks vertically (<code>flex-direction:column</code>), text centred, timer centred, gap reduced to 20px, timer numbers reduced to 38px / separators 32px.</li>
+        </ul>
+      </div>
+      <div class="change-group">
+        <div class="change-group-label">Homepage hero</div>
+        <ul class="change-list">
+          <li><strong>Cascade fix:</strong> <code>index.html</code> has an inline <code>&lt;style&gt;</code> block after the <code>&lt;link&gt;</code> tag that overrides <code>style.css</code> for same-specificity selectors. Added <code>!important</code> to all homepage hero mobile rules so they correctly override the inline block.</li>
+          <li><strong>600px:</strong> Hero inner padding 44px/32px, title 26px, sub 14px.</li>
+          <li><strong>480px:</strong> Hero inner padding 36px/24px, title 22px, sub 13px, CTAs full-width stacked.</li>
+        </ul>
+      </div>
+      <div class="change-group">
+        <div class="change-group-label">CTA button centering</div>
+        <ul class="change-list">
+          <li><strong>All CTA buttons centred at ≤600px:</strong> Pillar body, partner cards, event body, team/Isabelle sections — buttons now display as block with <code>margin:auto</code> so they centre within their parent column.</li>
+        </ul>
+      </div>
+      <div class="files-added">
+        <span class="file-tag">style.css</span>
+      </div>
+    </div>
+
+    <!-- VERSION 5.23.1 -->
+    <div class="version-block">
+      <div class="version-header">
+        <span class="version-badge v3">v5.23.1</span>
+        <span class="version-date">20 June 2026</span>
+        <h3 class="version-title">Mobile Footer Fix — Force Single Column</h3>
+      </div>
+      <div class="change-group">
+        <ul class="change-list">
+          <li><strong>Footer 2-column persisting on mobile:</strong> The existing <code>@media(max-width:600px)</code> rule in style.css had <code>#footer-widgets .container{grid-template-columns:1fr 1fr}</code> — this explicitly re-set 2 columns at 600px, overriding the 1-column rule added at ≤480px (same specificity, earlier in file loses cascade).</li>
+          <li><strong>Fix:</strong> Changed <code>1fr 1fr</code> → <code>1fr</code> with <code>gap:20px</code> in the 600px block so footer stacks to a single column on all mobile sizes.</li>
+        </ul>
+      </div>
+      <div class="files-added">
+        <span class="file-tag">style.css</span>
+      </div>
+    </div>
+
     <!-- VERSION 5.23 -->
     <div class="version-block">
       <div class="version-header">
