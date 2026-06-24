@@ -133,7 +133,7 @@
     },
     {
       re:/^(who|whose)$/,
-      a:"We're <strong>BHD Asia</strong> — led by <strong>Isabelle Claus Teixeira</strong> (27+ years in HR &amp; coaching) and co-founded with <strong>Rouviere Teixeira</strong>.",
+      a:"We're <strong>BHD Asia</strong> (Business and Human Development Consulting Pte Ltd) — led by <strong>Isabelle Claus Teixeira</strong>, 27+ years in HR &amp; coaching.",
       btns:[{t:'Meet the Team',u:'about.html'},{t:'About Isabelle',u:'isabelle.html'}]
     },
     {
@@ -148,7 +148,7 @@
     },
     {
       re:/^(help|\?+|start|menu|topics?|options?)$/,
-      a:"Here's what I can help with:<br>• <strong>Services</strong> — what we offer<br>• <strong>TRE® workshops</strong> — dates &amp; pricing<br>• <strong>Coaching</strong> — executive &amp; career<br>• <strong>Events</strong> — upcoming workshops<br>• <strong>Team</strong> — about Isabelle &amp; Rouviere<br>• <strong>Location &amp; online</strong> — where we work<br>• <strong>Contact</strong> — how to reach us<br><br>Just type any topic!",
+      a:"Here's what I can help with:<br>• <strong>Services</strong> — what we offer<br>• <strong>TRE® workshops</strong> — dates &amp; pricing<br>• <strong>Coaching</strong> — executive &amp; career<br>• <strong>Events</strong> — upcoming workshops<br>• <strong>Team</strong> — about Isabelle<br>• <strong>Location &amp; online</strong> — where we work<br>• <strong>Contact</strong> — how to reach us<br><br>Just type any topic!",
       btns:[{t:'Services',u:'services.html'},{t:'Events',u:'events.html'},{t:'Contact',u:'contact.html'}]
     },
     {
@@ -194,8 +194,8 @@
       btns:[{t:'Contact Us',u:'contact.html'},{t:'About BHD Asia',u:'about.html'}]
     },
     {
-      re:/(isabelle|rouviere|founder|who runs|co.?founder|director|team|staff|people|credentials?|qualif)/,
-      a:"<strong>Isabelle Claus Teixeira</strong> is our co-founder — 27+ years in HR leadership across 9 countries, certified coach since 2012, TRE® provider, and Forbes Coaches Council contributor. Co-founded with <strong>Rouviere Teixeira</strong>.",
+      re:/(isabelle|founder|who runs|co.?founder|director|team|staff|people|credentials?|qualif)/,
+      a:"<strong>Isabelle Claus Teixeira</strong> is our founder — 27+ years in HR leadership across 9 countries, certified coach since 2012, TRE® provider, and Forbes Coaches Council contributor.",
       btns:[{t:'Meet Isabelle',u:'isabelle.html'},{t:'Our Team',u:'about.html#team'}]
     },
     {
