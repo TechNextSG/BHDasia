@@ -2,20 +2,34 @@
 <html lang="en-US">
 <head>
 <meta charset="UTF-8"/>
+<link rel="icon" href="favicon.svg"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Home - BHD Asia</title>
-<meta name="description" content="BHD Asia — boutique HR consulting, executive coaching, resilience building and leadership development across Asia Pacific."/>
-<link rel="icon" href="favicon.svg" type="image/svg+xml"/>
+<title>Executive Coaching &amp; HR Consulting Singapore | BHD Asia</title>
+<meta name="description" content="BHD Asia — boutique HR consulting and executive coaching in Singapore. Leadership development, resilience and TRE® for organisations across Asia Pacific."/>
 <meta property="og:type" content="website"/>
 <meta property="og:site_name" content="BHD Asia"/>
-<meta property="og:title" content="BHD Asia — Boutique HR Consulting &amp; Executive Coaching | Asia Pacific"/>
-<meta property="og:description" content="BHD Asia delivers boutique HR consulting, executive coaching, and resilience building — co-designed around your people across Asia Pacific."/>
-<meta property="og:image" content="https://technextsg.github.io/BHDasia/hero.jpg"/>
+<meta property="og:title" content="Executive Coaching &amp; HR Consulting Singapore | BHD Asia"/>
+<meta property="og:description" content="BHD Asia — boutique HR consulting and executive coaching in Singapore. Leadership development, resilience and TRE® for organisations across Asia Pacific."/>
+<meta property="og:url" content="https://technextsg.github.io/BHDasia/"/>
+<meta property="og:image" content="https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img,w_700,h_467/https://bhdasia.com/wp-content/uploads/2018/06/isagrey.jpg"/>
+<meta property="og:image:width" content="700"/>
+<meta property="og:image:height" content="467"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Executive Coaching &amp; HR Consulting Singapore | BHD Asia"/>
+<meta name="twitter:description" content="BHD Asia — boutique HR consulting and executive coaching in Singapore. Leadership development, resilience and TRE® for organisations across Asia Pacific."/>
+<link rel="canonical" href="https://technextsg.github.io/BHDasia/"/>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Organization","name":"BHD Asia","url":"https://technextsg.github.io/BHDasia/","description":"Boutique HR consulting, executive coaching and resilience building in Singapore, serving organisations across Asia Pacific.","address":{"@type":"PostalAddress","addressLocality":"Singapore","addressCountry":"SG"},"contactPoint":{"@type":"ContactPoint","email":"isabelle@bhdasia.com","contactType":"customer service"},"foundingDate":"2012","areaServed":["Singapore","Asia Pacific","Japan","Europe"],"serviceType":["Executive Coaching","HR Consulting","Leadership Development","Resilience Building","TRE® Workshops"]}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link rel="preconnect" href="https://sp-ao.shortpixel.ai"/>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&amp;family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400&amp;display=swap"/>
 <link rel="stylesheet" href="style.css"/>
 <style>
 /* -- HERO ------------------------------- */
-.hero{position:relative;min-height:calc(100vh - 88px);display:flex;align-items:center;margin-top:88px;overflow:hidden}
-.hero-bg{position:absolute;inset:0;background-image:url('hero.jpg');background-size:cover;background-position:center;will-change:transform}
+.hero{position:relative;min-height:calc(100vh - 60px);display:flex;align-items:center;margin-top:60px;overflow:hidden}
+.hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;will-change:transform}
 .hero-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(11,34,56,.9) 0%,rgba(11,34,56,.58) 100%)}
 .hero-inner{position:relative;z-index:2;padding:80px 0 60px;width:100%}
 .hero-label{font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--blue);display:block;margin-bottom:18px}
@@ -40,18 +54,40 @@
 .pillar-img-ph{position:relative;z-index:1;width:44px;height:44px;color:rgba(255,255,255,.22)}
 .pillar-body{padding:30px 26px;flex:1;display:flex;flex-direction:column}
 
-/* -- INTERVIEW SECTION ------------------ */
-.interview-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
-.interview-content h2{color:#fff;font-size:28px;margin-bottom:10px}
-.interview-quote{font-size:17px;font-style:italic;color:rgba(255,255,255,.85);border-left:3px solid var(--gold);padding:4px 0 4px 20px;margin:22px 0;font-family:Georgia,'Times New Roman',serif;line-height:1.65}
-.interview-content p{color:rgba(255,255,255,.55);font-size:14px;line-height:1.85;margin-bottom:24px;padding-bottom:0}
-.player-card{background:rgba(255,255,255,.06);border:1px solid rgba(232,184,48,.25);border-top:3px solid var(--gold);padding:26px;border-radius:var(--r)}
-.player-header{margin-bottom:14px}
-.player-label{display:block;font-size:14px;font-weight:700;color:#fff;margin-bottom:3px}
-.player-sub{font-size:11px;color:rgba(255,255,255,.38);text-transform:uppercase;letter-spacing:.1em}
-.player-footer{display:flex;justify-content:space-between;align-items:center;margin-top:14px;padding-top:12px;border-top:1px solid rgba(255,255,255,.09)}
-.noomii-badge{font-size:11px;color:rgba(255,255,255,.35);font-weight:600;letter-spacing:.08em;text-transform:uppercase}
-@media(max-width:980px){.interview-grid{grid-template-columns:1fr}}
+/* -- PODCAST / VOICE INTERVIEW ---------- */
+.podcast-head{text-align:center;margin-bottom:44px}
+.podcast-head .divider-line{margin-left:auto;margin-right:auto}
+.podcast-grid{display:grid;grid-template-columns:300px 1fr;gap:56px;align-items:center}
+.podcast-portrait{position:relative;display:flex;align-items:center;justify-content:center;min-height:280px}
+.pp-ring{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:236px;height:236px;border-radius:50%;background:rgba(232,184,48,.05);box-shadow:0 0 18px 2px rgba(232,184,48,.25);will-change:box-shadow,transform}
+.pp-img{position:relative;z-index:1;width:220px;height:220px;border-radius:50%;background-size:cover;background-position:center 15%;border:4px solid rgba(255,255,255,.12);box-shadow:0 10px 40px rgba(0,0,0,.45)}
+.pp-eq{position:absolute;z-index:2;bottom:12px;left:50%;transform:translateX(-50%);display:flex;gap:3px;align-items:flex-end;height:20px;opacity:0;transition:opacity .3s;background:rgba(11,34,56,.7);padding:6px 10px;border-radius:20px}
+.podcast-portrait.playing .pp-eq{opacity:1}
+.pp-eq span{width:3px;background:var(--gold);height:6px;border-radius:2px;animation:ppEq .9s ease-in-out infinite}
+.pp-eq span:nth-child(2){animation-delay:.15s}.pp-eq span:nth-child(3){animation-delay:.3s}.pp-eq span:nth-child(4){animation-delay:.45s}.pp-eq span:nth-child(5){animation-delay:.6s}
+@keyframes ppEq{0%,100%{height:5px}50%{height:18px}}
+.podcast-player{min-width:0}
+.pp-show{font-size:11px;color:var(--gold);text-transform:uppercase;letter-spacing:.14em;font-weight:700;margin:0 0 6px}
+.pp-title{color:var(--text);font-size:26px;font-weight:800;margin:0 0 10px;letter-spacing:-.01em}
+.pp-desc{color:var(--body);font-size:14.5px;line-height:1.8;margin:0 0 20px}
+.pp-caption{background:var(--off-white);border:1px solid var(--border);border-left:3px solid var(--gold);border-radius:var(--r);padding:14px 18px;margin-bottom:22px;min-height:62px}
+.pp-caption-label{display:block;font-size:9.5px;color:var(--gold);text-transform:uppercase;letter-spacing:.16em;font-weight:700;margin-bottom:5px}
+.pp-caption-text{color:var(--text);font-size:16px;line-height:1.5;margin:0;font-family:Georgia,'Times New Roman',serif;font-style:italic;transition:opacity .2s ease}
+.pp-controls{display:flex;align-items:center;gap:16px}
+.pp-play{flex-shrink:0;width:58px;height:58px;border-radius:50%;background:var(--gold);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--navy);transition:transform .2s ease,background .2s ease;box-shadow:0 6px 20px rgba(232,184,48,.4)}
+.pp-play:hover{transform:scale(1.07);background:var(--gold-dk)}
+.pp-play svg{width:24px;height:24px}
+.pp-play .pp-ico-pause{display:none}
+.pp-play.playing .pp-ico-play{display:none}
+.pp-play.playing .pp-ico-pause{display:block}
+.pp-bar-wrap{flex:1;min-width:0}
+.pp-time{display:flex;justify-content:space-between;font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums;margin-bottom:7px}
+.pp-bar{height:6px;background:rgba(0,0,0,.1);border-radius:3px;cursor:pointer;position:relative;overflow:hidden}
+.pp-bar-fill{position:absolute;left:0;top:0;height:100%;width:0;background:var(--gold);border-radius:3px}
+.pp-dl{flex-shrink:0;width:42px;height:42px;border-radius:50%;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--muted);transition:var(--t)}
+.pp-dl:hover{color:var(--gold);border-color:var(--gold)}
+.pp-dl svg{width:18px;height:18px}
+@media(max-width:768px){.podcast-grid{grid-template-columns:1fr;gap:30px;justify-items:center}.podcast-player{width:100%}}
 
 /* -- MEDIA SECTION ---------------------- */
 .media-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
@@ -77,7 +113,7 @@
 
 <!-- HEADER -->
 <header id="main-header">
-  <div class="et_menu_container container clearfix">
+  <div class="et_menu_container">
     <div class="logo_container">
       <a href="index.html">
         <img src="https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img/https://bhdasia.com/wp-content/uploads/2020/10/BHDASIA.png" alt="BHD Asia" height="34" onerror="this.style.display='none';document.querySelector('.logo-text').style.display='block'"/>
@@ -92,9 +128,6 @@
           <li class="menu-item"><a href="about.html">About</a></li>
           <li class="menu-item"><a href="events.html">Events</a></li>
           <li class="menu-item"><a href="partners.html">Partners</a></li>
-          
-          <li class="menu-item"><a href="isabelle.html">Isabelle</a></li>
-          <li class="menu-item"><a href="services.html">Services</a></li>
           <li class="menu-item"><a href="contact.html">Contact</a></li>
         </ul>
       </nav>
@@ -116,11 +149,11 @@
   <div class="hero-inner">
     <div class="container">
       <span class="hero-label">Leadership &amp; Human Development &nbsp;&middot;&nbsp; Asia Pacific</span>
-      <h1 class="hero-title">Honor, strengthen and leverage your Humanity and show up at your best.</h1>
+      <h1 class="hero-title">Build Stronger Leaders. Develop Resilient Organisations.</h1>
       <p class="hero-sub">Boutique HR consulting, executive coaching, and resilience building &mdash; co-designed around your people across Asia Pacific.</p>
       <div class="hero-ctas">
-        <a class="et_pb_button btn-white" href="isabelle.html">Meet Isabelle</a>
-        <a class="et_pb_button btn-white-outline" href="services.html">Services</a>
+        <a class="et_pb_button btn-white" href="contact.html">Book a Discovery Call</a>
+        <a class="et_pb_button btn-white-outline" href="services.html">Our Services</a>
       </div>
     </div>
   </div>
@@ -134,7 +167,7 @@
   <div class="container">
     <div class="stats-grid">
       <div class="stat-item">
-        <span class="stat-n">30+</span>
+        <span class="stat-n">27+</span>
         <span class="stat-l">Years HR Experience</span>
       </div>
       <div class="stat-item">
@@ -153,6 +186,29 @@
   </div>
 </div>
 
+<!-- COUNTDOWN — next event -->
+<div class="countdown-section">
+  <div class="container">
+    <div class="countdown-inner">
+      <div class="countdown-text">
+        <span class="section-label">Next Upcoming Event</span>
+        <h3 class="countdown-title">TRE&reg; Provider Certification &middot; Module 1 &middot; Singapore</h3>
+        <p class="countdown-meta"><svg class="cd-cal-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="2.5" width="14" height="12" rx="1.5"/><line x1="1" y1="6.5" x2="15" y2="6.5"/><line x1="5" y1="1" x2="5" y2="4"/><line x1="11" y1="1" x2="11" y2="4"/></svg>Saturday &amp; Sunday, 29&ndash;30 August 2026 &middot; In-Person</p>
+        <a class="et_pb_button" href="events.html" style="margin:16px 0 0 0">View Event &rarr;</a>
+      </div>
+      <div class="countdown-timer" id="event-countdown">
+        <div class="c-unit"><span class="c-n" id="c-days">--</span><span class="c-l">Days</span></div>
+        <span class="c-sep">:</span>
+        <div class="c-unit"><span class="c-n" id="c-hours">--</span><span class="c-l">Hours</span></div>
+        <span class="c-sep">:</span>
+        <div class="c-unit"><span class="c-n" id="c-mins">--</span><span class="c-l">Mins</span></div>
+        <span class="c-sep">:</span>
+        <div class="c-unit"><span class="c-n" id="c-secs">--</span><span class="c-l">Secs</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- THREE PILLARS -->
 <div class="section" id="pillars">
   <div class="container">
@@ -164,78 +220,31 @@
     </div>
     <div class="pillars-grid">
       <div class="pillar-card">
-        <span class="pillar-icon">1</span>
-        <h3>Organisation Development</h3>
-        <p>Leadership programme design, culture change, team coaching, talent management, and effectiveness diagnostics for companies across Asia and beyond.</p>
-        <a class="et_pb_button btn-outline" href="services.html">Learn more</a>
+        <div class="pillar-img"><div class="pillar-img-inner"></div><svg class="pillar-img-ph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div>
+        <div class="pillar-body">
+          <span class="pillar-icon">1</span>
+          <h3>Organisation Development</h3>
+          <p>Leadership programme design, culture change, team coaching, talent management, and effectiveness diagnostics for companies across Asia and beyond.</p>
+          <a class="et_pb_button btn-outline" href="services.html">Explore Org Development</a>
+        </div>
       </div>
       <div class="pillar-card">
-        <span class="pillar-icon">2</span>
-        <h3>Resilience Building</h3>
-        <p>TRE&reg;, stress management, burnout prevention, conflict resolution, and psychological safety &mdash; helping people sustain high performance over the long term.</p>
-        <a class="et_pb_button btn-outline" href="services.html">Learn more</a>
+        <div class="pillar-img"><div class="pillar-img-inner"></div><svg class="pillar-img-ph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div>
+        <div class="pillar-body">
+          <span class="pillar-icon">2</span>
+          <h3>Resilience Building</h3>
+          <p>TRE&reg;, stress management, burnout prevention, conflict resolution, and psychological safety &mdash; helping people sustain high performance over the long term.</p>
+          <a class="et_pb_button btn-outline" href="services.html">Explore Resilience Building</a>
+        </div>
       </div>
       <div class="pillar-card">
-        <span class="pillar-icon">3</span>
-        <h3>Individual Development</h3>
-        <p>Executive coaching, career transition, life coaching, accredited mediation, and intercultural competence &mdash; for leaders ready to create lasting change.</p>
-        <a class="et_pb_button btn-outline" href="services.html">Learn more</a>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- FEATURED INTERVIEW — VOICE RECORD -->
-<div class="section section-navy" style="padding:80px 0">
-  <div class="container">
-    <div class="interview-grid">
-      <div class="interview-content">
-        <span class="section-label">Voice Interview</span>
-        <h2>Hear Isabelle in Her Own Words</h2>
-        <hr class="divider-line" style="background:rgba(255,255,255,.2)"/>
-        <blockquote class="interview-quote">
-          "I don't give people answers. I help them find their own — because lasting change only comes from within."
-        </blockquote>
-        <p>An in-depth interview hosted by Noomii exploring Isabelle's journey across 9 countries, 27 years of HR leadership, and what drew her to executive coaching and somatic work.</p>
-        <div style="display:flex;gap:8px;flex-wrap:wrap">
-          <a class="et_pb_button" href="isabelle.html">Full Profile</a>
-          <a class="et_pb_button btn-white-outline" href="contact.html">Book a Call</a>
+        <div class="pillar-img"><div class="pillar-img-inner"></div><svg class="pillar-img-ph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div>
+        <div class="pillar-body">
+          <span class="pillar-icon">3</span>
+          <h3>Individual Development</h3>
+          <p>Executive coaching, career transition, life coaching, accredited mediation, and intercultural competence &mdash; for leaders ready to create lasting change.</p>
+          <a class="et_pb_button btn-outline" href="services.html">Explore Individual Coaching</a>
         </div>
-      </div>
-      <div class="interview-player">
-        <div class="player-card">
-          <div class="player-header">
-            <span class="player-label">Isabelle Claus Teixeira</span>
-            <span class="player-sub">Interview by Noomii &nbsp;&middot;&nbsp; The Coaching Experts</span>
-          </div>
-          <iframe style="border:0;height:135px;width:100%;display:block;" src="https://www.noomii.com/users/isabelle-claus_teixeira/get_user_interview_widget" scrolling="no" title="Isabelle Claus Teixeira — Noomii Interview"></iframe>
-          <div class="player-footer">
-            <span class="noomii-badge">Powered by Noomii</span>
-            <a href="https://www.noomii.com/" target="_blank" rel="noopener" style="font-size:11px;color:rgba(255,255,255,.35);transition:color .2s">noomii.com</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- MEDIA HIGHLIGHT � Forbes / Linked Section -->
-<div class="section section-navy">
-  <div class="container">
-    <div class="media-grid">
-      <div class="media-thumb">
-        <img src="https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img,w_700,h_467/https://bhdasia.com/wp-content/uploads/2018/06/isagrey.jpg" alt="Isabelle Claus Teixeira � Forbes Coaches Council"/>
-        <div class="media-play">
-          <a class="play-btn" href="https://coaches.forbes.com/" target="_blank" rel="noopener" aria-label="Visit Forbes Coaches Council"></a>
-        </div>
-      </div>
-      <div class="media-info">
-        <span class="section-label">Forbes Coaches Council</span>
-        <h2>Featured Thought Leader</h2>
-        <hr class="divider-line" style="background:rgba(255,255,255,.25)"/>
-        <p>Isabelle is an active contributor to the Forbes Coaches Council &mdash; sharing expert insights on leadership, culture, and human development with a global audience of business leaders.</p>
-        <a class="et_pb_button btn-white-outline" href="https://coaches.forbes.com/" target="_blank" rel="noopener">Read Articles</a>
-        <a class="et_pb_button btn-white" href="isabelle.html">About Isabelle</a>
       </div>
     </div>
   </div>
@@ -312,8 +321,20 @@
 <!-- FOOTER -->
 <footer id="main-footer">
   <div id="footer-widgets"><div class="container">
-    <div class="footer-widget"><h4>BHD Asia</h4><p>Highlight, Enhance and Appreciate Human in Business.</p><p>Business &amp; Human Development Consulting Pte Ltd</p><div class="footer-social"><a href="#" aria-label="LinkedIn" title="LinkedIn" target="_blank" rel="noopener">in</a><a href="#" aria-label="Facebook" title="Facebook" target="_blank" rel="noopener">f</a></div></div>
-    <div class="footer-widget"><h4>Navigate</h4><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="events.html">Events</a></li><li><a href="partners.html">Partners</a></li><li><a href="isabelle.html">Isabelle</a></li><li><a href="services.html">Services</a></li><li><a href="contact.html">Contact</a></li><li><a href="changelog.html">Changelog</a></li></ul></div>
+    <div class="footer-widget">
+      <span class="footer-brand-name">BHD <span>Asia</span></span>
+      <p>Highlight, Enhance and Appreciate Human in Business.</p>
+      <p>Business &amp; Human Development Consulting Pte Ltd</p>
+      <div class="footer-social">
+        <a href="#" class="footer-soc-btn" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+        <a href="#" class="footer-soc-btn" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+        <a href="#" class="footer-soc-btn" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.89 2.89 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.69a8.27 8.27 0 0 0 4.84 1.56V6.84a4.85 4.85 0 0 1-1.08-.15z"/></svg></a>
+        <a href="#" class="footer-soc-btn" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.95C18.88 4 12 4 12 4s-6.88 0-8.59.47A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.95C5.12 20 12 20 12 20s6.88 0 8.59-.47a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="currentColor" stroke="none"/></svg></a>
+        <a href="#" class="footer-soc-btn" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+      </div>
+    </div>
+    <div class="footer-widget"><h4>Navigate</h4><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="events.html">Events</a></li><li><a href="partners.html">Partners</a></li><li><a href="services.html">Services</a></li><li><a href="contact.html">Contact</a></li><li><a href="social.html">Social Media</a></li></ul></div>
+    <div class="footer-widget"><h4>Services</h4><ul><li><a href="services.html">Organisation Development</a></li><li><a href="services.html">Resilience Building</a></li><li><a href="services.html">Individual Development</a></li><li><a href="services.html">TRE&reg; Workshops</a></li><li><a href="services.html">Executive Coaching</a></li></ul></div>
     <div class="footer-widget"><h4>Legal</h4><ul><li><a href="privacy.html">Privacy Statement</a></li><li><a href="terms.html">Terms &amp; Conditions</a></li><li><a href="code.html">Code of Practice</a></li><li><a href="inclusivity.html">Inclusivity Statement</a></li></ul></div>
     <div class="footer-widget"><h4>Contact</h4><p>50 Raffles Place, Singapore Land Tower #30-00<br>Singapore 048623</p><p>+81 806515 1778</p><p><a href="mailto:isabelle@bhdasia.com">isabelle@bhdasia.com</a></p><p><a href="contact.html">Book a Discovery Call &rarr;</a></p></div>
   </div></div>
@@ -322,7 +343,6 @@
     <div class="footer-bottom-links"><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a></div>
     <div id="footer-credit">Powered by <a href="https://technext.asia" target="_blank" rel="noopener">TechNext</a></div>
   </div></div>
-  <div id="footer-bottom"><div class="container"><div id="footer-info"><span>&copy; 2026 BHD Asia &mdash; Business &amp; Human Development Consulting Pte Ltd. All rights reserved.</span><span>ACRA 201201974K</span></div></div></div>
 </footer>
 </div>
 <script src="shared.js"></script>
