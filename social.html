@@ -1,0 +1,364 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0"/>
+<title>Social Media &amp; Content - BHD Asia</title>
+<meta name="description" content="Watch BHD Asia on YouTube, listen to podcast episodes, browse our gallery, and follow us on social media."/>
+<link rel="stylesheet" href="style.css"/>
+<style>
+/* ── FILTER TABS ───────────────────────────── */
+.filter-bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:36px;border-bottom:2px solid var(--border);padding-bottom:0}
+.filter-tab{font-size:12.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);background:none;border:none;cursor:pointer;padding:10px 18px 13px;position:relative;font-family:inherit;transition:color .2s}
+.filter-tab::after{content:'';position:absolute;bottom:-2px;left:0;right:0;height:2px;background:var(--blue);transform:scaleX(0);transition:transform .2s}
+.filter-tab:hover{color:var(--text)}
+.filter-tab.active{color:var(--blue)}
+.filter-tab.active::after{transform:scaleX(1)}
+
+/* ── MEDIA CARDS ───────────────────────────── */
+.media-cards-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.media-card{background:#fff;border:1px solid var(--border);border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow-sm);transition:var(--t);display:flex;flex-direction:column}
+.media-card:hover{box-shadow:var(--shadow);transform:translateY(-3px)}
+.media-card-thumb{position:relative;background:#0c1622;aspect-ratio:16/9;overflow:hidden;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.media-card-thumb-inner{position:absolute;inset:0;background:linear-gradient(135deg,#0c1c2e 0%,#1c3e63 55%,#0a1521 100%)}
+.media-card-thumb-ph{position:relative;z-index:1;color:rgba(255,255,255,.18)}
+.media-card-thumb-ph svg{width:40px;height:40px}
+.media-card-play{position:absolute;inset:0;z-index:2;display:flex;align-items:center;justify-content:center}
+.media-card-play-btn{width:50px;height:50px;border-radius:50%;background:rgba(255,255,255,.92);display:flex;align-items:center;justify-content:center;transition:var(--t);box-shadow:0 4px 16px rgba(0,0,0,.3)}
+.media-card-play-btn:hover{background:#fff;transform:scale(1.08)}
+.media-card-play-btn::after{content:'';border-left:18px solid var(--navy);border-top:10px solid transparent;border-bottom:10px solid transparent;margin-left:4px}
+.media-card-badge{position:absolute;top:10px;left:10px;z-index:3;font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:3px 9px;border-radius:3px;color:#fff}
+.badge-youtube{background:#FF0000}
+.badge-podcast{background:var(--gold);color:var(--navy)}
+.badge-gallery{background:var(--navy)}
+.badge-social{background:var(--blue)}
+.media-card-body{padding:18px 20px;flex:1;display:flex;flex-direction:column}
+.media-card-meta{font-size:11px;color:var(--muted);font-weight:600;margin-bottom:6px;letter-spacing:.04em}
+.media-card h3{font-size:15px;color:var(--text);font-weight:700;line-height:1.4;margin-bottom:8px}
+.media-card p{font-size:13.5px;color:var(--muted);line-height:1.7;margin:0;padding:0;flex:1}
+.media-card .card-cta{margin-top:14px;align-self:flex-start}
+
+/* ── SOCIAL PLATFORM CARDS ─────────────────── */
+.social-platform-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+.soc-card{background:#fff;border:1px solid var(--border);border-radius:var(--r);padding:28px 20px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:12px;box-shadow:var(--shadow-sm);transition:var(--t);text-decoration:none}
+.soc-card:hover{box-shadow:var(--shadow);transform:translateY(-4px)}
+.soc-icon{width:52px;height:52px;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.soc-icon svg{width:26px;height:26px;color:#fff}
+.soc-fb .soc-icon{background:#1877F2}
+.soc-ig .soc-icon{background:linear-gradient(135deg,#833AB4,#E1306C,#FD1D1D,#F56040)}
+.soc-tt .soc-icon{background:#010101}
+.soc-yt .soc-icon{background:#FF0000}
+.soc-li .soc-icon{background:#0A66C2}
+.soc-card h4{font-size:13px;font-weight:700;color:var(--text);margin:0}
+.soc-card span{font-size:12px;color:var(--muted)}
+.soc-card .et_pb_button{font-size:11px;padding:.5em 1.4em;margin:0}
+
+/* ── GALLERY GRID ──────────────────────────── */
+.gallery-card .media-card-thumb{aspect-ratio:4/3}
+.gallery-caption{font-size:12.5px;color:var(--muted);margin-top:8px;text-align:center}
+
+/* ── EMPTY STATE ───────────────────────────── */
+.empty-state{text-align:center;padding:80px 40px;color:var(--muted)}
+.empty-state svg{width:48px;height:48px;opacity:.25;margin:0 auto 16px;display:block}
+
+@media(max-width:980px){
+  .media-cards-grid{grid-template-columns:repeat(2,1fr)}
+  .social-platform-grid{grid-template-columns:repeat(3,1fr)}
+}
+@media(max-width:600px){
+  .media-cards-grid{grid-template-columns:1fr}
+  .social-platform-grid{grid-template-columns:repeat(2,1fr)}
+  .filter-tab{padding:8px 12px 11px;font-size:11.5px}
+}
+</style>
+</head>
+<body class="page et_fixed_nav et_divi_theme">
+<div id="page-container">
+
+<!-- HEADER -->
+<header id="main-header">
+  <div class="et_menu_container">
+    <div class="logo_container">
+      <a href="index.html">
+        <img src="https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img/https://bhdasia.com/wp-content/uploads/2020/10/BHDASIA.png" alt="BHD Asia" onerror="this.style.display='none';document.querySelector('.logo-text').style.display='block'"/>
+        <span class="logo-text">BHD Asia</span>
+      </a>
+    </div>
+    <div id="et-top-navigation">
+      <nav id="top-menu-nav">
+        <ul id="top-menu" class="nav">
+          <li class="menu-item"><a href="index.html">Home</a></li>
+          <li class="menu-item"><a href="about.html">About</a></li>
+          <li class="menu-item"><a href="events.html">Events</a></li>
+          <li class="menu-item"><a href="partners.html">Partners</a></li>
+          <li class="menu-item"><a href="services.html">Services</a></li>
+          <li class="menu-item"><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <a href="contact.html" class="header-contact-btn">Contact</a>
+      <div id="et_top_search"><span id="et_search_icon"></span></div>
+      <div id="et_mobile_nav_menu"><span class="mobile_menu_bar" onclick="document.body.classList.toggle('mobile-nav-open')"></span></div>
+    </div>
+  </div>
+</header>
+
+<div id="et-main-area">
+
+<!-- PAGE TITLE -->
+<div class="page-title-wrap">
+  <div class="container">
+    <span class="section-label">Content Hub</span>
+    <h1 class="page-title">Social Media &amp; Content</h1>
+    <p class="page-hero-sub">Watch our YouTube channel, listen to podcast episodes, browse our gallery, and connect with us on social media.</p>
+    <div class="page-hero-ctas">
+      <a class="et_pb_button btn-white" href="#youtube">YouTube</a>
+      <a class="et_pb_button btn-white-outline" href="#podcast">Podcast</a>
+    </div>
+  </div>
+</div>
+
+<!-- SOCIAL PLATFORMS -->
+<div class="section" style="padding-bottom:0">
+  <div class="container">
+    <div class="section-head center" style="margin-bottom:28px">
+      <span class="section-label">Follow Us</span>
+      <h2>Find Us On Social Media</h2>
+      <hr class="divider-line"/>
+    </div>
+    <div class="social-platform-grid">
+      <a href="#" class="soc-card soc-fb" target="_blank" rel="noopener">
+        <div class="soc-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></div>
+        <h4>Facebook</h4>
+        <span>@bhdasia</span>
+        <span class="et_pb_button">Follow</span>
+      </a>
+      <a href="#" class="soc-card soc-ig" target="_blank" rel="noopener">
+        <div class="soc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></div>
+        <h4>Instagram</h4>
+        <span>@bhdasia</span>
+        <span class="et_pb_button">Follow</span>
+      </a>
+      <a href="#" class="soc-card soc-tt" target="_blank" rel="noopener">
+        <div class="soc-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.37 6.37 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.69a8.27 8.27 0 0 0 4.84 1.56V6.84a4.85 4.85 0 0 1-1.08-.15z"/></svg></div>
+        <h4>TikTok</h4>
+        <span>@bhdasia</span>
+        <span class="et_pb_button">Follow</span>
+      </a>
+      <a href="#" class="soc-card soc-yt" target="_blank" rel="noopener">
+        <div class="soc-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.95C18.88 4 12 4 12 4s-6.88 0-8.59.47A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.95C5.12 20 12 20 12 20s6.88 0 8.59-.47a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon fill="#fff" points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg></div>
+        <h4>YouTube</h4>
+        <span>BHD Asia Channel</span>
+        <span class="et_pb_button">Subscribe</span>
+      </a>
+      <a href="#" class="soc-card soc-li" target="_blank" rel="noopener">
+        <div class="soc-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></div>
+        <h4>LinkedIn</h4>
+        <span>BHD Asia Consulting</span>
+        <span class="et_pb_button">Connect</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- CONTENT TABS -->
+<div class="section" id="content-hub">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-label">All Content</span>
+      <h2>Videos, Podcasts &amp; Gallery</h2>
+      <hr class="divider-line"/>
+    </div>
+
+    <!-- Filter tabs -->
+    <div class="filter-bar" role="tablist" aria-label="Content filter">
+      <button class="filter-tab active" data-filter="all" role="tab" aria-selected="true">All</button>
+      <button class="filter-tab" data-filter="youtube" id="youtube" role="tab" aria-selected="false">YouTube</button>
+      <button class="filter-tab" data-filter="podcast" id="podcast" role="tab" aria-selected="false">Podcast</button>
+      <button class="filter-tab" data-filter="gallery" role="tab" aria-selected="false">Gallery</button>
+    </div>
+
+    <!-- Cards grid -->
+    <div class="media-cards-grid" id="media-grid">
+
+      <!-- YouTube cards -->
+      <div class="media-card" data-type="youtube">
+        <div class="media-card-thumb">
+          <div class="media-card-thumb-inner"></div>
+          <div class="media-card-thumb-ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="2" y="2" width="20" height="20" rx="3"/><polygon fill="currentColor" stroke="none" points="10 8 16 12 10 16"/></svg></div>
+          <span class="media-card-badge badge-youtube">YouTube</span>
+          <div class="media-card-play"><div class="media-card-play-btn" aria-hidden="true"></div></div>
+        </div>
+        <div class="media-card-body">
+          <p class="media-card-meta">Episode 1 &middot; 2026</p>
+          <h3>What Is TRE&reg;? Isabelle Explains the Science Behind Tremoring</h3>
+          <p>A clear, engaging introduction to Tension &amp; Trauma Releasing Exercises — what they are, how they work, and who can benefit.</p>
+          <a href="#" class="et_pb_button card-cta" target="_blank" rel="noopener">Watch on YouTube</a>
+        </div>
+      </div>
+
+      <div class="media-card" data-type="youtube">
+        <div class="media-card-thumb">
+          <div class="media-card-thumb-inner"></div>
+          <div class="media-card-thumb-ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="2" y="2" width="20" height="20" rx="3"/><polygon fill="currentColor" stroke="none" points="10 8 16 12 10 16"/></svg></div>
+          <span class="media-card-badge badge-youtube">YouTube</span>
+          <div class="media-card-play"><div class="media-card-play-btn" aria-hidden="true"></div></div>
+        </div>
+        <div class="media-card-body">
+          <p class="media-card-meta">Episode 2 &middot; 2026</p>
+          <h3>Leading Through Change: A Conversation on Resilience and Burnout</h3>
+          <p>Isabelle shares real-world insights on how executives can lead with empathy while avoiding the burnout trap.</p>
+          <a href="#" class="et_pb_button card-cta" target="_blank" rel="noopener">Watch on YouTube</a>
+        </div>
+      </div>
+
+      <div class="media-card" data-type="youtube">
+        <div class="media-card-thumb">
+          <div class="media-card-thumb-inner"></div>
+          <div class="media-card-thumb-ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="2" y="2" width="20" height="20" rx="3"/><polygon fill="currentColor" stroke="none" points="10 8 16 12 10 16"/></svg></div>
+          <span class="media-card-badge badge-youtube">YouTube</span>
+          <div class="media-card-play"><div class="media-card-play-btn" aria-hidden="true"></div></div>
+        </div>
+        <div class="media-card-body">
+          <p class="media-card-meta">Interview &middot; 2025</p>
+          <h3>Culture Across Borders: HR Strategy in a Diverse Asia Pacific Workforce</h3>
+          <p>An exploration of how cultural diversity is a strategic asset when properly activated across multinational teams.</p>
+          <a href="#" class="et_pb_button card-cta" target="_blank" rel="noopener">Watch on YouTube</a>
+        </div>
+      </div>
+
+      <!-- Podcast cards -->
+      <div class="media-card" data-type="podcast">
+        <div class="media-card-thumb" style="aspect-ratio:16/9">
+          <div class="media-card-thumb-inner" style="background:linear-gradient(135deg,#1a0a2e 0%,#3a1c5e 55%,#1a0a2e 100%)"></div>
+          <div class="media-card-thumb-ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="7"/><line x1="12" y1="5" x2="12" y2="2"/><line x1="12" y1="22" x2="12" y2="19"/></svg></div>
+          <span class="media-card-badge badge-podcast">Podcast</span>
+        </div>
+        <div class="media-card-body">
+          <p class="media-card-meta">The Coaching Experts &middot; Noomii</p>
+          <h3>Isabelle Claus Teixeira: 27 Years, 9 Countries, One Mission</h3>
+          <p>An in-depth interview on her journey across continents and what drew her to somatic coaching and TRE&reg;.</p>
+          <a href="index.html#interview" class="et_pb_button card-cta">Listen Now</a>
+        </div>
+      </div>
+
+      <div class="media-card" data-type="podcast">
+        <div class="media-card-thumb" style="aspect-ratio:16/9">
+          <div class="media-card-thumb-inner" style="background:linear-gradient(135deg,#1a0a2e 0%,#3a1c5e 55%,#1a0a2e 100%)"></div>
+          <div class="media-card-thumb-ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="7"/><line x1="12" y1="5" x2="12" y2="2"/><line x1="12" y1="22" x2="12" y2="19"/></svg></div>
+          <span class="media-card-badge badge-podcast">Podcast</span>
+        </div>
+        <div class="media-card-body">
+          <p class="media-card-meta">Forbes Coaches Council Podcast</p>
+          <h3>Why Psychological Safety Is the Foundation of High-Performance Teams</h3>
+          <p>Isabelle discusses how leaders can create environments where people feel safe to speak up, take risks, and grow.</p>
+          <a href="#" class="et_pb_button card-cta" target="_blank" rel="noopener">Listen Now</a>
+        </div>
+      </div>
+
+      <!-- Gallery cards -->
+      <div class="media-card gallery-card" data-type="gallery">
+        <div class="media-card-thumb" style="aspect-ratio:4/3">
+          <div class="media-card-thumb-inner" style="background:linear-gradient(135deg,#0d2b45 0%,#1a4a6e 55%,#0d2b45 100%)"></div>
+          <div class="media-card-thumb-ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div>
+          <span class="media-card-badge badge-gallery">Gallery</span>
+        </div>
+        <div class="media-card-body">
+          <p class="media-card-meta">Event &middot; Singapore 2025</p>
+          <h3>TRE&reg; Module 1 Workshop Highlights</h3>
+          <p>Photos from our latest TRE&reg; for Personal Use session in Singapore.</p>
+        </div>
+      </div>
+
+      <div class="media-card gallery-card" data-type="gallery">
+        <div class="media-card-thumb" style="aspect-ratio:4/3">
+          <div class="media-card-thumb-inner" style="background:linear-gradient(135deg,#0d2b45 0%,#1a4a6e 55%,#0d2b45 100%)"></div>
+          <div class="media-card-thumb-ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div>
+          <span class="media-card-badge badge-gallery">Gallery</span>
+        </div>
+        <div class="media-card-body">
+          <p class="media-card-meta">Corporate Workshop &middot; Tokyo 2025</p>
+          <h3>Leadership Coaching Programme &mdash; Executive Team Offsite</h3>
+          <p>Behind the scenes from our executive coaching session with a multinational client in Japan.</p>
+        </div>
+      </div>
+
+      <div class="media-card gallery-card" data-type="gallery">
+        <div class="media-card-thumb" style="aspect-ratio:4/3">
+          <div class="media-card-thumb-inner" style="background:linear-gradient(135deg,#0d2b45 0%,#1a4a6e 55%,#0d2b45 100%)"></div>
+          <div class="media-card-thumb-ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div>
+          <span class="media-card-badge badge-gallery">Gallery</span>
+        </div>
+        <div class="media-card-body">
+          <p class="media-card-meta">Forbes Council &middot; 2024</p>
+          <h3>Forbes Coaches Council Recognition &mdash; Asia Pacific</h3>
+          <p>Isabelle recognised as a Forbes Coaches Council member contributing insights on leadership and culture.</p>
+        </div>
+      </div>
+
+    </div><!-- /media-cards-grid -->
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta-strip">
+  <div class="container">
+    <h2>Stay Connected with BHD Asia</h2>
+    <p>Follow us on social media for the latest insights, events, and content on leadership and human development.</p>
+    <a class="et_pb_button" href="contact.html">Get in Touch</a>
+    <a class="et_pb_button btn-outline" href="events.html">Upcoming Events</a>
+  </div>
+</div>
+
+</div><!-- et-main-area -->
+
+<!-- FOOTER -->
+<footer id="main-footer">
+  <div id="footer-widgets"><div class="container">
+    <div class="footer-widget">
+      <span class="footer-brand-name">BHD <span>Asia</span></span>
+      <p>Highlight, Enhance and Appreciate Human in Business.</p>
+      <p>Business &amp; Human Development Consulting Pte Ltd</p>
+      <div class="footer-social">
+        <a href="#" class="footer-soc-btn" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+        <a href="#" class="footer-soc-btn" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+        <a href="#" class="footer-soc-btn" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.89 2.89 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.69a8.27 8.27 0 0 0 4.84 1.56V6.84a4.85 4.85 0 0 1-1.08-.15z"/></svg></a>
+        <a href="#" class="footer-soc-btn" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.95C18.88 4 12 4 12 4s-6.88 0-8.59.47A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.95C5.12 20 12 20 12 20s6.88 0 8.59-.47a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="currentColor" stroke="none"/></svg></a>
+        <a href="#" class="footer-soc-btn" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+      </div>
+    </div>
+    <div class="footer-widget"><h4>Navigate</h4><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="events.html">Events</a></li><li><a href="partners.html">Partners</a></li><li><a href="services.html">Services</a></li><li><a href="contact.html">Contact</a></li><li><a href="social.html">Social Media</a></li></ul></div>
+    <div class="footer-widget"><h4>Services</h4><ul><li><a href="services.html">Organisation Development</a></li><li><a href="services.html">Resilience Building</a></li><li><a href="services.html">Individual Development</a></li><li><a href="services.html">TRE&reg; Workshops</a></li><li><a href="services.html">Executive Coaching</a></li></ul></div>
+    <div class="footer-widget"><h4>Legal</h4><ul><li><a href="privacy.html">Privacy Statement</a></li><li><a href="terms.html">Terms &amp; Conditions</a></li><li><a href="code.html">Code of Practice</a></li><li><a href="inclusivity.html">Inclusivity Statement</a></li></ul></div>
+    <div class="footer-widget"><h4>Contact</h4><p>50 Raffles Place, Singapore Land Tower #30-00<br>Singapore 048623</p><p>+81 806515 1778</p><p><a href="mailto:isabelle@bhdasia.com">isabelle@bhdasia.com</a></p><p><a href="contact.html">Book a Discovery Call &rarr;</a></p></div>
+  </div></div>
+  <div id="footer-bottom"><div class="container">
+    <div id="footer-info"><span>&copy; 2026 BHD Asia. All rights reserved.</span></div>
+    <div class="footer-bottom-links"><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a></div>
+    <div id="footer-credit">Powered by <a href="https://technext.asia" target="_blank" rel="noopener">TechNext</a></div>
+  </div></div>
+</footer>
+</div>
+<script src="shared.js"></script>
+<script>
+(function(){
+  var tabs = document.querySelectorAll('.filter-tab');
+  var cards = document.querySelectorAll('.media-card');
+  tabs.forEach(function(tab){
+    tab.addEventListener('click', function(){
+      var filter = tab.getAttribute('data-filter');
+      tabs.forEach(function(t){ t.classList.remove('active'); t.setAttribute('aria-selected','false'); });
+      tab.classList.add('active');
+      tab.setAttribute('aria-selected','true');
+      var visible = 0;
+      cards.forEach(function(card){
+        var type = card.getAttribute('data-type');
+        var show = filter === 'all' || type === filter;
+        card.style.display = show ? '' : 'none';
+        if(show) visible++;
+      });
+    });
+  });
+})();
+</script>
+</body>
+</html>

@@ -14,22 +14,29 @@
 <link rel="stylesheet" href="style.css"/>
 <style>
 .events-grid{padding:40px 0 70px}
-.event-card{background:#fff;box-shadow:var(--shadow-sm);margin-bottom:36px;overflow:hidden;border-left:4px solid var(--blue);transition:var(--t)}
-.event-card:hover{box-shadow:var(--shadow)}
-.event-header{background:var(--navy);padding:28px 30px}
+.events-cols{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:stretch}
+.event-card{background:#fff;box-shadow:var(--shadow-sm);overflow:hidden;border-left:4px solid var(--blue);transition:transform .25s ease,box-shadow .25s ease;display:flex;flex-direction:column}
+.event-card:hover{box-shadow:var(--shadow);transform:translateY(-4px)}
+.event-img{height:170px;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;background:#0c1622}
+.event-img-inner{position:absolute;inset:0;background:linear-gradient(135deg,#0c1c2e 0%,#1c3e63 55%,#0a1521 100%)}
+.event-img::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(0,0,0,.35));pointer-events:none}
+.event-img-ph{position:relative;z-index:1;width:50px;height:50px;color:rgba(255,255,255,.22)}
+.event-img-tag{position:absolute;top:14px;left:14px;z-index:2;background:var(--gold);color:var(--navy);font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:5px 12px;border-radius:var(--r)}
+.event-header{background:var(--navy);padding:24px 30px}
+@media(max-width:880px){.events-cols{grid-template-columns:1fr}}
 .event-date{display:inline-block;background:var(--blue);color:#fff;padding:10px 16px;text-align:center;margin-bottom:14px;border-radius:var(--r)}
 .event-date .day{display:block;font-size:28px;font-weight:800;line-height:1}
 .event-date .month{display:block;font-size:10px;letter-spacing:.12em;text-transform:uppercase;opacity:.9}
 .event-title-h2{font-size:20px;color:#fff;margin-bottom:12px;font-weight:700}
 .event-meta{display:flex;flex-wrap:wrap;gap:18px}
 .event-meta span{font-size:12px;color:rgba(255,255,255,.55);display:flex;align-items:center;gap:5px}
-.event-body{padding:28px 30px}
-.event-desc{color:var(--muted);font-size:13px;line-height:1.8;margin-bottom:22px}
+.event-body{padding:28px 30px;flex:1}
+.event-desc{color:var(--muted);font-size:14.5px;line-height:1.8;margin-bottom:22px}
 .tre-note{background:var(--off-white);border-left:3px solid var(--blue);padding:12px 16px;font-size:12px;color:var(--body);line-height:1.7;margin-bottom:20px}
 .tre-note strong{color:var(--text)}
 .pricing-table{width:100%;border-collapse:collapse;margin-bottom:22px;min-width:320px}
 .pricing-table th{background:var(--off-white);padding:10px 16px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-align:left;font-weight:700}
-.pricing-table td{padding:10px 16px;border-bottom:1px solid var(--border);font-size:13px;color:var(--body)}
+.pricing-table td{padding:10px 16px;border-bottom:1px solid var(--border);font-size:14.5px;color:var(--body)}
 .pricing-table td:last-child{font-weight:700;color:var(--text)}
 .pricing-table tr.highlight td{background:#FEF3EC;color:var(--blue)}
 .pricing-table tr.highlight td:last-child{color:var(--blue);font-weight:800}
@@ -56,7 +63,7 @@
   <div class="et_menu_container container clearfix">
     <div class="logo_container">
       <a href="index.html">
-        <img src="https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img/https://bhdasia.com/wp-content/uploads/2020/10/BHDASIA.png" alt="BHD Asia" onerror="this.style.display='none';document.querySelector('.logo-text').style.display='block'"/>
+        <img src="https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img/https://bhdasia.com/wp-content/uploads/2020/10/BHDASIA.png" alt="BHD Asia" height="34" onerror="this.style.display='none';document.querySelector('.logo-text').style.display='block'"/>
         <span class="logo-text">BHD Asia</span>
       </a>
     </div>
@@ -64,6 +71,7 @@
       <nav id="top-menu-nav">
         <ul id="top-menu" class="nav">
           <li class="menu-item"><a href="index.html">Home</a></li>
+          <li class="menu-item"><a href="services.html">Services</a></li>
           <li class="menu-item"><a href="about.html">About</a></li>
           <li class="menu-item current-menu-item"><a href="events.html">Events</a></li>
           <li class="menu-item"><a href="partners.html">Partners</a></li>
@@ -73,17 +81,27 @@
           <li class="menu-item"><a href="contact.html">Contact</a></li>
         </ul>
       </nav>
+      <a href="contact.html" class="header-contact-btn">Contact</a>
       <div id="et_top_search"><span id="et_search_icon"></span></div>
-      <div id="et_mobile_nav_menu"><span class="mobile_menu_bar" onclick="document.body.classList.toggle('mobile-nav-open')"></span></div>
+      <div id="et_mobile_nav_menu"><button class="mobile_menu_bar" id="mobile-menu-btn" aria-expanded="false" aria-controls="top-menu-nav" aria-label="Open navigation"></button></div>
     </div>
   </div>
 </header>
 
-<div id="et-main-area">
+<div id="et-main-area" tabindex="-1">
 <div class="page-title-wrap">
+  <video class="page-hero-video" autoplay muted loop playsinline preload="none" poster="hero-events.png">
+    <source src="hero-events.mp4" type="video/mp4">
+  </video>
+  <div class="page-hero-overlay"></div>
   <div class="container">
-    <h1 class="page-title">Events</h1>
-    <p class="page-breadcrumb"><a href="index.html">Home</a> &rsaquo; Events</p>
+        <span class="section-label">Events &amp; Workshops</span>
+    <h1 class="page-title">TRE&reg; Certification &amp; Workshops</h1>
+    <p class="page-hero-sub">Open TRE&reg; workshops in Singapore &mdash; for personal wellbeing or professional provider certification.</p>
+    <div class="page-hero-ctas">
+      <a class="et_pb_button btn-white" href="contact.html">Register Interest</a>
+      <a class="et_pb_button btn-white-outline" href="https://calendly.com/bhdasia/tre-certification-intake-call" target="_blank" rel="noopener">Book via Calendly</a>
+    </div>
   </div>
 </div>
 
@@ -91,7 +109,7 @@
   <div class="container">
     <span class="section-label">Events &amp; Programs</span>
     <h2>Upcoming Workshops</h2>
-    <p class="intro-sub">Open to all — start shaping your new life today.</p>
+    <p class="intro-sub">Open registrations — secure your place at the next workshop.</p>
     <p class="intro-sub" style="margin-top:8px;font-size:13px;color:var(--body);max-width:680px;margin-left:auto;margin-right:auto"><strong>TRE® (Tension &amp; Trauma Releasing Exercises)</strong> is a series of neurogenic exercises that help the body release deep patterns of muscular tension and stress. Developed by Dr. David Berceli, TRE® supports recovery from stress, overwhelm, and long-held physical tension. It is safe for most individuals and can be practised independently once learned.</p>
   </div>
 </div>
@@ -118,16 +136,43 @@
 
 <div class="events-grid">
   <div class="container">
+    <div class="countdown-inner">
+      <div class="countdown-text">
+        <span class="section-label">Next Event</span>
+        <h3 class="countdown-title">TRE&reg; Provider Certification &middot; Module 1 &middot; Singapore</h3>
+        <p class="countdown-meta"><svg class="cd-cal-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="2.5" width="14" height="12" rx="1.5"/><line x1="1" y1="6.5" x2="15" y2="6.5"/><line x1="5" y1="1" x2="5" y2="4"/><line x1="11" y1="1" x2="11" y2="4"/></svg>Saturday &amp; Sunday, 29&ndash;30 August 2026 &middot; In-Person</p>
+        <a class="et_pb_button" href="https://calendly.com/bhdasia/tre-certification-intake-call" target="_blank" rel="noopener" style="margin:16px 0 0 0">Book Your Spot &rarr;</a>
+      </div>
+      <div class="countdown-timer" id="event-countdown">
+        <div class="c-unit"><span class="c-n" id="c-days">--</span><span class="c-l">Days</span></div>
+        <span class="c-sep">:</span>
+        <div class="c-unit"><span class="c-n" id="c-hours">--</span><span class="c-l">Hours</span></div>
+        <span class="c-sep">:</span>
+        <div class="c-unit"><span class="c-n" id="c-mins">--</span><span class="c-l">Mins</span></div>
+        <span class="c-sep">:</span>
+        <div class="c-unit"><span class="c-n" id="c-secs">--</span><span class="c-l">Secs</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="events-grid">
+  <div class="container events-cols">
 
     <!-- EVENT 1 -->
     <div class="event-card">
+      <div class="event-img">
+        <div class="event-img-inner"></div>
+        <svg class="event-img-ph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+        <span class="event-img-tag">TRE&reg; Workshop</span>
+      </div>
       <div class="event-header">
         <div class="event-date"><span class="day">29</span><span class="month">Aug 2026</span></div>
         <h2 class="event-title-h2">TRE® for Personal Use (Module 1)</h2>
         <div class="event-meta">
-          <span>📅 29–30 August 2026</span>
-          <span>📍 In-person, Singapore</span>
-          <span>🕙 2 Days · 10 AM – 6 PM daily</span>
+          <span><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px;margin-right:4px"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> 29–30 August 2026</span>
+          <span><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px;margin-right:4px"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> In-person, Singapore</span>
+          <span><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px;margin-right:4px"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 2 Days · 10 AM – 6 PM daily</span>
         </div>
       </div>
       <div class="event-body">
@@ -149,13 +194,18 @@
 
     <!-- EVENT 2 -->
     <div class="event-card">
+      <div class="event-img">
+        <div class="event-img-inner"></div>
+        <svg class="event-img-ph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+        <span class="event-img-tag">TRE&reg; Workshop</span>
+      </div>
       <div class="event-header">
         <div class="event-date"><span class="day">26</span><span class="month">Sep 2026</span></div>
         <h2 class="event-title-h2">TRE® Certification (Module 2)</h2>
         <div class="event-meta">
-          <span>📅 26–27 September 2026</span>
-          <span>📍 In-person, Singapore</span>
-          <span>🕙 2 Days · 10 AM – 6 PM + 4 online supervisions</span>
+          <span><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px;margin-right:4px"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> 26–27 September 2026</span>
+          <span><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px;margin-right:4px"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> In-person, Singapore</span>
+          <span><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px;margin-right:4px"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 2 Days · 10 AM – 6 PM + 4 online supervisions</span>
         </div>
       </div>
       <div class="event-body">
@@ -209,12 +259,26 @@
 </div>
 </div>
 
+
+<div class="cta-strip">
+  <div class="container">
+    <h2>Ready to Take the Next Step?</h2>
+    <p>All our engagements start with a conversation &mdash; no commitment required.</p>
+    <a class="et_pb_button" href="contact.html">Book a Discovery Call</a>
+    <a class="et_pb_button btn-outline" href="services.html">Explore Our Services</a>
+  </div>
+</div>
 <footer id="main-footer">
   <div id="footer-widgets"><div class="container">
     <div class="footer-widget"><h4>BHD Asia</h4><p>Highlight, Enhance and Appreciate Human in Business.</p><p>Business &amp; Human Development Consulting Pte Ltd</p><div class="footer-social"><a href="#" aria-label="LinkedIn" title="LinkedIn" target="_blank" rel="noopener">in</a><a href="#" aria-label="Facebook" title="Facebook" target="_blank" rel="noopener">f</a></div></div>
     <div class="footer-widget"><h4>Navigate</h4><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="events.html">Events</a></li><li><a href="partners.html">Partners</a></li><li><a href="isabelle.html">Isabelle</a></li><li><a href="services.html">Services</a></li><li><a href="contact.html">Contact</a></li><li><a href="changelog.html">Changelog</a></li></ul></div>
     <div class="footer-widget"><h4>Legal</h4><ul><li><a href="privacy.html">Privacy Statement</a></li><li><a href="terms.html">Terms &amp; Conditions</a></li><li><a href="code.html">Code of Practice</a></li><li><a href="inclusivity.html">Inclusivity Statement</a></li></ul></div>
-    <div class="footer-widget"><h4>Contact</h4><p>50 Raffles Place, Singapore Land Tower #30-00<br>Singapore 048623</p><p>Phone: +81 806515 1778</p><p><a href="mailto:isabelle@bhdasia.com" style="color:rgba(255,255,255,.4)">isabelle@bhdasia.com</a></p></div>
+    <div class="footer-widget"><h4>Contact</h4><p>50 Raffles Place, Singapore Land Tower #30-00<br>Singapore 048623</p><p>+81 806515 1778</p><p><a href="mailto:isabelle@bhdasia.com">isabelle@bhdasia.com</a></p><p><a href="contact.html">Book a Discovery Call &rarr;</a></p></div>
+  </div></div>
+  <div id="footer-bottom"><div class="container">
+    <div id="footer-info"><span>&copy; 2026 BHD Asia. All rights reserved.</span></div>
+    <div class="footer-bottom-links"><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a></div>
+    <div id="footer-credit">Powered by <a href="https://technext.asia" target="_blank" rel="noopener">TechNext</a></div>
   </div></div>
   <div id="footer-bottom"><div class="container"><div id="footer-info"><span>&copy; 2026 BHD Asia &mdash; Business &amp; Human Development Consulting Pte Ltd. All rights reserved.</span><span>ACRA 201201974K</span></div></div></div>
 </footer>

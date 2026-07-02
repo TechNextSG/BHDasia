@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap');
-
 /* ── DESIGN TOKENS ────────────────────────────── */
 :root{
   /* Brand — derived from BHD Asia logo */
@@ -47,7 +45,7 @@ li{line-height:1.8em;margin-bottom:.3em}
 strong{font-weight:700}em{font-style:italic}
 
 /* ── LAYOUT ───────────────────────────────────── */
-.container{max-width:1100px;margin:0 auto;padding:0 40px}
+.container{max-width:1100px;margin:0 auto;padding:0 64px}
 .clearfix::after{content:'';display:table;clear:both}
 .et_pb_row{max-width:1100px;margin:0 auto;padding:30px 40px}
 .et_pb_section{position:relative}
@@ -97,7 +95,7 @@ strong{font-weight:700}em{font-style:italic}
   position:fixed;top:0;left:0;right:0;z-index:99999;
   background:#fff;
   border-bottom:1px solid var(--border);
-  transition:box-shadow .3s,border-color .3s;
+  transition:box-shadow .3s,border-color .3s,transform .35s ease;
 }
 #main-header.et-fixed-header{box-shadow:0 2px 16px rgba(0,0,0,.1);border-bottom-color:transparent}
 .et_menu_container{display:flex;align-items:center;height:60px;max-width:1100px;margin:0 auto;padding:0 40px}
@@ -123,6 +121,8 @@ strong{font-weight:700}em{font-style:italic}
 #top-menu>li:not(:last-child)>a:hover::after,
 #top-menu>li.current-menu-item:not(:last-child)>a::after{transform:scaleX(1)}
 #top-menu>li>a:hover,#top-menu li.current-menu-item>a{color:var(--blue)}
+/* hide Contact from centered desktop nav — shown as standalone .header-contact-btn */
+#top-menu>li:last-child{display:none}
 
 /* Contact CTA button */
 #top-menu>li:last-child>a{
@@ -132,6 +132,11 @@ strong{font-weight:700}em{font-style:italic}
   margin-left:4px;border:2px solid var(--blue);
 }
 #top-menu>li:last-child>a:hover{background:var(--blue-dk);border-color:var(--blue-dk);color:#fff}
+
+/* Contact CTA standalone button in header right */
+.header-contact-btn{background:var(--blue);color:#fff!important;padding:8px 20px;border-radius:4px;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;transition:var(--t);white-space:nowrap;margin-right:12px;border:2px solid var(--blue);display:none;box-shadow:0 2px 10px rgba(212,146,26,.28)}
+@media(min-width:981px){.header-contact-btn{display:inline-flex;align-items:center}}
+.header-contact-btn:hover{background:var(--blue-dk);border-color:var(--blue-dk);color:#fff!important;box-shadow:0 4px 16px rgba(212,146,26,.38);transform:translateY(-1px)}
 
 /* sub-menu */
 #top-menu .sub-menu{display:none;position:absolute;top:100%;left:-16px;background:#fff;box-shadow:var(--shadow-lg);list-style:none;z-index:9999;min-width:200px;border-top:2px solid var(--blue)}
@@ -144,11 +149,19 @@ strong{font-weight:700}em{font-style:italic}
 
 #et_top_search{display:none}
 #et_mobile_nav_menu{display:none}
-.mobile_menu_bar{cursor:pointer;padding:4px;font-size:20px;color:var(--body);user-select:none}
+.mobile_menu_bar{cursor:pointer;padding:4px;font-size:20px;color:var(--body);user-select:none;background:none;border:none;line-height:1}
 .mobile_menu_bar::before{content:'☰'}
+body.mobile-nav-open .mobile_menu_bar::before{content:'✕'}
 
-/* ── PAGE TITLE BANNER ────────────────────────── */
+/* ── PAGE HERO BANNER ─────────────────────────── */
 .page-title-wrap{
+  min-height:calc(100vh - 60px);
+  display:flex;
+  align-items:center;
+  margin-top:60px;
+  border-bottom:3px solid var(--blue);
+  position:relative;
+  overflow:hidden;
   background:var(--navy);
   padding:60px 0 24px;
   text-align:center;
@@ -161,6 +174,10 @@ strong{font-weight:700}em{font-style:italic}
 .page-breadcrumb a:hover{color:var(--gold)}
 
 /* ── BUTTONS ──────────────────────────────────── */
+@keyframes btnShine{
+  0%{left:-80%}
+  100%{left:130%}
+}
 .et_pb_button{
   font-family:'Open Sans',Arial,sans-serif;
   font-size:11px;font-weight:700;
@@ -169,7 +186,8 @@ strong{font-weight:700}em{font-style:italic}
   border:2px solid var(--blue);border-radius:var(--r);
   padding:.55em 1.6em;line-height:1.7em;
   display:inline-block;cursor:pointer;
-  transition:var(--t);
+  position:relative;overflow:hidden;
+  transition:transform .25s cubic-bezier(.25,.8,.25,1),box-shadow .25s ease,background .25s ease,border-color .25s ease,color .25s ease;
   margin:5px 8px;
 }
 .et_pb_button:hover{background:var(--blue-dk);border-color:var(--blue-dk);transform:translateY(-1px);box-shadow:0 4px 16px rgba(200,85,26,.3)}
@@ -267,18 +285,58 @@ strong{font-weight:700}em{font-style:italic}
   .page-title-wrap{margin-top:60px}
 }
 @media(max-width:600px){
-  #footer-widgets .container{grid-template-columns:1fr 1fr}
-  #footer-bottom .container{flex-direction:column;gap:4px;text-align:center}
+  #footer-widgets .container{grid-template-columns:1fr 1fr;gap:16px 20px}
+  #footer-bottom .container{flex-direction:column;gap:8px;text-align:center}
+  .footer-bottom-links{justify-content:center;flex-wrap:wrap}
   h1{font-size:24px}h2{font-size:20px}
   .stats-grid{grid-template-columns:repeat(2,1fr)}
   .client-tags li{white-space:normal}
 }
-body.mobile-nav-open #top-menu-nav{display:block;position:fixed;top:60px;left:0;right:0;background:#fff;box-shadow:0 4px 24px rgba(0,0,0,.1);z-index:99998;padding:8px 0}
+body.mobile-nav-open #top-menu-nav{display:block;position:fixed;top:60px;left:0;right:0;transform:none;height:auto;background:#fff;box-shadow:0 4px 24px rgba(0,0,0,.1);z-index:99998;padding:8px 0}
 body.mobile-nav-open #top-menu{flex-direction:column;height:auto;align-items:stretch;padding:0 20px}
 body.mobile-nav-open #top-menu>li{padding:0;border-bottom:1px solid var(--border)}
 body.mobile-nav-open #top-menu>li>a{color:var(--body)!important;padding:12px 0}
+body.mobile-nav-open #top-menu>li:last-child{display:block}
 body.mobile-nav-open #top-menu>li:last-child>a{background:none;color:var(--body)!important;padding:12px 0;border-radius:0;letter-spacing:normal;text-transform:none;font-size:14px;font-weight:400;margin-left:0;border:none}
 body.mobile-nav-open #top-menu .sub-menu{position:static;box-shadow:none;background:var(--off-white);padding-left:12px;display:block;border-top:none}
+
+/* ── SCROLL REVEAL ────────────────────────────── */
+@keyframes revealUp{
+  from{opacity:0;transform:translateY(32px)}
+  to{opacity:1;transform:none}
+}
+.sr{opacity:0;transform:translateY(32px)}
+.sr.visible{animation:revealUp .6s ease forwards}
+.sr-d1{animation-delay:.1s}
+.sr-d2{animation-delay:.2s}
+.sr-d3{animation-delay:.3s}
+.sr-d4{animation-delay:.4s}
+
+/* ── MISSION + VALUES LAYOUT (about page) ─────── */
+.mission-values-row{display:flex;gap:44px;align-items:stretch;flex-wrap:wrap}
+.mv-col{flex:1 1 380px;min-width:0;display:flex;flex-direction:column}
+.mv-col-mission .mission-card{flex:1;display:flex;flex-direction:column;justify-content:center}
+.mv-mission-cta{margin-top:24px;align-self:flex-start}
+
+/* ── VALUE CARDS (about page) ─────────────────── */
+.values-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:16px}
+.value-card{background:#fff;box-shadow:var(--shadow-sm);border-radius:var(--r);padding:28px 24px;display:flex;flex-direction:column;gap:14px;transition:var(--t);border-top:3px solid var(--blue)}
+.value-card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.value-card-icon{width:46px;height:46px;background:var(--blue);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.value-card-icon svg{width:22px;height:22px;color:#fff;stroke:#fff}
+.value-card h3{font-size:16px;color:var(--text);margin:0;font-weight:700;line-height:1.3;font-family:'DM Sans',sans-serif}
+.value-card p{font-size:14px;color:var(--muted);line-height:1.7;margin:0;padding:0}
+.mission-card{background:#fff;padding:36px 38px;border-radius:var(--r);border-left:4px solid var(--blue);box-shadow:var(--shadow-sm);flex:1}
+.mission-card p{color:var(--body);font-size:15px;line-height:1.9;margin-bottom:14px;padding-bottom:0}
+.mission-card p:last-of-type{margin-bottom:0;padding-bottom:0}
+@media(max-width:900px){.mission-values-row{gap:32px}.mv-col{flex:1 1 100%}}
+@media(max-width:768px){.values-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.values-grid{grid-template-columns:1fr}}
+
+/* ── SECTION CTA INLINE ───────────────────────── */
+.section-cta{text-align:center;padding:36px 0 0}
+
+/* (footer styles consolidated above — duplicate compact block removed) */
 
 /* ── ACCESSIBILITY ─────────────────────────────── */
 .skip-link{position:absolute;top:-40px;left:0;background:var(--blue);color:#fff;padding:8px 16px;font-size:13px;font-weight:700;text-decoration:none;z-index:100000;border-radius:0 0 var(--r) 0;transition:top .2s}
@@ -304,4 +362,399 @@ input:focus,textarea:focus,select:focus{box-shadow:0 0 0 3px rgba(200,85,26,.15)
   .stats-bar{background:none;border-top:1px solid #ccc;border-bottom:1px solid #ccc}
   .stat-item .stat-n{color:#000}
   .stat-item .stat-l{color:#555}
+}
+
+/* ── FLOATING WIDGETS — WhatsApp + chat assistant ─ */
+#bhd-fab{position:fixed;right:22px;bottom:22px;z-index:99990;display:flex;flex-direction:column;gap:12px;align-items:center}
+.bhd-fab-btn{width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;border:none;box-shadow:0 6px 20px rgba(0,0,0,.22);transition:transform .2s ease,box-shadow .2s ease;padding:0}
+.bhd-fab-btn:hover{transform:translateY(-3px) scale(1.05);box-shadow:0 10px 28px rgba(0,0,0,.3)}
+.bhd-fab-btn svg{width:30px;height:30px}
+.bhd-wa{background:#25D366;color:#fff}
+.bhd-chat-toggle{background:var(--blue);color:#fff}
+.bhd-chat-toggle.bhd-open svg{transform:rotate(0)}
+#bhd-chat{position:fixed;right:22px;bottom:92px;z-index:99991;width:362px;max-width:calc(100vw - 32px);height:524px;max-height:calc(100vh - 132px);background:#fff;border-radius:14px;box-shadow:0 18px 50px rgba(0,0,0,.32);display:flex;flex-direction:column;overflow:hidden;transform-origin:bottom right;transition:opacity .22s ease,transform .22s ease}
+#bhd-chat.bhd-chat-closed{opacity:0;transform:translateY(16px) scale(.96);pointer-events:none;visibility:hidden}
+.bhd-chat-head{background:var(--navy);color:#fff;padding:15px 18px;display:flex;align-items:center;justify-content:space-between;border-top:3px solid var(--gold);flex-shrink:0}
+.bhd-chat-head-info{display:flex;flex-direction:column;gap:2px}
+.bhd-chat-title{font-size:15px;font-weight:700;letter-spacing:.01em}
+.bhd-chat-status{font-size:11px;color:rgba(255,255,255,.55)}
+.bhd-chat-status::before{content:'';display:inline-block;width:7px;height:7px;border-radius:50%;background:#25D366;margin-right:6px;vertical-align:middle}
+.bhd-chat-close{background:none;border:none;color:rgba(255,255,255,.7);font-size:26px;line-height:1;cursor:pointer;padding:0 2px}
+.bhd-chat-close:hover{color:#fff}
+.bhd-chat-msgs{flex:1;overflow-y:auto;padding:18px;background:var(--off-white);display:flex;flex-direction:column;gap:11px}
+.bhd-msg{max-width:85%;padding:10px 14px;border-radius:14px;font-size:13.5px;line-height:1.55}
+.bhd-msg-bot{background:#fff;border:1px solid var(--border);color:var(--text);align-self:flex-start;border-bottom-left-radius:4px}
+.bhd-msg-user{background:var(--blue);color:#fff;align-self:flex-end;border-bottom-right-radius:4px}
+.bhd-msg-bot a{color:var(--blue-dk);font-weight:600;text-decoration:underline}
+.bhd-chat-typing{align-self:flex-start;display:flex;gap:4px;padding:13px 14px;background:#fff;border:1px solid var(--border);border-radius:14px}
+.bhd-chat-typing span{width:7px;height:7px;border-radius:50%;background:var(--muted);animation:bhdTyping 1s infinite}
+.bhd-chat-typing span:nth-child(2){animation-delay:.15s}
+.bhd-chat-typing span:nth-child(3){animation-delay:.3s}
+@keyframes bhdTyping{0%,60%,100%{opacity:.3;transform:translateY(0)}30%{opacity:1;transform:translateY(-4px)}}
+.bhd-chat-quick{display:flex;flex-wrap:wrap;gap:6px;padding:10px 14px 4px;background:#fff;border-top:1px solid var(--border);flex-shrink:0}
+.bhd-quick-btn{font-size:11.5px;border:1px solid var(--blue);color:var(--blue);background:#fff;border-radius:20px;padding:5px 12px;cursor:pointer;transition:var(--t);font-weight:600;font-family:inherit}
+.bhd-quick-btn:hover{background:var(--blue);color:#fff}
+.bhd-chat-input{display:flex;border-top:1px solid var(--border);background:#fff;flex-shrink:0}
+.bhd-chat-input input{flex:1;border:none;padding:14px 16px;font-size:13.5px;outline:none;font-family:inherit;color:var(--text);background:none}
+.bhd-chat-input button{background:var(--blue);color:#fff;border:none;width:50px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s}
+.bhd-chat-input button:hover{background:var(--blue-dk)}
+.bhd-chat-input button svg{width:18px;height:18px}
+@media(max-width:480px){#bhd-chat{right:12px;left:12px;width:auto;bottom:86px;height:70vh}#bhd-fab{right:16px;bottom:16px}}
+@media print{#bhd-fab,#bhd-chat{display:none!important}}
+
+/* ── BOT MESSAGE LABEL + ACTION BUTTONS ───────── */
+.bhd-msg-label{font-size:9.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:6px}
+.bhd-msg-btns{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.bhd-msg-btn{font-size:11.5px;font-weight:600;font-family:inherit;color:var(--blue);background:#fff;border:1.5px solid var(--blue);border-radius:20px;padding:4px 12px;cursor:pointer;text-decoration:none;transition:var(--t);display:inline-block}
+.bhd-msg-btn:hover{background:var(--blue);color:#fff}
+
+/* ── FOOTER SOCIAL ICONS ──────────────────────── */
+.footer-social{display:flex;gap:8px;margin-top:16px;flex-wrap:wrap}
+.footer-soc-btn{width:32px;height:32px;border-radius:50%;background:transparent;border:1px solid rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.5);transition:var(--t)}
+.footer-soc-btn:hover{background:var(--blue);border-color:var(--blue);color:#fff}
+.footer-soc-btn svg{width:14px;height:14px}
+
+/* ── FOOTER BOTTOM CREDIT ─────────────────────── */
+#footer-credit{font-size:11.5px;color:rgba(255,255,255,.4);white-space:nowrap;flex-shrink:0}
+#footer-credit a{color:rgba(255,255,255,.6);font-weight:600;transition:var(--t)}
+#footer-credit a:hover{color:var(--blue)}
+
+/* ── CLIENTS SECTION (homepage) ───────────────── */
+.clients-home{padding:54px 0;border-top:1px solid var(--border)}
+.clients-home .section-label{margin-bottom:18px}
+@media(max-width:600px){.footer-social{gap:6px}}
+@media(max-width:480px){#footer-credit{text-align:center;width:100%}#footer-info{text-align:center}}
+
+/* ═════════════════════════════════════════════════════
+   MOBILE OVERHAUL — v5.23
+   Full mobile UX pass: all 7 pages
+   ═════════════════════════════════════════════════════ */
+
+/* ── 768px: CTA stacking, card padding ─────────────── */
+@media(max-width:768px){
+  /* Hero CTA buttons stack vertically */
+  .hero-ctas,
+  .page-hero-ctas{
+    flex-direction:column;
+    align-items:stretch;
+    max-width:300px;
+  }
+  .hero-ctas .et_pb_button,
+  .page-hero-ctas .et_pb_button{
+    width:100%;
+    text-align:center;
+    margin:4px 0;
+    box-sizing:border-box;
+  }
+  /* Newsletter form: button full-width when stacked */
+  .newsletter-form button{width:100%;text-align:center}
+  /* Pillar card: tighter padding */
+  .pillar-body{padding:20px 18px}
+  /* Dark callout: slightly smaller */
+  .dark-callout p{font-size:19px}
+}
+
+/* ── 600px additions (supplements existing block) ──── */
+@media(max-width:600px){
+  /* Page hero typography */
+  .page-title{font-size:32px}
+  .page-hero-sub{font-size:14px;max-width:100%;line-height:1.7}
+  /* Homepage hero typography */
+  .hero-title{font-size:32px}
+  .hero-sub{font-size:14px;max-width:100%}
+  /* Section spacing */
+  .section{padding:44px 0}
+  .section-sm{padding:30px 0}
+  .page-intro{padding:32px 0 14px}
+  .cta-strip{padding:50px 0}
+  .stats-bar{padding:34px 0}
+  /* Dark callout */
+  .dark-callout p{font-size:18px}
+  /* Partners grid: 2-col → 1-col */
+  .partners-grid{grid-template-columns:1fr}
+  /* Stats numbers */
+  .stat-item .stat-n{font-size:30px}
+  /* Hamburger: slightly larger */
+  .mobile_menu_bar{font-size:22px;padding:6px 4px}
+  /* Mobile nav items: bigger tap target */
+  body.mobile-nav-open #top-menu>li>a{padding:14px 0;font-size:14.5px}
+}
+
+/* ── 480px: comprehensive deep-mobile ──────────────── */
+@media(max-width:480px){
+
+  /* — Global section spacing — */
+  .section{padding:36px 0}
+  .section-sm{padding:24px 0}
+  .page-intro{padding:26px 0 12px}
+  .cta-strip{padding:40px 0}
+  .stats-bar{padding:28px 0}
+  .countdown-section{padding:28px 0}
+  .dark-callout{padding:26px 0}
+  .clients-home{padding:34px 0}
+  .et_pb_section{padding:40px 0!important}
+  .et_pb_section_grey{padding:40px 0!important}
+  .team-section{padding:40px 0!important}
+  .et_pb_row{padding:16px 20px}
+
+  /* — Typography — */
+  h3{font-size:20px}
+  h4{font-size:16px}
+  .section-label{font-size:10px;letter-spacing:.12em}
+  .dark-callout p{font-size:15px;line-height:1.6}
+  .dark-callout p::before,.dark-callout p::after{font-size:32px;line-height:.4}
+
+  /* — Inner page hero — */
+  .page-title-wrap .container{padding-top:38px;padding-bottom:28px}
+  .page-title{font-size:28px;letter-spacing:-.01em}
+  .page-hero-sub{font-size:13px;max-width:100%;line-height:1.65}
+  .page-hero-ctas{max-width:100%}
+  .page-hero-ctas .et_pb_button{
+    width:100%;margin:4px 0;
+    text-align:center;box-sizing:border-box;
+  }
+
+  /* — Homepage hero — */
+  .hero-inner{padding:38px 0 28px}
+  .hero-title{font-size:28px;line-height:1.2}
+  .hero-sub{font-size:13px;max-width:100%;margin-bottom:22px}
+  .hero-ctas{max-width:100%}
+  .hero-ctas .et_pb_button{
+    width:100%;margin:4px 0;
+    text-align:center;box-sizing:border-box;
+  }
+  .hero-label{font-size:10px;letter-spacing:.14em}
+  .hero-scroll{display:none}
+
+  /* — Stats bar — */
+  .stat-item .stat-n{font-size:24px}
+  .stat-item .stat-l{font-size:10px}
+  .stat-item{padding:8px 10px}
+
+  /* — Countdown — */
+  .countdown-title{font-size:15px;line-height:1.35}
+  .countdown-meta{font-size:12.5px}
+  .c-n{font-size:32px!important}
+  .c-sep{font-size:26px!important;padding-bottom:5px!important}
+  .c-unit{min-width:44px!important;padding:0 4px!important}
+
+  /* — CTA strip — */
+  .cta-strip h2{font-size:20px}
+  .cta-strip p{font-size:13.5px}
+  .cta-strip .et_pb_button{
+    display:block;width:100%;
+    text-align:center;margin:5px 0;
+    box-sizing:border-box;
+  }
+
+  /* — Buttons: compact margin — */
+  .et_pb_button{margin:3px 0}
+
+  /* — Pillar cards — */
+  .pillar-body{padding:16px 14px}
+  .pillar-card h3{font-size:15px}
+  .pillar-card p{font-size:14px}
+
+  /* — Podcast player — */
+  .pp-img{width:180px!important;height:180px!important}
+  .pp-ring{width:196px!important;height:196px!important}
+  .pp-title{font-size:18px}
+  .pp-desc{font-size:13.5px}
+  .pp-controls{gap:10px}
+  .pp-play{width:54px!important;height:54px!important}
+
+  /* — Partners grid — */
+  .partners-grid{grid-template-columns:1fr!important}
+
+  /* — Coaching package — */
+  .coaching-pkg-img{flex:0 0 100px!important}
+  .coaching-pkg-body{padding:20px 22px}
+  .coaching-package h3{font-size:16px}
+  .coaching-package .price{font-size:24px}
+
+  /* — Pricing table — */
+  .pricing-table th,.pricing-table td{padding:8px 10px;font-size:12.5px}
+
+  /* — Event cards — */
+  .event-header{padding:18px 20px}
+  .event-body{padding:20px}
+  .event-date .day{font-size:22px}
+  .event-meta{gap:8px}
+  .event-meta span{font-size:11px}
+
+  /* — Footer — */
+  #footer-widgets .container{grid-template-columns:1fr 1fr!important;gap:16px}
+  #footer-widgets{padding:26px 0 18px}
+  .footer-brand-name{font-size:17px}
+
+  /* — Page intro — */
+  .page-intro h2{font-size:20px}
+  .page-intro .intro-sub{font-size:14px}
+
+  /* — Contact form — */
+  .form-submit button{width:100%;justify-content:center;padding:13px 24px}
+
+  /* — Team cards — */
+  .team-main-body{padding:22px 18px}
+}
+
+/* ── 375px: extra-small (iPhone SE etc.) ──────────── */
+@media(max-width:375px){
+  .hero-title,.page-title{font-size:24px!important}
+  .hero-sub,.page-hero-sub{font-size:12.5px!important}
+  .c-n{font-size:26px!important}
+  .c-sep{font-size:20px!important}
+  .c-unit{min-width:36px!important;padding:0 2px!important}
+  .stat-item .stat-n{font-size:20px}
+  .et_pb_button{font-size:12px;padding:.72em 1.5em;letter-spacing:.1em}
+  .section-label{font-size:9.5px}
+}
+
+/* ═════════════════════════════════════════════════════
+   v5.23.2 — mobile audit: countdown, CTA centering,
+   hero consistency, edge spacing
+   ═════════════════════════════════════════════════════ */
+
+/* ── COUNTDOWN: fix huge gap caused by flex-basis:320px ─
+   In column layout, flex-basis applies to HEIGHT so the
+   text block gets forced to 320px even when content is ~150px.
+   Fix: override flex on both breakpoints.                   */
+@media(max-width:900px){
+  .countdown-text{flex:0 0 auto;min-width:0}
+}
+@media(max-width:600px){
+  /* Center the whole countdown vertically and tighten gap */
+  .countdown-section{padding:32px 0}
+  .countdown-inner{
+    align-items:center;
+    gap:20px;
+    flex-direction:column;
+    justify-content:flex-start;
+  }
+  /* Text block: full-width, centered */
+  .countdown-text{
+    text-align:center;
+    width:100%;
+    flex:0 0 auto!important;
+    min-width:0;
+  }
+  /* Meta row: center the calendar icon + date text */
+  .countdown-meta{
+    justify-content:center;
+    flex-wrap:wrap;
+    text-align:center;
+  }
+  /* Timer: center digits in full-width row */
+  .countdown-timer{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    width:100%;
+  }
+  /* Countdown button: center within text block */
+  .countdown-text .et_pb_button{
+    display:inline-block;
+    margin:12px 0 0!important;
+  }
+  /* Timer font sizes: compact but legible */
+  .c-n{font-size:38px}
+  .c-sep{font-size:32px;padding-bottom:8px}
+  .c-unit{padding:0 8px;min-width:56px}
+}
+@media(max-width:480px){
+  .c-n{font-size:32px!important}
+  .c-sep{font-size:26px!important;padding-bottom:5px!important}
+  .c-unit{min-width:44px!important;padding:0 5px!important}
+}
+@media(max-width:375px){
+  .c-n{font-size:26px!important}
+  .c-sep{font-size:20px!important;padding-bottom:3px!important}
+  .c-unit{min-width:36px!important;padding:0 3px!important}
+}
+
+/* ── HOMEPAGE HERO: force mobile padding
+   index.html has an inline <style> block that comes AFTER
+   style.css in cascade order, overriding without !important */
+@media(max-width:600px){
+  .hero-inner{padding:44px 0 32px!important}
+  .hero-title{font-size:32px!important}
+  .hero-sub{font-size:14px!important;max-width:100%!important}
+}
+@media(max-width:480px){
+  .hero-inner{padding:36px 0 24px!important}
+  .hero-title{font-size:28px!important;line-height:1.2!important}
+  .hero-sub{font-size:13px!important;margin-bottom:20px!important}
+  .hero-ctas{max-width:100%!important;flex-direction:column!important;align-items:stretch!important}
+  .hero-ctas .et_pb_button{width:100%!important;text-align:center!important;margin:4px 0!important;box-sizing:border-box!important}
+}
+
+/* ── CTA BUTTON CENTERING on mobile ──────────────────── */
+@media(max-width:600px){
+  /* Pillar cards: center icon, text and button */
+  .pillar-body{align-items:center;text-align:center}
+  .pillar-body p{text-align:left} /* keep body copy left-aligned */
+
+  /* Partner cards */
+  .partner-card{text-align:center}
+  .partner-card p{text-align:left}
+  .partner-card .et_pb_button{
+    display:block;
+    margin:0 auto;
+    text-align:center;
+  }
+
+  /* Event body button */
+  .event-body .et_pb_button{
+    display:block;
+    text-align:center;
+    margin-left:auto!important;
+    margin-right:auto!important;
+  }
+
+  /* Isabelle / team section buttons */
+  .team-main-body .et_pb_button,
+  .isabelle-body .et_pb_button{
+    display:block;
+    text-align:center;
+    margin-left:auto;
+    margin-right:auto;
+  }
+
+  /* Section-level standalone buttons (not in cards) */
+  .section-cta,.page-intro .et_pb_button,
+  .coaching-pkg-body .et_pb_button{
+    display:block;
+    text-align:center;
+    margin:10px auto 0;
+  }
+}
+
+/* ── EDGE SPACING: ensure 20px min on all containers ── */
+@media(max-width:480px){
+  .container{padding-left:20px!important;padding-right:20px!important}
+  .et_pb_row{padding-left:20px!important;padding-right:20px!important}
+  /* Hero container has its own padding rules above */
+}
+
+/* ── HERO SECTION CONSISTENCY across all pages ────────
+   Inner pages use .page-title-wrap .container (style.css)
+   Homepage uses .hero-inner (index.html inline style)
+   Both are handled with !important above. Align spacing:  */
+@media(max-width:600px){
+  .page-title-wrap .container{padding-top:44px!important;padding-bottom:32px!important}
+}
+@media(max-width:480px){
+  .page-title-wrap .container{padding-top:36px!important;padding-bottom:24px!important}
+}
+
+/* ── MOBILE HEADER: Contact button beside hamburger ──────── */
+@media(max-width:980px){
+  .header-contact-btn{
+    display:inline-flex;
+    align-items:center;
+    padding:6px 12px;
+    font-size:11px;
+    margin-right:4px;
+  }
+  #et_mobile_nav_menu{margin-left:0}
 }

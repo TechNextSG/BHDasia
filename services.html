@@ -24,9 +24,9 @@
 .coaching-package{background:#FEF3EC;border-left:4px solid var(--blue);padding:30px 32px;margin:40px 0}
 .coaching-package h3{font-size:18px;color:var(--text);margin-bottom:8px}
 .coaching-package .price{font-size:30px;font-weight:800;color:var(--blue);margin-bottom:12px}
-.coaching-package .price span{font-size:13px;color:var(--muted);font-weight:400}
-.coaching-package p{font-size:13px;color:var(--body);line-height:1.8;margin-bottom:0}
-@media(max-width:768px){.services-cols{grid-template-columns:1fr}}
+.coaching-package .price span{font-size:14.5px;color:var(--muted);font-weight:400}
+.coaching-package p{font-size:14.5px;color:var(--body);line-height:1.8;margin-bottom:0}
+@media(max-width:768px){.services-cols{grid-template-columns:1fr}.coaching-package{flex-direction:column}.coaching-pkg-img{flex:0 0 150px}}
 </style>
 </head>
 <body class="page et_fixed_nav et_divi_theme">
@@ -36,7 +36,7 @@
   <div class="et_menu_container container clearfix">
     <div class="logo_container">
       <a href="index.html">
-        <img src="https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img/https://bhdasia.com/wp-content/uploads/2020/10/BHDASIA.png" alt="BHD Asia" onerror="this.style.display='none';document.querySelector('.logo-text').style.display='block'"/>
+        <img src="https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img/https://bhdasia.com/wp-content/uploads/2020/10/BHDASIA.png" alt="BHD Asia" height="34" onerror="this.style.display='none';document.querySelector('.logo-text').style.display='block'"/>
         <span class="logo-text">BHD Asia</span>
       </a>
     </div>
@@ -44,6 +44,7 @@
       <nav id="top-menu-nav">
         <ul id="top-menu" class="nav">
           <li class="menu-item"><a href="index.html">Home</a></li>
+          <li class="menu-item current-menu-item"><a href="services.html">Services</a></li>
           <li class="menu-item"><a href="about.html">About</a></li>
           <li class="menu-item"><a href="events.html">Events</a></li>
           <li class="menu-item"><a href="partners.html">Partners</a></li>
@@ -53,17 +54,27 @@
           <li class="menu-item"><a href="contact.html">Contact</a></li>
         </ul>
       </nav>
+      <a href="contact.html" class="header-contact-btn">Contact</a>
       <div id="et_top_search"><span id="et_search_icon"></span></div>
-      <div id="et_mobile_nav_menu"><span class="mobile_menu_bar" onclick="document.body.classList.toggle('mobile-nav-open')"></span></div>
+      <div id="et_mobile_nav_menu"><button class="mobile_menu_bar" id="mobile-menu-btn" aria-expanded="false" aria-controls="top-menu-nav" aria-label="Open navigation"></button></div>
     </div>
   </div>
 </header>
 
-<div id="et-main-area">
+<div id="et-main-area" tabindex="-1">
 <div class="page-title-wrap">
+  <video class="page-hero-video" autoplay muted loop playsinline preload="none" poster="hero-services.png">
+    <source src="hero-services.mp4" type="video/mp4">
+  </video>
+  <div class="page-hero-overlay"></div>
   <div class="container">
-    <h1 class="page-title">Services</h1>
-    <p class="page-breadcrumb"><a href="index.html">Home</a> &rsaquo; Services</p>
+    <span class="section-label">What We Offer</span>
+    <h1 class="page-title">Services Tailored for You</h1>
+    <p class="page-hero-sub">Co-designed, bespoke solutions built around your people &mdash; not off-the-shelf programmes.</p>
+    <div class="page-hero-ctas">
+      <a class="et_pb_button btn-white" href="contact.html">Schedule a Free 1:1</a>
+      <a class="et_pb_button btn-white-outline" href="#services-grid">View All Services</a>
+    </div>
   </div>
 </div>
 
@@ -85,7 +96,7 @@
 
 <div class="services-section">
   <div class="container">
-    <div class="services-cols">
+    <div class="services-cols" id="services-grid">
 
       <div class="service-category">
         <h2>Organisation Development</h2>
@@ -143,12 +154,35 @@
   </div>
 </div>
 
-<div class="dark-callout">
-  <div class="container">
-    <p>Bringing out the best in each of us</p>
+<section style="background:var(--off-white);border-top:1px solid var(--border);padding:60px 0" id="faq">
+  <div class="container" style="max-width:800px">
+    <span class="section-label">Common Questions</span>
+    <h2 style="margin-bottom:32px">Frequently Asked Questions</h2>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Do you work with SMEs or only large corporations?","acceptedAnswer":{"@type":"Answer","text":"We work with organisations of all sizes — from growth-stage companies to global multinationals. Our programmes are co-designed to fit your team size, budget and goals."}},{"@type":"Question","name":"How long does a typical engagement take?","acceptedAnswer":{"@type":"Answer","text":"Engagements range from a single leadership workshop to a 12-month executive coaching programme."}},{"@type":"Question","name":"Can you deliver programmes outside Singapore?","acceptedAnswer":{"@type":"Answer","text":"Yes. BHD Asia has delivered programmes across Asia Pacific, Japan, Europe and the Middle East."}},{"@type":"Question","name":"Is coaching available in languages other than English?","acceptedAnswer":{"@type":"Answer","text":"Isabelle coaches in English, French and Portuguese."}},{"@type":"Question","name":"What is the first step to working with BHD Asia?","acceptedAnswer":{"@type":"Answer","text":"Book a free 30-minute discovery call. We will listen to your challenges and — only if there is a genuine fit — propose a programme design."}}]}
+    </script>
+    <details style="border-bottom:1px solid var(--border);padding:18px 0">
+      <summary style="font-weight:600;font-size:15px;cursor:pointer;color:var(--text);list-style:none;display:flex;justify-content:space-between">Do you work with SMEs or only large corporations?</summary>
+      <p style="margin-top:12px;font-size:14.5px;color:var(--body);line-height:1.75">We work with organisations of all sizes — from growth-stage companies to global multinationals. Our programmes are co-designed to fit your team size, budget and goals.</p>
+    </details>
+    <details style="border-bottom:1px solid var(--border);padding:18px 0">
+      <summary style="font-weight:600;font-size:15px;cursor:pointer;color:var(--text);list-style:none;display:flex;justify-content:space-between">How long does a typical engagement take?</summary>
+      <p style="margin-top:12px;font-size:14.5px;color:var(--body);line-height:1.75">Engagements range from a single leadership workshop to a 12-month executive coaching programme. We start with a discovery conversation to understand your needs and propose a timeline.</p>
+    </details>
+    <details style="border-bottom:1px solid var(--border);padding:18px 0">
+      <summary style="font-weight:600;font-size:15px;cursor:pointer;color:var(--text);list-style:none;display:flex;justify-content:space-between">Can you deliver programmes outside Singapore?</summary>
+      <p style="margin-top:12px;font-size:14.5px;color:var(--body);line-height:1.75">Yes. BHD Asia has delivered programmes across Asia Pacific, Japan, Europe and the Middle East. We adapt delivery language and format to your team's location and culture.</p>
+    </details>
+    <details style="border-bottom:1px solid var(--border);padding:18px 0">
+      <summary style="font-weight:600;font-size:15px;cursor:pointer;color:var(--text);list-style:none;display:flex;justify-content:space-between">Is coaching available in languages other than English?</summary>
+      <p style="margin-top:12px;font-size:14.5px;color:var(--body);line-height:1.75">Isabelle coaches in English, French and Portuguese, allowing BHD Asia to serve multinational leadership teams across different regions.</p>
+    </details>
+    <details style="padding:18px 0">
+      <summary style="font-weight:600;font-size:15px;cursor:pointer;color:var(--text);list-style:none;display:flex;justify-content:space-between">What is the first step to working with BHD Asia?</summary>
+      <p style="margin-top:12px;font-size:14.5px;color:var(--body);line-height:1.75">Book a free 30-minute discovery call. We will listen to your challenges and — only if there is a genuine fit — propose a programme design.</p>
+    </details>
   </div>
-</div>
-
+</section>
 <div class="cta-strip">
   <div class="container">
     <h2>Start Shaping Your New Life Today</h2>
@@ -165,7 +199,12 @@
     <div class="footer-widget"><h4>BHD Asia</h4><p>Highlight, Enhance and Appreciate Human in Business.</p><p>Business &amp; Human Development Consulting Pte Ltd</p><div class="footer-social"><a href="#" aria-label="LinkedIn" title="LinkedIn" target="_blank" rel="noopener">in</a><a href="#" aria-label="Facebook" title="Facebook" target="_blank" rel="noopener">f</a></div></div>
     <div class="footer-widget"><h4>Navigate</h4><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="events.html">Events</a></li><li><a href="partners.html">Partners</a></li><li><a href="isabelle.html">Isabelle</a></li><li><a href="services.html">Services</a></li><li><a href="contact.html">Contact</a></li><li><a href="changelog.html">Changelog</a></li></ul></div>
     <div class="footer-widget"><h4>Legal</h4><ul><li><a href="privacy.html">Privacy Statement</a></li><li><a href="terms.html">Terms &amp; Conditions</a></li><li><a href="code.html">Code of Practice</a></li><li><a href="inclusivity.html">Inclusivity Statement</a></li></ul></div>
-    <div class="footer-widget"><h4>Contact</h4><p>50 Raffles Place, Singapore Land Tower #30-00<br>Singapore 048623</p><p>Phone: +81 806515 1778</p><p><a href="mailto:isabelle@bhdasia.com" style="color:rgba(255,255,255,.4)">isabelle@bhdasia.com</a></p></div>
+    <div class="footer-widget"><h4>Contact</h4><p>50 Raffles Place, Singapore Land Tower #30-00<br>Singapore 048623</p><p>+81 806515 1778</p><p><a href="mailto:isabelle@bhdasia.com">isabelle@bhdasia.com</a></p><p><a href="contact.html">Book a Discovery Call &rarr;</a></p></div>
+  </div></div>
+  <div id="footer-bottom"><div class="container">
+    <div id="footer-info"><span>&copy; 2026 BHD Asia. All rights reserved.</span></div>
+    <div class="footer-bottom-links"><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a></div>
+    <div id="footer-credit">Powered by <a href="https://technext.asia" target="_blank" rel="noopener">TechNext</a></div>
   </div></div>
   <div id="footer-bottom"><div class="container"><div id="footer-info"><span>&copy; 2026 BHD Asia &mdash; Business &amp; Human Development Consulting Pte Ltd. All rights reserved.</span><span>ACRA 201201974K</span></div></div></div>
 </footer>
