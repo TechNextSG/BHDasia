@@ -1,9 +1,16 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en-US">
 <head>
 <meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>Events - BHD Asia</title>
+<meta name="description" content="Upcoming TRE® workshops in Singapore — Module 1 (Personal Use) and Modules 2 &amp; 3 (Certification). Open to all."/>
+<link rel="icon" href="favicon.svg" type="image/svg+xml"/>
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="BHD Asia"/>
+<meta property="og:title" content="Events &amp; Workshops — BHD Asia | TRE® Certification Singapore"/>
+<meta property="og:description" content="Upcoming TRE® workshops in Singapore — Module 1 (Personal Use) and Modules 2 &amp; 3 (Certification). Open to all."/>
+<meta property="og:image" content="https://technextsg.github.io/BHDasia/hero.jpg"/>
 <link rel="stylesheet" href="style.css"/>
 <style>
 .events-grid{padding:40px 0 70px}
@@ -24,11 +31,22 @@
 .pricing-table th{background:var(--off-white);padding:10px 16px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-align:left;font-weight:700}
 .pricing-table td{padding:10px 16px;border-bottom:1px solid var(--border);font-size:13px;color:var(--body)}
 .pricing-table td:last-child{font-weight:700;color:var(--text)}
-.pricing-table tr.highlight td{background:#f0f9ff;color:var(--blue)}
+.pricing-table tr.highlight td{background:#FEF3EC;color:var(--blue)}
 .pricing-table tr.highlight td:last-child{color:var(--blue);font-weight:800}
 .pricing-table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin-bottom:22px}
 .event-contact{font-size:12px;color:var(--muted);margin-top:12px}
 .event-contact a{color:var(--blue)}
+/* -- COUNTDOWN ----------------------------------- */
+.countdown-section{background:var(--navy);padding:48px 0;border-bottom:1px solid rgba(255,255,255,.06)}
+.countdown-inner{display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap}
+.countdown-text .section-label{display:block;margin-bottom:6px}
+.countdown-title{color:#fff;font-size:20px;font-weight:700;margin-bottom:4px}
+.countdown-meta{color:rgba(255,255,255,.45);font-size:13px;margin:0;padding:0}
+.countdown-timer{display:flex;gap:12px;flex-wrap:wrap}
+.c-unit{text-align:center;background:rgba(255,255,255,.05);border:1px solid rgba(232,184,48,.2);border-top:3px solid var(--gold);padding:14px 18px;min-width:68px}
+.c-n{display:block;font-size:34px;font-weight:800;color:var(--gold);line-height:1;margin-bottom:5px;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.c-l{display:block;font-size:10px;color:rgba(255,255,255,.38);text-transform:uppercase;letter-spacing:.12em;font-weight:700}
+@media(max-width:768px){.countdown-inner{flex-direction:column;align-items:flex-start}.countdown-timer{gap:8px}.c-unit{min-width:60px;padding:12px 14px}.c-n{font-size:26px}}
 </style>
 </head>
 <body class="page et_fixed_nav et_divi_theme">
@@ -49,6 +67,7 @@
           <li class="menu-item"><a href="about.html">About</a></li>
           <li class="menu-item current-menu-item"><a href="events.html">Events</a></li>
           <li class="menu-item"><a href="partners.html">Partners</a></li>
+          
           <li class="menu-item"><a href="isabelle.html">Isabelle</a></li>
           <li class="menu-item"><a href="services.html">Services</a></li>
           <li class="menu-item"><a href="contact.html">Contact</a></li>
@@ -77,6 +96,26 @@
   </div>
 </div>
 
+<!-- COUNTDOWN -->
+<div class="countdown-section">
+  <div class="container">
+    <div class="countdown-inner">
+      <div class="countdown-text">
+        <span class="section-label">Next Event</span>
+        <h3 class="countdown-title">TRE&reg; for Personal Use &mdash; Module 1</h3>
+        <p class="countdown-meta">29&ndash;30 August 2026 &nbsp;&middot;&nbsp; In-person, Singapore</p>
+      </div>
+      <div class="countdown-timer" id="event-countdown">
+        <div class="c-unit"><span class="c-n" id="c-days">--</span><span class="c-l">Days</span></div>
+        <div class="c-unit"><span class="c-n" id="c-hours">--</span><span class="c-l">Hours</span></div>
+        <div class="c-unit"><span class="c-n" id="c-mins">--</span><span class="c-l">Mins</span></div>
+        <div class="c-unit"><span class="c-n" id="c-secs">--</span><span class="c-l">Secs</span></div>
+      </div>
+      <a class="et_pb_button" href="https://calendly.com/bhdasia/tre-certification-intake-call" target="_blank" rel="noopener">Book Your Spot</a>
+    </div>
+  </div>
+</div>
+
 <div class="events-grid">
   <div class="container">
 
@@ -92,7 +131,7 @@
         </div>
       </div>
       <div class="event-body">
-        <p class="event-desc">A 2-day TRE® experiential workshop for those interested in learning TRE® as part of their self-care and personal development. Focus areas include personal tremoring experience, stress release, centering, and behaviour pattern awareness.</p>
+        <p class="event-desc">A 2-day TRE® experiential workshop for those interested in learning TRE® as part of their self-care and personal development. Focus areas include personal tremoring experience, stress release, centering, and generating new patterns of behaviour.</p>
         <div class="pricing-table-wrap">
           <table class="pricing-table">
             <thead><tr><th>Booking Type</th><th>Timeline</th><th>Price (SGD)</th></tr></thead>
@@ -103,7 +142,7 @@
             </tbody>
           </table>
         </div>
-        <a class="et_pb_button" href="contact.html">Book a call</a>
+        <a class="et_pb_button" href="https://calendly.com/bhdasia/tre-certification-intake-call" target="_blank" rel="noopener">Book a call</a>
         <p class="event-contact">Contact: <a href="mailto:isabelle@bhdasia.com">isabelle@bhdasia.com</a></p>
       </div>
     </div>
@@ -121,6 +160,7 @@
       </div>
       <div class="event-body">
         <p class="event-desc">Module 2: a 2-day TRE® experiential workshop for those interested in learning how to teach TRE® to one client. Must be purchased with Module 3 as part of the full TRE® provider certification programme.</p>
+        <div class="tre-note"><strong>Note:</strong> Previous Module 1 payments are deductible from the full certification cost when purchasing Module 2 + 3 together.</div>
         <div class="pricing-table-wrap">
           <table class="pricing-table">
             <thead><tr><th>Booking Type</th><th>Timeline</th><th>Price (SGD)</th></tr></thead>
@@ -131,7 +171,36 @@
             </tbody>
           </table>
         </div>
-        <a class="et_pb_button" href="contact.html">Book a call</a>
+        <a class="et_pb_button" href="https://calendly.com/bhdasia/tre-certification-intake-call" target="_blank" rel="noopener">Book a call</a>
+        <p class="event-contact">Contact: <a href="mailto:isabelle@bhdasia.com">isabelle@bhdasia.com</a></p>
+      </div>
+    </div>
+
+    <!-- EVENT 3 -->
+    <div class="event-card">
+      <div class="event-header">
+        <div class="event-date"><span class="day">TBC</span><span class="month">2026</span></div>
+        <h2 class="event-title-h2">TRE® Certification (Module 3)</h2>
+        <div class="event-meta">
+          <span>📅 Date TBC &mdash; follows Module 2</span>
+          <span>📍 In-person, Singapore</span>
+          <span>🕙 2 Days · 10 AM – 6 PM + supervised practice</span>
+        </div>
+      </div>
+      <div class="event-body">
+        <p class="event-desc">Module 3 completes the TRE® Provider Certification pathway. Building on Modules 1 and 2, participants deepen their facilitation skills and gain the ability to teach TRE® in group settings. Must be purchased together with Module 2 as part of the full certification programme.</p>
+        <div class="tre-note"><strong>Note:</strong> Modules 2 &amp; 3 are sold together as a package. Previous Module 1 payments are deductible from the combined cost.</div>
+        <div class="pricing-table-wrap">
+          <table class="pricing-table">
+            <thead><tr><th>Booking Type</th><th>Timeline</th><th>Price (SGD)</th></tr></thead>
+            <tbody>
+              <tr class="highlight"><td>Super Early Bird</td><td>12+ weeks prior</td><td>3,699</td></tr>
+              <tr><td>Early Bird</td><td>4 weeks prior</td><td>4,200</td></tr>
+              <tr><td>Normal</td><td>Standard</td><td>4,500</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <a class="et_pb_button" href="https://calendly.com/bhdasia/tre-certification-intake-call" target="_blank" rel="noopener">Book a call</a>
         <p class="event-contact">Contact: <a href="mailto:isabelle@bhdasia.com">isabelle@bhdasia.com</a></p>
       </div>
     </div>
@@ -142,14 +211,33 @@
 
 <footer id="main-footer">
   <div id="footer-widgets"><div class="container">
-    <div class="footer-widget"><h4>BHD Asia</h4><p>Highlight, Enhance and Appreciate Human in Business.</p><p>Business &amp; Human Development Consulting Pte Ltd</p></div>
+    <div class="footer-widget"><h4>BHD Asia</h4><p>Highlight, Enhance and Appreciate Human in Business.</p><p>Business &amp; Human Development Consulting Pte Ltd</p><div class="footer-social"><a href="#" aria-label="LinkedIn" title="LinkedIn" target="_blank" rel="noopener">in</a><a href="#" aria-label="Facebook" title="Facebook" target="_blank" rel="noopener">f</a></div></div>
     <div class="footer-widget"><h4>Navigate</h4><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="events.html">Events</a></li><li><a href="partners.html">Partners</a></li><li><a href="isabelle.html">Isabelle</a></li><li><a href="services.html">Services</a></li><li><a href="contact.html">Contact</a></li><li><a href="changelog.html">Changelog</a></li></ul></div>
     <div class="footer-widget"><h4>Legal</h4><ul><li><a href="privacy.html">Privacy Statement</a></li><li><a href="terms.html">Terms &amp; Conditions</a></li><li><a href="code.html">Code of Practice</a></li><li><a href="inclusivity.html">Inclusivity Statement</a></li></ul></div>
     <div class="footer-widget"><h4>Contact</h4><p>50 Raffles Place, Singapore Land Tower #30-00<br>Singapore 048623</p><p>Phone: +81 806515 1778</p><p><a href="mailto:isabelle@bhdasia.com" style="color:rgba(255,255,255,.4)">isabelle@bhdasia.com</a></p></div>
   </div></div>
-  <div id="footer-bottom"><div class="container"><div id="footer-info"><span>&copy; 2025 BHD Asia &mdash; Business &amp; Human Development Consulting Pte Ltd. All rights reserved.</span><span>ACRA 201201974K</span></div></div></div>
+  <div id="footer-bottom"><div class="container"><div id="footer-info"><span>&copy; 2026 BHD Asia &mdash; Business &amp; Human Development Consulting Pte Ltd. All rights reserved.</span><span>ACRA 201201974K</span></div></div></div>
 </footer>
 </div>
 <script src="shared.js"></script>
+<script>
+(function(){
+  var target=new Date('2026-08-29T10:00:00+08:00');
+  function pad(n){return String(n).padStart(2,'0')}
+  function tick(){
+    var diff=target-new Date();
+    if(diff<=0){
+      document.getElementById('event-countdown').innerHTML='<p style="color:var(--gold);font-weight:700;font-size:16px">This event has started!</p>';
+      return;
+    }
+    document.getElementById('c-days').textContent=pad(Math.floor(diff/86400000));
+    document.getElementById('c-hours').textContent=pad(Math.floor(diff%86400000/3600000));
+    document.getElementById('c-mins').textContent=pad(Math.floor(diff%3600000/60000));
+    document.getElementById('c-secs').textContent=pad(Math.floor(diff%60000/1000));
+    setTimeout(tick,1000);
+  }
+  tick();
+})();
+</script>
 </body>
 </html>

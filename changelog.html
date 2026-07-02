@@ -47,8 +47,15 @@
           <li class="menu-item"><a href="about.html">About</a></li>
           <li class="menu-item"><a href="events.html">Events</a></li>
           <li class="menu-item"><a href="partners.html">Partners</a></li>
-          <li class="menu-item"><a href="isabelle.html">Isabelle</a></li>
-          <li class="menu-item"><a href="services.html">Services</a></li>
+          
+          <li class="menu-item menu-item-has-children"><a href="services.html">Services</a>
+          <ul class="sub-menu">
+            <li class="menu-item"><a href="privacy.html">Privacy Statement</a></li>
+            <li class="menu-item"><a href="terms.html">Terms &amp; Conditions</a></li>
+            <li class="menu-item"><a href="code.html">Code of Practice</a></li>
+            <li class="menu-item"><a href="inclusivity.html">Inclusivity Statement</a></li>
+          </ul>
+        </li>
           <li class="menu-item"><a href="contact.html">Contact</a></li>
         </ul>
       </nav>
@@ -75,6 +82,277 @@
       <hr class="divider-line"/>
       <p>A complete record of all versions, changes, and improvements made to the BHD Asia static website mockup. The site is a faithful HTML/CSS replica of <a href="https://bhdasia.com" target="_blank" style="color:var(--blue)">bhdasia.com</a>, built as a multi-page static site and hosted on GitHub Pages.</p>
       <p>Live site: <a href="https://technextsg.github.io/BHDasia/" target="_blank" style="color:var(--blue)">technextsg.github.io/BHDasia</a> &nbsp;·&nbsp; Repository: <a href="https://github.com/TechNextSG/BHDasia" target="_blank" style="color:var(--blue)">github.com/TechNextSG/BHDasia</a></p>
+    </div>
+
+    <!-- VERSION 5.8 -->
+    <div class="version-block">
+      <div class="version-header">
+        <span class="version-badge v3">v5.8</span>
+        <span class="version-date">17 June 2026</span>
+        <h3 class="version-title">Gold Rebrand &mdash; Diagonal Callout, Interview Redesign &amp; Event Countdown</h3>
+      </div>
+      <div class="change-group">
+        <p class="change-group-label">Brand Colour</p>
+        <ul class="change-list">
+          <li><strong>Primary accent shifted to amber gold</strong> &mdash; all buttons, borders, dividers and nav accents moved from burnt orange (#C8551A) to amber gold (#D4921A), matching the bhdasia.com reference palette.</li>
+          <li><strong>Gold labels brightened</strong> &mdash; section labels and stat numbers updated to #E8B830 for stronger contrast against dark backgrounds.</li>
+        </ul>
+      </div>
+      <div class="change-group">
+        <p class="change-group-label">Dark Callout &mdash; All Pages</p>
+        <ul class="change-list">
+          <li><strong>Diagonal amber design</strong> &mdash; &ldquo;Bringing out the best in each of us&rdquo; section redesigned to match bhdasia.com: amber gold background, diagonal clip-path bottom edge, white italic serif text. Replaces the flat navy panel.</li>
+        </ul>
+      </div>
+      <div class="change-group">
+        <p class="change-group-label">Homepage &mdash; Interview Section</p>
+        <ul class="change-list">
+          <li><strong>Noomii section fully redesigned</strong> &mdash; replaced the off-white split layout with a dark navy section: pull-quote with gold left border, Isabelle bio text, and a gold-bordered audio player card. More visually distinctive and on-brand.</li>
+        </ul>
+      </div>
+      <div class="change-group">
+        <p class="change-group-label">Events Page</p>
+        <ul class="change-list">
+          <li><strong>Live countdown timer added</strong> &mdash; navy banner above event cards shows a real-time JavaScript countdown (Days / Hours / Mins / Secs) to the next event: TRE&reg; Module 1 on 29 August 2026. Includes direct &ldquo;Book Your Spot&rdquo; Calendly link.</li>
+        </ul>
+      </div>
+      <div class="change-group">
+        <p class="change-group-label">Files Modified</p>
+        <div class="files-added">
+          <span class="file-tag">style.css</span>
+          <span class="file-tag">index.html</span>
+          <span class="file-tag">events.html</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- VERSION 5.7 -->
+    <div class="version-block">
+      <div class="version-header">
+        <span class="version-badge v3">v5.7</span>
+        <span class="version-date">16 June 2026</span>
+        <h3 class="version-title">Stats Bar Moved &mdash; Immediately After Hero</h3>
+      </div>
+      <div class="change-group">
+        <p class="change-group-label">Homepage (index.html)</p>
+        <ul class="change-list">
+          <li><strong>Stats bar repositioned</strong> &mdash; moved from after the Three Pillars section to immediately below the hero section, creating a stronger visual impact for the key credentials (27+ Years, 1,300+ Coaching Hours, 9 Countries, Certified Since 2012) as the first thing visitors see after the hero.</li>
+        </ul>
+      </div>
+      <div class="change-group">
+        <p class="change-group-label">Files Modified</p>
+        <div class="files-added"><span class="file-tag">index.html</span></div>
+      </div>
+    </div>
+
+    <!-- VERSION 5.6 -->
+    <div class="version-block">
+      <div class="version-header">
+        <span class="version-badge v3">v5.6</span>
+        <span class="version-date">16 June 2026</span>
+        <h3 class="version-title">Nav Fixed &mdash; Match Live Site Header Exactly</h3>
+      </div>
+      <div class="change-group">
+        <p class="change-group-label">Navigation (all 12 pages)</p>
+        <ul class="change-list">
+          <li><strong>Isabelle removed from main nav</strong> &mdash; live bhdasia.com nav is: Home, About, Events, Partners, Services, Contact. &ldquo;Isabelle&rdquo; was added in v5.2 but does not appear in the live site header. Page remains accessible via &ldquo;Meet Isabelle&rdquo; hero CTA and &ldquo;Read more&rdquo; on the About page.</li>
+          <li><strong>Services submenu restored</strong> &mdash; Services now shows a dropdown with: Privacy Statement, Terms &amp; Conditions, Code of Practice, Inclusivity Statement. Matches live site dropdown behaviour. CSS for <code>.sub-menu</code> and <code>.menu-item-has-children</code> was already in style.css.</li>
+        </ul>
+      </div>
+      <div class="change-group">
+        <p class="change-group-label">Files Modified</p>
+        <div class="files-added"><span class="file-tag">All 12 HTML pages</span></div>
+      </div>
+    </div>
+
+    <!-- VERSION 5.5 -->
+    <div class="version-block">
+      <div class="version-header">
+        <span class="version-badge v3">v5.5</span>
+        <span class="version-date">16 June 2026</span>
+        <h3 class="version-title">Live Site Alignment &mdash; Missing Content &amp; Accurate Affiliations</h3>
+      </div>
+
+      <div class="change-group">
+        <p class="change-group-label">Partners Page (partners.html)</p>
+        <ul class="change-list">
+          <li><strong>Complete page rebuild</strong> &mdash; replaced 8 invented partner companies with Isabelle&rsquo;s real, verifiable professional affiliations. The live bhdasia.com /partners/ page returns 404; the mockup now reflects actual credentials instead.</li>
+          <li><strong>Forbes Coaches Council</strong> &mdash; invitation-only executive contributor community</li>
+          <li><strong>Noomii</strong> &mdash; listed coach; voice interview embedded on homepage</li>
+          <li><strong>ICF &mdash; International Coaching Federation</strong> &mdash; global coaching credential standard</li>
+          <li><strong>SIMI &mdash; Singapore International Mediation Institute</strong> &mdash; accredited mediator</li>
+          <li><strong>Languages &agrave; Gogo</strong> &mdash; sister brand co-founded by Rouviere Teixeira</li>
+          <li><strong>Brainz Magazine</strong> &mdash; editorial contributor since September 2023</li>
+          <li><strong>TRE&reg; for All</strong> &mdash; official TRE&reg; certification body; Isabelle is certified provider &amp; trainer trainee</li>
+          <li><strong>Stakeholder Centered Coaching</strong> &mdash; Marshall Goldsmith method accreditation</li>
+        </ul>
+      </div>
+
+      <div class="change-group">
+        <p class="change-group-label">About Page (about.html)</p>
+        <ul class="change-list">
+          <li><strong>Client list updated</strong> &mdash; &ldquo;Fresenius Medical Care&rdquo; split into two separate entries matching the live site: Fresenius Medical Care APAC and Fresenius Medical Care Singapore</li>
+        </ul>
+      </div>
+
+      <div class="change-group">
+        <p class="change-group-label">Services Page (services.html)</p>
+        <ul class="change-list">
+          <li><strong>&ldquo;Find Success With Personalized Coaching&rdquo; section added</strong> &mdash; verbatim from live site, including subheading &ldquo;Making a Change But feeling unsure?&rdquo; and the coaching philosophy paragraph</li>
+          <li><strong>New Leader Accelerator Program added</strong> &mdash; featured package for newly-appointed leaders in their first 90 days; includes role diagnostics, up to 6 sessions, stakeholder feedback, and personalised action plan</li>
+          <li><strong>8-Week Package CTA updated</strong> &mdash; &ldquo;Buy Now &mdash; Schedule a Free 1:1&rdquo; added directly on the package card</li>
+        </ul>
+      </div>
+
+      <div class="change-group">
+        <p class="change-group-label">Contact Page (contact.html)</p>
+        <ul class="change-list">
+          <li><strong>Newsletter heading updated</strong> to match live site verbatim: &ldquo;Subscribe to My Newsletter for Free Coaching Resources and Updates!&rdquo;</li>
+        </ul>
+      </div>
+
+      <div class="change-group">
+        <p class="change-group-label">All Pages</p>
+        <ul class="change-list">
+          <li><strong>Copyright year updated</strong> from 2025 &rarr; 2026 across all 12 HTML files</li>
+        </ul>
+      </div>
+
+      <div class="change-group">
+        <p class="change-group-label">Files Modified</p>
+        <div class="files-added">
+          <span class="file-tag">partners.html</span>
+          <span class="file-tag">about.html</span>
+          <span class="file-tag">services.html</span>
+          <span class="file-tag">contact.html</span>
+          <span class="file-tag">changelog.html</span>
+          <span class="file-tag">All 12 pages (copyright)</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- VERSION 5.4 -->
+    <div class="version-block">
+      <div class="version-header">
+        <span class="version-badge v3">v5.4</span>
+        <span class="version-date">16 June 2026</span>
+        <h3 class="version-title">Content Alignment — Match Live bhdasia.com</h3>
+      </div>
+
+      <div class="change-group">
+        <p class="change-group-label">Home (index.html)</p>
+        <ul class="change-list">
+          <li><strong>Hero headline updated</strong> to match live site: "Honor, strengthen and leverage your Humanity and show up at your best."</li>
+          <li><strong>Primary CTA changed</strong> from "Book a Discovery Call" to "Meet Isabelle" (links to isabelle.html) — matches live site CTA order</li>
+          <li><strong>Secondary CTA</strong> changed from "Our Services" to "Services" — matches live site label</li>
+          <li><strong>Featured interview title</strong> updated: "Interview by Noomii — Getting to know Isabelle" (matches live site heading)</li>
+        </ul>
+      </div>
+
+      <div class="change-group">
+        <p class="change-group-label">Isabelle (isabelle.html)</p>
+        <ul class="change-list">
+          <li><strong>Professional title added</strong>: "Leadership Coach &amp; Talent Development Specialist" — from live site</li>
+          <li><strong>Tagline added</strong>: "Helping You Find &amp; Forge Your Own Path" — verbatim from live Isabelle page</li>
+          <li><strong>9 countries named explicitly</strong>: France, UK, Germany, Spain, Portugal, Belgium, Switzerland, Singapore, Japan</li>
+          <li><strong>Coaching specialisations updated</strong> to match live site: Transition, Performance, Career, Self Awareness, 360 Debrief, Somatic Coaching, TRE® Provider</li>
+          <li><strong>Advanced certifications added</strong>: Global Cultural Framework, Stakeholder-Centred Coaching, Neuro Leadership, Somatic Coaching, Team Coaching</li>
+          <li><strong>Brainz Magazine added</strong>: contributor since September 2023</li>
+        </ul>
+      </div>
+
+      <div class="change-group">
+        <p class="change-group-label">Services (services.html)</p>
+        <ul class="change-list">
+          <li><strong>Organisation Development list</strong> replaced with live site services: HR &amp; Talent Management Advisory, High Performing Teams Facilitation, Challenging Conversations, Leadership Skills Development, Culture Transformation, Change Management, Mediation Services</li>
+          <li><strong>Resilience Building list</strong> updated to match live site: Somatic Coaching and TRE® with descriptions matching the live site copy</li>
+          <li><strong>Individual Development list</strong> trimmed to match live site exactly: Executive, Transition, Performance, Career, Self Awareness, 360° Debrief</li>
+          <li><strong>Coaching package background</strong> warmed from cool #f0f9ff to #FEF3EC (matches brand palette)</li>
+          <li><strong>CTA updated</strong> from "Book a call" to "Schedule a Free 1:1" — matches live site CTA text</li>
+        </ul>
+      </div>
+
+      <div class="change-group">
+        <p class="change-group-label">Events (events.html)</p>
+        <ul class="change-list">
+          <li><strong>Book a call links</strong> updated from contact.html to live Calendly URL: calendly.com/bhdasia/tre-certification-intake-call</li>
+          <li><strong>Module 1 description</strong> updated to match live site wording ("generating new patterns of behaviour")</li>
+          <li><strong>Module 2 deductibility note added</strong>: "Previous Module 1 payments are deductible from the full certification cost when purchasing Module 2 + 3 together."</li>
+        </ul>
+      </div>
+
+      <div class="change-group">
+        <p class="change-group-label">Files Modified</p>
+        <div class="files-added">
+          <span class="file-tag">index.html</span>
+          <span class="file-tag">isabelle.html</span>
+          <span class="file-tag">services.html</span>
+          <span class="file-tag">events.html</span>
+          <span class="file-tag">changelog.html</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- VERSION 5.3 -->
+    <div class="version-block">
+      <div class="version-header">
+        <span class="version-badge v3">v5.3</span>
+        <span class="version-date">16 June 2026</span>
+        <h3 class="version-title">Corporate Brand Redesign — Logo Colour System</h3>
+      </div>
+
+      <div class="change-group">
+        <p class="change-group-label">Brand Colour System</p>
+        <ul class="change-list">
+          <li><strong>Primary accent updated</strong> — <code>--blue</code> value changed from Divi-default #2ea3f2 (generic blue) to <strong>#C8551A</strong> (burnt orange, matching BHD Asia logo "BHD" letterforms). Variable name preserved to avoid mass file edits.</li>
+          <li><strong>Hover state updated</strong> — <code>--blue-dk</code> changed from #1a8fd8 to <strong>#A84010</strong> (darker orange for hover)</li>
+          <li><strong>Amber accent added</strong> — new <code>--gold: #D48A1A</code> token (amber from logo's left geometric bar); used for section labels and stat numbers to create a two-tier brand system</li>
+          <li><strong>Off-white warmed</strong> — <code>--off-white</code> changed from cool #f5f8fb to warm cream <strong>#FAF7F4</strong></li>
+          <li><strong>Border warmed</strong> — <code>--border</code> changed from cool #e2e8f0 to warm <strong>#E5DDD5</strong></li>
+        </ul>
+      </div>
+
+      <div class="change-group">
+        <p class="change-group-label">Two-Tier Accent System</p>
+        <ul class="change-list">
+          <li><strong>Section labels</strong> now use <code>var(--gold)</code> — amber/gold for supporting labels like "WHAT WE DO" and "FEATURED INTERVIEW"</li>
+          <li><strong>Stats bar numbers</strong> now use <code>var(--gold)</code> — prestige/achievement in amber, action elements in orange</li>
+          <li><strong>Primary CTAs, borders, dividers</strong> remain orange — clear action hierarchy distinct from the label tier</li>
+        </ul>
+      </div>
+
+      <div class="change-group">
+        <p class="change-group-label">Corporate Typography</p>
+        <ul class="change-list">
+          <li><strong>h1 letter-spacing</strong> tightened to <code>-0.025em</code>; font-weight increased to 800</li>
+          <li><strong>h2 letter-spacing</strong> tightened to <code>-0.015em</code> for a premium corporate feel</li>
+          <li><strong>h3 letter-spacing</strong> tightened to <code>-0.01em</code></li>
+          <li><strong>Hero title</strong> updated to font-weight:800 + letter-spacing:-.025em (index.html per-page style)</li>
+        </ul>
+      </div>
+
+      <div class="change-group">
+        <p class="change-group-label">Design Details</p>
+        <ul class="change-list">
+          <li><strong>Dark callout</strong> — orange brand stripe added: <code>border-top:3px solid var(--blue)</code></li>
+          <li><strong>Stats bar</strong> — orange brand stripe added: <code>border-top:3px solid var(--blue)</code></li>
+          <li><strong>Page title banner</strong> — orange stripe at bottom: <code>border-bottom:3px solid var(--blue)</code></li>
+          <li><strong>Footer widgets</strong> — orange hint on h4 dividers: <code>border-bottom:1px solid rgba(212,138,26,.2)</code></li>
+          <li><strong>Top bar</strong> — gold hint on bottom border: <code>border-bottom:1px solid rgba(212,138,26,.18)</code></li>
+          <li><strong>Hardcoded rgba(46,163,242,...)</strong> updated throughout — button hover shadow, form focus ring, and play button shadow all updated to brand orange rgba(200,85,26,...)</li>
+          <li><strong>Events pricing highlight row</strong> — warm #FEF3EC background replacing cool-tinted #f0f9ff</li>
+        </ul>
+      </div>
+
+      <div class="change-group">
+        <p class="change-group-label">Files Modified</p>
+        <div class="files-added">
+          <span class="file-tag">style.css</span>
+          <span class="file-tag">index.html</span>
+          <span class="file-tag">events.html</span>
+          <span class="file-tag">changelog.html</span>
+        </div>
+      </div>
     </div>
 
     <!-- VERSION 5.2 -->
@@ -499,12 +777,12 @@
 
 <footer id="main-footer">
   <div id="footer-widgets"><div class="container">
-    <div class="footer-widget"><h4>BHD Asia</h4><p>Highlight, Enhance and Appreciate Human in Business.</p><p>Business &amp; Human Development Consulting Pte Ltd</p></div>
+    <div class="footer-widget"><h4>BHD Asia</h4><p>Highlight, Enhance and Appreciate Human in Business.</p><p>Business &amp; Human Development Consulting Pte Ltd</p><div class="footer-social"><a href="#" aria-label="LinkedIn" title="LinkedIn" target="_blank" rel="noopener">in</a><a href="#" aria-label="Facebook" title="Facebook" target="_blank" rel="noopener">f</a></div></div>
     <div class="footer-widget"><h4>Navigate</h4><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="events.html">Events</a></li><li><a href="partners.html">Partners</a></li><li><a href="isabelle.html">Isabelle</a></li><li><a href="services.html">Services</a></li><li><a href="contact.html">Contact</a></li><li><a href="changelog.html">Changelog</a></li></ul></div>
     <div class="footer-widget"><h4>Legal</h4><ul><li><a href="privacy.html">Privacy Statement</a></li><li><a href="terms.html">Terms &amp; Conditions</a></li><li><a href="code.html">Code of Practice</a></li><li><a href="inclusivity.html">Inclusivity Statement</a></li></ul></div>
     <div class="footer-widget"><h4>Contact</h4><p>50 Raffles Place, Singapore Land Tower #30-00<br>Singapore 048623</p><p>Phone: +81 806515 1778</p><p><a href="mailto:isabelle@bhdasia.com" style="color:rgba(255,255,255,.45)">isabelle@bhdasia.com</a></p></div>
   </div></div>
-  <div id="footer-bottom"><div class="container"><div id="footer-info"><span>&copy; 2025 BHD Asia &mdash; Business &amp; Human Development Consulting Pte Ltd. All rights reserved.</span><span>ACRA 201201974K</span></div></div></div>
+  <div id="footer-bottom"><div class="container"><div id="footer-info"><span>&copy; 2026 BHD Asia &mdash; Business &amp; Human Development Consulting Pte Ltd. All rights reserved.</span><span>ACRA 201201974K</span></div></div></div>
 </footer>
 </div>
 <script src="shared.js"></script>
