@@ -27,31 +27,27 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&amp;family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400&amp;display=swap"/>
 <link rel="stylesheet" href="style.css"/>
 <style>
-.isabelle-section{padding:60px 0}
-.isabelle-photo{width:100%;display:block;margin-bottom:10px}
-.isabelle-photo-caption{font-size:12px;color:var(--muted);text-align:center;margin-bottom:0;line-height:1.6}
-.isabelle-stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:24px 0}
-.stat-box{padding:14px 16px;background:var(--off-white);border-top:3px solid var(--blue);text-align:center}
-.stat-box .stat-number{font-size:26px;font-weight:700;color:var(--blue);display:block;line-height:1.1}
-.stat-box .stat-label{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.07em}
-.isabelle-body h2{font-size:26px;color:var(--text);margin-bottom:6px}
-.isabelle-body .bio-role{font-size:14.5px;color:var(--blue);font-style:italic;margin-bottom:20px}
-.isabelle-body h3{font-size:11px;color:var(--blue);margin-bottom:10px;margin-top:24px;text-transform:uppercase;letter-spacing:.1em;font-weight:700;border-bottom:1px solid var(--border);padding-bottom:8px}
-.isabelle-body p{font-size:14.5px;color:var(--body);line-height:1.8}
-.credential-list{list-style:none;padding:0;margin:0 0 16px}
-.credential-list li{padding:7px 0;border-bottom:1px solid var(--border);font-size:14.5px;color:var(--body);display:flex;align-items:flex-start;gap:10px;line-height:1.5}
-.credential-list li::before{content:'✓';color:var(--blue);font-weight:700;flex-shrink:0}
-@media(max-width:980px){
-  .isabelle-section .et_pb_column_1_3,
-  .isabelle-section .et_pb_column_2_3{width:100%;float:none;padding:0}
-}
-/* Audio interview player */
-.ai-section{background:#fff;padding:48px 0;border-bottom:1px solid var(--border)}
+/* ── Scroll-reveal ─────────────────────────── */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s ease}
+.reveal.visible{opacity:1;transform:none}
+.reveal-left{opacity:0;transform:translateX(-36px);transition:opacity .65s ease,transform .65s ease}
+.reveal-left.visible{opacity:1;transform:none}
+.reveal-right{opacity:0;transform:translateX(36px);transition:opacity .65s ease,transform .65s ease}
+.reveal-right.visible{opacity:1;transform:none}
+.reveal-delay-1{transition-delay:.12s}
+.reveal-delay-2{transition-delay:.24s}
+.reveal-delay-3{transition-delay:.36s}
+.reveal-delay-4{transition-delay:.48s}
+
+/* ── Audio interview player ─────────────────── */
+.ai-section{background:#fff;padding:56px 0;border-bottom:1px solid var(--border)}
 .ai-layout{display:flex;gap:52px;align-items:center}
 .ai-photo-col{flex-shrink:0}
-.ai-photo-ring{width:180px;height:180px;border-radius:50%;position:relative;background:radial-gradient(circle,rgba(212,146,26,.22) 0%,rgba(212,146,26,.06) 55%,transparent 75%)}
+.ai-photo-ring{width:200px;height:200px;border-radius:50%;position:relative;background:radial-gradient(circle,rgba(212,146,26,.22) 0%,rgba(212,146,26,.06) 55%,transparent 75%);animation:ringPulse 3s ease-in-out infinite}
+@keyframes ringPulse{0%,100%{box-shadow:0 0 0 0 rgba(212,146,26,.18)}50%{box-shadow:0 0 0 14px rgba(212,146,26,.04)}}
 .ai-photo-ring::before{content:'';position:absolute;inset:-10px;border-radius:50%;background:radial-gradient(circle,rgba(212,146,26,.10) 0%,transparent 65%)}
-.ai-photo-ring img{width:100%;height:100%;border-radius:50%;object-fit:cover;object-position:center top;display:block;position:relative;z-index:1}
+.ai-photo-ring img{width:100%;height:100%;border-radius:50%;object-fit:cover;object-position:center top;display:block;position:relative;z-index:1;filter:grayscale(8%);transition:filter .4s}
+.ai-photo-ring:hover img{filter:grayscale(0%)}
 .ai-bars{position:absolute;bottom:12px;left:50%;transform:translateX(-50%);z-index:2;display:flex;gap:3px;align-items:flex-end;background:var(--blue);border-radius:20px;padding:7px 11px}
 .ai-bars span{width:4px;background:#fff;border-radius:2px;height:5px}
 .ai-bars.on span:nth-child(1){animation:aiBar .6s ease-in-out infinite alternate}
@@ -61,7 +57,7 @@
 @keyframes aiBar{from{height:4px}to{height:14px}}
 .ai-player-col{flex:1;min-width:0}
 .ai-ep-label{font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--blue);margin-bottom:10px;display:block}
-.ai-player-col h2{font-size:26px;font-weight:400;color:var(--text);margin-bottom:8px}
+.ai-player-col h2{font-size:28px;font-weight:600;color:var(--text);margin-bottom:8px}
 .ai-desc{font-size:14px;color:var(--body);line-height:1.7;margin-bottom:20px}
 .ai-now-playing{border-left:3px solid var(--blue);background:var(--off-white);padding:12px 16px;border-radius:0 var(--r) var(--r) 0;margin-bottom:12px}
 .ai-np-label{font-size:9px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--blue);display:block;margin-bottom:5px}
@@ -70,16 +66,88 @@
 .aiw{transition:color .12s,font-weight .12s}
 .aiw-on{color:var(--text);font-weight:700}
 .ai-controls{display:flex;align-items:center;gap:14px}
-.ai-play-btn{width:46px;height:46px;border-radius:50%;background:var(--blue);border:none;color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .2s}
-.ai-play-btn:hover{background:var(--blue-dk)}
+.ai-play-btn{width:50px;height:50px;border-radius:50%;background:var(--blue);border:none;color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .2s,transform .2s,box-shadow .2s;box-shadow:0 4px 16px rgba(212,146,26,.3)}
+.ai-play-btn:hover{background:var(--blue-dk);transform:scale(1.08);box-shadow:0 6px 22px rgba(212,146,26,.45)}
 .ai-play-btn svg{width:18px;height:18px}
 .ai-time-lbl{font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap;min-width:34px}
-.ai-prog-wrap{flex:1;height:4px;background:var(--border);border-radius:2px;cursor:pointer;position:relative}
-.ai-prog-fill{height:100%;background:var(--blue);border-radius:2px;pointer-events:none}
+.ai-prog-wrap{flex:1;height:5px;background:var(--border);border-radius:3px;cursor:pointer;position:relative}
+.ai-prog-fill{height:100%;background:var(--blue);border-radius:3px;pointer-events:none;transition:width .1s linear}
 .ai-dl-btn{width:36px;height:36px;border-radius:50%;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--muted);flex-shrink:0;transition:var(--t)}
-.ai-dl-btn:hover{border-color:var(--blue);color:var(--blue)}
+.ai-dl-btn:hover{border-color:var(--blue);color:var(--blue);transform:translateY(-2px)}
 .ai-dl-btn svg{width:16px;height:16px}
-@media(max-width:700px){.ai-layout{flex-direction:column;gap:28px;align-items:flex-start}.ai-photo-ring{width:130px;height:130px}}
+@media(max-width:700px){.ai-layout{flex-direction:column;gap:28px;align-items:flex-start}.ai-photo-ring{width:140px;height:140px}}
+
+/* ── Bio section ───────────────────────────── */
+.isabelle-section{padding:72px 0;background:var(--off-white)}
+.isa-grid{display:grid;grid-template-columns:320px 1fr;gap:56px;align-items:start}
+.isa-left{position:sticky;top:90px}
+.isa-photo-frame{position:relative;border-radius:12px;overflow:hidden;margin-bottom:20px;box-shadow:0 8px 40px rgba(0,0,0,.13)}
+.isa-photo-frame::after{content:'';position:absolute;inset:0;background:linear-gradient(160deg,transparent 55%,rgba(11,34,56,.18));pointer-events:none}
+.isa-photo-frame img{width:100%;height:auto;display:block;filter:grayscale(8%);transition:filter .5s,transform .6s}
+.isa-photo-frame:hover img{filter:grayscale(0%);transform:scale(1.02)}
+.isa-name-badge{position:absolute;bottom:0;left:0;right:0;padding:14px 18px;background:linear-gradient(0deg,rgba(11,34,56,.85) 0%,transparent 100%);z-index:1}
+.isa-name-badge p{margin:0;padding:0;color:#fff;font-size:12px;line-height:1.5;opacity:.85}
+.isa-name-badge strong{color:#fff;font-size:14.5px;display:block;margin-bottom:2px}
+.isa-stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:20px}
+.stat-box{padding:16px 14px;background:#fff;border-top:3px solid var(--blue);text-align:center;border-radius:0 0 4px 4px;box-shadow:0 2px 8px rgba(0,0,0,.06);transition:transform .25s,box-shadow .25s;cursor:default}
+.stat-box:hover{transform:translateY(-3px);box-shadow:0 6px 18px rgba(0,0,0,.1)}
+.stat-box .stat-number{font-size:28px;font-weight:800;color:var(--blue);display:block;line-height:1.1;letter-spacing:-.02em}
+.stat-box .stat-label{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;margin-top:3px;display:block}
+.isa-left .et_pb_button{width:100%;text-align:center;justify-content:center;margin-top:4px}
+
+/* ── Bio body ──────────────────────────────── */
+.isabelle-body h2{font-size:30px;font-weight:800;color:var(--text);margin-bottom:6px;letter-spacing:-.02em}
+.isabelle-body .bio-role{font-size:14.5px;color:var(--blue);font-style:italic;margin-bottom:8px}
+.bio-quote{font-size:18px;font-style:italic;color:var(--text);font-weight:600;margin:18px 0 22px;padding:16px 20px;border-left:4px solid var(--blue);background:#fff;border-radius:0 8px 8px 0;line-height:1.5}
+.isabelle-body h3{font-size:11px;color:var(--blue);margin-bottom:12px;margin-top:32px;text-transform:uppercase;letter-spacing:.12em;font-weight:700;border-bottom:1px solid var(--border);padding-bottom:8px}
+.isabelle-body p{font-size:14.5px;color:var(--body);line-height:1.85}
+
+/* ── Credential list ───────────────────────── */
+.credential-list{list-style:none;padding:0;margin:0 0 16px}
+.credential-list li{padding:9px 0 9px 0;border-bottom:1px solid var(--border);font-size:14.5px;color:var(--body);display:flex;align-items:flex-start;gap:12px;line-height:1.5;transition:background .2s,padding-left .2s}
+.credential-list li:hover{background:rgba(212,146,26,.04);padding-left:6px}
+.credential-list li::before{content:'✓';color:var(--blue);font-weight:800;flex-shrink:0;font-size:13px;margin-top:1px}
+
+/* ── Career timeline ───────────────────────── */
+.timeline-section{padding:72px 0;background:#fff}
+.timeline{position:relative;padding-left:28px;margin-top:32px}
+.timeline::before{content:'';position:absolute;left:9px;top:0;bottom:0;width:2px;background:linear-gradient(180deg,var(--blue) 0%,var(--border) 100%)}
+.tl-item{position:relative;padding-left:28px;padding-bottom:32px}
+.tl-dot{position:absolute;left:-19px;top:4px;width:14px;height:14px;border-radius:50%;background:var(--blue);border:3px solid #fff;box-shadow:0 0 0 2px var(--blue);transition:transform .3s}
+.tl-item:hover .tl-dot{transform:scale(1.4)}
+.tl-year{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:4px;display:block}
+.tl-title{font-size:15px;font-weight:700;color:var(--text);margin-bottom:5px}
+.tl-desc{font-size:14px;color:var(--body);line-height:1.75;margin:0}
+
+/* ── Services pillar cards on Isabelle page ─── */
+.isa-services-section{padding:72px 0;background:var(--off-white)}
+.isa-pillars-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:36px}
+.isa-pillar-card{background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.07);transition:transform .35s cubic-bezier(.25,.8,.25,1),box-shadow .35s;cursor:pointer}
+.isa-pillar-card:hover{transform:translateY(-8px) scale(1.01);box-shadow:0 16px 40px rgba(0,0,0,.14)}
+.isa-pc-img{height:180px;position:relative;overflow:hidden;background:#0c1622}
+.isa-pc-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block;filter:grayscale(15%);transition:filter .4s,transform .5s}
+.isa-pillar-card:hover .isa-pc-img img{filter:grayscale(0%);transform:scale(1.06)}
+.isa-pc-img-inner{position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(0,0,0,.4));z-index:1;pointer-events:none}
+.isa-pc-body{padding:24px 22px 20px}
+.isa-pc-num{width:34px;height:34px;border-radius:50%;background:var(--blue);color:#fff;font-size:15px;font-weight:800;display:flex;align-items:center;justify-content:center;margin-bottom:12px}
+.isa-pc-body h4{font-size:15px;font-weight:700;color:var(--text);margin-bottom:8px}
+.isa-pc-body p{font-size:13.5px;color:var(--muted);line-height:1.7;margin-bottom:14px;padding-bottom:0}
+.isa-pc-link{font-size:13px;color:var(--blue);font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:5px;transition:gap .2s}
+.isa-pc-link:hover{gap:9px}
+
+/* ── Button enhancements ───────────────────── */
+.et_pb_button{position:relative;overflow:hidden}
+.et_pb_button::after{content:'';position:absolute;inset:0;background:rgba(255,255,255,.08);transform:translateX(-100%);transition:transform .3s ease}
+.et_pb_button:hover::after{transform:translateX(0)}
+
+/* ── Responsive ────────────────────────────── */
+@media(max-width:980px){
+  .isa-grid{grid-template-columns:1fr;gap:36px}
+  .isa-left{position:static}
+  .isa-pillars-grid{grid-template-columns:1fr}
+  .ai-layout{flex-direction:column;gap:28px;align-items:flex-start}
+  .ai-photo-ring{width:140px;height:140px}
+}
 </style>
 </head>
 <body class="page et_fixed_nav et_divi_theme">
@@ -135,8 +203,8 @@
     <div class="ai-layout">
       <div class="ai-photo-col">
         <div class="ai-photo-ring">
-          <img src="isagrey.jpg" alt="Isabelle Claus Teixeira" width="700" height="467" loading="lazy"/>
-<div class="ai-bars" id="ai-bars"><span></span><span></span><span></span><span></span></div>
+          <img src="isa-portrait.jpg" alt="Isabelle Claus Teixeira" width="600" height="600" loading="lazy"/>
+          <div class="ai-bars" id="ai-bars"><span></span><span></span><span></span><span></span></div>
         </div>
       </div>
       <div class="ai-player-col">
@@ -167,75 +235,181 @@
   </div>
 </div>
 
+<!-- BIO SECTION -->
 <div class="isabelle-section">
   <div class="container">
-    <div class="et_pb_row" style="padding-left:0;padding-right:0;max-width:none">
-      <div class="et_pb_column_1_3">
-        <img class="isabelle-photo" src="isagrey.jpg" alt="Isabelle Claus Teixeira" width="700" height="467" loading="lazy"/>
-        <p class="isabelle-photo-caption">Isabelle Claus Teixeira<br>Co-Founder &amp; Director, BHD Asia</p>
-
-        <div class="isabelle-stats">
-          <div class="stat-box">
+    <div class="isa-grid">
+      <!-- LEFT: Photo + Stats -->
+      <div class="isa-left reveal-left">
+        <div class="isa-photo-frame">
+          <img src="isa-photo.jpg" alt="Isabelle Claus Teixeira" width="900" height="600" loading="lazy"/>
+          <div class="isa-name-badge">
+            <strong>Isabelle Claus Teixeira</strong>
+            <p>Co-Founder &amp; Director, BHD Asia</p>
+          </div>
+        </div>
+        <div class="isa-stats">
+          <div class="stat-box reveal reveal-delay-1">
             <span class="stat-number">27+</span>
             <span class="stat-label">Years HR Experience</span>
           </div>
-          <div class="stat-box">
+          <div class="stat-box reveal reveal-delay-2">
             <span class="stat-number">1,300+</span>
             <span class="stat-label">Coaching Hours</span>
           </div>
-          <div class="stat-box">
+          <div class="stat-box reveal reveal-delay-3">
             <span class="stat-number">9</span>
             <span class="stat-label">Countries Lived In</span>
           </div>
-          <div class="stat-box">
+          <div class="stat-box reveal reveal-delay-4">
             <span class="stat-number">2012</span>
             <span class="stat-label">Certified Coach Since</span>
           </div>
         </div>
-
-        <a class="et_pb_button" href="contact.html" style="margin:4px 0">Book a Session</a>
+        <a class="et_pb_button" href="contact.html">Book a Session &rarr;</a>
+        <a class="et_pb_button btn-outline" href="services.html" style="margin-top:8px">View Services</a>
       </div>
-      <div class="et_pb_column_2_3">
-        <div class="isabelle-body">
-          <h2>Isabelle Claus Teixeira</h2>
-          <p class="bio-role">Leadership Coach &amp; Talent Development Specialist · Co-Founder &amp; Director, BHD Asia</p>
-          <p style="font-size:15px;font-style:italic;color:var(--text);font-weight:600;margin-bottom:18px;padding-bottom:0">"Helping You Find &amp; Forge Your Own Path"</p>
 
-          <p>Isabelle brings 27+ years of Senior HR Business Partnering, Regional Talent Management, and Organisational Effectiveness experience across Asia Pacific, Japan, Russia, the US and Europe. Since 1996, she has held global, regional and country HR roles across Automotive, Software, IT, Pharmaceuticals, Medical Devices, and more.</p>
-          <p>Having lived and worked in 9 countries &mdash; France, UK, Germany, Spain, Portugal, Belgium, Switzerland, Singapore, and Japan &mdash; she connects authentically with clients navigating the human complexities of international business.</p>
+      <!-- RIGHT: Bio -->
+      <div class="isabelle-body reveal-right">
+        <h2>Isabelle Claus Teixeira</h2>
+        <p class="bio-role">Leadership Coach &amp; Talent Development Specialist · Co-Founder &amp; Director, BHD Asia</p>
+        <blockquote class="bio-quote">"Helping You Find &amp; Forge Your Own Path"</blockquote>
 
-          <h3>Coaching Specialisations</h3>
-          <ul class="credential-list">
-            <li>Executive Coaching</li>
-            <li>Transition Coaching (role changes &amp; new leader onboarding)</li>
-            <li>Performance Coaching</li>
-            <li>Career Coaching</li>
-            <li>Self Awareness Development</li>
-            <li>360&deg; Debrief &amp; Multi-Perspective Feedback</li>
-            <li>Somatic Coaching (body-based work integrated with neuroscience)</li>
-            <li>TRE&reg; Provider &amp; Trainer Trainee (Tension &amp; Trauma Releasing Exercises)</li>
-          </ul>
+        <p>Isabelle brings 27+ years of Senior HR Business Partnering, Regional Talent Management, and Organisational Effectiveness experience across Asia Pacific, Japan, Russia, the US and Europe. Since 1996, she has held global, regional and country HR roles across Automotive, Software, IT, Pharmaceuticals, Medical Devices, and more.</p>
+        <p>Having lived and worked in 9 countries &mdash; France, UK, Germany, Spain, Portugal, Belgium, Switzerland, Singapore, and Japan &mdash; she connects authentically with clients navigating the human complexities of international business.</p>
 
-          <h3>Credentials &amp; Certifications</h3>
-          <ul class="credential-list">
-            <li>Certified Leadership Coach since 2012</li>
-            <li>1,300+ paid coaching hours delivered</li>
-            <li>Accredited Mediator &mdash; Singapore International Mediation Institute (SIMI)</li>
-            <li>Forbes Coaches Council Executive Contributor</li>
-            <li>Brainz Magazine Contributor (September 2023)</li>
-            <li>Accredited in Global Cultural Framework, Stakeholder-Centred Coaching, Neuro Leadership, Somatic Coaching, and Team Coaching</li>
-          </ul>
+        <h3>Coaching Specialisations</h3>
+        <ul class="credential-list">
+          <li>Executive Coaching</li>
+          <li>Transition Coaching (role changes &amp; new leader onboarding)</li>
+          <li>Performance Coaching</li>
+          <li>Career Coaching</li>
+          <li>Self Awareness Development</li>
+          <li>360&deg; Debrief &amp; Multi-Perspective Feedback</li>
+          <li>Somatic Coaching (body-based work integrated with neuroscience)</li>
+          <li>TRE&reg; Provider &amp; Trainer Trainee (Tension &amp; Trauma Releasing Exercises)</li>
+        </ul>
 
-          <h3>Global Perspective</h3>
-          <p>Fluent in French and English (conversational Portuguese), Isabelle's multicultural background lets her engage meaningfully across cultures and industries. Her career spans Automotive, Software, IT, Clinical Research, Trading, Shipping, Semiconductors, Pharmaceuticals, and Medical Devices.</p>
+        <h3>Credentials &amp; Certifications</h3>
+        <ul class="credential-list">
+          <li>Certified Leadership Coach since 2012</li>
+          <li>1,300+ paid coaching hours delivered</li>
+          <li>Accredited Mediator &mdash; Singapore International Mediation Institute (SIMI)</li>
+          <li>Forbes Coaches Council Executive Contributor</li>
+          <li>Brainz Magazine Contributor (September 2023)</li>
+          <li>Accredited in Global Cultural Framework, Stakeholder-Centred Coaching, Neuro Leadership, Somatic Coaching, and Team Coaching</li>
+        </ul>
 
-          <h3>Working with Isabelle</h3>
-          <p>Isabelle works with senior executives, emerging leaders, and entrepreneurs ready to create meaningful change. Every engagement starts with a diagnostic conversation &mdash; no off-the-shelf solutions. Whether navigating leadership transition, burnout, or a major life pivot, she brings rigour, warmth, and deep respect for who you are.</p>
+        <h3>Global Perspective</h3>
+        <p>Fluent in French and English (conversational Portuguese), Isabelle's multicultural background lets her engage meaningfully across cultures and industries. Her career spans Automotive, Software, IT, Clinical Research, Trading, Shipping, Semiconductors, Pharmaceuticals, and Medical Devices.</p>
 
-          <div style="margin-top:20px">
-            <a class="et_pb_button" href="contact.html">Book a Discovery Call</a>
-            <a class="et_pb_button" href="services.html">View Services</a>
-          </div>
+        <h3>Working with Isabelle</h3>
+        <p>Isabelle works with senior executives, emerging leaders, and entrepreneurs ready to create meaningful change. Every engagement starts with a diagnostic conversation &mdash; no off-the-shelf solutions. Whether navigating leadership transition, burnout, or a major life pivot, she brings rigour, warmth, and deep respect for who you are.</p>
+
+        <div style="margin-top:28px;display:flex;gap:10px;flex-wrap:wrap">
+          <a class="et_pb_button" href="contact.html">Book a Discovery Call &rarr;</a>
+          <a class="et_pb_button btn-outline" href="services.html">Explore Services</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CAREER TIMELINE -->
+<div class="timeline-section">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="section-label">Her Journey</span>
+      <h2>27 Years Across 9 Countries</h2>
+      <hr class="divider-line"/>
+      <p>A career spanning continents, industries, and disciplines — shaped by a commitment to developing people.</p>
+    </div>
+    <div class="timeline">
+      <div class="tl-item reveal reveal-delay-1">
+        <div class="tl-dot"></div>
+        <span class="tl-year">1996 – Paris, France</span>
+        <p class="tl-title">HR Career Begins</p>
+        <p class="tl-desc">Joined her first global HR role in the Automotive sector in Paris — the start of a 27-year international journey through HR leadership, talent, and organisational effectiveness.</p>
+      </div>
+      <div class="tl-item reveal reveal-delay-2">
+        <div class="tl-dot"></div>
+        <span class="tl-year">1999 – 2007 · Europe &amp; Russia</span>
+        <p class="tl-title">Regional HR Leadership</p>
+        <p class="tl-desc">Held country and regional HR director roles across the UK, Germany, Spain, Belgium, and Russia — spanning Pharmaceuticals, IT, and Medical Devices. Developed fluency in cross-cultural leadership and international talent strategy.</p>
+      </div>
+      <div class="tl-item reveal reveal-delay-3">
+        <div class="tl-dot"></div>
+        <span class="tl-year">2008 – 2011 · Asia Pacific</span>
+        <p class="tl-title">Asia Pacific &amp; Japan</p>
+        <p class="tl-desc">Relocated to Singapore and Japan, leading HR across Asia Pacific for global multinationals. Built deep expertise in intercultural leadership, high-performance teams, and organisational transformation in Asian contexts.</p>
+      </div>
+      <div class="tl-item reveal reveal-delay-4">
+        <div class="tl-dot"></div>
+        <span class="tl-year">2012 · Singapore</span>
+        <p class="tl-title">Certified Leadership Coach</p>
+        <p class="tl-desc">Received her formal coaching certification — the natural evolution of 16 years supporting leaders. Began building her coaching practice alongside her corporate career, focusing on executive transition and performance.</p>
+      </div>
+      <div class="tl-item reveal reveal-delay-1">
+        <div class="tl-dot"></div>
+        <span class="tl-year">2017 · Singapore</span>
+        <p class="tl-title">Founded BHD Asia</p>
+        <p class="tl-desc">Co-founded Business &amp; Human Development Consulting — bringing together HR strategy, executive coaching, somatic work and TRE&reg; to serve leaders and organisations across Asia Pacific. SIMI Accredited Mediator. Forbes Coaches Council contributor.</p>
+      </div>
+      <div class="tl-item reveal reveal-delay-2">
+        <div class="tl-dot"></div>
+        <span class="tl-year">2020 – Present · Singapore &amp; Online</span>
+        <p class="tl-title">TRE&reg; Provider &amp; Trainer Trainee</p>
+        <p class="tl-desc">Became a certified TRE&reg; (Tension &amp; Trauma Releasing Exercises) provider and is completing her Trainer Trainee certification — expanding her somatic coaching practice to help individuals and groups release stress held in the body.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICES PILLARS -->
+<div class="isa-services-section">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="section-label">How Isabelle Can Help</span>
+      <h2>Three Areas of Expertise</h2>
+      <hr class="divider-line"/>
+      <p>All engagements are co-designed with you — bespoke, not off-the-shelf.</p>
+    </div>
+    <div class="isa-pillars-grid">
+      <div class="isa-pillar-card reveal reveal-delay-1">
+        <div class="isa-pc-img">
+          <img src="pillar-1.jpg" alt="Organisation Development" width="800" height="432" loading="lazy"/>
+          <div class="isa-pc-img-inner"></div>
+        </div>
+        <div class="isa-pc-body">
+          <div class="isa-pc-num">1</div>
+          <h4>Organisation Development</h4>
+          <p>HR strategy, high-performing team facilitation, leadership programme design, culture change, and talent management.</p>
+          <a class="isa-pc-link" href="services.html">Explore &rarr;</a>
+        </div>
+      </div>
+      <div class="isa-pillar-card reveal reveal-delay-2">
+        <div class="isa-pc-img">
+          <img src="pillar-2.jpg" alt="Resilience Building" width="800" height="432" loading="lazy"/>
+          <div class="isa-pc-img-inner"></div>
+        </div>
+        <div class="isa-pc-body">
+          <div class="isa-pc-num">2</div>
+          <h4>Resilience Building</h4>
+          <p>TRE&reg;, somatic coaching, stress management, burnout prevention, conflict resolution, and psychological safety workshops.</p>
+          <a class="isa-pc-link" href="services.html">Explore &rarr;</a>
+        </div>
+      </div>
+      <div class="isa-pillar-card reveal reveal-delay-3">
+        <div class="isa-pc-img">
+          <img src="pillar-3.jpg" alt="Individual Development" width="800" height="432" loading="lazy"/>
+          <div class="isa-pc-img-inner"></div>
+        </div>
+        <div class="isa-pc-body">
+          <div class="isa-pc-num">3</div>
+          <h4>Individual Development</h4>
+          <p>Executive coaching, transition coaching, career coaching, 360° debrief, and intercultural competence for leaders ready to grow.</p>
+          <a class="isa-pc-link" href="services.html">Explore &rarr;</a>
         </div>
       </div>
     </div>
@@ -280,6 +454,15 @@
 </footer>
 </div>
 <script src="shared.js"></script>
+<script>
+(function(){
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); } });
+  },{threshold:0.08,rootMargin:'0px 0px -30px 0px'});
+  document.querySelectorAll('.reveal,.reveal-left,.reveal-right').forEach(function(el){ io.observe(el); });
+})();
+</script>
 <script>
 (function(){
   var audio=document.getElementById('ai-audio');
