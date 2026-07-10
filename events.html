@@ -23,29 +23,31 @@
 .ef-btn{padding:9px 22px;border:1.5px solid var(--border);background:#fff;color:var(--body);font-size:13px;font-weight:600;font-family:inherit;border-radius:40px;cursor:pointer;transition:all .2s;letter-spacing:.01em}
 .ef-btn:hover{border-color:var(--blue);color:var(--blue)}
 .ef-btn.active{background:var(--blue);border-color:var(--blue);color:#fff}
-.events-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:28px}
-.evt-card{background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 2px 14px rgba(0,0,0,.08);transition:transform .3s cubic-bezier(.25,.8,.25,1),box-shadow .3s;display:flex;flex-direction:column}
-.evt-card:hover{transform:translateY(-7px);box-shadow:0 16px 42px rgba(0,0,0,.14)}
+.events-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:30px}
+.evt-card{background:#fff;border:1px solid var(--border);border-radius:16px;overflow:hidden;box-shadow:0 6px 22px rgba(11,34,56,.07);transition:transform .35s cubic-bezier(.25,.8,.25,1),box-shadow .35s;display:flex;flex-direction:column}
+.evt-card:hover{transform:translateY(-8px);box-shadow:0 24px 52px rgba(11,34,56,.17)}
 .evt-card.hidden{display:none}
-.ec-img{height:210px;position:relative;overflow:hidden;background:#0b2238;flex-shrink:0}
-.ec-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block;filter:grayscale(8%);transition:filter .4s,transform .5s}
-.evt-card:hover .ec-img img{filter:grayscale(0%);transform:scale(1.05)}
-.ec-img-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.05) 40%,rgba(11,34,56,.65));z-index:1;pointer-events:none}
-.ec-badges{position:absolute;top:14px;left:14px;z-index:2;display:flex;gap:7px;flex-wrap:wrap}
-.ec-badge{font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:5px 12px;border-radius:20px}
-.ec-badge-loc{background:var(--blue);color:#fff}
-.ec-badge-type{background:rgba(255,255,255,.18);color:#fff;border:1px solid rgba(255,255,255,.35);backdrop-filter:blur(4px)}
-.ec-body{padding:24px 24px 20px;flex:1;display:flex;flex-direction:column}
-.ec-date{font-size:12.5px;color:var(--blue);font-weight:700;margin-bottom:8px;display:flex;align-items:center;gap:6px}
-.ec-date svg{width:13px;height:13px;flex-shrink:0}
-.ec-body h3{font-size:18px;font-weight:700;color:var(--text);margin-bottom:10px;line-height:1.35}
-.ec-body p{font-size:14px;color:var(--body);line-height:1.75;margin-bottom:18px;padding-bottom:0;flex:1}
-.ec-footer{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;padding-top:14px;border-top:1px solid var(--border)}
-.ec-price{font-size:16px;font-weight:800;color:var(--text)}
-.ec-price span{font-size:11px;font-weight:400;color:var(--muted);display:block;line-height:1.2}
-.ec-ctas{display:flex;gap:8px}
-.ec-ctas .et_pb_button{padding:9px 18px;font-size:13px}
-.ec-ctas .et_pb_button.btn-outline{padding:8px 17px}
+/* Full 16:9 promo graphic — whole image visible, no crop */
+.ec-img{aspect-ratio:16/9;position:relative;overflow:hidden;background:#f4f3ef;flex-shrink:0;border-bottom:3px solid var(--gold)}
+.ec-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block;transition:transform .6s cubic-bezier(.25,.8,.25,1)}
+.evt-card:hover .ec-img img{transform:scale(1.04)}
+.ec-tags{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:13px}
+.ec-loc{font-size:10px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:#fff;background:var(--blue);padding:4px 11px;border-radius:20px}
+.ec-type{font-size:10px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:var(--blue);background:rgba(28,62,99,.09);padding:4px 11px;border-radius:20px}
+.ec-body{padding:22px 24px 24px;flex:1;display:flex;flex-direction:column}
+.ec-date{font-size:12.5px;color:var(--muted);font-weight:600;margin-bottom:9px;display:flex;align-items:center;gap:6px}
+.ec-date svg{width:13px;height:13px;flex-shrink:0;color:var(--gold)}
+.ec-body h3{font-size:18.5px;font-weight:700;color:var(--text);margin-bottom:10px;line-height:1.36}
+.ec-body p{font-size:13.8px;color:var(--body);line-height:1.7;margin-bottom:20px;padding-bottom:0}
+.ec-footer{margin-top:auto;padding-top:18px;border-top:1px solid var(--border)}
+.ec-price{font-size:19px;font-weight:800;color:var(--blue)}
+.ec-price span{font-size:11.5px;font-weight:500;color:var(--muted);display:block;line-height:1.3;margin-top:3px}
+.ec-ctas{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.ec-btn{display:inline-flex;align-items:center;justify-content:center;text-align:center;padding:12px 12px;border-radius:9px;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;font-family:inherit;cursor:pointer;transition:all .25s;text-decoration:none;line-height:1.1}
+.ec-btn-outline{border:1.6px solid var(--gold);color:var(--gold);background:transparent}
+.ec-btn-outline:hover{background:var(--gold);color:#fff;transform:translateY(-1px)}
+.ec-btn-fill{background:var(--gold);color:#fff;border:1.6px solid var(--gold)}
+.ec-btn-fill:hover{background:var(--blue);border-color:var(--blue);color:#fff;transform:translateY(-1px)}
 @media(max-width:860px){.events-grid{grid-template-columns:1fr}}
 </style>
 </head>
@@ -156,14 +158,10 @@
       <!-- EVENT 1: Singapore Module 1 -->
       <div class="evt-card" data-cat="singapore certification">
         <div class="ec-img">
-          <img src="event-module1.webp" alt="Nervous System Regulation &amp; Neurogenic Tremoring — Singapore" width="800" height="432" loading="lazy"/>
-          <div class="ec-img-overlay"></div>
-          <div class="ec-badges">
-            <span class="ec-badge ec-badge-loc">Singapore</span>
-            <span class="ec-badge ec-badge-type">21 CCEUs &middot; ICF</span>
-          </div>
+          <img src="event-module1.webp" alt="Nervous System Regulation &amp; Neurogenic Tremoring — Singapore" width="1920" height="1080" loading="lazy"/>
         </div>
         <div class="ec-body">
+          <div class="ec-tags"><span class="ec-loc">Singapore</span><span class="ec-type">21 CCEUs &middot; ICF</span></div>
           <div class="ec-date">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
             29 &amp; 30 August 2026 &middot; In-Person
@@ -173,8 +171,8 @@
           <div class="ec-footer">
             <div class="ec-price">from S$1,290<span>ICF Special Price until 15 Aug</span></div>
             <div class="ec-ctas">
-              <a class="et_pb_button btn-outline" href="event-module1-singapore.html">Learn More</a>
-              <a class="et_pb_button" href="event-module1-singapore.html#register">Register</a>
+              <a class="ec-btn ec-btn-outline" href="event-module1-singapore.html">Learn More</a>
+              <a class="ec-btn ec-btn-fill" href="event-module1-singapore.html#register">Register</a>
             </div>
           </div>
         </div>
@@ -183,14 +181,10 @@
       <!-- EVENT 2: Full Certification Singapore -->
       <div class="evt-card" data-cat="singapore certification">
         <div class="ec-img">
-          <img src="event-module2.webp" alt="Become a Certified TRE® Provider" width="800" height="432" loading="lazy"/>
-          <div class="ec-img-overlay"></div>
-          <div class="ec-badges">
-            <span class="ec-badge ec-badge-loc">Singapore</span>
-            <span class="ec-badge ec-badge-type">Certification</span>
-          </div>
+          <img src="event-module2.webp" alt="Become a Certified TRE® Provider" width="1920" height="1080" loading="lazy"/>
         </div>
         <div class="ec-body">
+          <div class="ec-tags"><span class="ec-loc">Singapore</span><span class="ec-type">Certification</span></div>
           <div class="ec-date">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
             Aug 2026 – Feb 2027 &middot; Modules 1–3
@@ -200,8 +194,8 @@
           <div class="ec-footer">
             <div class="ec-price">from S$3,699<span>Full 3-module bundle</span></div>
             <div class="ec-ctas">
-              <a class="et_pb_button btn-outline" href="event-certification.html">Learn More</a>
-              <a class="et_pb_button" href="event-certification.html#register">Register</a>
+              <a class="ec-btn ec-btn-outline" href="event-certification.html">Learn More</a>
+              <a class="ec-btn ec-btn-fill" href="event-certification.html#register">Register</a>
             </div>
           </div>
         </div>
@@ -210,14 +204,10 @@
       <!-- EVENT 3: From Shaking to Shaping, Romania -->
       <div class="evt-card" data-cat="romania">
         <div class="ec-img">
-          <img src="event-shaking-shaping.webp" alt="From Shaking to Shaping — Romania" width="800" height="432" loading="lazy"/>
-          <div class="ec-img-overlay"></div>
-          <div class="ec-badges">
-            <span class="ec-badge ec-badge-loc">Romania</span>
-            <span class="ec-badge ec-badge-type">Online &amp; In-Person</span>
-          </div>
+          <img src="event-shaking-shaping.webp" alt="From Shaking to Shaping — Romania" width="1920" height="1080" loading="lazy"/>
         </div>
         <div class="ec-body">
+          <div class="ec-tags"><span class="ec-loc">Romania</span><span class="ec-type">Online &amp; In-Person</span></div>
           <div class="ec-date">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
             September–October 2026 &middot; Bucharest
@@ -227,8 +217,8 @@
           <div class="ec-footer">
             <div class="ec-price">from €89<span>Online · 3 Sep 2026</span></div>
             <div class="ec-ctas">
-              <a class="et_pb_button btn-outline" href="event-shaking-shaping.html">Learn More</a>
-              <a class="et_pb_button" href="event-shaking-shaping.html#register">Register</a>
+              <a class="ec-btn ec-btn-outline" href="event-shaking-shaping.html">Learn More</a>
+              <a class="ec-btn ec-btn-fill" href="event-shaking-shaping.html#register">Register</a>
             </div>
           </div>
         </div>
@@ -237,14 +227,10 @@
       <!-- EVENT 4: TRE Module 1 Bucharest -->
       <div class="evt-card" data-cat="romania certification">
         <div class="ec-img">
-          <img src="event-bucharest-module1.webp" alt="TRE® Module 1 — Bucharest" width="800" height="432" loading="lazy"/>
-          <div class="ec-img-overlay"></div>
-          <div class="ec-badges">
-            <span class="ec-badge ec-badge-loc">Romania</span>
-            <span class="ec-badge ec-badge-type">21 ICF CCEUs</span>
-          </div>
+          <img src="event-bucharest-module1.webp" alt="TRE® Module 1 — Bucharest" width="1920" height="1080" loading="lazy"/>
         </div>
         <div class="ec-body">
+          <div class="ec-tags"><span class="ec-loc">Romania</span><span class="ec-type">21 ICF CCEUs</span></div>
           <div class="ec-date">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
             15–17 October 2026 &middot; Bucharest
@@ -254,8 +240,8 @@
           <div class="ec-footer">
             <div class="ec-price">Price on enquiry<span>Contact Isabelle to register</span></div>
             <div class="ec-ctas">
-              <a class="et_pb_button btn-outline" href="event-module1-bucharest.html">Learn More</a>
-              <a class="et_pb_button" href="event-module1-bucharest.html#register">Register</a>
+              <a class="ec-btn ec-btn-outline" href="event-module1-bucharest.html">Learn More</a>
+              <a class="ec-btn ec-btn-fill" href="event-module1-bucharest.html#register">Register</a>
             </div>
           </div>
         </div>
