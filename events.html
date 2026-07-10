@@ -34,7 +34,19 @@
 .event-img{height:170px;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;background:#0c1622}
 .event-img-inner{position:absolute;inset:0;background:linear-gradient(135deg,#0c1c2e 0%,#1c3e63 55%,#0a1521 100%)}
 .event-img::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(0,0,0,.35));pointer-events:none}
+.event-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block;filter:grayscale(10%);transition:filter .3s}
+.event-card:hover .event-img img{filter:grayscale(0%)}
 .event-img-ph{position:relative;z-index:1;width:50px;height:50px;color:rgba(255,255,255,.22)}
+/* Registration form */
+.event-register-section{background:var(--off-white);border-top:1px solid var(--border);padding:60px 0}
+.event-reg-form{display:flex;flex-direction:column;gap:14px;margin-top:28px}
+.reg-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.event-reg-form input,.event-reg-form select,.event-reg-form textarea{width:100%;padding:12px 16px;border:1px solid var(--border);border-radius:var(--r);font-size:14.5px;font-family:inherit;color:var(--text);background:#fff;box-sizing:border-box;transition:border-color .2s}
+.event-reg-form input:focus,.event-reg-form select:focus,.event-reg-form textarea:focus{outline:none;border-color:var(--blue)}
+.event-reg-form textarea{resize:vertical;min-height:90px}
+.reg-success{text-align:center;padding:40px 0}
+.reg-success svg{color:var(--blue);margin-bottom:16px}
+@media(max-width:600px){.reg-row{grid-template-columns:1fr}}
 .event-img-tag{position:absolute;top:14px;left:14px;z-index:2;background:var(--gold);color:var(--navy);font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:5px 12px;border-radius:var(--r)}
 .event-header{background:var(--navy);padding:24px 30px}
 @media(max-width:880px){.events-cols{grid-template-columns:1fr}}
@@ -124,7 +136,7 @@
         <span class="section-label">Next Event</span>
         <h3 class="countdown-title">TRE&reg; Provider Certification &middot; Module 1 &middot; Singapore</h3>
         <p class="countdown-meta"><svg class="cd-cal-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="2.5" width="14" height="12" rx="1.5"/><line x1="1" y1="6.5" x2="15" y2="6.5"/><line x1="5" y1="1" x2="5" y2="4"/><line x1="11" y1="1" x2="11" y2="4"/></svg>Saturday &amp; Sunday, 29&ndash;30 August 2026 &middot; In-Person</p>
-        <a class="et_pb_button" href="https://calendly.com/bhdasia/tre-certification-intake-call" target="_blank" rel="noopener" style="margin:16px 0 0 0">Book Your Spot &rarr;</a>
+        <a class="et_pb_button" href="#register" style="margin:16px 0 0 0">Register Now &rarr;</a>
       </div>
       <div class="countdown-timer" id="event-countdown">
         <div class="c-unit"><span class="c-n" id="c-days">--</span><span class="c-l">Days</span></div>
@@ -145,8 +157,8 @@
     <!-- EVENT 1 -->
     <div class="event-card">
       <div class="event-img">
+        <img src="event-module1.webp" alt="TRE® for Personal Use — Module 1 Singapore" width="800" height="432" loading="lazy"/>
         <div class="event-img-inner"></div>
-        <svg class="event-img-ph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
         <span class="event-img-tag">TRE&reg; Workshop</span>
       </div>
       <div class="event-header">
@@ -170,7 +182,7 @@
             </tbody>
           </table>
         </div>
-        <a class="et_pb_button" href="https://calendly.com/bhdasia/tre-certification-intake-call" target="_blank" rel="noopener">Book TRE Personal Use</a>
+        <a class="et_pb_button" href="#register" onclick="document.getElementById('reg-event').value='TRE® for Personal Use (Module 1) — 29–30 Aug 2026 · Singapore'">Register — TRE Module 1</a>
         <p class="event-contact">Contact: <a href="mailto:isabelle@bhdasia.com">isabelle@bhdasia.com</a></p>
       </div>
     </div>
@@ -178,8 +190,8 @@
     <!-- EVENT 2 -->
     <div class="event-card">
       <div class="event-img">
+        <img src="event-module2.webp" alt="TRE® Certification — Module 2 Singapore" width="800" height="432" loading="lazy"/>
         <div class="event-img-inner"></div>
-        <svg class="event-img-ph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
         <span class="event-img-tag">TRE&reg; Workshop</span>
       </div>
       <div class="event-header">
@@ -204,7 +216,7 @@
             </tbody>
           </table>
         </div>
-        <a class="et_pb_button" href="https://calendly.com/bhdasia/tre-certification-intake-call" target="_blank" rel="noopener">Book TRE Certification</a>
+        <a class="et_pb_button" href="#register" onclick="document.getElementById('reg-event').value='TRE® Certification (Module 2) — 26–27 Sep 2026 · Singapore'">Register — TRE Module 2</a>
         <p class="event-contact">Contact: <a href="mailto:isabelle@bhdasia.com">isabelle@bhdasia.com</a></p>
       </div>
     </div>
@@ -213,6 +225,45 @@
 </div>
 </div>
 
+<section class="event-register-section" id="register">
+  <div class="container" style="max-width:700px">
+    <span class="section-label">Secure Your Spot</span>
+    <h2>Register Your Interest</h2>
+    <p style="font-size:14.5px;color:var(--body);line-height:1.8;max-width:580px">Fill in the form below and Isabelle will be in touch to confirm your place, answer any questions, and share next steps.</p>
+    <form class="event-reg-form" id="event-reg-form" onsubmit="submitEventReg(event)">
+      <div class="reg-field">
+        <select id="reg-event" name="event" required style="color:var(--body)">
+          <option value="">— Which event are you registering for? *</option>
+          <option>TRE® for Personal Use (Module 1) — 29–30 Aug 2026 · Singapore</option>
+          <option>TRE® Certification (Module 2) — 26–27 Sep 2026 · Singapore</option>
+          <option>Both modules (full TRE® Provider Certification path)</option>
+        </select>
+      </div>
+      <div class="reg-row">
+        <div class="reg-field">
+          <input type="text" name="name" placeholder="Full Name *" required/>
+        </div>
+        <div class="reg-field">
+          <input type="email" name="email" placeholder="Email Address *" required/>
+        </div>
+      </div>
+      <div class="reg-field">
+        <input type="tel" name="phone" placeholder="Phone (optional) — e.g. +65 9123 4567"/>
+      </div>
+      <div class="reg-field">
+        <textarea name="message" rows="3" placeholder="Any questions, prior TRE® experience, or special requirements? (optional)"></textarea>
+      </div>
+      <button type="submit" class="et_pb_button" style="width:100%;justify-content:center;margin-top:4px">Send Registration Enquiry &rarr;</button>
+      <p style="font-size:12px;color:var(--muted);text-align:center;margin-top:8px">Or book directly via <a href="https://calendly.com/bhdasia/tre-certification-intake-call" target="_blank" rel="noopener" style="color:var(--blue)">Calendly</a> &nbsp;&middot;&nbsp; <a href="mailto:isabelle@bhdasia.com" style="color:var(--blue)">isabelle@bhdasia.com</a></p>
+    </form>
+    <div class="reg-success" id="reg-success" style="display:none">
+      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+      <h3 style="margin-bottom:10px">Thank you — you're registered!</h3>
+      <p style="font-size:14.5px;color:var(--body)">Isabelle will be in touch shortly to confirm your place and share next steps.</p>
+      <a href="https://calendly.com/bhdasia/tre-certification-intake-call" target="_blank" rel="noopener" class="et_pb_button" style="margin-top:20px">Or Book a Call via Calendly &rarr;</a>
+    </div>
+  </div>
+</section>
 
 <div class="cta-strip">
   <div class="container">
@@ -249,6 +300,34 @@
 </footer>
 </div>
 <script src="shared.js"></script>
+<script>
+function submitEventReg(e) {
+  e.preventDefault();
+  var form = document.getElementById('event-reg-form');
+  var btn = form.querySelector('button[type="submit"]');
+  btn.disabled = true; btn.textContent = 'Sending…';
+  var data = {
+    source: 'BHDasia Events Page',
+    event: form.event.value,
+    name: form.name.value,
+    email: form.email.value,
+    phone: form.phone.value,
+    message: form.message.value
+  };
+  fetch('https://script.google.com/macros/s/AKfycbxkv934L8ffTxU1TPUiw3jn9Hu6KmdE0Ol1CcJRB_vWstls2xiZHHb-LErG5qHXdTuX/exec', {
+    method: 'POST', mode: 'no-cors',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify(data)
+  }).then(function() {
+    form.style.display = 'none';
+    document.getElementById('reg-success').style.display = 'block';
+  }).catch(function() {
+    window.location.href = 'mailto:isabelle@bhdasia.com?subject=' +
+      encodeURIComponent('Event Registration: ' + data.event) +
+      '&body=' + encodeURIComponent('Name: ' + data.name + '\nEmail: ' + data.email + '\nPhone: ' + (data.phone||'—') + '\nEvent: ' + data.event + '\nMessage: ' + (data.message||'—'));
+  });
+}
+</script>
 <script>
 (function(){
   var target=new Date('2026-08-29T10:00:00+08:00');

@@ -31,6 +31,9 @@
 .svc-img{height:140px;position:relative;overflow:hidden;background:#0c1622;display:flex;align-items:center;justify-content:center;border-top:3px solid var(--blue)}
 .svc-img-inner{position:absolute;inset:0;background:linear-gradient(135deg,#0c1c2e 0%,#1c3e63 55%,#0a1521 100%)}
 .svc-img::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(0,0,0,.3));pointer-events:none}
+.svc-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block;filter:grayscale(10%);transition:filter .3s}
+.service-category:hover .svc-img img{filter:grayscale(0%)}
+.coaching-pkg-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top;display:block;filter:grayscale(10%)}
 .svc-img-ph{position:relative;z-index:1;width:44px;height:44px;color:rgba(255,255,255,.22)}
 .svc-body{padding:24px;display:flex;flex-direction:column;flex:1}
 .service-category h2{font-size:14.5px;color:var(--blue);border-bottom:1px solid var(--border);padding-bottom:12px;margin-bottom:14px;text-transform:uppercase;letter-spacing:.1em;font-weight:700}
@@ -114,7 +117,7 @@
     <div class="services-cols" id="services-grid">
 
       <div class="service-category">
-        <div class="svc-img"><div class="svc-img-inner"></div><svg class="svc-img-ph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div>
+        <div class="svc-img"><img src="pillar-1.jpg" alt="Organisation Development" width="800" height="432" loading="lazy"/><div class="svc-img-inner"></div></div>
         <div class="svc-body">
           <h2>Organisation Development</h2>
           <ul class="service-list">
@@ -131,7 +134,7 @@
       </div>
 
       <div class="service-category">
-        <div class="svc-img"><div class="svc-img-inner"></div><svg class="svc-img-ph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div>
+        <div class="svc-img"><img src="pillar-2.jpg" alt="Resilience Building" width="800" height="432" loading="lazy"/><div class="svc-img-inner"></div></div>
         <div class="svc-body">
           <h2>Resilience Building</h2>
           <ul class="service-list">
@@ -146,7 +149,7 @@
       </div>
 
       <div class="service-category">
-        <div class="svc-img"><div class="svc-img-inner"></div><svg class="svc-img-ph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div>
+        <div class="svc-img"><img src="pillar-3.jpg" alt="Individual Development" width="800" height="432" loading="lazy"/><div class="svc-img-inner"></div></div>
         <div class="svc-body">
           <h2>Individual Development</h2>
           <ul class="service-list">
@@ -164,7 +167,7 @@
     </div>
 
     <div class="coaching-package">
-      <div class="coaching-pkg-img"><div class="coaching-pkg-img-inner"></div><svg class="coaching-pkg-img-ph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div>
+      <div class="coaching-pkg-img"><img src="svc-coaching.jpg" alt="8-Week Coaching Package" width="800" height="432" loading="lazy"/><div class="coaching-pkg-img-inner"></div></div>
       <div class="coaching-pkg-body">
         <h3>8-Week Coaching Package</h3>
         <div class="price">SGD 2,200 <span>/ package</span></div>
@@ -174,7 +177,7 @@
     </div>
 
     <div class="coaching-package" style="margin-top:0;border-left-color:var(--gold)">
-      <div class="coaching-pkg-img"><div class="coaching-pkg-img-inner"></div><svg class="coaching-pkg-img-ph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div>
+      <div class="coaching-pkg-img"><img src="svc-leader.jpg" alt="New Leader Accelerator Program" width="800" height="432" loading="lazy"/><div class="coaching-pkg-img-inner"></div></div>
       <div class="coaching-pkg-body">
         <h3>New Leader Accelerator Program</h3>
         <div class="price" style="font-size:22px;margin-bottom:10px;color:var(--gold)">For Leaders in Transition</div>
