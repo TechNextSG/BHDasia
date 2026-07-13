@@ -280,7 +280,7 @@ body.mobile-nav-open .mobile_menu_bar::before{content:'✕'}
 .countdown-timer{display:flex;align-items:center;flex-shrink:0}
 .c-unit{text-align:center;padding:0 20px;min-width:90px}
 .c-unit:first-child{padding-left:0}
-.c-n{display:block;font-size:72px;font-weight:800;color:var(--text);line-height:1;letter-spacing:-.04em;font-variant-numeric:tabular-nums;text-align:center}
+.c-n{display:block;font-size:72px;font-weight:800;color:var(--text);line-height:1;letter-spacing:-.04em;font-variant-numeric:tabular-nums;text-align:center;width:1.4em;margin-left:auto;margin-right:auto}
 .c-n.c-flip{animation:cFlip .25s ease}
 @keyframes cFlip{0%{opacity:0}100%{opacity:1}}
 .c-l{display:block;font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.16em;font-weight:700;margin-top:6px}
