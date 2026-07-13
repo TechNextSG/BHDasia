@@ -1,6 +1,6 @@
 .evt-hero{position:relative;min-height:480px;display:flex;align-items:flex-end;overflow:hidden;margin-top:60px}
 .evt-hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block;filter:grayscale(8%)}
-.evt-hero-overlay{position:absolute;inset:0;background:linear-gradient(160deg,rgba(11,34,56,.88) 0%,rgba(11,34,56,.55) 100%)}
+.evt-hero-overlay{position:absolute;inset:0;background:linear-gradient(160deg,rgba(11,34,56,.78) 0%,rgba(11,34,56,.45) 100%)}
 .evt-hero-inner{position:relative;z-index:2;padding:60px 0 50px;width:100%}
 .evt-hero-top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
 .evt-badge{font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;padding:5px 14px;border-radius:20px}
