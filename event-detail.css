@@ -35,6 +35,17 @@
 .sched-day-title strong{display:block;font-size:14px;font-weight:700}
 .sched-day-title em{font-size:12px;color:rgba(255,255,255,.55);font-style:normal}
 .sched-day-body{padding:18px 20px;background:#fff;font-size:14.5px;color:var(--body);line-height:1.8}
+/* Schedule header row (date + time meta) and timed session list */
+.sched-day-header{display:flex;align-items:center;gap:14px;padding:16px 20px;background:var(--off-white);border-bottom:1px solid var(--border)}
+.sched-day-meta{display:flex;flex-direction:column;gap:2px;min-width:0}
+.sched-day-meta strong{font-size:14.5px;font-weight:700;color:var(--text);line-height:1.3}
+.sched-day-meta span{font-size:12.5px;color:var(--muted)}
+.sched-day .sched-day-title{color:var(--text);font-weight:700;font-size:15px;padding:16px 20px 0}
+.sched-day .sched-day-title em{display:block;font-size:13px;color:var(--muted);font-weight:400;margin-top:3px}
+.sched-sessions{list-style:none;margin:12px 0 0;padding:0 20px 8px}
+.sched-sessions li{display:flex;gap:14px;padding:9px 0;font-size:14px;color:var(--body);line-height:1.55;border-top:1px solid var(--border)}
+.sched-sessions li:first-child{border-top:0}
+.sched-time{flex-shrink:0;min-width:52px;font-weight:700;color:var(--blue)}
 .included-list{list-style:none;padding:0;margin:16px 0;display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .included-list li{background:var(--off-white);border-radius:8px;padding:12px 14px;font-size:13.5px;color:var(--body);display:flex;align-items:flex-start;gap:10px;line-height:1.5}
 .included-list li::before{content:'✓';color:var(--blue);font-weight:800;flex-shrink:0;font-size:13px;margin-top:1px}
@@ -45,7 +56,8 @@
 .price-card-label{font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:8px;display:block}
 .price-card-amount{font-size:28px;font-weight:800;color:var(--text);margin-bottom:4px;letter-spacing:-.02em}
 .price-card-until{font-size:11.5px;color:var(--muted);line-height:1.4}
-.icf-callout{background:var(--navy);border-radius:10px;padding:22px 24px;margin-top:20px;display:flex;gap:18px;align-items:flex-start}
+.icf-callout{background:var(--navy);border-radius:10px;padding:20px 24px;margin-top:20px;color:rgba(255,255,255,.82);font-size:13.5px;line-height:1.7}
+.icf-callout strong{color:#fff;font-weight:700}
 .icf-icon{width:40px;height:40px;border-radius:50%;background:var(--blue);color:#fff;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:16px;font-weight:800}
 .icf-callout-text strong{display:block;color:#fff;font-size:14.5px;margin-bottom:4px}
 .icf-callout-text p{color:rgba(255,255,255,.65);font-size:13px;line-height:1.7;margin:0;padding:0}
