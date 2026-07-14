@@ -426,8 +426,8 @@ function submitReg(e){
   var form=document.getElementById('evt-reg-form');
   var btn=form.querySelector('button[type="submit"]');
   btn.disabled=true;btn.textContent='Sending…';
-  var data={source:'BHDasia Event Page — Module 1 Singapore',event:form.event.value,name:form.name.value,email:form.email.value,phone:form.phone.value,message:form.message.value};
-  fetch('https://script.google.com/macros/s/AKfycbxkv934L8ffTxU1TPUiw3jn9Hu6KmdE0Ol1CcJRB_vWstls2xiZHHb-LErG5qHXdTuX/exec',{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)})
+  var data={source:'BHDasia Event Page — Module 1 Singapore',event:form.event.value,inquiry:'Event registration enquiry',name:form.name.value,email:form.email.value,phone:form.phone.value,message:form.message.value};
+  fetch('https://script.google.com/macros/s/AKfycbxkv934L8ffTxU1TPUiw3jn9Hu6KmdE0Ol1CcJRB_vWstls2xiZHHb-LErG5qHXdTuX/exec',{method:'POST',mode:'no-cors',body:new URLSearchParams(data)})
   .then(function(){form.style.display='none';document.getElementById('reg-success').style.display='block'})
   .catch(function(){window.location.href='mailto:isabelle@bhdasia.com?subject='+encodeURIComponent('Event Registration: '+data.event)+'&body='+encodeURIComponent('Name: '+data.name+'\nEmail: '+data.email+'\nPhone: '+(data.phone||'—')+'\nEvent: '+data.event+'\nMessage: '+(data.message||'—'))});
 }
