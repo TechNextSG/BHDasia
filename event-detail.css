@@ -17,7 +17,8 @@
 .evt-fact-val{font-size:15px;font-weight:700;color:#fff;display:block;line-height:1.3}
 .evt-layout{display:grid;grid-template-columns:1fr 380px;gap:48px;padding:64px 0 80px;align-items:start}
 .evt-main{min-width:0}
-.evt-sidebar{position:sticky;top:86px;max-height:calc(100vh - 100px);overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin}
+.evt-sidebar{position:sticky;top:86px;max-height:calc(100vh - 100px);overflow-y:auto;overscroll-behavior:contain;scrollbar-width:none;-ms-overflow-style:none}
+.evt-sidebar::-webkit-scrollbar{display:none}
 .evt-section{margin-bottom:48px}
 .evt-section-label{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);display:block;margin-bottom:8px}
 .evt-section h2{font-size:24px;font-weight:800;color:var(--text);margin-bottom:16px;letter-spacing:-.01em}
