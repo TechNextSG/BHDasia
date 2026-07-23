@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://technextsg.github.io/BHDasia/sitemap.xml
+Sitemap: https://bhdasia.com/sitemap.xml
