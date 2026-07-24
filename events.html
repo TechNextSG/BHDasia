@@ -64,6 +64,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 .ec-btn-outline:hover{background:var(--text);color:#fff;transform:translateY(-1px)}
 .ec-btn-fill{background:var(--blue);color:#fff;border:1.6px solid var(--blue)}
 .ec-btn-fill:hover{background:var(--text);border-color:var(--text);color:#fff;transform:translateY(-1px)}
+.evt-card.is-sold .ec-img img{filter:grayscale(35%) brightness(.94)}
+.ec-soldout{position:absolute;top:14px;left:14px;z-index:3;background:#c0392b;color:#fff;font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;padding:7px 14px;border-radius:6px;box-shadow:0 6px 18px rgba(192,57,43,.45)}
+.ec-btn-sold{background:#c0392b;border:1.6px solid #c0392b;color:#fff;cursor:not-allowed;pointer-events:none}
 @media(max-width:860px){.events-grid{grid-template-columns:1fr}}
 </style>
 </head>
@@ -175,8 +178,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="events-grid">
 
       <!-- EVENT 1: Singapore Module 1 -->
-      <div class="evt-card" data-cat="singapore certification">
+      <div class="evt-card is-sold" data-cat="singapore certification">
         <div class="ec-img">
+          <span class="ec-soldout">Sold Out</span>
           <img src="event-module1.webp?v=2" alt="Nervous System Regulation &amp; Neurogenic Tremoring — Singapore" width="1920" height="1080" loading="lazy"/>
         </div>
         <div class="ec-body">
@@ -191,7 +195,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="ec-price">from S$1,290<span>ICF Special Price until 15 Aug</span></div>
             <div class="ec-ctas">
               <a class="ec-btn ec-btn-outline" href="https://calendly.com/bhdasia/tre-certification-intake-call" target="_blank" rel="noopener">Book a Call</a>
-              <a class="ec-btn ec-btn-fill" href="event-module1-singapore.html#register">Register</a>
+              <span class="ec-btn ec-btn-sold">Sold Out</span>
             </div>
           </div>
         </div>
