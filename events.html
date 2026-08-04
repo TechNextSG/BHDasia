@@ -45,7 +45,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 .ef-btn{padding:9px 22px;border:1.5px solid var(--border);background:#fff;color:var(--body);font-size:13px;font-weight:600;font-family:inherit;border-radius:40px;cursor:pointer;transition:all .2s;letter-spacing:.01em}
 .ef-btn:hover{border-color:var(--blue);color:var(--blue)}
 .ef-btn.active{background:var(--blue);border-color:var(--blue);color:#fff}
-.events-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:30px}
+.events-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
 .evt-card{background:#fff;border:1px solid var(--border);border-radius:16px;overflow:hidden;box-shadow:0 6px 22px rgba(11,34,56,.07);transition:transform .35s cubic-bezier(.25,.8,.25,1),box-shadow .35s;display:flex;flex-direction:column}
 .evt-card:hover{transform:translateY(-8px);box-shadow:0 24px 52px rgba(11,34,56,.17)}
 .evt-card.hidden{display:none}
@@ -56,16 +56,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 .ec-tags{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:13px}
 .ec-loc{font-size:10px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:#fff;background:var(--blue);padding:4px 11px;border-radius:20px}
 .ec-type{font-size:10px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:var(--blue);background:rgba(28,62,99,.09);padding:4px 11px;border-radius:20px}
-.ec-body{padding:22px 24px 24px;flex:1;display:flex;flex-direction:column}
+.ec-body{padding:18px 18px 20px;flex:1;display:flex;flex-direction:column}
 .ec-date{font-size:12.5px;color:var(--muted);font-weight:600;margin-bottom:9px;display:flex;align-items:center;gap:6px}
 .ec-date svg{width:13px;height:13px;flex-shrink:0;color:var(--gold)}
-.ec-body h3{font-size:18.5px;font-weight:700;color:var(--text);margin-bottom:10px;line-height:1.36}
-.ec-body p{font-size:13.8px;color:var(--body);line-height:1.7;margin-bottom:16px;padding-bottom:0}
+.ec-body h3{font-size:16.5px;font-weight:700;color:var(--text);margin-bottom:9px;line-height:1.36}
+.ec-body p{font-size:13.2px;color:var(--body);line-height:1.65;margin-bottom:14px;padding-bottom:0}
 .ec-footer{margin-top:auto;padding-top:14px;border-top:1px solid var(--border)}
-.ec-price{font-size:20px;font-weight:800;color:var(--text);margin-bottom:14px}
+.ec-price{font-size:18px;font-weight:800;color:var(--text);margin-bottom:12px}
 .ec-price span{font-size:11.5px;font-weight:500;color:var(--muted);display:block;line-height:1.3;margin-top:4px}
 .ec-ctas{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.ec-btn{display:inline-flex;align-items:center;justify-content:center;text-align:center;padding:12px 12px;border-radius:9px;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;font-family:inherit;cursor:pointer;transition:all .25s;text-decoration:none;line-height:1.1}
+.ec-btn{display:inline-flex;align-items:center;justify-content:center;text-align:center;padding:11px 8px;border-radius:9px;font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;font-family:inherit;cursor:pointer;transition:all .25s;text-decoration:none;line-height:1.1}
 .ec-btn-outline{border:1.6px solid var(--text);color:var(--text);background:transparent}
 .ec-btn-outline:hover{background:var(--text);color:#fff;transform:translateY(-1px)}
 .ec-btn-fill{background:var(--blue);color:#fff;border:1.6px solid var(--blue)}
@@ -73,7 +73,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 .evt-card.is-sold .ec-img img{filter:grayscale(35%) brightness(.94)}
 .ec-soldout{position:absolute;top:14px;left:14px;z-index:3;background:#c0392b;color:#fff;font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;padding:7px 14px;border-radius:6px;box-shadow:0 6px 18px rgba(192,57,43,.45)}
 .ec-btn-sold{background:#c0392b;border:1.6px solid #c0392b;color:#fff;cursor:not-allowed;pointer-events:none}
-@media(max-width:860px){.events-grid{grid-template-columns:1fr}}
+@media(max-width:1060px){.events-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:700px){.events-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body class="page et_fixed_nav et_divi_theme">
@@ -133,10 +134,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="stats-bar">
   <div class="container">
     <div class="stats-grid">
-      <div class="stat-item"><span class="stat-n">4</span><span class="stat-l">Events in 2026–2027</span></div>
+      <div class="stat-item"><span class="stat-n">7</span><span class="stat-l">Events in 2026–2027</span></div>
       <div class="stat-item"><span class="stat-n">21</span><span class="stat-l">ICF CCEUs (Module 1)</span></div>
       <div class="stat-item"><span class="stat-n">2</span><span class="stat-l">Countries</span></div>
-      <div class="stat-item"><span class="stat-n">S$1,290</span><span class="stat-l">From (Module 1 ICF Price)</span></div>
+      <div class="stat-item"><span class="stat-n">3</span><span class="stat-l">Certification Modules</span></div>
     </div>
   </div>
 </div>
