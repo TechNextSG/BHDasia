@@ -39,8 +39,20 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap"/>
 <link rel="stylesheet" href="style.css?v=5"/>
 <link rel="stylesheet" href="event-detail.css?v=5"/>
+<style>
+/* ── Ticket availability bars ── */
+.tk-wrap{margin:14px 0 16px}
+.tk-bar{height:8px;background:rgba(28,62,99,.12);border-radius:4px;overflow:hidden}
+.tk-fill{height:100%;background:var(--blue);border-radius:4px;transition:width .6s ease}
+.tk-label{display:block;font-size:12px;font-weight:700;color:var(--blue);margin-top:7px;letter-spacing:.02em}
+.price-card.tier-active{border-color:var(--gold);box-shadow:0 8px 26px rgba(212,146,26,.18);position:relative}
+.price-card.tier-active::before{content:'Now Selling';position:absolute;top:-11px;left:50%;transform:translateX(-50%);background:var(--gold);color:#fff;font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:4px 14px;border-radius:20px;white-space:nowrap}
+.price-card.tier-soldout{opacity:.55}
+.price-card.tier-soldout .tk-fill{background:#c0392b}
+.price-card.tier-soldout .tk-label{color:#c0392b}
+</style>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Event","name":"TRE® Module 1 Certification - Bucharest","description":"3-day immersive TRE® Module 1 certification in Bucharest, Romania, 15-17 October 2026. 21 ICF CCEUs - the first English-language TRE® Module 1 in Europe.","startDate":"2026-10-15","endDate":"2026-10-17","eventAttendanceMode":"https://schema.org/OfflineEventAttendanceMode","eventStatus":"https://schema.org/EventScheduled","location":{"@type":"Place","name":"Bucharest","address":{"@type":"PostalAddress","addressLocality":"Bucharest","addressCountry":"RO"}},"image":"https://bhdasia.com/event-bucharest-module1.webp?v=3","offers":{"@type":"Offer","url":"https://www.atelierdesuflet.ro/tre-module-1-bucharest-romania-21-icf-cceus-only-tre-training-in-the-world-with-icf-accreditation.html","availability":"https://schema.org/InStock"},"organizer":{"@type":"Organization","name":"BHD Asia","url":"https://bhdasia.com/"},"performer":[{"@type":"Person","name":"Isabelle Claus Teixeira"},{"@type":"Person","name":"Saymara Ryon","url":"https://www.atelierdesuflet.ro/"}],"url":"https://bhdasia.com/event-module1-bucharest.html"}
+{"@context":"https://schema.org","@type":"Event","name":"TRE® Module 1 Certification - Bucharest","description":"3-day immersive TRE® Module 1 certification in Bucharest, Romania, 15-17 October 2026. 21 ICF CCEUs - the first English-language TRE® Module 1 in Europe.","startDate":"2026-10-15","endDate":"2026-10-17","eventAttendanceMode":"https://schema.org/OfflineEventAttendanceMode","eventStatus":"https://schema.org/EventScheduled","location":{"@type":"Place","name":"Bucharest","address":{"@type":"PostalAddress","addressLocality":"Bucharest","addressCountry":"RO"}},"image":"https://bhdasia.com/event-bucharest-module1.webp?v=3","offers":{"@type":"AggregateOffer","lowPrice":"739","highPrice":"799","priceCurrency":"EUR","offerCount":"20","url":"https://www.atelierdesuflet.ro/tre-module-1-bucharest-romania-21-icf-cceus-only-tre-training-in-the-world-with-icf-accreditation.html","availability":"https://schema.org/InStock"},"organizer":{"@type":"Organization","name":"BHD Asia","url":"https://bhdasia.com/"},"performer":[{"@type":"Person","name":"Isabelle Claus Teixeira"},{"@type":"Person","name":"Saymara Ryon","url":"https://www.atelierdesuflet.ro/"}],"url":"https://bhdasia.com/event-module1-bucharest.html"}
 </script>
 </head>
 <body class="page et_fixed_nav et_divi_theme">
@@ -104,7 +116,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="evt-fact"><span class="evt-fact-label">Dates</span><span class="evt-fact-val">15–17 October 2026</span></div>
       <div class="evt-fact"><span class="evt-fact-label">Location</span><span class="evt-fact-val">Bucharest, România</span></div>
       <div class="evt-fact"><span class="evt-fact-label">ICF CCEUs</span><span class="evt-fact-val">21 CCEUs</span></div>
-      <div class="evt-fact"><span class="evt-fact-label">Pricing</span><span class="evt-fact-val">On Enquiry</span></div>
+      <div class="evt-fact"><span class="evt-fact-label">Pricing</span><span class="evt-fact-val">from &euro;739</span></div>
     </div>
   </div>
 </div>
@@ -228,40 +240,40 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
     </div>
 
-    <div class="evt-section">
-      <span class="evt-section-label">Pricing</span>
+    <div class="evt-section" id="pricing">
+      <span class="evt-section-label">Pricing &amp; Ticket Availability</span>
       <h2>Investment</h2>
-      <p>Pricing for the Bucharest cohort is available on direct enquiry. Early registration discounts and payment plans may be available. Contact Isabelle or Saymara directly for a personalised quote.</p>
+      <p style="font-size:14px;color:var(--muted)">20 tickets in total, released in three waves &mdash; the price steps up as each wave sells out. All prices per person and include the 3-day training, 21 ICF CCEUs, all training materials and the post-training integration call.</p>
       <div class="pricing-cards">
-        <div class="price-card" style="border-color:var(--blue)">
+        <div class="price-card" id="tier-seb">
           <div class="pc-top">
-            <span class="pc-tier">Bucharest Cohort</span>
-            <span class="pc-price">On Enquiry</span>
-            <span class="pc-period">Contact for pricing</span>
+            <span class="pc-tier">Super Early Bird</span>
+            <span class="pc-price">&euro;739</span>
+            <span class="pc-period">per person &middot; first 5 tickets</span>
           </div>
-          <ul class="pc-includes">
-            <li>3-day certification training</li>
-            <li>21 ICF CCEUs</li>
-            <li>All training materials</li>
-            <li>Post-training integration call</li>
-          </ul>
-          <a class="et_pb_button" href="mailto:isabelle@bhdasia.com?subject=TRE%20Module%201%20Bucharest%20Oct%202026%20Enquiry">Email to Enquire</a>
+          <div class="tk-wrap"><div class="tk-bar"><div class="tk-fill"></div></div><span class="tk-label"></span></div>
+          <a class="et_pb_button" href="https://www.atelierdesuflet.ro/tre-module-1-bucharest-romania-21-icf-cceus-only-tre-training-in-the-world-with-icf-accreditation.html" target="_blank" rel="noopener">Buy Tickets &rarr;</a>
         </div>
-        <div class="price-card">
+        <div class="price-card" id="tier-eb">
           <div class="pc-top">
-            <span class="pc-tier">Cannot Attend Romania?</span>
-            <span class="pc-price">S$1,290</span>
-            <span class="pc-period">ICF Special — Singapore</span>
+            <span class="pc-tier">Early Bird</span>
+            <span class="pc-price">&euro;769</span>
+            <span class="pc-period">per person &middot; next 5 tickets</span>
           </div>
-          <ul class="pc-includes">
-            <li>Aug 29–30, Singapore</li>
-            <li>21 ICF CCEUs</li>
-            <li>Same curriculum</li>
-            <li>Early bird &amp; normal pricing also available</li>
-          </ul>
-          <a class="et_pb_button" href="event-module1-singapore.html">View Singapore Module 1</a>
+          <div class="tk-wrap"><div class="tk-bar"><div class="tk-fill"></div></div><span class="tk-label"></span></div>
+          <a class="et_pb_button" href="https://www.atelierdesuflet.ro/tre-module-1-bucharest-romania-21-icf-cceus-only-tre-training-in-the-world-with-icf-accreditation.html" target="_blank" rel="noopener">Buy Tickets &rarr;</a>
+        </div>
+        <div class="price-card" id="tier-full">
+          <div class="pc-top">
+            <span class="pc-tier">Full Price</span>
+            <span class="pc-price">&euro;799</span>
+            <span class="pc-period">per person &middot; last 10 tickets</span>
+          </div>
+          <div class="tk-wrap"><div class="tk-bar"><div class="tk-fill"></div></div><span class="tk-label"></span></div>
+          <a class="et_pb_button" href="https://www.atelierdesuflet.ro/tre-module-1-bucharest-romania-21-icf-cceus-only-tre-training-in-the-world-with-icf-accreditation.html" target="_blank" rel="noopener">Buy Tickets &rarr;</a>
         </div>
       </div>
+      <p style="font-size:12.5px;color:var(--muted);margin-top:14px">Availability shown is updated by our team &mdash; final availability is always confirmed at checkout in the <a href="https://www.atelierdesuflet.ro/tre-module-1-bucharest-romania-21-icf-cceus-only-tre-training-in-the-world-with-icf-accreditation.html" target="_blank" rel="noopener">official webshop</a>.</p>
     </div>
 
     <div class="evt-section">
@@ -425,5 +437,31 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 function submitReg(e){e.preventDefault();var form=document.getElementById('evt-reg-form');var btn=form.querySelector('button[type="submit"]');btn.disabled=true;btn.textContent='Sending…';var data={source:'BHDasia Event — TRE Module 1 Bucharest',event:'TRE® Module 1 — Bucharest, Romania · Oct 15–17, 2026',inquiry:'Event registration enquiry',name:form.name.value,email:form.email.value,phone:form.phone.value,message:(form.profession.value?('Profession: '+form.profession.value+' — '):'')+form.message.value};fetch('https://script.google.com/macros/s/AKfycbxkv934L8ffTxU1TPUiw3jn9Hu6KmdE0Ol1CcJRB_vWstls2xiZHHb-LErG5qHXdTuX/exec',{method:'POST',mode:'no-cors',body:new URLSearchParams(data)}).then(function(){form.style.display='none';document.getElementById('reg-success').style.display='block'}).catch(function(){window.location.href='mailto:isabelle@bhdasia.com?subject='+encodeURIComponent('TRE Module 1 Bucharest Enquiry')+'&body='+encodeURIComponent('Name: '+data.name+'\nEmail: '+data.email+'\nProfession: '+(data.profession||'—')+'\nMessage: '+(data.message||'—'))});}
 (function(){var target=new Date('2026-10-15T17:00:00+03:00');function pad(n){return String(n).padStart(2,'0')}function setNum(id,val){var el=document.getElementById(id);if(!el||el.textContent===val)return;el.textContent=val;el.classList.remove('c-flip');void el.offsetWidth;el.classList.add('c-flip')}function tick(){var diff=target-new Date();if(diff<=0){var el=document.getElementById('event-countdown');if(el)el.innerHTML='<p style="color:var(--blue);font-weight:700;font-size:16px">This training has started!</p>';return}setNum('c-days',pad(Math.floor(diff/86400000)));setNum('c-hours',pad(Math.floor(diff%86400000/3600000)));setNum('c-mins',pad(Math.floor(diff%3600000/60000)));setNum('c-secs',pad(Math.floor(diff%60000/1000)));setTimeout(tick,1000)}tick();})();
 </script>
-</body>
+<script>
+// Ticket availability — update the sold counts here as tickets sell.
+(function(){
+  var tiers=[
+    {id:'tier-seb', total:5,  sold:0},
+    {id:'tier-eb',  total:5,  sold:0},
+    {id:'tier-full',total:10, sold:0}
+  ];
+  var activeSet=false;
+  tiers.forEach(function(t){
+    var card=document.getElementById(t.id); if(!card) return;
+    var left=Math.max(0,t.total-t.sold);
+    var fill=card.querySelector('.tk-fill'), label=card.querySelector('.tk-label'), btn=card.querySelector('.et_pb_button');
+    if(fill) fill.style.width=Math.round(t.sold/t.total*100)+'%';
+    if(left===0){
+      card.classList.add('tier-soldout');
+      if(label) label.textContent='Sold out';
+      if(fill) fill.style.width='100%';
+      if(btn){btn.style.pointerEvents='none';btn.style.opacity='.5';btn.textContent='Sold Out';}
+    } else {
+      if(label) label.textContent=left+' of '+t.total+' tickets left';
+      if(!activeSet){card.classList.add('tier-active');activeSet=true;}
+      else if(btn){btn.style.pointerEvents='none';btn.style.opacity='.45';btn.textContent='Opens After Previous Wave';}
+    }
+  });
+})();
+</script></body>
 </html>
