@@ -574,7 +574,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <li class="change-item changed">Single-word exact handlers added: "how", "who", "what", "why", "help", "?", "yes/ok/sure", "no/nope" each return a tailored, contextual response with action buttons</li>
           <li class="change-item changed">New topic KB entries: Resilience/stress/burnout, Organisation Dev (hr, culture, facilitation), Mediation/conflict — each now route to specific content</li>
           <li class="change-item changed">Expanded all existing regexes with more keyword synonyms (certification, online, corporate, methodology, discovery, etc.)</li>
-          <li class="change-item fixed">Fixed: "stress" was incorrectly matching TRE handler due to "tre" substring in "stress" — fixed with word-boundary regex <code>\btre\b</code></li>
+          <li class="change-item fixed">Fixed: "stress" was incorrectly matching TRE™ handler due to "tre" substring in "stress" — fixed with word-boundary regex <code>\btre\b</code></li>
           <li class="change-item fixed">Fixed: "?" was stripped to empty string by normalizer — now preserved for HELP handler matching</li>
           <li class="change-item changed">Short unrecognised queries now echo the typed word in the redirect message instead of generic fallback</li>
           <li class="change-item changed">Suggestion pool updated with new topics: stress support, conflict, online support, how does it work</li>
@@ -597,7 +597,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <li class="change-item removed">Removed Forbes Coaches Council dark-navy media section from homepage</li>
           <li class="change-item changed">Homepage pillar buttons: generic "Learn more" &rarr; contextual "Explore Org Development", "Explore Resilience Building", "Explore Individual Coaching"</li>
           <li class="change-item changed">About team buttons: "Read more" &rarr; "Meet Isabelle &rarr;" and "Visit Languages &agrave; Gogo"</li>
-          <li class="change-item changed">Events buttons: "Book a call" &rarr; "Book TRE Personal Use" and "Book TRE Certification"</li>
+          <li class="change-item changed">Events buttons: "Book a call" &rarr; "Book TRE™ Personal Use" and "Book TRE™ Certification"</li>
           <li class="change-item changed">Services buttons: "Enquire" &rarr; "Enquire About Org Dev", "Enquire About Resilience", "Enquire About Coaching"</li>
         </ul>
       </div>
@@ -843,7 +843,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <ul class="change-list">
           <li><strong>Footer redesigned</strong> to match Casa Escondida multi-column format — light off-white background replacing dark navy</li>
           <li><strong>5-column grid</strong> added: Brand + Navigate + Services + Legal + Contact (was 4 columns)</li>
-          <li><strong>New Services column</strong> listing Organisation Development, Resilience Building, Individual Development, TRE® Workshops, Executive Coaching</li>
+          <li><strong>New Services column</strong> listing Organisation Development, Resilience Building, Individual Development, TRE™ Workshops, Executive Coaching</li>
           <li><strong>Brand column</strong> redesigned — large bold "BHD Asia" brand name with amber accent span replacing the plain h4 heading</li>
           <li><strong>Column headers</strong> uppercase dark text with wider letter-spacing; no bottom border dividers</li>
           <li><strong>Social icons</strong> updated from square dark buttons to circular outlined buttons matching light footer theme</li>
@@ -886,7 +886,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <p class="change-group-label">v5.14.2 — Countdown &amp; Header Redesign</p>
         <ul class="change-list">
           <li><strong>Countdown redesigned</strong> &mdash; Replaced dark flip-clock tiles with clean large-number format: 72px bold navy numbers, amber colon separators, grey labels. Matches the reference design style.</li>
-          <li><strong>Countdown meta updated</strong> &mdash; Calendar icon added; event title updated to &ldquo;TRE® Provider Certification · Module 1 · Singapore&rdquo;; buttons now show an arrow (&rarr;).</li>
+          <li><strong>Countdown meta updated</strong> &mdash; Calendar icon added; event title updated to &ldquo;TRE™ Provider Certification · Module 1 · Singapore&rdquo;; buttons now show an arrow (&rarr;).</li>
           <li><strong>Contact header button</strong> &mdash; Redesigned as a pill shape (border-radius: 50px) with subtle shadow and lift hover — less blocky and more refined.</li>
         </ul>
       </div>
@@ -920,7 +920,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <li><strong>Improved matching tolerance</strong> &mdash; input is normalised (punctuation stripped) before regex matching; patterns expanded with additional synonyms for much better understanding.</li>
           <li><strong>Action buttons on replies</strong> &mdash; each bot reply now includes contextual CTA buttons that link to the most relevant page (e.g. &ldquo;View All Services&rdquo;, &ldquo;Reserve a Spot&rdquo;, &ldquo;Contact Form&rdquo;).</li>
           <li><strong>&ldquo;BHD Asia&rdquo; caption on every bot message</strong> &mdash; a gold label above each bot reply clearly identifies the sender.</li>
-          <li><strong>KB expanded</strong> &mdash; 14 knowledge entries covering services, TRE&reg;, events, pricing, contact, location, team, about, booking, partners, coaching, and greetings.</li>
+          <li><strong>KB expanded</strong> &mdash; 14 knowledge entries covering services, TRE&trade;, events, pricing, contact, location, team, about, booking, partners, coaching, and greetings.</li>
         </ul>
       </div>
       <div class="change-group">
@@ -1112,14 +1112,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <p class="change-group-label">Floating WhatsApp &amp; Chat Assistant</p>
         <ul class="change-list">
           <li><strong>WhatsApp button on every page</strong> &mdash; a floating green WhatsApp button (bottom-right) opens a pre-filled chat to +81 80 6515 1778.</li>
-          <li><strong>Website chat assistant</strong> &mdash; a floating chat widget with a rule-based assistant that answers common questions about our services, TRE&reg; workshops, pricing, events, location, team and contact, with quick-reply buttons and a typing indicator. Off-topic questions fall back to a helpful contact prompt. Injected site-wide via <code>shared.js</code>; no backend required.</li>
+          <li><strong>Website chat assistant</strong> &mdash; a floating chat widget with a rule-based assistant that answers common questions about our services, TRE&trade; workshops, pricing, events, location, team and contact, with quick-reply buttons and a typing indicator. Off-topic questions fall back to a helpful contact prompt. Injected site-wide via <code>shared.js</code>; no backend required.</li>
         </ul>
       </div>
       <div class="change-group">
         <p class="change-group-label">Events Page</p>
         <ul class="change-list">
           <li><strong>Two-column layout</strong> &mdash; event cards now sit side-by-side in a responsive 2-column grid (stacks on narrow screens), with equal heights.</li>
-          <li><strong>Image placeholders</strong> &mdash; each event card now has an image placeholder band at the top (with an image-icon watermark and a &ldquo;TRE&reg; Workshop&rdquo; tag) ready for event photography.</li>
+          <li><strong>Image placeholders</strong> &mdash; each event card now has an image placeholder band at the top (with an image-icon watermark and a &ldquo;TRE&trade; Workshop&rdquo; tag) ready for event photography.</li>
         </ul>
       </div>
       <div class="change-group">
@@ -1259,7 +1259,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="change-group">
         <p class="change-group-label">Homepage Countdown</p>
         <ul class="change-list">
-          <li><strong>Live countdown added to homepage</strong> &mdash; the same real-time event countdown (Days / Hours / Mins / Secs to TRE&reg; Module 1 on 29 August 2026) now appears as the <strong>third section</strong> of the homepage, directly after the stats bar.</li>
+          <li><strong>Live countdown added to homepage</strong> &mdash; the same real-time event countdown (Days / Hours / Mins / Secs to TRE&trade; Module 1 on 29 August 2026) now appears as the <strong>third section</strong> of the homepage, directly after the stats bar.</li>
           <li><strong>Shared countdown styles</strong> &mdash; countdown CSS moved into the global stylesheet so the events page and homepage stay visually identical.</li>
         </ul>
       </div>
@@ -1421,7 +1421,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="change-group">
         <p class="change-group-label">Events Page</p>
         <ul class="change-list">
-          <li><strong>Live countdown timer added</strong> &mdash; navy banner above event cards shows a real-time JavaScript countdown (Days / Hours / Mins / Secs) to the next event: TRE&reg; Module 1 on 29 August 2026. Includes direct &ldquo;Book Your Spot&rdquo; Calendly link.</li>
+          <li><strong>Live countdown timer added</strong> &mdash; navy banner above event cards shows a real-time JavaScript countdown (Days / Hours / Mins / Secs) to the next event: TRE&trade; Module 1 on 29 August 2026. Includes direct &ldquo;Book Your Spot&rdquo; Calendly link.</li>
         </ul>
       </div>
       <div class="change-group">
@@ -1491,7 +1491,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <li><strong>SIMI &mdash; Singapore International Mediation Institute</strong> &mdash; accredited mediator</li>
           <li><strong>Languages &agrave; Gogo</strong> &mdash; sister brand co-founded by Rouviere Teixeira</li>
           <li><strong>Brainz Magazine</strong> &mdash; editorial contributor since September 2023</li>
-          <li><strong>TRE&reg; for All</strong> &mdash; official TRE&reg; certification body; Isabelle is certified provider &amp; trainer trainee</li>
+          <li><strong>TRE&trade; for All</strong> &mdash; official TRE&trade; certification body; Isabelle is certified provider &amp; trainer trainee</li>
           <li><strong>Stakeholder Centered Coaching</strong> &mdash; Marshall Goldsmith method accreditation</li>
         </ul>
       </div>
@@ -1563,7 +1563,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <li><strong>Professional title added</strong>: "Leadership Coach &amp; Talent Development Specialist" — from live site</li>
           <li><strong>Tagline added</strong>: "Helping You Find &amp; Forge Your Own Path" — verbatim from live Isabelle page</li>
           <li><strong>9 countries named explicitly</strong>: France, UK, Germany, Spain, Portugal, Belgium, Switzerland, Singapore, Japan</li>
-          <li><strong>Coaching specialisations updated</strong> to match live site: Transition, Performance, Career, Self Awareness, 360 Debrief, Somatic Coaching, TRE® Provider</li>
+          <li><strong>Coaching specialisations updated</strong> to match live site: Transition, Performance, Career, Self Awareness, 360 Debrief, Somatic Coaching, TRE™ Provider</li>
           <li><strong>Advanced certifications added</strong>: Global Cultural Framework, Stakeholder-Centred Coaching, Neuro Leadership, Somatic Coaching, Team Coaching</li>
           <li><strong>Brainz Magazine added</strong>: contributor since September 2023</li>
         </ul>
@@ -1573,7 +1573,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <p class="change-group-label">Services (services.html)</p>
         <ul class="change-list">
           <li><strong>Organisation Development list</strong> replaced with live site services: HR &amp; Talent Management Advisory, High Performing Teams Facilitation, Challenging Conversations, Leadership Skills Development, Culture Transformation, Change Management, Mediation Services</li>
-          <li><strong>Resilience Building list</strong> updated to match live site: Somatic Coaching and TRE® with descriptions matching the live site copy</li>
+          <li><strong>Resilience Building list</strong> updated to match live site: Somatic Coaching and TRE™ with descriptions matching the live site copy</li>
           <li><strong>Individual Development list</strong> trimmed to match live site exactly: Executive, Transition, Performance, Career, Self Awareness, 360° Debrief</li>
           <li><strong>Coaching package background</strong> warmed from cool #f0f9ff to #FEF3EC (matches brand palette)</li>
           <li><strong>CTA updated</strong> from "Book a call" to "Schedule a Free 1:1" — matches live site CTA text</li>
@@ -1725,7 +1725,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <p class="change-group-label">Events Page (events.html)</p>
         <ul class="change-list">
           <li><strong>Typo fixed</strong> — "One client" → "one client" in Module 2 description</li>
-          <li><strong>TRE® explanation added</strong> — explanatory paragraph in the page intro explaining what TRE® is (Tension &amp; Trauma Releasing Exercises, developed by Dr. David Berceli)</li>
+          <li><strong>TRE™ explanation added</strong> — explanatory paragraph in the page intro explaining what TRE™ is (Tension &amp; Trauma Releasing Exercises, developed by Dr. David Berceli)</li>
           <li><strong>Pricing tables</strong> wrapped in <code>.pricing-table-wrap</code> with <code>overflow-x:auto</code> to prevent mobile overflow</li>
         </ul>
       </div>
@@ -1992,7 +1992,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <p class="change-group-label">Content Fixes</p>
         <ul class="change-list">
           <li><strong>About page</strong> — incomplete sentence "…the unique experiences of the personal journeys" completed; client list converted from run-on paragraph to scannable tag pills</li>
-          <li><strong>Services page</strong> — duplicate items consolidated (e.g. "TRE® for Individuals / Teams / Organisations" merged into one line)</li>
+          <li><strong>Services page</strong> — duplicate items consolidated (e.g. "TRE™ for Individuals / Teams / Organisations" merged into one line)</li>
           <li>Shared CSS utilities added to <code>style.css</code> — <code>.page-intro</code>, <code>.client-tags</code>, <code>.dark-callout</code>, <code>.cta-strip</code></li>
         </ul>
       </div>
@@ -2026,7 +2026,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <li><strong>hero.jpg</strong> — hero background image downloaded directly from bhdasia.com CDN</li>
           <li><strong>index.html</strong> — home page with parallax hero, Noomii voice interview widget (Featured section)</li>
           <li><strong>about.html</strong> — Our Story, full client list, 3-column team section (Isabelle, Rouviere, Clement), Mission and Values</li>
-          <li><strong>events.html</strong> — TRE® workshop listings with pricing tables (Super Early Bird / Early Bird / Normal tiers) for Aug and Sep 2026</li>
+          <li><strong>events.html</strong> — TRE™ workshop listings with pricing tables (Super Early Bird / Early Bird / Normal tiers) for Aug and Sep 2026</li>
           <li><strong>partners.html</strong> — 8 partner profiles: Mindfulness Now, GloCoach, Dr. Mandy Zimmermann, Lauren Houghton, Leadership Et Humanité, Sean Crichton-Browne, Kelvin Kan, Marshall Goldsmith</li>
           <li><strong>services.html</strong> — 3-column service categories (Organisation Development, Resilience Building, Individual Development) + 8-Week Coaching Package (SGD 2,200)</li>
           <li><strong>contact.html</strong> — contact form (Email, Name, Phone, Message), contact info, newsletter signup</li>
