@@ -180,7 +180,7 @@
     },
     {
       re:/(price|pricing|cost|fee|how much|rate|sgd|dollar|package|invest|money|budget|afford|pay|payment)/,
-      a:"TRE™ Module 1: Super Early Bird <strong>SGD 1,290</strong>, Early Bird 1,500, Normal 1,800. Our 8-week individual coaching package is <strong>SGD 2,200</strong>. Group and corporate rates on request.",
+      a:"The 2026 TRE™ certification intake is closed. The <strong>2027 Singapore cohort</strong> opens with Module 1 on 27–28 February 2027, co-taught by Isabelle Claus Teixeira and Simba Stenqvist, with <strong>early-bird pricing until 31 December 2026</strong>. Our 8-week individual coaching package is <strong>SGD 2,200</strong>. Group and corporate rates on request.",
       btns:[{t:'Full Pricing',u:'services.html'},{t:'Ask About Rates',u:'contact.html'}]
     },
     {
@@ -404,7 +404,7 @@
      card:{img:'event-module2.webp?v=4',alt:'TRE&trade; Provider Certification &mdash; Module 2, 26&ndash;27 September 2026, Singapore',
        tag:'Certification &middot; Singapore',date:'26&ndash;27 September 2026 &nbsp;&middot;&nbsp; In-Person &middot; Singapore',
        title:'TRE&trade; Provider Certification &mdash; Module 2',
-       desc:'The certification journey continues &mdash; Module 2 of the Global TRE&trade; Provider Certification with Isabelle Claus Teixeira, Global TRE&trade; Certifying Trainer. Module 3 follows on 20&ndash;21 Feb 2027. Bundle from S$3,699.',
+       desc:'The certification journey continues &mdash; Module 2 of the Global TRE&trade; Provider Certification with Isabelle Claus Teixeira, Global TRE&trade; Certifying Trainer. The 2026 intake is now closed — the next cohort runs in 2027.',
        venue:'Singapore',url:'event-certification.html#register',cta:'Register'}},
     {id:'shaking-oct8',page:'event-shaking-shaping-oct8.html',start:'2026-10-08T19:00:00+08:00',soldOut:false,
      cdTitle:'From Shaking to Shaping &middot; Live Online Session',
@@ -437,14 +437,14 @@
      cdTitle:'From Shaking to Shaping &middot; Bucharest &middot; 24 October 2026',
      cdMeta:'Saturday, 24 October 2026 &middot; In-Person &middot; Bucharest, Rom&acirc;nia',
      link:'event-shaking-shaping.html',linkText:'View Event'},
-    {id:'cert-module3',page:'event-certification.html',start:'2027-02-20T10:00:00+08:00',soldOut:false,
+    {id:'cert-module3',page:'event-certification.html',start:'2027-02-20T10:00:00+08:00',soldOut:true,
      cdTitle:'TRE&trade; Provider Certification &middot; Module 3 &middot; Singapore',
      cdMeta:'Saturday &amp; Sunday, 20&ndash;21 February 2027 &middot; In-Person &middot; Singapore',
      link:'event-certification.html#register',linkText:'Register Now',
      card:{img:'event-module2.webp?v=4',alt:'TRE&trade; Provider Certification &mdash; Module 3, 20&ndash;21 February 2027, Singapore',
        tag:'Certification &middot; Singapore',date:'20&ndash;21 February 2027 &nbsp;&middot;&nbsp; In-Person &middot; Singapore',
        title:'TRE&trade; Provider Certification &mdash; Module 3',
-       desc:'The final module of the Global TRE&trade; Provider Certification &mdash; certification weekend with Isabelle Claus Teixeira, Global TRE&trade; Certifying Trainer. Bundle from S$3,699.',
+       desc:'The final module of the Global TRE&trade; Provider Certification &mdash; certification weekend with Isabelle Claus Teixeira, Global TRE&trade; Certifying Trainer. The 2026 intake is now closed.',
        venue:'Singapore',url:'event-certification.html#register',cta:'Register'}}
   ];
   window.BHD_EVENTS=EVENTS;
