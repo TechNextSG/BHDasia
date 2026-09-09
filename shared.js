@@ -397,7 +397,7 @@
      cdTitle:'From Shaking to Shaping &middot; Live Online Session',
      cdMeta:'Thursday, 3 September 2026 &middot; 7&ndash;9PM &middot; Online',
      link:'event-shaking-shaping.html',linkText:'View Event'},
-    {id:'cert-module2',page:'event-certification.html',start:'2026-09-26T10:00:00+08:00',soldOut:false,
+    {id:'cert-module2',page:'event-certification.html',start:'2026-09-26T10:00:00+08:00',soldOut:true,
      cdTitle:'TRE&trade; Provider Certification &middot; Module 2 &middot; Singapore',
      cdMeta:'Saturday &amp; Sunday, 26&ndash;27 September 2026 &middot; In-Person &middot; Singapore',
      link:'event-certification.html#register',linkText:'Register Now',
