@@ -102,7 +102,7 @@
     'Who is Isabelle?',
     'Stress & burnout support',
     'Tell me about coaching',
-    'Conflict & mediation',
+    'Conflict resolution',
     'Partner organisations',
     'Is there online support?',
     'How does it work?',
@@ -205,12 +205,12 @@
     },
     {
       re:/(hr|human.?resource|talent|organisat|organizat|culture|change.?management|facilitat|corporate|leadership.?develop|workforce)/,
-      a:"Our <strong>Organisation Development</strong> practice covers HR &amp; Talent Management advisory, high-performing team facilitation, culture transformation, leadership development, change management, and mediation.",
+      a:"Our <strong>Organisation Development</strong> practice covers HR &amp; Talent Management advisory, high-performing team facilitation, culture transformation, leadership development, and change management.",
       btns:[{t:'Org Development',u:'services.html'},{t:'Talk to Us',u:'contact.html'}]
     },
     {
       re:/(mediat|conflict|dispute|disagree|difficult.?conversation|resolution|simi)/,
-      a:"Isabelle is a <strong>SIMI-accredited mediator</strong> offering professional conflict resolution and mediation. We also facilitate <em>Challenging Conversations &amp; Constructive Conflict</em> workshops.",
+      a:"We facilitate <em>Challenging Conversations &amp; Constructive Conflict</em> workshops and support leaders and teams with professional conflict resolution.",
       btns:[{t:'Our Services',u:'services.html'},{t:'Book a Consult',u:'contact.html'}]
     },
     {
@@ -370,4 +370,196 @@
     input.value = '';
     send(v);
   });
+})();
+
+/* ===== Featured events + countdowns: single source of truth =====
+   Every page reads this list. An event whose start time has passed, or with
+   soldOut:true, is skipped automatically everywhere: the homepage featured
+   cards, the events-page countdown and every event-page countdown roll over
+   to the next active event on their own. To close an event set soldOut:true;
+   to add one, add an entry (keep the list in date order). */
+(function(){
+  var EVENTS=[
+    {id:'module1-singapore',page:'event-module1-singapore.html',start:'2026-08-29T10:00:00+08:00',soldOut:true,
+     cdTitle:'Nervous System Regulation &amp; Neurogenic Tremoring &middot; Singapore',
+     cdMeta:'Saturday &amp; Sunday, 29&ndash;30 August 2026 &middot; In-Person &middot; Singapore',
+     link:'event-module1-singapore.html',linkText:'View Event'},
+    {id:'internal-alchemy',page:'event-internal-alchemy.html',start:'2026-09-01T19:00:00+08:00',soldOut:false,
+     cdTitle:'Internal Alchemy &middot; Introductory Workshop &middot; Singapore',
+     cdMeta:'Tuesday, 1 September 2026 &middot; 7&ndash;9PM &middot; Nilayam Ashtanga Studio, Singapore',
+     link:'event-internal-alchemy.html',linkText:'View Event',
+     card:{img:'event-internal-alchemy.webp?v=2',alt:'Internal Alchemy &mdash; Introductory Workshop with Simba Stenqvist',
+       tag:'First Time in Singapore',date:'1 September 2026 &nbsp;&middot;&nbsp; 7&ndash;9PM &middot; In-Person &middot; Singapore',
+       title:'Internal Alchemy &mdash; Introductory Workshop',
+       desc:'Breathwork, fascial release, grounding and tremor work in one integrated system &mdash; led by Simba Stenqvist, creator of Internal Alchemy and Global TRE&trade; Certifying Trainer. S$79.',
+       venue:'Nilayam Ashtanga Studio',url:'event-internal-alchemy.html#register',cta:'Register'}},
+    {id:'shaking-online-sep3',page:'event-shaking-shaping.html',start:'2026-09-03T19:00:00+08:00',soldOut:true,
+     cdTitle:'From Shaking to Shaping &middot; Live Online Session',
+     cdMeta:'Thursday, 3 September 2026 &middot; 7&ndash;9PM &middot; Online',
+     link:'event-shaking-shaping.html',linkText:'View Event'},
+    {id:'cert-module2',page:'event-certification.html',start:'2026-09-26T10:00:00+08:00',soldOut:false,
+     cdTitle:'TRE&trade; Provider Certification &middot; Module 2 &middot; Singapore',
+     cdMeta:'Saturday &amp; Sunday, 26&ndash;27 September 2026 &middot; In-Person &middot; Singapore',
+     link:'event-certification.html#register',linkText:'Register Now',
+     card:{img:'event-module2.webp?v=4',alt:'TRE&trade; Provider Certification &mdash; Module 2, 26&ndash;27 September 2026, Singapore',
+       tag:'Certification &middot; Singapore',date:'26&ndash;27 September 2026 &nbsp;&middot;&nbsp; In-Person &middot; Singapore',
+       title:'TRE&trade; Provider Certification &mdash; Module 2',
+       desc:'The certification journey continues &mdash; Module 2 of the Global TRE&trade; Provider Certification with Isabelle Claus Teixeira, Global TRE&trade; Certifying Trainer. Module 3 follows on 20&ndash;21 Feb 2027. Bundle from S$3,699.',
+       venue:'Singapore',url:'event-certification.html#register',cta:'Register'}},
+    {id:'shaking-oct8',page:'event-shaking-shaping-oct8.html',start:'2026-10-08T19:00:00+08:00',soldOut:false,
+     cdTitle:'From Shaking to Shaping &middot; Live Online Session',
+     cdMeta:'Thursday, 8 October 2026 &middot; 7&ndash;9PM &middot; Live Online',
+     link:'event-shaking-shaping-oct8.html',linkText:'View Event',
+     card:{img:'event-shaking-oct8.webp?v=2',alt:'From Shaking to Shaping &mdash; live online session, 8 October 2026',
+       tag:'Live Online',date:'8 October 2026 &nbsp;&middot;&nbsp; 7&ndash;9PM &middot; Live Online',
+       title:'From Shaking to Shaping &mdash; Live Online Session',
+       desc:'Use of TRE&trade; in a coaching context &mdash; one evening online with Isabelle Claus Teixeira, Global TRE&trade; Certifying Trainer, and Saymara Ryon, President of Asocia&#539;ia TRE&trade; Rom&acirc;nia.',
+       venue:'Online',url:'event-shaking-shaping-oct8.html',cta:'Details'}},
+    {id:'module1-bucharest',page:'event-module1-bucharest.html',start:'2026-10-15T17:00:00+03:00',soldOut:false,
+     cdTitle:'TRE&trade; Module 1 Bucharest &middot; 15 October 2026',
+     cdMeta:'Thursday, 15 October 2026 &middot; Introductory Evening 17:00&ndash;19:00 EET &middot; Bucharest',
+     link:'event-module1-bucharest.html',linkText:'View Event',
+     card:{img:'event-bucharest-module1.webp?v=4',alt:'TRE&trade; Module 1 &mdash; Bucharest, Romania, 15&ndash;17 October 2026',
+       tag:'21 ICF CCEUs',date:'15&ndash;17 October 2026 &nbsp;&middot;&nbsp; In-Person &middot; Bucharest',
+       title:'TRE&trade; Module 1 &mdash; Bucharest, Romania',
+       desc:'An immersive 3-day certification training &mdash; the first in Europe in English. Valid as Module 1 of the Global TRE&trade; Provider Certification Program. 21 ICF CCEUs. From &euro;739.',
+       venue:'Bucharest, Rom&acirc;nia',url:'event-module1-bucharest.html',cta:'Details'}},
+    {id:'shaking-bucharest-1',page:'event-shaking-shaping.html',start:'2026-10-20T10:00:00+03:00',soldOut:false,
+     cdTitle:'From Shaking to Shaping &middot; Bucharest &middot; 20 October 2026',
+     cdMeta:'Tuesday, 20 October 2026 &middot; In-Person &middot; Bucharest, Rom&acirc;nia',
+     link:'event-shaking-shaping.html',linkText:'View Event',
+     card:{img:'event-shaking-shaping.webp?v=4',alt:'From Shaking to Shaping &mdash; Isabelle Claus Teixeira and Saymara Ryon, Bucharest',
+       tag:'Isabelle &amp; Saymara',date:'20 &amp; 24 October 2026 &nbsp;&middot;&nbsp; In-Person &middot; Bucharest',
+       title:'From Shaking to Shaping &mdash; Bucharest',
+       desc:'Use of TRE&trade; in a coaching context &mdash; half-day in-person intensives in Bucharest, co-led by Isabelle Claus Teixeira and Saymara Ryon, President of Asocia&#539;ia TRE&trade; Rom&acirc;nia. From &euro;97.',
+       venue:'Bucharest',url:'event-shaking-shaping.html',cta:'Details'}},
+    {id:'shaking-bucharest-2',page:'event-shaking-shaping.html',start:'2026-10-24T10:00:00+03:00',soldOut:false,
+     cdTitle:'From Shaking to Shaping &middot; Bucharest &middot; 24 October 2026',
+     cdMeta:'Saturday, 24 October 2026 &middot; In-Person &middot; Bucharest, Rom&acirc;nia',
+     link:'event-shaking-shaping.html',linkText:'View Event'},
+    {id:'cert-module3',page:'event-certification.html',start:'2027-02-20T10:00:00+08:00',soldOut:false,
+     cdTitle:'TRE&trade; Provider Certification &middot; Module 3 &middot; Singapore',
+     cdMeta:'Saturday &amp; Sunday, 20&ndash;21 February 2027 &middot; In-Person &middot; Singapore',
+     link:'event-certification.html#register',linkText:'Register Now',
+     card:{img:'event-module2.webp?v=4',alt:'TRE&trade; Provider Certification &mdash; Module 3, 20&ndash;21 February 2027, Singapore',
+       tag:'Certification &middot; Singapore',date:'20&ndash;21 February 2027 &nbsp;&middot;&nbsp; In-Person &middot; Singapore',
+       title:'TRE&trade; Provider Certification &mdash; Module 3',
+       desc:'The final module of the Global TRE&trade; Provider Certification &mdash; certification weekend with Isabelle Claus Teixeira, Global TRE&trade; Certifying Trainer. Bundle from S$3,699.',
+       venue:'Singapore',url:'event-certification.html#register',cta:'Register'}}
+  ];
+  window.BHD_EVENTS=EVENTS;
+
+  var CAL='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>';
+  var PIN='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>';
+
+  function activeEvents(){
+    var now=new Date(),out=[],i;
+    for(i=0;i<EVENTS.length;i++){
+      if(!EVENTS[i].soldOut&&new Date(EVENTS[i].start)>now)out.push(EVENTS[i]);
+    }
+    out.sort(function(a,b){return new Date(a.start)-new Date(b.start)});
+    return out;
+  }
+  var pageFile=(location.pathname.split('/').pop()||'index.html').toLowerCase();
+
+  /* --- Homepage featured cards: always the next two active events --- */
+  var homeGrid=document.querySelector('.home-events-grid');
+  if(homeGrid){
+    var hl=activeEvents(),seen={},feat=[],h;
+    for(h=0;h<hl.length&&feat.length<2;h++){
+      if(hl[h].card&&!seen[hl[h].page]){seen[hl[h].page]=1;feat.push(hl[h]);}
+    }
+    if(feat.length){
+      homeGrid.innerHTML=feat.map(function(e){
+        var c=e.card,ext=/^https?:/i.test(c.url)?' target="_blank" rel="noopener"':'';
+        return '<div class="home-evt-card">'
+          +'<div class="hec-img"><img src="'+c.img+'" alt="'+c.alt+'" width="1920" height="1080" loading="lazy"/></div>'
+          +'<div class="hec-body">'
+          +'<span class="hec-tag">'+c.tag+'</span>'
+          +'<div class="hec-date">'+CAL+c.date+'</div>'
+          +'<h3>'+c.title+'</h3>'
+          +'<p>'+c.desc+'</p>'
+          +'<div class="hec-footer">'
+          +'<span class="hec-meta">'+PIN+c.venue+'</span>'
+          +'<a class="et_pb_button" href="'+c.url+'"'+ext+'>'+c.cta+' &rarr;</a>'
+          +'</div></div></div>';
+      }).join('');
+    }else{
+      homeGrid.innerHTML='<div class="home-evt-card"><div class="hec-body"><span class="hec-tag">Upcoming Events</span><h3>New dates coming soon</h3><p>New workshops and certification dates are announced here first &mdash; check back soon.</p><div class="hec-footer"><span class="hec-meta"></span><a class="et_pb_button" href="events.html">View All Events &rarr;</a></div></div></div>';
+    }
+  }
+
+  /* --- Countdown: any page with an #event-countdown block --- */
+  var timerEl=document.getElementById('event-countdown');
+  if(timerEl&&timerEl.closest){
+    var section=timerEl.closest('.countdown-section,.home-countdown');
+    var scope=section||document,timerId=null,hadTarget=false;
+    var pad=function(n){return String(n).padStart(2,'0')};
+    var setNum=function(id,val){
+      var el=document.getElementById(id);
+      if(!el||el.textContent===val)return;
+      el.textContent=val;
+      el.classList.remove('c-flip');void el.offsetWidth;el.classList.add('c-flip');
+    };
+    var render=function(){
+      var list=activeEvents(),own=null,i;
+      for(i=0;i<list.length;i++){if(list[i].page===pageFile){own=list[i];break}}
+      var target=own||list[0];
+      if(!target){
+        if(hadTarget){timerEl.innerHTML='<p style="color:var(--blue);font-weight:700;font-size:16px;margin:0">This event has started!</p>';}
+        else if(section){section.style.display='none';}
+        return;
+      }
+      hadTarget=true;
+      var tEl=scope.querySelector('.countdown-title');if(tEl)tEl.innerHTML=target.cdTitle;
+      var mEl=scope.querySelector('.cd-meta-text');if(mEl)mEl.innerHTML=target.cdMeta;
+      if(!own){
+        var lEl=scope.querySelector('.countdown-text .section-label');if(lEl)lEl.textContent='Next Upcoming Event';
+        var aEl=scope.querySelector('.countdown-text a.et_pb_button');
+        if(aEl){
+          aEl.innerHTML=target.linkText+' &rarr;';
+          aEl.setAttribute('href',target.link);
+          if(/^https?:/i.test(target.link)){aEl.setAttribute('target','_blank');aEl.setAttribute('rel','noopener');}
+          else{aEl.removeAttribute('target');aEl.removeAttribute('rel');}
+        }
+      }
+      var goal=new Date(target.start);
+      var tick=function(){
+        var diff=goal-new Date();
+        if(diff<=0){render();return;}
+        setNum('c-days',pad(Math.floor(diff/86400000)));
+        setNum('c-hours',pad(Math.floor(diff%86400000/3600000)));
+        setNum('c-mins',pad(Math.floor(diff%3600000/60000)));
+        setNum('c-secs',pad(Math.floor(diff%60000/1000)));
+        timerId=setTimeout(tick,1000);
+      };
+      if(timerId)clearTimeout(timerId);
+      tick();
+    };
+    render();
+  }
+
+  /* --- Events page grid: retire cards whose event has fully passed --- */
+  var eventsGrid=document.querySelector('.events-grid');
+  if(eventsGrid){
+    var hasFuture={},now=new Date(),g;
+    for(g=0;g<EVENTS.length;g++){
+      if(!EVENTS[g].soldOut&&new Date(EVENTS[g].start)>now)hasFuture[EVENTS[g].page]=true;
+    }
+    var pastCards=[];
+    eventsGrid.querySelectorAll('.evt-card[data-evt-page]').forEach(function(cardEl){
+      var p=cardEl.getAttribute('data-evt-page');
+      if(hasFuture[p]||cardEl.classList.contains('is-sold')||cardEl.classList.contains('is-past'))return;
+      cardEl.classList.add('is-past');
+      var img=cardEl.querySelector('.ec-img');
+      if(img&&!img.querySelector('.ec-soldout')){
+        var b=document.createElement('span');b.className='ec-soldout';b.textContent='Event Ended';img.insertBefore(b,img.firstChild);
+      }
+      var fill=cardEl.querySelector('.ec-btn-fill');
+      if(fill){fill.textContent='View Event';fill.setAttribute('href',p);fill.removeAttribute('target');fill.removeAttribute('rel');}
+      pastCards.push(cardEl);
+    });
+    pastCards.forEach(function(c){eventsGrid.appendChild(c);});
+    eventsGrid.querySelectorAll('.evt-card.is-sold').forEach(function(c){eventsGrid.appendChild(c);});
+  }
 })();

@@ -228,10 +228,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="container">
     <div class="countdown-inner">
       <div class="countdown-text">
-        <span class="section-label">Workshop Begins In</span>
-        <h3 class="countdown-title">Nervous System Regulation &amp; Neurogenic Tremoring &middot; Singapore</h3>
-        <p class="countdown-meta"><svg class="cd-cal-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="2.5" width="14" height="12" rx="1.5"/><line x1="1" y1="6.5" x2="15" y2="6.5"/><line x1="5" y1="1" x2="5" y2="4"/><line x1="11" y1="1" x2="11" y2="4"/></svg>Saturday, 29 August 2026 &middot; Singapore, In-Person</p>
-        <a class="et_pb_button" href="#register" style="margin:16px 0 0 0">Secure Your Spot &rarr;</a>
+        <span class="section-label">Next Upcoming Event</span>
+        <h3 class="countdown-title">TRE&trade; Provider Certification &middot; Module 2 &middot; Singapore</h3>
+        <p class="countdown-meta"><svg class="cd-cal-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="2.5" width="14" height="12" rx="1.5"/><line x1="1" y1="6.5" x2="15" y2="6.5"/><line x1="5" y1="1" x2="5" y2="4"/><line x1="11" y1="1" x2="11" y2="4"/></svg><span class="cd-meta-text">Saturday &amp; Sunday, 26&ndash;27 September 2026 &middot; In-Person &middot; Singapore</span></p>
+        <a class="et_pb_button" href="event-certification.html#register" style="margin:16px 0 0 0">Register Now &rarr;</a>
       </div>
       <div class="countdown-timer" id="event-countdown">
         <div class="c-unit"><span class="c-n" id="c-days">--</span><span class="c-l">Days</span></div>
@@ -497,13 +497,6 @@ function submitReg(e){
   .then(function(){form.style.display='none';document.getElementById('reg-success').style.display='block'})
   .catch(function(){window.location.href='mailto:isabelle@bhdasia.com?subject='+encodeURIComponent('Event Registration: '+data.event)+'&body='+encodeURIComponent('Name: '+data.name+'\nEmail: '+data.email+'\nPhone: '+(data.phone||'—')+'\nEvent: '+data.event+'\nMessage: '+(data.message||'—'))});
 }
-(function(){
-  var target=new Date('2026-08-29T10:00:00+08:00');
-  function pad(n){return String(n).padStart(2,'0')}
-  function setNum(id,val){var el=document.getElementById(id);if(!el||el.textContent===val)return;el.textContent=val;el.classList.remove('c-flip');void el.offsetWidth;el.classList.add('c-flip')}
-  function tick(){var diff=target-new Date();if(diff<=0){var el=document.getElementById('event-countdown');if(el)el.innerHTML='<p style="color:var(--blue);font-weight:700;font-size:16px">This event has started!</p>';return}setNum('c-days',pad(Math.floor(diff/86400000)));setNum('c-hours',pad(Math.floor(diff%86400000/3600000)));setNum('c-mins',pad(Math.floor(diff%3600000/60000)));setNum('c-secs',pad(Math.floor(diff%60000/1000)));setTimeout(tick,1000)}
-  tick();
-})();
 </script>
 </body>
 </html>
