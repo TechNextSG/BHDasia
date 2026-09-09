@@ -445,7 +445,16 @@
        tag:'Certification &middot; Singapore',date:'20&ndash;21 February 2027 &nbsp;&middot;&nbsp; In-Person &middot; Singapore',
        title:'TRE&trade; Provider Certification &mdash; Module 3',
        desc:'The final module of the Global TRE&trade; Provider Certification &mdash; certification weekend with Isabelle Claus Teixeira, Global TRE&trade; Certifying Trainer. The 2026 intake is now closed.',
-       venue:'Singapore',url:'event-certification.html#register',cta:'Register'}}
+       venue:'Singapore',url:'event-certification.html#register',cta:'Register'}},
+    {id:'cert-2027',page:'event-certification-2027.html',start:'2027-02-27T09:00:00+08:00',soldOut:false,
+     cdTitle:'Become a Certified TRE&trade; Provider &middot; 2027 Cohort &middot; Singapore',
+     cdMeta:'Module 1: 27&ndash;28 February 2027 &middot; In-Person &middot; Singapore',
+     link:'event-certification-2027.html#register',linkText:'Register Now',
+     card:{img:'event-cert-2027.webp?v=4',alt:'Become a Certified TRE&trade; Provider &mdash; 2027 Cohort, Singapore',
+       tag:'Certification &middot; 2027',date:'Feb&ndash;Oct 2027 &nbsp;&middot;&nbsp; In-Person &middot; Singapore',
+       title:'Become a Certified TRE&trade; Provider &mdash; 2027 Cohort',
+       desc:'The 2027 Singapore cohort of the Global TRE&trade; Provider Certification &mdash; co-taught by Isabelle Claus Teixeira &amp; Simba Stenqvist. Module 1: 27&ndash;28 Feb, Module 2: 3&ndash;4 Jul, Module 3: 30&ndash;31 Oct 2027, plus online supervisions and three bonus programs. From S$5,888 early bird.',
+       venue:'Singapore',url:'event-certification-2027.html',cta:'Details'}}
   ];
   window.BHD_EVENTS=EVENTS;
 

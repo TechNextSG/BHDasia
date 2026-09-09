@@ -76,6 +76,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 .evt-card.is-past .ec-soldout{background:#6b7280;box-shadow:0 6px 18px rgba(0,0,0,.25)}
 .ec-soldout{position:absolute;top:14px;left:14px;z-index:3;background:#c0392b;color:#fff;font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;padding:7px 14px;border-radius:6px;box-shadow:0 6px 18px rgba(192,57,43,.45)}
 .ec-btn-sold{background:#c0392b;border:1.6px solid #c0392b;color:#fff;cursor:not-allowed;pointer-events:none}
+.ec-badge{position:absolute;top:14px;left:14px;z-index:3;color:#fff;font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;padding:7px 14px;border-radius:6px;display:inline-flex;align-items:center;gap:6px}
+.ec-badge.sold{background:#c0392b;box-shadow:0 6px 18px rgba(192,57,43,.45)}
+.ec-badge.past{background:#6b7280;box-shadow:0 6px 18px rgba(0,0,0,.25)}
+.ec-badge.ongoing{background:#1f9d6b;box-shadow:0 6px 18px rgba(31,157,107,.4)}
+.ec-badge.ongoing::before{content:"";width:7px;height:7px;border-radius:50%;background:#fff}
+.ec-badge.upcoming{background:#2d6cdf;box-shadow:0 6px 18px rgba(45,108,223,.4)}
+.ec-btn-ended{background:#6b7280;border:1.6px solid #6b7280;color:#fff;cursor:default;pointer-events:none}
+.past-events-section{padding:12px 0 80px;background:var(--off-white)}
+.past-events-section .container{max-width:1400px}
+.past-events-section .section-head{margin-bottom:24px}
 @media(max-width:1060px){.events-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:700px){.events-grid{grid-template-columns:1fr}}
 </style>
@@ -189,10 +199,33 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <p style="text-align:center;font-size:13px;font-weight:700;color:#c0392b;margin:-6px 0 30px"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-3px;margin-right:7px"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>All ticket sales are final &mdash; tickets are non-refundable and non-cancellable.</p>
 
-    <div class="events-grid">
+    <div class="events-grid" id="up-grid">
+
+      <!-- 2027 COHORT -->
+      <div class="evt-card" data-cat="singapore certification" data-start="2027-02-27" data-end="2027-10-31" data-evt-page="event-certification-2027.html">
+        <div class="ec-img">
+          <img src="event-cert-2027.webp?v=4" alt="Become a Certified TRE&trade; Provider &mdash; 2027 Cohort, Singapore" width="1920" height="1080" loading="lazy"/>
+        </div>
+        <div class="ec-body">
+          <div class="ec-tags"><span class="ec-loc">Singapore</span><span class="ec-type">Certification</span></div>
+          <div class="ec-date">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            Module 1: 27&ndash;28 Feb &middot; Module 2: 3&ndash;4 Jul &middot; Module 3: 30&ndash;31 Oct 2027
+          </div>
+          <h3>Become a Certified TRE&trade; Provider &mdash; 2027 Cohort</h3>
+          <p>The 2027 Singapore cohort of the Global TRE&trade; Provider Certification &mdash; co-taught by Isabelle Claus Teixeira and Simba Stenqvist. Three modules plus online supervisions and three bonus programs. Boosted by Internal Alchemy.</p>
+          <div class="ec-footer">
+            <div class="ec-price">from S$5,888<span>Early bird to 31 Dec 2026 &middot; Module 1 from S$1,888</span></div>
+            <div class="ec-ctas">
+              <a class="ec-btn ec-btn-outline" href="event-certification-2027.html">Details</a>
+              <a class="ec-btn ec-btn-fill" href="event-certification-2027.html#register">Register</a>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <!-- EVENT 3: From Shaking to Shaping, Romania -->
-      <div class="evt-card" data-cat="romania" data-evt-page="event-shaking-shaping.html">
+      <div class="evt-card" data-cat="romania" data-start="2026-09-03" data-end="2026-10-24" data-evt-page="event-shaking-shaping.html">
         <div class="ec-img">
           <img src="event-shaking-shaping.webp?v=4" alt="From Shaking to Shaping — Romania" width="1920" height="1080" loading="lazy"/>
         </div>
@@ -214,8 +247,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
       </div>
 
-      <!-- EVENT 2: Full Certification Singapore -->
-      <div class="evt-card is-sold" data-cat="singapore certification soldout">
+      <!-- EVENT 2: Full Certification Singapore (2026, sold out) -->
+      <div class="evt-card is-sold" data-cat="singapore certification soldout" data-start="2026-08-29" data-end="2027-02-21" data-sold="true">
         <div class="ec-img">
           <span class="ec-soldout">Sold Out</span>
           <img src="event-module2.webp?v=4" alt="Become a Certified TRE™ Provider" width="1920" height="1080" loading="lazy"/>
@@ -239,7 +272,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
 
       <!-- EVENT 5: From Shaking to Shaping Online (Oct 8) -->
-      <div class="evt-card" data-cat="romania online" data-evt-page="event-shaking-shaping-oct8.html">
+      <div class="evt-card" data-cat="romania online" data-start="2026-10-08" data-end="2026-10-08" data-evt-page="event-shaking-shaping-oct8.html">
         <div class="ec-img">
           <img src="event-shaking-oct8.webp?v=2" alt="From Shaking to Shaping — live online session, 8 October 2026" width="1920" height="1080" loading="lazy"/>
         </div>
@@ -262,7 +295,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
 
       <!-- EVENT 4: TRE™ Module 1 Bucharest -->
-      <div class="evt-card" data-cat="romania certification" data-evt-page="event-module1-bucharest.html">
+      <div class="evt-card" data-cat="romania certification" data-start="2026-10-15" data-end="2026-10-17" data-evt-page="event-module1-bucharest.html">
         <div class="ec-img">
           <img src="event-bucharest-module1.webp?v=4" alt="TRE™ Module 1 — Bucharest" width="1920" height="1080" loading="lazy"/>
         </div>
@@ -285,7 +318,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
 
       <!-- EVENT 0: Internal Alchemy Intro Workshop (Simba) — ENDED 1 Sep 2026 -->
-      <div class="evt-card is-past" data-cat="singapore workshop" data-evt-page="event-internal-alchemy.html">
+      <div class="evt-card is-past" data-cat="singapore workshop" data-start="2026-09-01" data-end="2026-09-01" data-evt-page="event-internal-alchemy.html">
         <div class="ec-img">
           <span class="ec-soldout">Event Ended</span>
           <img src="event-internal-alchemy.webp?v=2" alt="Internal Alchemy â€” Introductory Workshop with Simba Stenqvist, 1 September 2026, Singapore" width="1920" height="1080" loading="lazy"/>
@@ -308,8 +341,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
       </div>
 
-      <!-- EVENT 1: Singapore Module 1 -->
-      <div class="evt-card is-sold" data-cat="singapore certification soldout" data-evt-page="event-module1-singapore.html">
+      <!-- EVENT 1: Singapore Module 1 (29-30 Aug 2026 — ended) -->
+      <div class="evt-card" data-cat="singapore certification" data-start="2026-08-29" data-end="2026-08-30" data-evt-page="event-module1-singapore.html">
         <div class="ec-img">
           <span class="ec-soldout">Sold Out</span>
           <img src="event-module1.webp?v=4" alt="Nervous System Regulation &amp; Neurogenic Tremoring — Singapore" width="1920" height="1080" loading="lazy"/>
@@ -337,6 +370,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 
 </div>
+
+<div class="past-events-section" id="past-events"><div class="container">
+  <div class="section-head center"><span class="section-label">Archive</span><h2>Past Events</h2><hr class="divider-line"/><p>Recently with us &mdash; now closed</p></div>
+  <div class="events-grid" id="past-events-grid"></div>
+</div></div>
 
 <div class="cta-strip">
   <div class="container">
@@ -376,11 +414,47 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 function filterEvts(btn, cat) {
   document.querySelectorAll('.ef-btn').forEach(function(b){b.classList.remove('active')});
   btn.classList.add('active');
-  document.querySelectorAll('.evt-card').forEach(function(card){
-    if(cat==='all'||card.dataset.cat.indexOf(cat)>-1){card.classList.remove('hidden')}
+  document.querySelectorAll('#up-grid .evt-card').forEach(function(card){
+    if(cat==='all'||(card.dataset.cat||'').indexOf(cat)>-1){card.classList.remove('hidden')}
     else{card.classList.add('hidden')}
   });
 }
+/* ===== Date-driven event status: runs every load ===== */
+(function(){
+  var now=Date.now();
+  function ms(d,e){return d?Date.parse(d+(e?'T23:59:59':'T00:00:00')+'+08:00'):NaN;}
+  var up=document.getElementById('up-grid'),past=document.getElementById('past-events-grid'),pastSec=document.getElementById('past-events');
+  var LABEL={sold:'Sold Out',past:'Passed',ongoing:'Ongoing',upcoming:'Upcoming'};
+  function statusOf(c){
+    if(c.getAttribute('data-sold')==='true')return 'sold';
+    var em=ms(c.getAttribute('data-end')||c.getAttribute('data-start'),true),sm=c.getAttribute('data-start')?ms(c.getAttribute('data-start'),false):em;
+    if(!isNaN(em)&&em<now)return 'past';
+    if(!isNaN(sm)&&sm<=now&&(isNaN(em)||now<=em))return 'ongoing';
+    return 'upcoming';
+  }
+  document.querySelectorAll('.evt-card').forEach(function(c){
+    var st=statusOf(c);c.setAttribute('data-status',st);
+    var img=c.querySelector('.ec-img');
+    if(img){
+      img.querySelectorAll('.ec-soldout,.ec-badge').forEach(function(b){b.remove();});
+      c.classList.remove('is-sold','is-past');
+      if(st==='sold')c.classList.add('is-sold');if(st==='past')c.classList.add('is-past');
+      var b=document.createElement('span');b.className='ec-badge '+st;b.textContent=LABEL[st];img.insertBefore(b,img.firstChild);
+    }
+    if(st==='past'){
+      var soldBtn=c.querySelector('.ec-btn-sold');
+      if(soldBtn){var sp=document.createElement('span');sp.className='ec-btn ec-btn-ended';sp.textContent='Event Ended';soldBtn.replaceWith(sp);}
+      if(past&&c.parentElement!==past)past.appendChild(c);
+    } else if(up&&c.parentElement!==up){c.classList.remove('hidden');up.appendChild(c);}
+  });
+  if(up){
+    var order={ongoing:0,upcoming:0,sold:1};
+    var live=[].slice.call(up.querySelectorAll('.evt-card'));
+    live.sort(function(a,b){var ga=order[a.getAttribute('data-status')]||0,gb=order[b.getAttribute('data-status')]||0;if(ga!==gb)return ga-gb;var sa=ms(a.getAttribute('data-start'),0),sb=ms(b.getAttribute('data-start'),0);if(isNaN(sa))sa=Infinity;if(isNaN(sb))sb=Infinity;return sa-sb;});
+    live.forEach(function(c){up.appendChild(c);});
+  }
+  if(pastSec&&past&&!past.querySelector('.evt-card'))pastSec.style.display='none';
+})();
 </script>
 </body>
 </html>
