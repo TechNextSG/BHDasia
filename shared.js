@@ -410,7 +410,7 @@
      cdTitle:'Navigating Feminine &amp; Masculine Energetics &middot; Sara Marie',
      cdMeta:'Wednesday, 28 October 2026 &middot; 7&ndash;9:30PM SGT &middot; Live Online',
      link:'event-feminine-masculine.html',linkText:'View Event',
-     card:{img:'event-feminine-masculine.webp?v=1',alt:'Navigating Feminine &amp; Masculine Energetics &mdash; Sara Marie, 28 October 2026',
+     card:{img:'event-feminine-masculine.webp?v=2',alt:'Navigating Feminine &amp; Masculine Energetics &mdash; Sara Marie, 28 October 2026',
        tag:'Live Online',date:'28 October 2026 &nbsp;&middot;&nbsp; 7&ndash;9:30PM SGT &middot; Live Online',
        title:'Navigating Feminine &amp; Masculine Energetics',
        desc:'A live online workshop with Sara Marie &mdash; The Alchemist. Alchemising the pressure of masculine corporate structures into liberation, ease and personal power.',
