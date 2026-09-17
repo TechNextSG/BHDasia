@@ -191,9 +191,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       <div class="contact-form">
         <h3>Send a Message</h3>
-        <!-- Formspree: sign up at formspree.io → create a form → replace YOUR_FORM_ID with your form's ID -->
-<form id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="post">
+        <!-- FormSubmit: emails every submission straight to isabelle@bhdasia.com (no account needed). -->
+<form id="contact-form" action="https://formsubmit.co/ajax/isabelle@bhdasia.com" method="post">
 <input type="hidden" name="_subject" value="New enquiry from BHD Asia website"/>
+<input type="hidden" name="_template" value="table"/>
+<input type="text" name="_honey" style="display:none"/>
           <div class="form-group">
             <label for="email">Email *</label>
             <div class="field-wrap"><input type="email" id="email" name="email" placeholder="your@email.com" required/></div>
@@ -312,6 +314,12 @@ document.getElementById('newsletter-form').addEventListener('submit', function(e
   e.preventDefault();
   var input = this.querySelector('input[type="email"]');
   if(!input.value.trim()){ return; }
+  try{
+    fetch('https://formsubmit.co/ajax/isabelle@bhdasia.com', {
+      method:'POST', headers:{'Content-Type':'application/json','Accept':'application/json'},
+      body: JSON.stringify({ _subject:'New newsletter signup — BHD Asia', _template:'table', Email: input.value.trim(), Source:'Newsletter signup — contact.html' })
+    }).catch(function(){});
+  }catch(err){}
   this.style.display = 'none';
   document.getElementById('newsletter-success').style.display = 'block';
 });

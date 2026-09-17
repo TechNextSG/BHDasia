@@ -581,3 +581,29 @@
     eventsGrid.querySelectorAll('.evt-card.is-sold').forEach(function(c){eventsGrid.appendChild(c);});
   }
 })();
+
+// ── Email a form submission straight to Isabelle (FormSubmit) ────────────────
+// Called alongside the existing Google Sheet POST so every enquiry both logs
+// to the sheet AND lands in isabelle@bhdasia.com's inbox.
+function bhdEmailLead(data){
+  try{
+    data = data || {};
+    var payload = {
+      _subject: 'New enquiry from bhdasia.com' + (data.source ? ' — ' + data.source : ''),
+      _template: 'table',
+      _replyto: data.email || '',
+      Name: data.name || data.fullname || '',
+      Email: data.email || '',
+      Phone: data.phone || '',
+      Event: data.event || '',
+      Enquiry: data.inquiry || '',
+      Source: data.source || '',
+      Message: data.message || ''
+    };
+    fetch('https://formsubmit.co/ajax/isabelle@bhdasia.com', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(payload)
+    }).catch(function(){});
+  }catch(e){}
+}
