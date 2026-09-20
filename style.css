@@ -781,7 +781,7 @@ input:focus,textarea:focus,select:focus{box-shadow:0 0 0 3px rgba(212,146,26,.22
 .section-label:has(+ h1, + h2, + h3, + h4):not(.countdown-text .section-label),
 .hero-label:has(+ h1),
 .podcast-head .section-label,
-.page-title-wrap .container > .section-label{display:none}
+.page-title-wrap .container > .section-label{display:none!important}
 /* Labels that carry information a heading lacks stay, as quiet captions */
 .section-label{color:var(--blue-text);font-size:12px;letter-spacing:.1em}
 .clients-home .section-label,.past-events-section .section-label{display:block;font-family:'Sora',sans-serif;font-size:20px;font-weight:600;letter-spacing:-.01em;text-transform:none;color:var(--text);margin-bottom:6px}
@@ -838,3 +838,7 @@ a{text-underline-offset:.15em}
   *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
   .sr{opacity:1;transform:none}
 }
+
+/* -- One card radius across surfaces -- */
+.card,.pillar-card,.value-card,.mission-card,.coaching-package,.story-img,.service-category,.team-main,.team-card{border-radius:var(--r-lg)}
+.stat-box,.contact-detail{border-radius:var(--r-md)}
