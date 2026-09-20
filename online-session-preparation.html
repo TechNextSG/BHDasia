@@ -38,7 +38,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap"/>
-<link rel="stylesheet" href="style.css?v=5"/>
+<link rel="stylesheet" href="style.css?v=6"/>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"HowTo","name":"Preparing for Your Online TRE™ Session","description":"How to set up your space, camera, equipment and support before an online TRE™ session on Zoom.","url":"https://bhdasia.com/online-session-preparation.html","step":[{"@type":"HowToStep","name":"Clear enough space","text":"Choose a room where you can place your device far enough away that your full body is visible standing up and lying on your mat."},{"@type":"HowToStep","name":"Position your camera","text":"Place your device in landscape orientation, roughly hip height, about 2–2.5 metres away, angled so the whole mat is in frame."},{"@type":"HowToStep","name":"Gather what you need","text":"A yoga mat, a device with a camera, wireless headphones, reliable internet, and pillows, cushions or blankets."},{"@type":"HowToStep","name":"Arrange your support person","text":"Ask someone you trust to be in the same home or next door during the session, and give their name and phone number on your consent form."},{"@type":"HowToStep","name":"Check lighting and clothing","text":"Light the room well and wear loose, stretchy, light-coloured trousers so your movement is visible."},{"@type":"HowToStep","name":"Install Zoom","text":"Download the Zoom desktop or mobile app and sign in — sessions can only be joined by authenticated users through the app."}]}
 </script>
@@ -47,52 +47,52 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .prep-lead{max-width:780px}
   .prep-lead p{font-size:16px;line-height:1.9;color:var(--body)}
 
-  .key-note{display:flex;gap:16px;align-items:flex-start;background:var(--navy);border-left:4px solid var(--blue);border-radius:10px;padding:22px 26px;margin-top:28px}
-  .key-note-icon{width:38px;height:38px;border-radius:50%;background:var(--blue);color:#fff;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:18px;font-weight:800}
-  .key-note p{margin:0;padding:0;font-size:14.5px;line-height:1.8;color:rgba(255,255,255,.8)}
+  .key-note{display:flex;gap:16px;align-items:flex-start;background:var(--navy);border-radius:var(--r-md);padding:22px 26px;margin-top:28px}
+  .key-note-icon{width:38px;height:38px;border-radius:50%;background:var(--blue);color:var(--navy);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:18px;font-weight:700}
+  .key-note p{margin:0;padding:0;font-size:15px;line-height:1.8;color:rgba(255,255,255,.8)}
   .key-note strong{color:#fff}
 
   .cam-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:32px}
-  .cam-panel{background:#fff;border:1px solid var(--border);border-radius:12px;padding:18px 18px 22px;box-shadow:var(--shadow-sm)}
-  .cam-panel svg{width:100%;height:auto;display:block;border-radius:8px;background:var(--off-white)}
-  .cam-panel h4{font-size:15.5px;margin:16px 0 6px;color:var(--text)}
-  .cam-panel p{font-size:13.5px;line-height:1.7;color:var(--muted);margin:0;padding:0}
+  .cam-panel{background:#fff;border:1px solid var(--border);border-radius:var(--r-lg);padding:18px 18px 22px;box-shadow:var(--shadow-sm)}
+  .cam-panel svg{width:100%;height:auto;display:block;border-radius:var(--r-md);background:var(--off-white)}
+  .cam-panel h4{font-size:16px;margin:16px 0 6px;color:var(--text)}
+  .cam-panel p{font-size:14px;line-height:1.7;color:var(--muted);margin:0;padding:0}
   @media(max-width:800px){.cam-grid{grid-template-columns:1fr}}
 
   .cam-tips{list-style:none;padding:0;margin:24px 0 0;display:grid;grid-template-columns:1fr 1fr;gap:10px}
-  .cam-tips li{display:flex;gap:10px;align-items:flex-start;background:var(--off-white);border-radius:8px;padding:13px 16px;font-size:13.5px;line-height:1.6;color:var(--body);margin:0}
-  .cam-tips li::before{content:'\2713';color:var(--blue);font-weight:800;flex-shrink:0}
+  .cam-tips li{display:flex;gap:10px;align-items:flex-start;background:var(--off-white);border-radius:var(--r-md);padding:13px 16px;font-size:14px;line-height:1.6;color:var(--body);margin:0}
+  .cam-tips li::before{content:'\2713';color:var(--blue-text);font-weight:700;flex-shrink:0}
   @media(max-width:800px){.cam-tips{grid-template-columns:1fr}}
 
   .prep-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:32px}
-  .prep-card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:24px 22px;transition:transform .2s,box-shadow .2s,border-color .2s}
-  .prep-card:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:var(--blue)}
-  .prep-icon{width:42px;height:42px;border-radius:50%;background:rgba(212,146,26,.12);color:var(--blue-dk);display:flex;align-items:center;justify-content:center;margin-bottom:14px}
+  .prep-card{background:#fff;border:1px solid var(--border);border-radius:var(--r-lg);padding:24px 22px;transition:transform .2s,box-shadow .2s,border-color .2s}
+  .prep-card:hover{box-shadow:var(--shadow);border-color:var(--blue-text)}
+  .prep-icon{width:42px;height:42px;border-radius:50%;background:rgba(212,146,26,.12);color:var(--blue-text);display:flex;align-items:center;justify-content:center;margin-bottom:14px}
   .prep-icon svg{width:20px;height:20px}
-  .prep-card h4{font-size:15.5px;color:var(--text);margin-bottom:6px}
-  .prep-card p{font-size:13.5px;line-height:1.7;color:var(--muted);margin:0;padding:0}
-  .req{display:inline-block;font-size:9.5px;font-weight:800;letter-spacing:.11em;text-transform:uppercase;padding:4px 9px;border-radius:4px;margin-top:12px}
+  .prep-card h4{font-size:16px;color:var(--text);margin-bottom:6px}
+  .prep-card p{font-size:14px;line-height:1.7;color:var(--muted);margin:0;padding:0}
+  .req{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;padding:4px 9px;border-radius:var(--r);margin-top:12px}
   .req.must{background:rgba(192,57,43,.09);color:#a5382b}
-  .req.nice{background:rgba(212,146,26,.14);color:var(--blue-dk)}
+  .req.nice{background:rgba(212,146,26,.14);color:var(--blue-text)}
   @media(max-width:980px){.prep-grid{grid-template-columns:1fr 1fr}}
   @media(max-width:620px){.prep-grid{grid-template-columns:1fr}}
 
   .safety-band{background:var(--navy);padding:70px 0;color:#fff}
   .safety-band h2{color:#fff;font-size:30px;margin-bottom:16px}
-  .safety-band .section-label{color:var(--gold)}
+  .safety-band .section-label{color:var(--blue-text)}
   .safety-band p{color:rgba(255,255,255,.78);font-size:15px;line-height:1.9;max-width:720px}
-  .safety-band strong{color:var(--gold)}
+  .safety-band strong{color:var(--blue-text)}
 
-  .zoom-box{background:#fff;border:1px solid var(--border);border-radius:12px;padding:28px 30px;margin-top:26px;max-width:860px}
+  .zoom-box{background:#fff;border:1px solid var(--border);border-radius:var(--r-lg);padding:28px 30px;margin-top:26px;max-width:860px}
   .zoom-box>p{font-size:15px;line-height:1.85;color:var(--body);margin:0;padding:0}
   .zoom-box ol{margin:18px 0 0;padding-left:20px}
-  .zoom-box li{font-size:14.5px;line-height:1.85;color:var(--body);margin-bottom:9px}
-  .zoom-box li::marker{color:var(--blue);font-weight:700}
-  .zoom-box a{color:var(--blue);font-weight:700}
+  .zoom-box li{font-size:15px;line-height:1.85;color:var(--body);margin-bottom:9px}
+  .zoom-box li::marker{color:var(--blue-text);font-weight:700}
+  .zoom-box a{color:var(--blue-text);font-weight:700}
 
   .final-list{list-style:none;padding:0;margin:28px 0 0;counter-reset:fl;max-width:780px}
-  .final-list li{counter-increment:fl;position:relative;padding:14px 16px 14px 56px;background:#fff;border:1px solid var(--border);border-radius:9px;margin-bottom:10px;font-size:14.5px;line-height:1.65;color:var(--body)}
-  .final-list li::before{content:counter(fl);position:absolute;left:14px;top:13px;width:28px;height:28px;border-radius:50%;background:var(--navy);color:var(--gold);font-size:12.5px;font-weight:800;display:flex;align-items:center;justify-content:center}
+  .final-list li{counter-increment:fl;position:relative;padding:14px 16px 14px 56px;background:#fff;border:1px solid var(--border);border-radius:var(--r-md);margin-bottom:10px;font-size:15px;line-height:1.65;color:var(--body)}
+  .final-list li::before{content:counter(fl);position:absolute;left:14px;top:13px;width:28px;height:28px;border-radius:50%;background:var(--navy);color:var(--blue-text);font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center}
 
   .prep-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:30px}
   .btn-print{background:var(--navy);color:#fff;border:2px solid var(--navy);font-family:'DM Sans',sans-serif;font-size:14px;font-weight:700;padding:12px 26px;border-radius:var(--r);cursor:pointer;transition:var(--t)}
@@ -132,7 +132,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <li class="menu-item"><a href="services.html">Services</a></li>
           <li class="menu-item"><a href="about.html">About</a></li>
           <li class="menu-item current-menu-item"><a href="events.html">Events</a></li>
-          <li class="menu-item"><a href="social.html">Social</a></li>
           <li class="menu-item"><a href="partners.html">Partners</a></li>
           <li class="menu-item"><a href="contact.html">Contact</a></li>
         </ul>
@@ -401,7 +400,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <a href="https://www.linkedin.com/in/isabelleclausteixeira/" target="_blank" rel="noopener" class="footer-soc-btn" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
       </div>
     </div>
-    <div class="footer-widget"><h4>Navigate</h4><ul><li><a href="index.html">Home</a></li><li><a href="services.html">Services</a></li><li><a href="about.html">About</a></li><li><a href="events.html">Events</a></li><li><a href="online-session-preparation.html">Online Session Preparation</a></li><li><a href="social.html">Social</a></li><li><a href="partners.html">Partners</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+    <div class="footer-widget"><h4>Navigate</h4><ul><li><a href="index.html">Home</a></li><li><a href="services.html">Services</a></li><li><a href="about.html">About</a></li><li><a href="events.html">Events</a></li><li><a href="online-session-preparation.html">Online Session Preparation</a></li><li><a href="partners.html">Partners</a></li><li><a href="contact.html">Contact</a></li></ul></div>
     <div class="footer-widget"><h4>Legal</h4><ul><li><a href="privacy.html">Privacy Statement</a></li><li><a href="terms.html">Terms &amp; Conditions</a></li><li><a href="code.html">Code of Practice</a></li><li><a href="inclusivity.html">Inclusivity Statement</a></li></ul></div>
     <div class="footer-widget"><h4>Contact</h4><p>50 Raffles Place, Singapore Land Tower #30-00<br>Singapore 048623</p><p>+81 806515 1778</p><p><a href="mailto:isabelle@bhdasia.com">isabelle@bhdasia.com</a></p><p><a href="contact.html">Book a Discovery Call &rarr;</a></p></div>
   </div></div>
@@ -412,6 +411,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div></div>
 </footer>
 </div>
-<script src="shared.js"></script>
+<script src="shared.js?v=6"></script>
 </body>
 </html>

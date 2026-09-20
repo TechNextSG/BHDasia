@@ -1,4 +1,5 @@
 ﻿(function(){
+  document.documentElement.classList.add('js');
   // Skip-to-content link (accessibility)
   var skip = document.createElement('a');
   skip.href = '#et-main-area';
@@ -76,6 +77,11 @@
       });
     });
   }
+
+  // Safety net: never leave content invisible if the observer stalls (hidden tab, zoom, extension)
+  setTimeout(function(){
+    document.querySelectorAll('.sr:not(.visible)').forEach(function(el){ el.classList.add('visible'); });
+  }, 1400);
 
   // Parallax — disable on mobile or when user prefers reduced motion
   var isMobile = window.matchMedia('(max-width:980px)').matches;
