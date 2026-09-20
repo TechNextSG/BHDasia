@@ -45,45 +45,45 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 .et_pb_section{padding:80px 0}
 .et_pb_section_grey{background:var(--off-white);padding:80px 0}
 .team-member{margin-bottom:10px}
-.team-member img{width:100%;display:block;margin-bottom:14px;filter:grayscale(15%);transition:var(--t)}
-.team-member img:hover{filter:grayscale(0%)}
+.team-member img{width:100%;display:block;margin-bottom:14px;transition:var(--t)}
+
 .team-member h4{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--text);margin-bottom:4px;font-weight:700}
-.team-member .role{font-size:14.5px;color:var(--blue);font-style:italic;margin-bottom:10px}
-.team-member p{font-size:14.5px;color:var(--muted);line-height:1.75}
+.team-member .role{font-size:15px;color:var(--blue-text);font-style:italic;margin-bottom:10px}
+.team-member p{font-size:15px;color:var(--muted);line-height:1.75}
 .blurb-item{display:flex;gap:18px;align-items:flex-start;margin-bottom:28px}
-.blurb-icon{width:42px;height:42px;background:var(--blue);border-radius:var(--r);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:18px;color:#fff}
+.blurb-icon{width:42px;height:42px;background:var(--blue);border-radius:var(--r);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:18px;color:var(--navy)}
 .blurb-item h4{font-size:14px;color:var(--text);margin-bottom:6px;font-weight:700}
-.blurb-item p{font-size:14.5px;color:var(--muted);line-height:1.75;margin:0;padding:0}
+.blurb-item p{font-size:15px;color:var(--muted);line-height:1.75;margin:0;padding:0}
 .clients-section{background:#fff;padding:40px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
 .story-img{aspect-ratio:12/5;position:relative;overflow:hidden;border-radius:var(--r);background:#0c1622;display:flex;align-items:center;justify-content:center;margin-top:6px;box-shadow:var(--shadow-sm)}
 .story-img-inner{position:absolute;inset:0;background:linear-gradient(135deg,#0c1c2e 0%,#1c3e63 55%,#0a1521 100%)}
 .story-img::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 60%,rgba(0,0,0,.32));pointer-events:none;z-index:2}
-.story-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block;filter:grayscale(10%);transition:filter .3s;z-index:1}
-.story-img:hover img{filter:grayscale(0%)}
+.story-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block;transition:filter .3s;z-index:1}
+
 .story-img-ph{position:relative;z-index:1;width:56px;height:56px;color:rgba(255,255,255,.2)}
 /* Team cards */
 .team-section{background:var(--off-white);padding:80px 0}
 /* Main horizontal featured card */
-.team-main{display:flex;background:#fff;border:1px solid var(--border);border-top:3px solid var(--blue);border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow-sm);margin-bottom:28px;transition:var(--t)}
-.team-main:hover{box-shadow:var(--shadow);transform:translateY(-3px)}
+.team-main{display:flex;background:#fff;border:1px solid var(--border);border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow-sm);margin-bottom:28px;transition:var(--t)}
+.team-main:hover{box-shadow:var(--shadow)}
 .team-main-img{width:280px;flex-shrink:0;overflow:hidden}
-.team-main-img img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;filter:grayscale(15%);transition:filter .3s}
-.team-main:hover .team-main-img img{filter:grayscale(0%)}
+.team-main-img img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;transition:filter .3s}
+
 .team-main-body{padding:40px 44px;flex:1;display:flex;flex-direction:column;justify-content:center}
-.team-main-body h4{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--text);margin-bottom:6px;font-weight:700;display:inline-block;padding-bottom:6px;border-bottom:2px solid var(--blue)}
-.team-main-body .role{font-size:14px;color:var(--blue);font-style:italic;margin-bottom:18px;display:block}
+.team-main-body h4{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--text);margin-bottom:6px;font-weight:700;display:inline-block;padding-bottom:6px;}
+.team-main-body .role{font-size:14px;color:var(--blue-text);font-style:italic;margin-bottom:18px;display:block}
 .team-main-body p{font-size:14px;color:var(--body);line-height:1.75;margin-bottom:10px}
 .team-main-body .et_pb_button{align-self:flex-start;margin-top:8px}
 /* Sub cards grid (up to 4 columns) */
 .team-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,360px));gap:28px;align-items:stretch;justify-content:center}
-.team-card{background:#fff;border:1px solid var(--border);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;box-shadow:var(--shadow-sm);transition:var(--t)}
-.team-card:hover{box-shadow:var(--shadow);transform:translateY(-4px)}
-.team-card-img{height:220px;overflow:hidden;position:relative;border-top:3px solid var(--blue)}
-.team-card-img img{width:100%;height:100%;object-fit:cover;object-position:center top;filter:grayscale(20%);transition:filter .3s ease}
-.team-card:hover .team-card-img img{filter:grayscale(0%)}
+.team-card{background:#fff;border-radius:var(--r-lg);overflow:hidden;display:flex;flex-direction:column;box-shadow:var(--shadow-sm);transition:var(--t)}
+.team-card:hover{box-shadow:var(--shadow)}
+.team-card-img{height:220px;overflow:hidden;position:relative;}
+.team-card-img img{width:100%;height:100%;object-fit:cover;object-position:center top;transition:filter .3s ease}
+
 .team-card-body{padding:20px;display:flex;flex-direction:column;flex:1}
 .team-card h4{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--text);margin-bottom:4px;font-weight:700}
-.team-card .role{font-size:12.5px;color:var(--blue);font-style:italic;margin-bottom:12px;display:block}
+.team-card .role{font-size:13px;color:var(--blue-text);font-style:italic;margin-bottom:12px;display:block}
 .team-card p{font-size:13px;color:var(--body);line-height:1.7;margin-bottom:8px}
 .team-card .et_pb_button{margin-top:auto;align-self:flex-start}
 @media(max-width:900px){.team-main{flex-direction:column}.team-main-img{width:100%;height:240px}}

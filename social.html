@@ -41,26 +41,26 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <style>
 /* ── Platform filter tabs ─────────────────── */
 .soc-filters{display:flex;gap:10px;flex-wrap:wrap;margin:36px 0 44px;justify-content:center}
-.sf-btn{display:inline-flex;align-items:center;gap:8px;padding:10px 24px;border:1.5px solid var(--border);background:#fff;color:var(--body);font-size:13px;font-weight:700;font-family:inherit;border-radius:40px;cursor:pointer;transition:all .2s;letter-spacing:.02em}
+.sf-btn{display:inline-flex;align-items:center;gap:8px;padding:10px 24px;border:1.5px solid var(--border);background:#fff;color:var(--body);font-size:13px;font-weight:700;font-family:inherit;border-radius:var(--r-pill);cursor:pointer;transition:all .2s;letter-spacing:.02em}
 .sf-btn svg{width:15px;height:15px}
-.sf-btn:hover{border-color:var(--blue);color:var(--blue);transform:translateY(-1px)}
-.sf-btn.active{background:var(--blue);border-color:var(--blue);color:#fff}
+.sf-btn:hover{border-color:var(--blue-text);color:var(--blue-text)}
+.sf-btn.active{background:var(--blue);border-color:var(--blue-text);color:var(--navy)}
 
 /* ── Platform section ─────────────────────── */
 .platform-section{padding:26px 0 44px}
 .platform-section.hidden{display:none}
-.plat-head{display:flex;align-items:center;gap:16px;margin-bottom:24px;padding-bottom:16px;border-bottom:2px solid var(--border)}
-.plat-icon{width:46px;height:46px;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.plat-head{display:flex;align-items:center;gap:16px;margin-bottom:24px;padding-bottom:16px;}
+.plat-icon{width:46px;height:46px;border-radius:var(--r-lg);display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .plat-icon svg{width:24px;height:24px;color:#fff}
 .plat-fb .plat-icon{background:#1877F2}
 .plat-yt .plat-icon{background:#FF0000}
 .plat-tt .plat-icon{background:#010101}
-.plat-head h2{font-size:22px;font-weight:800;color:var(--text);margin:0;flex:1}
+.plat-head h2{font-size:22px;font-weight:700;color:var(--text);margin:0;flex:1}
 .plat-head .et_pb_button{margin:0;font-size:12px;padding:.6em 1.6em}
 
 /* ── Embed grid ────────────────────────────── */
 .embed-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:start}
-.embed-slot{background:#fff;border:1px solid var(--border);border-radius:12px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.06)}
+.embed-slot{background:#fff;border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.06)}
 .embed-slot iframe{display:block;width:100%;border:0}
 .embed-slot .yt-frame{aspect-ratio:16/9;width:100%;border:0}
 /* placeholder shown until a real embed is pasted in */
@@ -68,8 +68,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 .embed-placeholder .ep-icon{width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;opacity:.9}
 .embed-placeholder .ep-icon svg{width:24px;height:24px;color:#fff}
 .embed-placeholder h4{font-size:14px;font-weight:700;color:var(--text);margin:0}
-.embed-placeholder p{font-size:12.5px;color:var(--muted);line-height:1.6;margin:0;padding:0}
-.embed-placeholder a{font-size:12px;font-weight:700;color:var(--blue);text-decoration:none;letter-spacing:.04em;text-transform:uppercase}
+.embed-placeholder p{font-size:13px;color:var(--muted);line-height:1.6;margin:0;padding:0}
+.embed-placeholder a{font-size:12px;font-weight:700;color:var(--blue-text);text-decoration:none;letter-spacing:.04em;text-transform:uppercase}
 .embed-placeholder a:hover{text-decoration:underline}
 @media(max-width:980px){.embed-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:640px){.embed-grid{grid-template-columns:1fr}.plat-head{flex-wrap:wrap}}
@@ -148,7 +148,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fbhdasia%2F&tabs=timeline&width=500&height=740&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true" width="100%" height="740" style="border:none;overflow:hidden;display:block" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" title="Latest posts from BHD Asia on Facebook"></iframe>
       </div>
     </div>
-    <p style="font-size:12.5px;color:var(--muted);margin-top:12px;text-align:center">This feed updates automatically with every new post on our Facebook page.</p>
+    <p style="font-size:13px;color:var(--muted);margin-top:12px;text-align:center">This feed updates automatically with every new post on our Facebook page.</p>
 </div>
 
 <div class="platform-section plat-yt" data-plat="yt">

@@ -44,31 +44,31 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <style>
 .services-section{padding:50px 0 60px}
 .services-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;align-items:stretch}
-.service-category{background:#fff;box-shadow:var(--shadow-sm);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;transition:transform .25s ease,box-shadow .25s ease}
-.service-category:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg)}
-.svc-img{height:140px;position:relative;overflow:hidden;background:#0c1622;display:flex;align-items:center;justify-content:center;border-top:3px solid var(--blue)}
+.service-category{background:#fff;border:1px solid var(--border);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;transition:transform .25s ease,box-shadow .25s ease}
+.service-category:hover{box-shadow:var(--shadow-lg)}
+.svc-img{height:140px;position:relative;overflow:hidden;background:#0c1622;display:flex;align-items:center;justify-content:center;}
 .svc-img-inner{position:absolute;inset:0;background:linear-gradient(135deg,#0c1c2e 0%,#1c3e63 55%,#0a1521 100%)}
 .svc-img::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(0,0,0,.3));pointer-events:none;z-index:2}
-.svc-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block;filter:grayscale(10%);transition:filter .3s;z-index:1}
-.service-category:hover .svc-img img{filter:grayscale(0%)}
-.coaching-pkg-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top;display:block;filter:grayscale(10%);z-index:1}
+.svc-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block;transition:filter .3s;z-index:1}
+
+.coaching-pkg-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top;display:block;z-index:1}
 .svc-img-ph{position:relative;z-index:1;width:44px;height:44px;color:rgba(255,255,255,.22)}
 .svc-body{padding:24px;display:flex;flex-direction:column;flex:1}
-.service-category h2{font-size:14.5px;color:var(--blue);border-bottom:1px solid var(--border);padding-bottom:12px;margin-bottom:14px;text-transform:uppercase;letter-spacing:.1em;font-weight:700}
+.service-category h2{font-size:15px;color:var(--blue-text);border-bottom:1px solid var(--border);padding-bottom:12px;margin-bottom:14px;text-transform:uppercase;letter-spacing:.1em;font-weight:700}
 .service-list{list-style:none;padding:0;margin:0 0 14px}
-.service-list li{padding:3px 0;font-size:14.5px;color:var(--body);display:flex;align-items:flex-start;gap:10px;line-height:1.5}
+.service-list li{padding:3px 0;font-size:15px;color:var(--body);display:flex;align-items:flex-start;gap:10px;line-height:1.5}
 .service-list li::before{content:'';width:8px;height:8px;background:var(--blue);border-radius:50%;flex-shrink:0;margin-top:6px;display:block}
 .service-category .et_pb_button{margin-top:auto;align-self:flex-start}
-.coaching-package{background:#FEF3EC;border-left:4px solid var(--blue);margin:40px 0;display:flex;overflow:hidden}
+.coaching-package{background:#FEF3EC;margin:40px 0;display:flex;overflow:hidden}
 .coaching-pkg-img{flex:0 0 210px;position:relative;background:#0c1622;overflow:hidden}
 .coaching-pkg-img-inner{position:absolute;inset:0;background:linear-gradient(135deg,#0c1c2e 0%,#1c3e63 55%,#0a1521 100%)}
 .coaching-pkg-img::after{content:'';position:absolute;inset:0;background:linear-gradient(120deg,transparent 55%,rgba(0,0,0,.32));pointer-events:none;z-index:2}
 .coaching-pkg-img-ph{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:48px;height:48px;color:rgba(255,255,255,.22);z-index:1}
 .coaching-pkg-body{flex:1;padding:30px 32px;min-width:0}
 .coaching-package h3{font-size:18px;color:var(--text);margin-bottom:8px}
-.coaching-package .price{font-size:30px;font-weight:800;color:var(--blue);margin-bottom:12px}
-.coaching-package .price span{font-size:14.5px;color:var(--muted);font-weight:400}
-.coaching-package p{font-size:14.5px;color:var(--body);line-height:1.8;margin-bottom:0}
+.coaching-package .price{font-size:30px;font-weight:700;color:var(--blue-text);margin-bottom:12px}
+.coaching-package .price span{font-size:15px;color:var(--muted);font-weight:400}
+.coaching-package p{font-size:15px;color:var(--body);line-height:1.8;margin-bottom:0}
 @media(max-width:768px){.services-cols{grid-template-columns:1fr}.coaching-package{flex-direction:column}.coaching-pkg-img{flex:0 0 150px}}
 </style>
 </head>
@@ -197,11 +197,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
     </div>
 
-    <div class="coaching-package" style="margin-top:0;border-left-color:var(--gold)">
+    <div class="coaching-package" style="margin-top:0;border-left-color:var(--blue-text)">
       <div class="coaching-pkg-img"><img src="svc-leader.jpg" alt="New Leader Accelerator Program" width="800" height="432" loading="lazy"/><div class="coaching-pkg-img-inner"></div></div>
       <div class="coaching-pkg-body">
         <h3>New Leader Accelerator Program</h3>
-        <div class="price" style="font-size:22px;margin-bottom:10px;color:var(--gold)">For Leaders in Transition</div>
+        <div class="price" style="font-size:22px;margin-bottom:10px;color:var(--blue-text)">For Leaders in Transition</div>
         <p>Designed for newly appointed managers, directors, or executives stepping into an expanded role, this programme accelerates the critical first 90 days. Through a blend of structured coaching, stakeholder alignment, and leadership diagnostics, new leaders build confidence, establish credibility, and avoid the common pitfalls that derail early-tenure success.</p>
         <p style="margin-top:8px;padding-top:0;font-size:13px;color:var(--muted)">Includes role diagnostics, up to 6 coaching sessions, stakeholder feedback, and a personalised leadership action plan. Duration and pricing tailored to the individual engagement.</p>
         <a class="et_pb_button btn-outline" href="contact.html" style="margin-top:14px;display:inline-block">Enquire About This Programme</a>
@@ -220,23 +220,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </script>
     <details style="border-bottom:1px solid var(--border);padding:18px 0">
       <summary style="font-weight:600;font-size:15px;cursor:pointer;color:var(--text);list-style:none;display:flex;justify-content:space-between">Do you work with SMEs or only large corporations?</summary>
-      <p style="margin-top:12px;font-size:14.5px;color:var(--body);line-height:1.75">We work with organisations of all sizes — from growth-stage companies to global multinationals. Our programmes are co-designed to fit your team size, budget and goals.</p>
+      <p style="margin-top:12px;font-size:15px;color:var(--body);line-height:1.75">We work with organisations of all sizes — from growth-stage companies to global multinationals. Our programmes are co-designed to fit your team size, budget and goals.</p>
     </details>
     <details style="border-bottom:1px solid var(--border);padding:18px 0">
       <summary style="font-weight:600;font-size:15px;cursor:pointer;color:var(--text);list-style:none;display:flex;justify-content:space-between">How long does a typical engagement take?</summary>
-      <p style="margin-top:12px;font-size:14.5px;color:var(--body);line-height:1.75">Engagements range from a single leadership workshop to a 12-month executive coaching programme. We start with a discovery conversation to understand your needs and propose a timeline.</p>
+      <p style="margin-top:12px;font-size:15px;color:var(--body);line-height:1.75">Engagements range from a single leadership workshop to a 12-month executive coaching programme. We start with a discovery conversation to understand your needs and propose a timeline.</p>
     </details>
     <details style="border-bottom:1px solid var(--border);padding:18px 0">
       <summary style="font-weight:600;font-size:15px;cursor:pointer;color:var(--text);list-style:none;display:flex;justify-content:space-between">Can you deliver programmes outside Singapore?</summary>
-      <p style="margin-top:12px;font-size:14.5px;color:var(--body);line-height:1.75">Yes. BHD Asia has delivered programmes across Europe, the US, Asia, Japan and the Middle East. We adapt delivery language and format to your team's location and culture.</p>
+      <p style="margin-top:12px;font-size:15px;color:var(--body);line-height:1.75">Yes. BHD Asia has delivered programmes across Europe, the US, Asia, Japan and the Middle East. We adapt delivery language and format to your team's location and culture.</p>
     </details>
     <details style="border-bottom:1px solid var(--border);padding:18px 0">
       <summary style="font-weight:600;font-size:15px;cursor:pointer;color:var(--text);list-style:none;display:flex;justify-content:space-between">Is coaching available in languages other than English?</summary>
-      <p style="margin-top:12px;font-size:14.5px;color:var(--body);line-height:1.75">Isabelle coaches in English, French and Spanish, and partners with trusted coaches to meet more language and support needs — serving multinational leadership teams across regions.</p>
+      <p style="margin-top:12px;font-size:15px;color:var(--body);line-height:1.75">Isabelle coaches in English, French and Spanish, and partners with trusted coaches to meet more language and support needs — serving multinational leadership teams across regions.</p>
     </details>
     <details style="padding:18px 0">
       <summary style="font-weight:600;font-size:15px;cursor:pointer;color:var(--text);list-style:none;display:flex;justify-content:space-between">What is the first step to working with BHD Asia?</summary>
-      <p style="margin-top:12px;font-size:14.5px;color:var(--body);line-height:1.75">Book a free 30-minute discovery call. We will listen to your challenges and — only if there is a genuine fit — propose a programme design.</p>
+      <p style="margin-top:12px;font-size:15px;color:var(--body);line-height:1.75">Book a free 30-minute discovery call. We will listen to your challenges and — only if there is a genuine fit — propose a programme design.</p>
     </details>
   </div>
 </section>
