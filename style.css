@@ -1,4 +1,4 @@
-﻿/* ── DESIGN TOKENS ────────────────────────────── */
+/* ── DESIGN TOKENS ────────────────────────────── */
 :root{
   /* Brand — derived from BHD Asia logo */
   --navy:#0b2238;
@@ -341,7 +341,7 @@ body.mobile-nav-open #top-menu .sub-menu{position:static;box-shadow:none;backgro
 .value-card{background:#fff;box-shadow:var(--shadow-sm);border-radius:var(--r);padding:28px 24px;display:flex;flex-direction:column;gap:14px;transition:var(--t);}
 .value-card:hover{box-shadow:var(--shadow)}
 .value-card-icon{width:46px;height:46px;background:var(--blue);border-radius:var(--r-md);display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.value-card-icon svg{width:22px;height:22px;color:#fff;stroke:#fff}
+.value-card-icon svg{width:22px;height:22px;color:var(--navy);stroke:var(--navy)}
 .value-card h3{font-size:16px;color:var(--text);margin:0;font-weight:700;line-height:1.3;font-family:'DM Sans',sans-serif}
 .value-card p{font-size:14px;color:var(--muted);line-height:1.7;margin:0;padding:0}
 .mission-card{background:#fff;padding:36px 38px;border-radius:var(--r);box-shadow:var(--shadow-sm);flex:1}
