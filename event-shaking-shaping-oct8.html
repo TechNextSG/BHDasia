@@ -23,7 +23,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="apple-touch-icon" href="apple-touch-icon.png?v=2"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>From Shaking to Shaping &mdash; Online | 8 October 2026 | BHD Asia</title>
-<meta name="description" content="Use of TRE&trade; in a coaching context — live online session with Isabelle Claus Teixeira &amp; Saymara Ryon, 8 October 2026, 7–9PM. Registration via Neurogenic Integration."/>
+<meta name="description" content="Use of TRE&trade; in a coaching context — live online session with Isabelle Claus Teixeira &amp; Saymara Ryon, 8 October 2026, 7–9PM SGT. Register via Neurogenic Integration."/>
 <meta property="og:type" content="website"/>
 <meta property="og:site_name" content="BHD Asia"/>
 <meta property="og:title" content="From Shaking to Shaping &mdash; Live Online Session | 8 October 2026 | BHD Asia"/>
@@ -37,8 +37,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap"/>
-<link rel="stylesheet" href="style.css?v=5"/>
-<link rel="stylesheet" href="event-detail.css?v=5"/>
+<link rel="stylesheet" href="style.css?v=6"/>
+<link rel="stylesheet" href="event-detail.css?v=6"/>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Event","name":"From Shaking to Shaping — Live Online Session","description":"Use of TRE™ in a coaching context — a live online session led by Isabelle Claus Teixeira, Global TRE™ Certifying Trainer, and Saymara Ryon, President of Asociația TRE™ România. A collaboration between Neurogenic Integration, BHD Asia and HummingBeing.","startDate":"2026-10-08","endDate":"2026-10-08","eventAttendanceMode":"https://schema.org/OnlineEventAttendanceMode","eventStatus":"https://schema.org/EventScheduled","location":{"@type":"VirtualLocation","url":"https://neurogenic-integration.com/"},"image":"https://bhdasia.com/event-shaking-oct8.webp?v=2","organizer":{"@type":"Organization","name":"BHD Asia","url":"https://bhdasia.com/"},"performer":[{"@type":"Person","name":"Isabelle Claus Teixeira"},{"@type":"Person","name":"Saymara Ryon","url":"https://www.atelierdesuflet.ro/"}],"url":"https://bhdasia.com/event-shaking-shaping-oct8.html"}
 </script>
@@ -215,10 +215,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="evt-reg-body">
         <a class="et_pb_button" style="width:100%;text-align:center;justify-content:center;margin-bottom:16px" href="https://neurogenic-integration.com/" target="_blank" rel="noopener">Register at neurogenic-integration.com &rarr;</a>
         <form class="evt-reg-form" id="evt-reg-form" onsubmit="submitReg(event)">
-          <input type="text" name="name" placeholder="Full Name *" required/>
-          <input type="email" name="email" placeholder="Email Address *" required/>
-          <input type="tel" name="phone" placeholder="Phone (optional)"/>
-          <textarea name="message" rows="3" placeholder="Your question about the session (optional)"></textarea>
+          <input type="text" name="name" placeholder="Full Name *" aria-label="Full Name" required/>
+          <input type="email" name="email" placeholder="Email Address *" aria-label="Email Address" required/>
+          <input type="tel" name="phone" placeholder="Phone (optional)" aria-label="Phone (optional)"/>
+          <textarea name="message" rows="3" placeholder="Your question about the session (optional)" aria-label="Your question about the session (optional)"></textarea>
           <button type="submit">Send Enquiry &rarr;</button>
         </form>
         <div class="reg-success-box" id="reg-success" style="display:none">
@@ -267,7 +267,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div></div>
 </footer>
 </div>
-<script src="shared.js"></script>
+<script src="shared.js?v=6"></script>
 <script>
 function submitReg(e){e.preventDefault();var form=document.getElementById('evt-reg-form');var btn=form.querySelector('button[type="submit"]');btn.disabled=true;btn.textContent='Sending…';var data={source:'BHDasia Event — From Shaking to Shaping Online 8 Oct',event:'From Shaking to Shaping — Live Online Session, 8 October 2026',inquiry:'Event question',name:form.name.value,email:form.email.value,phone:form.phone.value,message:form.message.value};bhdEmailLead(data);fetch('https://script.google.com/macros/s/AKfycbxkv934L8ffTxU1TPUiw3jn9Hu6KmdE0Ol1CcJRB_vWstls2xiZHHb-LErG5qHXdTuX/exec',{method:'POST',mode:'no-cors',body:new URLSearchParams(data)}).then(function(){form.style.display='none';document.getElementById('reg-success').style.display='block'}).catch(function(){window.location.href='mailto:isabelle@bhdasia.com?subject='+encodeURIComponent('From Shaking to Shaping Online: question')+'&body='+encodeURIComponent('Name: '+data.name+'\nEmail: '+data.email+'\nMessage: '+(data.message||'—'))});}
 </script>

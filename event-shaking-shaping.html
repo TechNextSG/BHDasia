@@ -37,8 +37,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap"/>
-<link rel="stylesheet" href="style.css?v=5"/>
-<link rel="stylesheet" href="event-detail.css?v=5"/>
+<link rel="stylesheet" href="style.css?v=6"/>
+<link rel="stylesheet" href="event-detail.css?v=6"/>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Event","name":"From Shaking to Shaping - TRE™ Workshop","description":"An online TRE™ workshop series, September-October 2026, co-facilitated by Isabelle Claus Teixeira and Saymara Ryon with TRE™ Romania.","startDate":"2026-09-03","endDate":"2026-10-24","eventAttendanceMode":"https://schema.org/OnlineEventAttendanceMode","eventStatus":"https://schema.org/EventScheduled","location":{"@type":"VirtualLocation","url":"https://bhdasia.com/event-shaking-shaping.html"},"image":"https://bhdasia.com/event-shaking-shaping.webp?v=4","offers":{"@type":"AggregateOffer","lowPrice":"97","highPrice":"97","priceCurrency":"EUR","url":"mailto:isabelle@bhdasia.com?subject=Waitlist%3A%20From%20Shaking%20to%20Shaping%20Bucharest","availability":"https://schema.org/SoldOut"},"organizer":{"@type":"Organization","name":"BHD Asia","url":"https://bhdasia.com/"},"performer":[{"@type":"Person","name":"Isabelle Claus Teixeira"},{"@type":"Person","name":"Saymara Ryon","url":"https://www.atelierdesuflet.ro/"}],"url":"https://bhdasia.com/event-shaking-shaping.html"}
 </script>
@@ -262,16 +262,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <span style="display:block;width:100%;text-align:center;padding:12px;margin-bottom:10px;background:#c0392b;color:#fff;border-radius:var(--r-md);font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase">Online &middot; 3 Sep &mdash; Sold Out</span>
         <a class="et_pb_button" style="width:100%;text-align:center;justify-content:center;margin-bottom:16px" href="mailto:isabelle@bhdasia.com?subject=Waitlist%3A%20From%20Shaking%20to%20Shaping%20Bucharest" target="_blank" rel="noopener">Join the Waitlist &mdash; Bucharest &rarr;</a>
         <form class="evt-reg-form" id="evt-reg-form" onsubmit="submitReg(event)">
-          <select name="event" required style="color:var(--body)">
+          <select name="event" aria-label="Event" required style="color:var(--body)">
             <option value="">— Which session? *</option>
             <option disabled>From Shaking to Shaping — 3 September 2026 · Online (SOLD OUT)</option>
             <option>From Shaking to Shaping — 20 October 2026 · Bucharest (In-Person)</option>
             <option>From Shaking to Shaping — 24 October 2026 · Bucharest (In-Person)</option>
           </select>
-          <input type="text" name="name" placeholder="Full Name *" required/>
-          <input type="email" name="email" placeholder="Email Address *" required/>
-          <input type="tel" name="phone" placeholder="Phone (optional)"/>
-          <textarea name="message" rows="3" placeholder="Questions or special requirements? (optional)"></textarea>
+          <input type="text" name="name" placeholder="Full Name *" aria-label="Full Name" required/>
+          <input type="email" name="email" placeholder="Email Address *" aria-label="Email Address" required/>
+          <input type="tel" name="phone" placeholder="Phone (optional)" aria-label="Phone (optional)"/>
+          <textarea name="message" rows="3" placeholder="Questions or special requirements? (optional)" aria-label="Questions or special requirements? (optional)"></textarea>
           <button type="submit">Send Enquiry &rarr;</button>
         </form>
         <div class="reg-success-box" id="reg-success" style="display:none">
@@ -345,7 +345,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div></div>
 </footer>
 </div>
-<script src="shared.js"></script>
+<script src="shared.js?v=6"></script>
 <script>
 function submitReg(e){e.preventDefault();var form=document.getElementById('evt-reg-form');var btn=form.querySelector('button[type="submit"]');btn.disabled=true;btn.textContent='Sending…';var data={source:'BHDasia Event — Shaking to Shaping Romania',event:form.event.value,inquiry:'Event registration enquiry',name:form.name.value,email:form.email.value,phone:form.phone.value,message:form.message.value};bhdEmailLead(data);fetch('https://script.google.com/macros/s/AKfycbxkv934L8ffTxU1TPUiw3jn9Hu6KmdE0Ol1CcJRB_vWstls2xiZHHb-LErG5qHXdTuX/exec',{method:'POST',mode:'no-cors',body:new URLSearchParams(data)}).then(function(){form.style.display='none';document.getElementById('reg-success').style.display='block'}).catch(function(){window.location.href='mailto:isabelle@bhdasia.com?subject='+encodeURIComponent('Workshop Registration: '+data.event)+'&body='+encodeURIComponent('Name: '+data.name+'\nEmail: '+data.email+'\nEvent: '+data.event+'\nMessage: '+(data.message||'—'))});}
 </script>

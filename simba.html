@@ -40,7 +40,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&amp;family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400&amp;display=swap"/>
-<link rel="stylesheet" href="style.css?v=5"/>
+<link rel="stylesheet" href="style.css?v=6"/>
 <style>
 /* ── Scroll-reveal ─────────────────────────── */
 .reveal{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s ease}
@@ -156,8 +156,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div id="et-main-area" tabindex="-1">
 <div class="page-title-wrap">
-  <video class="page-hero-video" autoplay muted loop playsinline preload="none" poster="hero-events.webp">
-    <source src="hero-events.mp4" type="video/mp4">
+  <video class="page-hero-video" aria-hidden="true" tabindex="-1" autoplay muted loop playsinline preload="none" poster="hero-events.webp">
+    <source src="hero-events.mp4?v=2" type="video/mp4">
   </video>
   <div class="page-hero-overlay"></div>
   <div class="container">
@@ -381,7 +381,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div></div>
 </footer>
 </div>
-<script src="shared.js"></script>
+<script src="shared.js?v=6"></script>
 <script>
 (function(){
   if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;

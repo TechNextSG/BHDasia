@@ -23,7 +23,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="apple-touch-icon" href="apple-touch-icon.png?v=2"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>Navigating Feminine &amp; Masculine Energetics | Sara Marie | BHD Asia</title>
-<meta name="description" content="A live online workshop with Sara Marie (The Alchemist) — navigating feminine &amp; masculine energetics inside corporate structures. 28 October 2026, 7–9:30PM Singapore time, on Zoom."/>
+<meta name="description" content="Live online workshop with Sara Marie (The Alchemist) — feminine &amp; masculine energetics inside corporate structures. 28 October 2026, 7–9:30PM Singapore time, on Zoom."/>
 <meta property="og:type" content="website"/>
 <meta property="og:site_name" content="BHD Asia"/>
 <meta property="og:title" content="Navigating Feminine &amp; Masculine Energetics Inside Corporate Structures | BHD Asia"/>
@@ -37,8 +37,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap"/>
-<link rel="stylesheet" href="style.css?v=5"/>
-<link rel="stylesheet" href="event-detail.css?v=5"/>
+<link rel="stylesheet" href="style.css?v=6"/>
+<link rel="stylesheet" href="event-detail.css?v=6"/>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Event","name":"Navigating Feminine & Masculine Energetics Inside Corporate Structures","description":"A live online workshop with Sara Marie (The Alchemist) — bringing energetic awareness together with somatic embodiment, so navigating masculine corporate structures becomes a place of liberation, ease and personal power. 28 October 2026, 7–9:30PM Singapore time, on Zoom.","startDate":"2026-10-28T19:00:00+08:00","endDate":"2026-10-28T21:30:00+08:00","eventAttendanceMode":"https://schema.org/OnlineEventAttendanceMode","eventStatus":"https://schema.org/EventScheduled","location":{"@type":"VirtualLocation","url":"https://calendly.com/sara-spirit/feminine-masculine-energetics-in-the-corporate-world"},"image":"https://bhdasia.com/event-feminine-masculine.webp","organizer":{"@type":"Organization","name":"BHD Asia","url":"https://bhdasia.com/"},"performer":{"@type":"Person","name":"Sara Marie","url":"https://linktr.ee/saramariespirit"},"offers":[{"@type":"Offer","name":"Public","price":"88","priceCurrency":"SGD","availability":"https://schema.org/InStock","url":"https://calendly.com/sara-spirit/feminine-masculine-energetics-in-the-corporate-world"},{"@type":"Offer","name":"TRE™ providers trained by Isabelle & Simba","price":"68","priceCurrency":"SGD","availability":"https://schema.org/InStock","url":"https://calendly.com/sara-spirit/feminine-masculine-energetics-in-the-corporate-world"}],"url":"https://bhdasia.com/event-feminine-masculine.html"}
 </script>
@@ -206,10 +206,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <a class="et_pb_button" style="width:100%;text-align:center;justify-content:center;margin-bottom:16px" href="https://calendly.com/sara-spirit/feminine-masculine-energetics-in-the-corporate-world" target="_blank" rel="noopener">Register on Calendly &rarr;</a>
         <p style="font-size:13px;color:var(--muted);line-height:1.6;margin:0 0 16px">Guest and concessionary places are arranged directly with Isabelle &mdash; use the form below or email <a href="mailto:isabelle@bhdasia.com">isabelle@bhdasia.com</a>.</p>
         <form class="evt-reg-form" id="evt-reg-form" onsubmit="submitReg(event)">
-          <input type="text" name="name" placeholder="Full Name *" required/>
-          <input type="email" name="email" placeholder="Email Address *" required/>
-          <input type="tel" name="phone" placeholder="Phone (optional)"/>
-          <textarea name="message" rows="3" placeholder="Your question (optional)"></textarea>
+          <input type="text" name="name" placeholder="Full Name *" aria-label="Full Name" required/>
+          <input type="email" name="email" placeholder="Email Address *" aria-label="Email Address" required/>
+          <input type="tel" name="phone" placeholder="Phone (optional)" aria-label="Phone (optional)"/>
+          <textarea name="message" rows="3" placeholder="Your question (optional)" aria-label="Your question (optional)"></textarea>
           <button type="submit">Send Enquiry &rarr;</button>
         </form>
         <div class="reg-success-box" id="reg-success" style="display:none">
@@ -257,7 +257,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div></div>
 </footer>
 </div>
-<script src="shared.js"></script>
+<script src="shared.js?v=6"></script>
 <script>
 function submitReg(e){e.preventDefault();var form=document.getElementById('evt-reg-form');var btn=form.querySelector('button[type="submit"]');btn.disabled=true;btn.textContent='Sending…';var data={source:'BHDasia Event — Feminine & Masculine Energetics (Sara Marie) 28 Oct',event:'Navigating Feminine & Masculine Energetics — 28 October 2026, 7–9:30PM SGT',inquiry:'Event question',name:form.name.value,email:form.email.value,phone:form.phone.value,message:form.message.value};bhdEmailLead(data);fetch('https://script.google.com/macros/s/AKfycbxkv934L8ffTxU1TPUiw3jn9Hu6KmdE0Ol1CcJRB_vWstls2xiZHHb-LErG5qHXdTuX/exec',{method:'POST',mode:'no-cors',body:new URLSearchParams(data)}).then(function(){form.style.display='none';document.getElementById('reg-success').style.display='block'}).catch(function(){window.location.href='mailto:isabelle@bhdasia.com?subject='+encodeURIComponent('Feminine & Masculine Energetics: question')+'&body='+encodeURIComponent('Name: '+data.name+'\nEmail: '+data.email+'\nMessage: '+(data.message||'—'))});}
 </script>

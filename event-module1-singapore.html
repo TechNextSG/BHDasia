@@ -23,7 +23,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="apple-touch-icon" href="apple-touch-icon.png?v=2"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>Nervous System Regulation Workshop | Singapore Aug 2026 | BHD Asia</title>
-<meta name="description" content="A 2-day in-person TRE™ workshop for coaches in Singapore, 29–30 August 2026. 21 ICF CCEUs. Valid as Module 1 of the Global TRE™ Provider Certification. Led by Isabelle Claus Teixeira."/>
+<meta name="description" content="A 2-day in-person TRE™ workshop for coaches in Singapore, 29–30 August 2026. 21 ICF CCEUs. Valid as Module 1 of the Global TRE™ Provider Certification."/>
 <meta property="og:title" content="Nervous System Regulation &amp; Neurogenic Tremoring | Singapore | BHD Asia"/>
 <meta property="og:description" content="2-day TRE™ workshop for coaches in Singapore. 21 ICF CCEUs. Aug 29–30, 2026."/>
 <meta property="og:image" content="https://bhdasia.com/event-module1.webp?v=4"/>
@@ -32,12 +32,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta property="og:url" content="https://bhdasia.com/event-module1-singapore.html"/>
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:title" content="Nervous System Regulation &amp; Neurogenic Tremoring | Singapore | BHD Asia"/>
-<meta name="twitter:description" content="A 2-day in-person TRE™ workshop for coaches in Singapore, 29–30 August 2026. 21 ICF CCEUs. Valid as Module 1 of the Global TRE™ Provider Certification. Led by Isabelle Claus Teixeira."/>
+<meta name="twitter:description" content="A 2-day in-person TRE™ workshop for coaches in Singapore, 29–30 August 2026. 21 ICF CCEUs. Valid as Module 1 of the Global TRE™ Provider Certification."/>
 <link rel="canonical" href="https://bhdasia.com/event-module1-singapore.html"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&amp;family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400&amp;display=swap"/>
-<link rel="stylesheet" href="style.css?v=5"/>
+<link rel="stylesheet" href="style.css?v=6"/>
 <style>
 /* ── Event detail shared styles ────────── */
 .evt-hero{position:relative;min-height:480px;display:flex;align-items:flex-end;overflow:hidden;margin-top:60px}
@@ -399,14 +399,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
         <div class="evt-reg-body">
           <form class="evt-reg-form" id="evt-reg-form" onsubmit="submitReg(event)">
-            <select name="event" required style="color:var(--body)">
+            <select name="event" aria-label="Event" required style="color:var(--body)">
               <option value="">— Select a date &amp; session *</option>
               <option selected>Nervous System Regulation — 29 &amp; 30 August 2026 · Singapore (In-Person)</option>
             </select>
-            <input type="text" name="name" placeholder="Full Name *" required/>
-            <input type="email" name="email" placeholder="Email Address *" required/>
-            <input type="tel" name="phone" placeholder="Phone (optional)"/>
-            <textarea name="message" rows="3" placeholder="Questions, prior TRE™ experience, or requirements? (optional)"></textarea>
+            <input type="text" name="name" placeholder="Full Name *" aria-label="Full Name" required/>
+            <input type="email" name="email" placeholder="Email Address *" aria-label="Email Address" required/>
+            <input type="tel" name="phone" placeholder="Phone (optional)" aria-label="Phone (optional)"/>
+            <textarea name="message" rows="3" placeholder="Questions, prior TRE™ experience, or requirements? (optional)" aria-label="Questions, prior TRE™ experience, or requirements? (optional)"></textarea>
             <button type="submit">Send Enquiry &rarr;</button>
           </form>
           <div class="reg-success-box" id="reg-success" style="display:none">
@@ -483,7 +483,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div></div>
 </footer>
 </div>
-<script src="shared.js"></script>
+<script src="shared.js?v=6"></script>
 <script>
 function submitReg(e){
   e.preventDefault();

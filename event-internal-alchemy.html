@@ -37,8 +37,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap"/>
-<link rel="stylesheet" href="style.css?v=5"/>
-<link rel="stylesheet" href="event-detail.css?v=5"/>
+<link rel="stylesheet" href="style.css?v=6"/>
+<link rel="stylesheet" href="event-detail.css?v=6"/>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Event","name":"Internal Alchemy — Introductory Workshop","description":"First time in Singapore — an introductory workshop in Internal Alchemy, an integrated system combining breathwork, fascial release, grounding and tremor work, restoring the nervous system at the level where tension actually lives. Led by Simba Stenqvist, Global TRE™ Certifying Trainer and creator of Internal Alchemy.","startDate":"2026-09-01T19:00:00+08:00","endDate":"2026-09-01T21:00:00+08:00","eventAttendanceMode":"https://schema.org/OfflineEventAttendanceMode","eventStatus":"https://schema.org/EventScheduled","location":{"@type":"Place","name":"Nilayam Ashtanga Studio","address":{"@type":"PostalAddress","addressLocality":"Singapore","addressCountry":"SG"}},"image":"https://bhdasia.com/event-internal-alchemy.webp?v=2","organizer":{"@type":"Organization","name":"BHD Asia","url":"https://bhdasia.com/"},"performer":{"@type":"Person","name":"Simba Stenqvist","url":"https://livingwiththespirit.com/"},"offers":{"@type":"Offer","price":"79","priceCurrency":"SGD","availability":"https://schema.org/InStock","url":"https://bhdasia.com/event-internal-alchemy.html"},"url":"https://bhdasia.com/event-internal-alchemy.html"}
 </script>
@@ -198,16 +198,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
       <div class="evt-reg-body">
         <form class="evt-reg-form" id="evt-reg-form" onsubmit="submitReg(event)">
-          <select name="event" required style="color:var(--body)">
+          <select name="event" aria-label="Event" required style="color:var(--body)">
             <option value="">— What would you like? *</option>
             <option>Internal Alchemy Introductory Workshop — 1 Sep 2026 · S$79</option>
             <option>Internal Alchemy Workshop + info on TRE™ Certification 2027</option>
             <option>Not sure yet — send me the details</option>
           </select>
-          <input type="text" name="name" placeholder="Full Name *" required/>
-          <input type="email" name="email" placeholder="Email Address *" required/>
-          <input type="tel" name="phone" placeholder="Phone (optional)"/>
-          <textarea name="message" rows="3" placeholder="Questions or special requirements? (optional)"></textarea>
+          <input type="text" name="name" placeholder="Full Name *" aria-label="Full Name" required/>
+          <input type="email" name="email" placeholder="Email Address *" aria-label="Email Address" required/>
+          <input type="tel" name="phone" placeholder="Phone (optional)" aria-label="Phone (optional)"/>
+          <textarea name="message" rows="3" placeholder="Questions or special requirements? (optional)" aria-label="Questions or special requirements? (optional)"></textarea>
           <button type="submit">Register &rarr;</button>
         </form>
         <div class="reg-success-box" id="reg-success" style="display:none">
@@ -256,7 +256,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div></div>
 </footer>
 </div>
-<script src="shared.js"></script>
+<script src="shared.js?v=6"></script>
 <script>
 function submitReg(e){e.preventDefault();var form=document.getElementById('evt-reg-form');var btn=form.querySelector('button[type="submit"]');btn.disabled=true;btn.textContent='Sending…';var data={source:'BHDasia Event — Internal Alchemy Singapore',event:form.event.value,inquiry:'Event registration enquiry',name:form.name.value,email:form.email.value,phone:form.phone.value,message:form.message.value};bhdEmailLead(data);fetch('https://script.google.com/macros/s/AKfycbxkv934L8ffTxU1TPUiw3jn9Hu6KmdE0Ol1CcJRB_vWstls2xiZHHb-LErG5qHXdTuX/exec',{method:'POST',mode:'no-cors',body:new URLSearchParams(data)}).then(function(){form.style.display='none';document.getElementById('reg-success').style.display='block'}).catch(function(){window.location.href='mailto:isabelle@bhdasia.com?subject='+encodeURIComponent('Internal Alchemy Workshop Registration')+'&body='+encodeURIComponent('Name: '+data.name+'\nEmail: '+data.email+'\nEvent: '+data.event+'\nMessage: '+(data.message||'—'))});}
 </script>
