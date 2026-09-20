@@ -577,8 +577,9 @@
       if(fill){fill.textContent='View Event';fill.setAttribute('href',p);fill.removeAttribute('target');fill.removeAttribute('rel');}
       pastCards.push(cardEl);
     });
-    pastCards.forEach(function(c){eventsGrid.appendChild(c);});
+    /* Order: available upcoming first (priority), then sold-out, then past at the very back */
     eventsGrid.querySelectorAll('.evt-card.is-sold').forEach(function(c){eventsGrid.appendChild(c);});
+    pastCards.forEach(function(c){eventsGrid.appendChild(c);});
   }
 })();
 
