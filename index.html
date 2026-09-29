@@ -22,29 +22,27 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png?v=2"/>
 <link rel="apple-touch-icon" href="apple-touch-icon.png?v=2"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Executive Coaching &amp; HR Consulting Singapore | BHD Asia</title>
-<meta name="description" content="BHD Asia — boutique HR consulting and executive coaching in Singapore. Leadership development, resilience and TRE™ for organisations worldwide."/>
+<title>Executive Coaching &amp; HR Consulting in Singapore | BHD Asia</title>
+<meta name="description" content="Executive coaching, HR consulting and TRE™ resilience programmes from Singapore since 2012. Co-designed leadership development for organisations worldwide."/>
 <meta property="og:type" content="website"/>
 <meta property="og:site_name" content="BHD Asia"/>
-<meta property="og:title" content="Executive Coaching &amp; HR Consulting Singapore | BHD Asia"/>
-<meta property="og:description" content="BHD Asia — boutique HR consulting and executive coaching in Singapore. Leadership development, resilience and TRE™ for organisations worldwide."/>
+<meta property="og:title" content="Executive Coaching &amp; HR Consulting in Singapore | BHD Asia"/>
+<meta property="og:description" content="Executive coaching, HR consulting and TRE™ resilience programmes from Singapore since 2012. Co-designed leadership development for organisations worldwide."/>
 <meta property="og:url" content="https://bhdasia.com/"/>
 <meta property="og:image" content="https://bhdasia.com/isagrey.jpg"/>
 <meta property="og:image:width" content="700"/>
 <meta property="og:image:height" content="467"/>
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:title" content="Executive Coaching &amp; HR Consulting Singapore | BHD Asia"/>
-<meta name="twitter:description" content="BHD Asia — boutique HR consulting and executive coaching in Singapore. Leadership development, resilience and TRE™ for organisations worldwide."/>
+<meta name="twitter:title" content="Executive Coaching &amp; HR Consulting in Singapore | BHD Asia"/>
+<meta name="twitter:description" content="Executive coaching, HR consulting and TRE™ resilience programmes from Singapore since 2012. Co-designed leadership development for organisations worldwide."/>
 <link rel="canonical" href="https://bhdasia.com/"/>
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Organization","name":"BHD Asia","url":"https://bhdasia.com/","logo":"https://bhdasia.com/favicon-192.png","sameAs":["https://www.facebook.com/bhdasia/","https://www.instagram.com/isabelleclausteixeira_bhd/","https://www.youtube.com/@IsabelleClausTeixeira","https://www.linkedin.com/in/isabelleclausteixeira/"],"description":"Boutique HR consulting, executive coaching and resilience building in Singapore, serving organisations worldwide.","address":{"@type":"PostalAddress","addressLocality":"Singapore","addressCountry":"SG"},"contactPoint":{"@type":"ContactPoint","email":"isabelle@bhdasia.com","contactType":"customer service"},"foundingDate":"2012","areaServed":["Singapore","Europe","United States","Asia","Japan"],"serviceType":["Executive Coaching","HR Consulting","Leadership Development","Resilience Building","TRE™ Workshops"]}
-</script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link rel="preconnect" href="https://sp-ao.shortpixel.ai"/>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&amp;family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400&amp;display=swap"/>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&amp;display=swap"/>
-<link rel="stylesheet" href="style.css?v=11"/>
+<link rel="stylesheet" href="style.css?v=12"/>
 <style>
 /* -- HERO ------------------------------- */
 .hero{position:relative;min-height:calc(100vh - 60px);display:flex;align-items:center;margin-top:60px;overflow:hidden}
@@ -415,7 +413,28 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .hx-js .hx-pil-panel .hx-pil-media{clip-path:none}
   .hx-cl-collapsed li{display:flex!important}
 }
+
+/* home FAQ (hx-faq) — answer-first questions, native details/summary */
+.hx-faq{background:var(--ivory);padding:80px 0 72px}
+.hx-faq-grid{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,7fr);gap:48px;align-items:start}
+.hx-faq-h{font-size:clamp(24px,2.6vw,32px);margin:0 0 12px;color:var(--ink);letter-spacing:-.02em}
+.hx-faq .hx-lede{margin:0 0 22px}
+.hx-faq-list{border-top:1px solid var(--line)}
+.hx-faq-item{border-bottom:1px solid var(--line)}
+.hx-faq-item summary{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:18px;min-height:60px;padding:16px 4px;cursor:pointer;font-weight:700;font-size:17px;line-height:1.4;color:var(--ink);border-radius:10px;transition:color .4s var(--ease-soft,ease)}
+.hx-faq-item summary::-webkit-details-marker{display:none}
+.hx-faq-item summary:hover{color:var(--amber-ink)}
+.hx-faq-item summary:focus-visible{outline:2px solid var(--marigold-dk);outline-offset:2px}
+.hx-faq-ic{flex:none;display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--peach);color:var(--amber-ink);transition:transform .5s var(--ease-soft,ease),background-color .4s}
+.hx-faq-ic svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round}
+.hx-faq-item[open] .hx-faq-ic{transform:rotate(45deg);background:var(--marigold);color:var(--ink)}
+.hx-faq-a{margin:0;padding:0 52px 20px 4px;color:var(--warm-body);font-size:16px;line-height:1.7}
+.hx-faq-item[open] .hx-faq-a{animation:hx-faq-in .6s var(--ease-soft,ease) both}
+@keyframes hx-faq-in{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+@media (max-width:900px){.hx-faq{padding:56px 0 48px}.hx-faq-grid{grid-template-columns:minmax(0,1fr);gap:20px}.hx-faq-a{padding-right:8px}}
+@media (prefers-reduced-motion:reduce){.hx-faq-item[open] .hx-faq-a{animation:none}.hx-faq-ic{transition:none}}
 </style>
+<script type="application/ld+json" id="bhd-ld">{"@context":"https://schema.org","@graph":[{"@type":["Organization","ProfessionalService"],"@id":"https://bhdasia.com/#organization","name":"BHD Asia","legalName":"Business & Human Development Consulting Pte Ltd","alternateName":["BHD Asia Singapore","Business and Human Development Consulting"],"url":"https://bhdasia.com/","logo":{"@type":"ImageObject","url":"https://bhdasia.com/favicon-192.png","width":192,"height":192},"image":"https://bhdasia.com/isagrey.jpg","description":"Boutique HR consulting, executive coaching and resilience-building consultancy founded in Singapore in 2012. BHD Asia co-designs leadership development, organisation development and TRE™ programmes for organisations across Europe, the US, Asia, Japan and Russia.","slogan":"Highlight, Enhance and Appreciate Human in Business.","foundingDate":"2012","foundingLocation":"Singapore","founder":{"@id":"https://bhdasia.com/isabelle#person"},"employee":[{"@id":"https://bhdasia.com/isabelle#person"},{"@id":"https://bhdasia.com/jasmine#person"},{"@id":"https://bhdasia.com/simba#person"},{"@id":"https://bhdasia.com/rina#person"}],"address":{"@type":"PostalAddress","streetAddress":"50 Raffles Place, Singapore Land Tower #30-00","addressLocality":"Singapore","postalCode":"048623","addressCountry":"SG"},"email":"isabelle@bhdasia.com","telephone":"+81 80 6515 1778","identifier":{"@type":"PropertyValue","propertyID":"UEN (ACRA)","value":"201201974K"},"areaServed":["Singapore","Asia","Japan","Europe","United States","Middle East"],"knowsLanguage":["en","fr","es"],"knowsAbout":["Executive coaching","Leadership development","Organisation development","HR consulting","Talent management","Psychological safety","Resilience building","Burnout prevention","Somatic coaching","TRE™ (Tension & Trauma Releasing Exercises)","Global TRE™ Provider Certification","Change management","Conflict resolution"],"sameAs":["https://www.facebook.com/bhdasia/","https://www.instagram.com/isabelleclausteixeira_bhd/","https://www.youtube.com/@IsabelleClausTeixeira","https://www.linkedin.com/in/isabelleclausteixeira/"],"contactPoint":{"@type":"ContactPoint","contactType":"customer service","email":"isabelle@bhdasia.com","telephone":"+81 80 6515 1778","availableLanguage":["English","French","Spanish"],"url":"https://bhdasia.com/contact"}},{"@type":"WebSite","@id":"https://bhdasia.com/#website","url":"https://bhdasia.com/","name":"BHD Asia","inLanguage":"en","publisher":{"@id":"https://bhdasia.com/#organization"}},{"@type":"WebPage","@id":"https://bhdasia.com/#webpage","url":"https://bhdasia.com/","name":"Executive Coaching & HR Consulting in Singapore | BHD Asia","description":"Executive coaching, HR consulting and TRE™ resilience programmes from Singapore since 2012. Co-designed leadership development for organisations worldwide.","inLanguage":"en","isPartOf":{"@id":"https://bhdasia.com/#website"},"about":{"@id":"https://bhdasia.com/#organization"},"publisher":{"@id":"https://bhdasia.com/#organization"},"dateModified":"2026-09-29","primaryImageOfPage":{"@type":"ImageObject","url":"https://bhdasia.com/isagrey.jpg"},"mainEntity":{"@id":"https://bhdasia.com/#organization"}},{"@type":"FAQPage","@id":"https://bhdasia.com/#faq","mainEntity":[{"@type":"Question","name":"What does BHD Asia do?","acceptedAnswer":{"@type":"Answer","text":"BHD Asia is a boutique HR consulting, executive coaching and resilience-building consultancy founded in Singapore in 2012. We co-design leadership, organisation development and TRE™ programmes around your people — never off-the-shelf — for organisations across Europe, the US, Asia, Japan and Russia."}},{"@type":"Question","name":"Who leads BHD Asia?","acceptedAnswer":{"@type":"Answer","text":"Isabelle Claus Teixeira, Co-Founder and Director. She has 30+ years of senior HR experience, has been a certified leadership coach since 2012 with 1,800+ coaching hours, and is a Global TRE™ Certifying Trainer. She works with an organisational psychologist, a somatic practitioner and an executive coach."}},{"@type":"Question","name":"What is TRE™?","acceptedAnswer":{"@type":"Answer","text":"TRE™ (Tension & Trauma Releasing Exercises) is a set of simple exercises that activate the body’s natural tremoring to release stress and tension, without detailed discussion. BHD Asia uses TRE™ in its resilience programmes and runs TRE™ workshops and the Global TRE™ Provider Certification."}},{"@type":"Question","name":"How much does executive coaching cost?","acceptedAnswer":{"@type":"Answer","text":"Our Corporate Coaching Package starts from SGD 6,000 for eight one-on-one sessions, including an initial diagnostic and a follow-up review. Other programmes are priced to the engagement after a free discovery call."}},{"@type":"Question","name":"Do you work outside Singapore?","acceptedAnswer":{"@type":"Answer","text":"Yes. BHD Asia has delivered programmes across Europe, the US, Asia, Japan and the Middle East, in person and online, adapting language and format to each team’s location and culture."}},{"@type":"Question","name":"Which languages do you coach in?","acceptedAnswer":{"@type":"Answer","text":"Isabelle coaches in English, French and Spanish, and partners with trusted coaches to meet other language needs."}},{"@type":"Question","name":"How do I get started?","acceptedAnswer":{"@type":"Answer","text":"Book a free 30-minute discovery call. We listen to your challenges and, only if there is a genuine fit, propose a programme design."}}]}]}</script>
 </head>
 <body class="home et_fixed_nav et_divi_theme">
 <!-- Google Tag Manager (noscript) -->
@@ -428,7 +447,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <header id="main-header">
   <div class="et_menu_container container clearfix">
     <div class="logo_container">
-      <a href="index.html">
+      <a href="./">
         <img src="BHDASIA.png" alt="BHD Asia" height="34" onerror="this.style.display='none';document.querySelector('.logo-text').style.display='block'"/>
         <span class="logo-text">BHD Asia</span>
       </a>
@@ -436,15 +455,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div id="et-top-navigation">
       <nav id="top-menu-nav">
         <ul id="top-menu" class="nav">
-          <li class="menu-item current-menu-item"><a href="index.html">Home</a></li>
-          <li class="menu-item"><a href="services.html">Services</a></li>
-          <li class="menu-item"><a href="about.html">About</a></li>
-          <li class="menu-item"><a href="events.html">Events</a></li>
-          <li class="menu-item"><a href="partners.html">Partners</a></li>
-          <li class="menu-item"><a href="contact.html">Contact</a></li>
+          <li class="menu-item current-menu-item"><a href="./">Home</a></li>
+          <li class="menu-item"><a href="services">Services</a></li>
+          <li class="menu-item"><a href="about">About</a></li>
+          <li class="menu-item"><a href="events">Events</a></li>
+          <li class="menu-item"><a href="partners">Partners</a></li>
+          <li class="menu-item"><a href="contact">Contact</a></li>
         </ul>
       </nav>
-      <a href="contact.html" class="header-contact-btn">Contact</a>
+      <a href="contact" class="header-contact-btn">Contact</a>
       <div id="et_top_search"><span id="et_search_icon"></span></div>
       <div id="et_mobile_nav_menu"><button class="mobile_menu_bar" id="mobile-menu-btn" aria-expanded="false" aria-controls="top-menu-nav" aria-label="Open navigation"></button></div>
     </div>
@@ -465,8 +484,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <h1 class="hero-title">Build Stronger Leaders. Develop Resilient Organisations.</h1>
       <p class="hero-sub">Boutique HR consulting, executive coaching, and resilience building &mdash; co-designed around your people, worldwide.</p>
       <div class="hero-ctas">
-        <a class="et_pb_button btn-white" href="contact.html">Book a Discovery Call</a>
-        <a class="et_pb_button btn-white-outline" href="services.html">Our Services</a>
+        <a class="et_pb_button btn-white" href="contact">Book a Discovery Call</a>
+        <a class="et_pb_button btn-white-outline" href="services">Our Services</a>
       </div>
     </div>
   </div>
@@ -497,7 +516,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <hr class="divider-line"/>
         <p class="hx-lede">In-person TRE&trade; training and certification programmes — limited places available.</p>
         <p class="hx-notice"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg><span>Tickets are non-refundable and non-cancellable.</span></p>
-        <div class="hx-evts-act"><a class="et_pb_button btn-outline" href="events.html">View All Event Details &rarr;</a></div>
+        <div class="hx-evts-act"><a class="et_pb_button btn-outline" href="events">View All Event Details &rarr;</a></div>
       </div>
       <!-- Next-event countdown: content owned by shared.js -->
       <div class="home-countdown hx-cd hx-rv" style="--d:120ms">
@@ -539,7 +558,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
               Singapore
             </span>
-            <a class="et_pb_button" href="event-certification.html#register">Register &rarr;</a>
+            <a class="et_pb_button" href="event-certification#register">Register &rarr;</a>
           </div>
         </div>
       </div>
@@ -561,7 +580,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
               Online
             </span>
-            <a class="et_pb_button" href="event-shaking-shaping-oct8.html">Details &rarr;</a>
+            <a class="et_pb_button" href="event-shaking-shaping-oct8">Details &rarr;</a>
           </div>
         </div>
       </div>
@@ -597,7 +616,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <span class="pillar-icon">1</span>
             <h3>Organisation Development</h3>
             <p>Leadership programme design, culture change, team coaching, talent management, and effectiveness diagnostics for companies across Asia and beyond.</p>
-            <a class="et_pb_button btn-outline" href="services.html">Explore Org Development</a>
+            <a class="et_pb_button btn-outline" href="services">Explore Org Development</a>
           </div>
         </div>
         <div class="hx-pil-panel" role="tabpanel" id="hx-pil-p2" aria-labelledby="hx-pil-t2">
@@ -606,7 +625,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <span class="pillar-icon">2</span>
             <h3>Resilience Building</h3>
             <p>TRE&trade;, stress management, burnout prevention, conflict resolution, and psychological safety &mdash; helping people sustain high performance over the long term.</p>
-            <a class="et_pb_button btn-outline" href="services.html">Explore Resilience Building</a>
+            <a class="et_pb_button btn-outline" href="services">Explore Resilience Building</a>
           </div>
         </div>
         <div class="hx-pil-panel" role="tabpanel" id="hx-pil-p3" aria-labelledby="hx-pil-t3">
@@ -615,7 +634,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <span class="pillar-icon">3</span>
             <h3>Individual Development</h3>
             <p>Executive coaching, career transition, life coaching, and intercultural competence &mdash; for leaders ready to create lasting change.</p>
-            <a class="et_pb_button btn-outline" href="services.html">Explore Individual Coaching</a>
+            <a class="et_pb_button btn-outline" href="services">Explore Individual Coaching</a>
           </div>
         </div>
       </div>
@@ -664,6 +683,49 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </section>
 
 <!-- CLIENTS + CTA (hx) -->
+<!-- ===== FREQUENTLY ASKED QUESTIONS (answer-first) ===== -->
+<section class="hx-sec hx-faq" id="faq" aria-labelledby="hx-faq-h">
+  <div class="container">
+    <div class="hx-faq-grid">
+      <div class="hx-rv">
+        <h2 class="hx-faq-h" id="hx-faq-h">Frequently Asked Questions</h2>
+        <p class="hx-lede">Straight answers about BHD Asia, our executive coaching and TRE&trade; programmes, and how to begin.</p>
+        <a class="et_pb_button btn-outline" href="services#faq">More questions on Services</a>
+      </div>
+      <div class="hx-faq-list hx-rv">
+        <details class="hx-faq-item" open>
+          <summary><span>What does BHD Asia do?</span><span class="hx-faq-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+          <p class="hx-faq-a">BHD Asia is a boutique HR consulting, executive coaching and resilience-building consultancy founded in Singapore in 2012. We co-design leadership, organisation development and TRE™ programmes around your people — never off-the-shelf — for organisations across Europe, the US, Asia, Japan and Russia.</p>
+        </details>
+        <details class="hx-faq-item">
+          <summary><span>Who leads BHD Asia?</span><span class="hx-faq-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+          <p class="hx-faq-a">Isabelle Claus Teixeira, Co-Founder and Director. She has 30+ years of senior HR experience, has been a certified leadership coach since 2012 with 1,800+ coaching hours, and is a Global TRE™ Certifying Trainer. She works with an organisational psychologist, a somatic practitioner and an executive coach.</p>
+        </details>
+        <details class="hx-faq-item">
+          <summary><span>What is TRE™?</span><span class="hx-faq-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+          <p class="hx-faq-a">TRE™ (Tension &amp; Trauma Releasing Exercises) is a set of simple exercises that activate the body’s natural tremoring to release stress and tension, without detailed discussion. BHD Asia uses TRE™ in its resilience programmes and runs TRE™ workshops and the Global TRE™ Provider Certification.</p>
+        </details>
+        <details class="hx-faq-item">
+          <summary><span>How much does executive coaching cost?</span><span class="hx-faq-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+          <p class="hx-faq-a">Our Corporate Coaching Package starts from SGD 6,000 for eight one-on-one sessions, including an initial diagnostic and a follow-up review. Other programmes are priced to the engagement after a free discovery call.</p>
+        </details>
+        <details class="hx-faq-item">
+          <summary><span>Do you work outside Singapore?</span><span class="hx-faq-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+          <p class="hx-faq-a">Yes. BHD Asia has delivered programmes across Europe, the US, Asia, Japan and the Middle East, in person and online, adapting language and format to each team’s location and culture.</p>
+        </details>
+        <details class="hx-faq-item">
+          <summary><span>Which languages do you coach in?</span><span class="hx-faq-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+          <p class="hx-faq-a">Isabelle coaches in English, French and Spanish, and partners with trusted coaches to meet other language needs.</p>
+        </details>
+        <details class="hx-faq-item">
+          <summary><span>How do I get started?</span><span class="hx-faq-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+          <p class="hx-faq-a">Book a free 30-minute discovery call. We listen to your challenges and, only if there is a genuine fit, propose a programme design.</p>
+        </details>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="hx-sec hx-close" aria-labelledby="hx-cl-h">
   <div class="container">
     <div class="hx-close-grid">
@@ -701,8 +763,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <h2>Ready to Build a Stronger Organisation?</h2>
         <p>All our services are co-designed with you. Begin with a no-obligation discovery conversation.</p>
         <div class="hx-cta-btns">
-          <a class="et_pb_button" href="contact.html">Book a Discovery Call</a>
-          <a class="et_pb_button btn-outline" href="events.html">View Upcoming Events</a>
+          <a class="et_pb_button" href="contact">Book a Discovery Call</a>
+          <a class="et_pb_button btn-outline" href="events">View Upcoming Events</a>
         </div>
       </div>
     </div>
@@ -725,18 +787,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <a href="https://www.linkedin.com/in/isabelleclausteixeira/" target="_blank" rel="noopener" class="footer-soc-btn" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
       </div>
     </div>
-    <div class="footer-widget"><h4>Navigate</h4><ul><li><a href="index.html">Home</a></li><li><a href="services.html">Services</a></li><li><a href="about.html">About</a></li><li><a href="events.html">Events</a></li><li><a href="partners.html">Partners</a></li><li><a href="contact.html">Contact</a></li></ul></div>
-    <div class="footer-widget"><h4>Legal</h4><ul><li><a href="privacy.html">Privacy Statement</a></li><li><a href="terms.html">Terms &amp; Conditions</a></li><li><a href="code.html">Code of Practice</a></li><li><a href="inclusivity.html">Inclusivity Statement</a></li></ul></div>
-    <div class="footer-widget"><h4>Contact</h4><p>50 Raffles Place, Singapore Land Tower #30-00<br>Singapore 048623</p><p>+81 806515 1778</p><p><a href="mailto:isabelle@bhdasia.com">isabelle@bhdasia.com</a></p><p><a href="contact.html">Book a Discovery Call &rarr;</a></p></div>
+    <div class="footer-widget"><h4>Navigate</h4><ul><li><a href="./">Home</a></li><li><a href="services">Services</a></li><li><a href="about">About</a></li><li><a href="events">Events</a></li><li><a href="partners">Partners</a></li><li><a href="contact">Contact</a></li></ul></div>
+    <div class="footer-widget"><h4>Legal</h4><ul><li><a href="privacy">Privacy Statement</a></li><li><a href="terms">Terms &amp; Conditions</a></li><li><a href="code">Code of Practice</a></li><li><a href="inclusivity">Inclusivity Statement</a></li></ul></div>
+    <div class="footer-widget"><h4>Contact</h4><p>50 Raffles Place, Singapore Land Tower #30-00<br>Singapore 048623</p><p>+81 806515 1778</p><p><a href="mailto:isabelle@bhdasia.com">isabelle@bhdasia.com</a></p><p><a href="contact">Book a Discovery Call &rarr;</a></p></div>
   </div></div>
   <div id="footer-bottom"><div class="container">
     <div id="footer-info"><span>&copy; 2026 BHD Asia. All rights reserved.</span></div>
-    <div class="footer-bottom-links"><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a></div>
+    <div class="footer-bottom-links"><a href="privacy">Privacy Policy</a><a href="terms">Terms of Service</a></div>
     <div id="footer-credit">Powered by <a href="https://technext.asia" target="_blank" rel="noopener">TechNext</a></div>
   </div></div>
 </footer>
 </div>
-<script src="shared.js?v=11"></script>
+<script src="shared.js?v=12"></script>
 <script>
 /* Podcast player: custom controls + voice-reactive glow + chapter captions */
 (function(){
