@@ -40,36 +40,194 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link rel="preconnect" href="https://sp-ao.shortpixel.ai"/>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&amp;family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400&amp;display=swap"/>
-<link rel="stylesheet" href="style.css?v=6"/>
+<link rel="stylesheet" href="style.css?v=7"/>
 <style>
-.services-section{padding:50px 0 60px}
-.services-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;align-items:stretch}
-.service-category{background:#fff;border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden;display:flex;flex-direction:column;transition:transform .25s ease,box-shadow .25s ease}
-.service-category:hover{box-shadow:var(--shadow-lg)}
-.svc-img{height:140px;position:relative;overflow:hidden;background:#0c1622;display:flex;align-items:center;justify-content:center;}
-.svc-img-inner{position:absolute;inset:0;background:linear-gradient(135deg,#0c1c2e 0%,#1c3e63 55%,#0a1521 100%)}
-.svc-img::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(0,0,0,.3));pointer-events:none;z-index:2}
-.svc-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block;transition:filter .3s;z-index:1}
+/* ── services.html redesign (sv-) 2026-09-30 — everything below the hero ── */
+.sv-sec{position:relative;padding:76px 0}
+.sv-sec h2{letter-spacing:-.015em}
+.sv-intro{background:var(--off-white);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:64px 0}
+.sv-intro-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:56px;align-items:center}
+.sv-intro h2{font-size:34px;margin-bottom:14px;max-width:16ch}
+.sv-intro-sub{font-family:'Sora',sans-serif;font-size:17px;font-weight:500;color:var(--text);margin:0;display:flex;align-items:center;gap:12px}
+.sv-intro-sub::before{content:'';flex:0 0 36px;height:2px;background:var(--blue);border-radius:2px;transform-origin:left;transition:transform .9s cubic-bezier(.23,1,.32,1) .2s}
+.sv-intro-body p{font-size:16px;color:var(--body);line-height:1.8;margin:0 0 22px;max-width:60ch}
+.sv-jump{display:flex;flex-wrap:wrap;gap:10px}
+.sv-jump-a{display:inline-flex;align-items:center;gap:9px;min-height:44px;padding:8px 16px 8px 12px;border:1px solid var(--border);border-radius:var(--r-pill);background:#fff;color:var(--text);font-size:14px;font-weight:500;line-height:1.3;transition:border-color .25s cubic-bezier(.23,1,.32,1),background-color .25s cubic-bezier(.23,1,.32,1),transform .25s cubic-bezier(.23,1,.32,1)}
+.sv-jump-a svg{width:20px;height:20px;flex:0 0 20px;color:var(--blue-text)}
+.sv-ico{fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 
-.coaching-pkg-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top;display:block;z-index:1}
-.svc-img-ph{position:relative;z-index:1;width:44px;height:44px;color:rgba(255,255,255,.22)}
-.svc-body{padding:24px;display:flex;flex-direction:column;flex:1}
-.service-category h2{font-size:15px;color:var(--blue-text);border-bottom:1px solid var(--border);padding-bottom:12px;margin-bottom:14px;text-transform:uppercase;letter-spacing:.1em;font-weight:700}
-.service-list{list-style:none;padding:0;margin:0 0 14px}
-.service-list li{padding:3px 0;font-size:15px;color:var(--body);display:flex;align-items:flex-start;gap:10px;line-height:1.5}
-.service-list li::before{content:'';width:8px;height:8px;background:var(--blue);border-radius:50%;flex-shrink:0;margin-top:6px;display:block}
-.service-category .et_pb_button{margin-top:auto;align-self:flex-start}
-.coaching-package{background:#FEF3EC;margin:40px 0;display:flex;overflow:hidden}
-.coaching-pkg-img{flex:0 0 210px;position:relative;background:#0c1622;overflow:hidden}
-.coaching-pkg-img-inner{position:absolute;inset:0;background:linear-gradient(135deg,#0c1c2e 0%,#1c3e63 55%,#0a1521 100%)}
-.coaching-pkg-img::after{content:'';position:absolute;inset:0;background:linear-gradient(120deg,transparent 55%,rgba(0,0,0,.32));pointer-events:none;z-index:2}
-.coaching-pkg-img-ph{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:48px;height:48px;color:rgba(255,255,255,.22);z-index:1}
-.coaching-pkg-body{flex:1;padding:30px 32px;min-width:0}
-.coaching-package h3{font-size:18px;color:var(--text);margin-bottom:8px}
-.coaching-package .price{font-size:30px;font-weight:700;color:var(--blue-text);margin-bottom:12px}
-.coaching-package .price span{font-size:15px;color:var(--muted);font-weight:400}
-.coaching-package p{font-size:15px;color:var(--body);line-height:1.8;margin-bottom:0}
-@media(max-width:768px){.services-cols{grid-template-columns:1fr}.coaching-package{flex-direction:column}.coaching-pkg-img{flex:0 0 150px}}
+/* service-area switcher */
+.sv-svc{background:#fff;scroll-margin-top:72px}
+.sv-tabs{position:relative;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border-bottom:1px solid var(--border);margin-bottom:40px}
+.sv-tab{position:relative;display:flex;align-items:center;gap:14px;min-height:64px;padding:16px 18px 18px;background:none;border:0;border-radius:var(--r-md) var(--r-md) 0 0;cursor:pointer;text-align:left;font:inherit;color:var(--muted);transition:color .25s cubic-bezier(.23,1,.32,1),background-color .25s cubic-bezier(.23,1,.32,1)}
+.sv-tab-i{flex:0 0 44px;width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;border:1px solid var(--border);color:var(--muted);background:#fff;transition:color .3s cubic-bezier(.23,1,.32,1),border-color .3s cubic-bezier(.23,1,.32,1),background-color .3s cubic-bezier(.23,1,.32,1)}
+.sv-tab-i svg{width:22px;height:22px}
+.sv-tab-t{font-family:'Sora',sans-serif;font-size:16px;font-weight:600;line-height:1.3}
+.sv-tab[aria-selected="true"]{color:var(--text)}
+.sv-tab[aria-selected="true"] .sv-tab-i{background:var(--navy);border-color:var(--navy);color:var(--gold)}
+.sv-tab:focus-visible,.sv-jump-a:focus-visible,.sv-acc-btn:focus-visible,.sv-pkg-tab:focus-visible,.sv-panel:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
+.sv-ind{position:absolute;left:0;bottom:-1px;height:3px;width:33.333%;background:var(--blue);border-radius:3px 3px 0 0;transform:translateX(0);transition:transform .5s cubic-bezier(.23,1,.32,1),width .5s cubic-bezier(.23,1,.32,1);display:none}
+.sv-js .sv-ind{display:block}
+.sv-tabs{display:none}
+.sv-js .sv-tabs{display:grid}
+.sv-panels{display:grid;gap:56px}
+.sv-js .sv-panels{display:block}
+.sv-panel{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;align-items:stretch;scroll-margin-top:150px}
+.sv-panel[hidden]{display:none}
+.sv-panel-copy{display:flex;flex-direction:column;min-width:0}
+.sv-panel h2{font-size:28px;margin-bottom:22px}
+.sv-list{list-style:none;margin:0 0 28px;padding:0;border-top:1px solid var(--border)}
+.sv-item{position:relative;display:flex;align-items:flex-start;gap:14px;padding:13px 4px 13px 2px;border-bottom:1px solid var(--border);font-size:15.5px;line-height:1.55;color:var(--text);transition:transform .3s cubic-bezier(.23,1,.32,1),background-color .3s cubic-bezier(.23,1,.32,1)}
+.sv-dot{flex:0 0 8px;width:8px;height:8px;margin-top:8px;border-radius:50%;background:var(--blue);transition:transform .3s cubic-bezier(.23,1,.32,1)}
+.sv-item-d{color:var(--body)}
+.sv-panel-copy .et_pb_button{margin:auto 0 0;align-self:flex-start}
+.sv-fig{position:relative;margin:0;min-height:360px;border-radius:var(--r-lg);overflow:hidden;background:var(--navy);box-shadow:var(--shadow)}
+.sv-fig img{position:absolute;inset:-4%;width:108%;height:108%;max-width:none;object-fit:cover;display:block;transform:translate3d(var(--sv-px,0px),var(--sv-py,0px),0);transition:transform .6s cubic-bezier(.23,1,.32,1)}
+.sv-fig::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,34,56,0) 55%,rgba(11,34,56,.35));pointer-events:none}
+
+/* packages */
+.sv-pkg{background:var(--off-white);border-top:1px solid var(--border);scroll-margin-top:72px}
+.sv-pkg-head{margin-bottom:34px}
+.sv-pkg-head h2{font-size:30px;margin:0}
+.sv-pkg-switch{display:none}
+.sv-pkg-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px;align-items:stretch}
+.sv-card{position:relative;display:flex;flex-direction:column;background:#fff;border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden;scroll-margin-top:150px;transition:transform .35s cubic-bezier(.23,1,.32,1),box-shadow .35s cubic-bezier(.23,1,.32,1),border-color .35s cubic-bezier(.23,1,.32,1)}
+.sv-card[hidden]{display:none}
+.sv-card::before{content:'';position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:0;background:radial-gradient(420px circle at var(--sv-x,50%) var(--sv-y,50%),rgba(212,146,26,.10),transparent 60%);transition:opacity .35s cubic-bezier(.23,1,.32,1);z-index:1}
+.sv-card-fig{position:relative;margin:0;height:200px;overflow:hidden;background:var(--navy)}
+.sv-card-fig img{width:100%;height:100%;object-fit:cover;object-position:center 25%;display:block;transition:transform .8s cubic-bezier(.23,1,.32,1)}
+.sv-card-body{position:relative;z-index:2;display:flex;flex-direction:column;flex:1;padding:28px 30px 30px}
+.sv-card h3{font-size:20px;margin-bottom:10px}
+.sv-price{font-family:'Sora',sans-serif;font-size:30px;font-weight:700;color:var(--blue-text);line-height:1.2;margin-bottom:14px}
+.sv-price span{white-space:nowrap;font-family:'DM Sans',sans-serif;font-size:15px;font-weight:400;color:var(--muted)}
+.sv-price.sv-price-t{font-size:21px}
+.sv-sess{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:5px;max-width:260px;margin:-4px 0 18px}
+.sv-sess span{height:5px;border-radius:3px;background:var(--blue);transform-origin:left}
+.sv-card p{font-size:15px;color:var(--body);line-height:1.8;margin:0 0 12px}
+.sv-card .sv-note{font-size:14px;color:var(--muted);line-height:1.7;padding-top:12px;border-top:1px dashed var(--border)}
+.sv-card .et_pb_button{margin:auto 0 0;align-self:flex-start}
+.sv-card-body > p:last-of-type{margin-bottom:22px}
+
+/* FAQ accordion */
+.sv-faq{background:#fff;border-top:1px solid var(--border);scroll-margin-top:72px}
+.sv-faq-grid{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.7fr);gap:56px;align-items:start}
+.sv-faq-head h2{font-size:30px;margin:0}
+.sv-acc{border-top:1px solid var(--border)}
+.sv-acc-item{border-bottom:1px solid var(--border)}
+.sv-acc-h{margin:0;font-size:inherit;line-height:inherit}
+.sv-acc-btn{display:flex;align-items:center;justify-content:space-between;gap:18px;width:100%;min-height:60px;padding:18px 2px;background:none;border:0;cursor:pointer;text-align:left;font-family:'Sora',sans-serif;font-size:16px;font-weight:600;line-height:1.45;color:var(--text);transition:color .25s cubic-bezier(.23,1,.32,1)}
+.sv-acc-x{position:relative;flex:0 0 32px;width:32px;height:32px;border-radius:50%;border:1px solid var(--border);transition:background-color .3s cubic-bezier(.23,1,.32,1),border-color .3s cubic-bezier(.23,1,.32,1),transform .4s cubic-bezier(.23,1,.32,1)}
+.sv-acc-x::before,.sv-acc-x::after{content:'';position:absolute;left:50%;top:50%;width:12px;height:1.8px;margin:-.9px 0 0 -6px;border-radius:2px;background:var(--text);transition:transform .4s cubic-bezier(.23,1,.32,1),background-color .3s}
+.sv-acc-x::after{transform:rotate(90deg)}
+.sv-acc-btn[aria-expanded="true"] .sv-acc-x{background:var(--navy);border-color:var(--navy);transform:rotate(180deg)}
+.sv-acc-btn[aria-expanded="true"] .sv-acc-x::before,.sv-acc-btn[aria-expanded="true"] .sv-acc-x::after{background:var(--gold)}
+.sv-acc-btn[aria-expanded="true"] .sv-acc-x::after{transform:rotate(0deg)}
+.sv-acc-p{display:grid;grid-template-rows:1fr;transition:grid-template-rows .45s cubic-bezier(.23,1,.32,1),visibility .45s}
+.sv-acc-p > div{overflow:hidden;min-height:0}
+.sv-acc-p p{font-size:15px;color:var(--body);line-height:1.8;margin:0;padding:0 48px 22px 2px;max-width:66ch}
+.sv-acc-p.sv-shut{grid-template-rows:0fr;visibility:hidden}
+
+/* CTA */
+.cta-strip.sv-cta{background:var(--off-white);border-top:1px solid var(--border);padding:64px 0;text-align:left}
+.sv-cta-in{position:relative;display:flex;align-items:center;justify-content:space-between;gap:40px;background:var(--navy);border-radius:var(--r-lg);padding:52px 56px;overflow:hidden;isolation:isolate;box-shadow:var(--shadow)}
+.sv-cta-in::before{content:'';position:absolute;inset:0;z-index:-1;background:radial-gradient(520px circle at var(--sv-x,88%) var(--sv-y,15%),rgba(232,184,48,.18),transparent 62%)}
+.sv-cta-in::after{content:'';position:absolute;left:0;right:0;top:0;height:3px;background:linear-gradient(90deg,transparent,var(--blue),transparent)}
+.cta-strip.sv-cta h2{color:#fff;font-size:30px;margin-bottom:10px}
+.cta-strip.sv-cta p{color:rgba(255,255,255,.78);margin:0;max-width:52ch;font-size:16px}
+.sv-cta-btns{display:flex;flex-wrap:wrap;gap:12px;flex:0 0 auto}
+
+/* reveal (only when JS is running) */
+.sv-js .sv-rv{opacity:0;transform:translate3d(0,18px,0);transition:opacity .8s cubic-bezier(.23,1,.32,1),transform .8s cubic-bezier(.23,1,.32,1)}
+.sv-js .sv-rv.sv-in{opacity:1;transform:none}
+.sv-js .sv-intro-sub::before{transform:scaleX(0)}
+.sv-js .sv-in .sv-intro-sub::before{transform:scaleX(1)}
+.sv-js .sv-sess span{transform:scaleX(0);transition:transform .5s cubic-bezier(.23,1,.32,1)}
+.sv-js .sv-in .sv-sess span{transform:scaleX(1)}
+.sv-sess span:nth-child(2){transition-delay:.07s}.sv-sess span:nth-child(3){transition-delay:.14s}.sv-sess span:nth-child(4){transition-delay:.21s}
+.sv-sess span:nth-child(5){transition-delay:.28s}.sv-sess span:nth-child(6){transition-delay:.35s}.sv-sess span:nth-child(7){transition-delay:.42s}.sv-sess span:nth-child(8){transition-delay:.49s}
+/* panel entrance on switch */
+.sv-panel.sv-enter .sv-fig{animation:sv-wipe .75s cubic-bezier(.23,1,.32,1) both}
+.sv-panel.sv-enter h2,.sv-panel.sv-enter .sv-item,.sv-panel.sv-enter .et_pb_button{animation:sv-up .6s cubic-bezier(.23,1,.32,1) both}
+.sv-panel.sv-enter .sv-item:nth-child(1){animation-delay:.05s}.sv-panel.sv-enter .sv-item:nth-child(2){animation-delay:.09s}.sv-panel.sv-enter .sv-item:nth-child(3){animation-delay:.13s}
+.sv-panel.sv-enter .sv-item:nth-child(4){animation-delay:.17s}.sv-panel.sv-enter .sv-item:nth-child(5){animation-delay:.21s}.sv-panel.sv-enter .sv-item:nth-child(6){animation-delay:.25s}
+.sv-panel.sv-enter .et_pb_button{animation-delay:.3s}
+.sv-card.sv-enter{animation:sv-up .55s cubic-bezier(.23,1,.32,1) both}
+@keyframes sv-up{from{opacity:0;transform:translate3d(0,12px,0)}to{opacity:1;transform:none}}
+@keyframes sv-wipe{from{clip-path:inset(0 0 0 100% round 12px)}to{clip-path:inset(0 0 0 0 round 12px)}}
+
+@media (hover:hover) and (pointer:fine){
+  .sv-jump-a:hover{border-color:var(--blue);transform:translateY(-2px)}
+  .sv-tab:hover{color:var(--text);background:var(--off-white)}
+  .sv-tab:hover .sv-tab-i{border-color:var(--blue);color:var(--blue-text)}
+  .sv-tab[aria-selected="true"]:hover .sv-tab-i{color:var(--gold);border-color:var(--navy)}
+  .sv-item:hover{transform:translateX(6px)}
+  .sv-item:hover .sv-dot{transform:scale(1.6)}
+  .sv-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);border-color:rgba(212,146,26,.45)}
+  .sv-card:hover::before{opacity:1}
+  .sv-card:hover .sv-card-fig img{transform:scale(1.05)}
+  .sv-acc-btn:hover{color:var(--blue-text)}
+  .sv-acc-btn:hover .sv-acc-x{border-color:var(--blue)}
+}
+
+@media (max-width:980px){
+  .sv-intro-grid{grid-template-columns:minmax(0,1fr);gap:22px}
+  .sv-intro h2{max-width:none}
+  .sv-panel{gap:32px}
+  .sv-faq-grid{grid-template-columns:minmax(0,1fr);gap:24px}
+  .sv-cta-in{flex-direction:column;align-items:flex-start;gap:26px}
+}
+@media (max-width:899px){
+  .sv-js .sv-pkg-switch{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px;padding:4px;margin:0 0 18px;background:#fff;border:1px solid var(--border);border-radius:var(--r-pill);position:relative}
+  .sv-pkg-tab{position:relative;z-index:1;min-height:44px;padding:8px 10px;border:0;background:none;border-radius:var(--r-pill);font:inherit;font-size:13.5px;font-weight:600;line-height:1.25;color:var(--muted);cursor:pointer;transition:color .3s cubic-bezier(.23,1,.32,1)}
+  .sv-pkg-tab[aria-selected="true"]{color:#fff}
+  .sv-pkg-pill{position:absolute;z-index:0;top:4px;bottom:4px;left:4px;width:calc(50% - 6px);border-radius:var(--r-pill);background:var(--navy);transition:transform .45s cubic-bezier(.23,1,.32,1)}
+  .sv-pkg-switch[data-sv-at="1"] .sv-pkg-pill{transform:translateX(calc(100% + 4px))}
+  .sv-pkg-grid{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:768px){
+  .sv-sec{padding:52px 0}
+  .sv-intro{padding:44px 0}
+  .sv-intro h2{font-size:26px}
+  .sv-tabs{margin-bottom:28px}
+  .sv-tab{flex-direction:column;align-items:center;justify-content:flex-start;text-align:center;gap:8px;padding:10px 6px 14px}
+  .sv-tab-t{font-size:13px}
+  .sv-panel{grid-template-columns:minmax(0,1fr);gap:24px}
+  .sv-fig{order:-1;min-height:0;height:clamp(160px,42vw,280px)}
+  .sv-panel h2{font-size:22px;margin-bottom:14px}
+  .sv-item{font-size:15px;padding:11px 2px}
+  .sv-pkg-head h2,.sv-faq-head h2{font-size:24px}
+  .sv-card-fig{height:170px}
+  .sv-card-body{padding:22px 20px 24px}
+  .sv-price{font-size:26px}
+  .sv-price.sv-price-t{font-size:18px}
+  .sv-acc-btn{font-size:15px}
+  .sv-acc-p p{padding-right:4px}
+  .cta-strip.sv-cta{padding:40px 0}
+  .sv-cta-in{padding:36px 24px}
+  .cta-strip.sv-cta h2{font-size:23px}
+}
+@media (max-width:600px){
+  .sv-cta-btns{width:100%;flex-direction:column;gap:8px}
+  .sv-jump{display:none}
+  .sv-intro-body p{margin-bottom:0}
+  .sv-cta-btns .et_pb_button{width:100%;text-align:center}
+  .sv-panel-copy .et_pb_button,.sv-card .et_pb_button{align-self:stretch;text-align:center}
+}
+@media (max-width:400px){
+  .sv-tab-i{flex-basis:40px;width:40px;height:40px}
+  .sv-tab-t{font-size:12px}
+  .sv-jump-a{font-size:13px}
+  .sv-pkg-tab{font-size:12.5px}
+  .sv-card-body{padding:20px 16px 22px}
+  .sv-card .et_pb_button{padding-left:14px;padding-right:14px}
+  .sv-cta-in{padding:30px 18px}
+}
+@media (prefers-reduced-motion:reduce){
+  .sv-root *,.sv-root *::before,.sv-root *::after{animation:none!important;transition:none!important}
+  .sv-js .sv-rv{opacity:1!important;transform:none!important}
+  .sv-js .sv-intro-sub::before,.sv-js .sv-sess span{transform:none!important}
+  .sv-fig img{transform:none!important}
+}
 </style>
 </head>
 <body class="page et_fixed_nav et_divi_theme">
@@ -122,130 +280,171 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </div>
 
+<div class="sv-root">
 
-
-<div class="page-intro" style="background:var(--off-white);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:40px 0">
-  <div class="container" style="max-width:720px;text-align:center">
-    <span class="section-label">Our Approach</span>
-    <h2>Solutions Built Around Your People</h2>
-    <p class="intro-sub" style="margin-bottom:6px">No off-the-shelf programmes. Everything is co-designed.</p>
-    <p style="font-size:14px;color:var(--body);line-height:1.8;max-width:600px;margin:0 auto">BHD Asia works directly with leadership teams and HR to design engagements that match your culture, your challenges, and your goals. We begin every engagement with a discovery conversation — no obligation, no pitch decks.</p>
+<section class="sv-intro sv-sec" aria-labelledby="sv-intro-h">
+  <div class="container sv-intro-grid">
+    <div class="sv-intro-head sv-rv">
+      <span class="section-label">Our Approach</span>
+      <h2 id="sv-intro-h">Solutions Built Around Your People</h2>
+      <p class="sv-intro-sub">No off-the-shelf programmes. Everything is co-designed.</p>
+    </div>
+    <div class="sv-intro-body sv-rv">
+      <p>BHD Asia works directly with leadership teams and HR to design engagements that match your culture, your challenges, and your goals. We begin every engagement with a discovery conversation — no obligation, no pitch decks.</p>
+      <nav class="sv-jump" aria-label="Service areas">
+        <a class="sv-jump-a" href="#org" data-sv-go="org"><svg class="sv-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="5" r="2.5"/><circle cx="5" cy="18" r="2.5"/><circle cx="19" cy="18" r="2.5"/><path d="M12 7.5v4M12 11.5 6.6 16M12 11.5l5.4 4.5"/></svg>Organisation Development</a>
+        <a class="sv-jump-a" href="#resilience" data-sv-go="resilience"><svg class="sv-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 12h3l2.5-6 4 12 2.5-6H21"/></svg>Resilience Building</a>
+        <a class="sv-jump-a" href="#individual" data-sv-go="individual"><svg class="sv-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="7.5" r="3.5"/><path d="M5 20c.8-3.6 3.6-6 7-6s6.2 2.4 7 6"/></svg>Individual Development</a>
+      </nav>
+    </div>
   </div>
-</div>
+</section>
 
-<div class="services-section">
+<section class="sv-svc sv-sec" id="services-grid" aria-label="Service areas">
   <div class="container">
-    <div class="services-cols" id="services-grid">
+    <div class="sv-tabs sv-rv" role="tablist" aria-label="Service areas">
+      <button type="button" class="sv-tab" role="tab" id="sv-tab-org" aria-controls="org" aria-selected="true"><span class="sv-tab-i" aria-hidden="true"><svg class="sv-ico" viewBox="0 0 24 24" focusable="false"><circle cx="12" cy="5" r="2.5"/><circle cx="5" cy="18" r="2.5"/><circle cx="19" cy="18" r="2.5"/><path d="M12 7.5v4M12 11.5 6.6 16M12 11.5l5.4 4.5"/></svg></span><span class="sv-tab-t">Organisation Development</span></button>
+      <button type="button" class="sv-tab" role="tab" id="sv-tab-resilience" aria-controls="resilience" aria-selected="false" tabindex="-1"><span class="sv-tab-i" aria-hidden="true"><svg class="sv-ico" viewBox="0 0 24 24" focusable="false"><path d="M3 12h3l2.5-6 4 12 2.5-6H21"/></svg></span><span class="sv-tab-t">Resilience Building</span></button>
+      <button type="button" class="sv-tab" role="tab" id="sv-tab-individual" aria-controls="individual" aria-selected="false" tabindex="-1"><span class="sv-tab-i" aria-hidden="true"><svg class="sv-ico" viewBox="0 0 24 24" focusable="false"><circle cx="12" cy="7.5" r="3.5"/><path d="M5 20c.8-3.6 3.6-6 7-6s6.2 2.4 7 6"/></svg></span><span class="sv-tab-t">Individual Development</span></button>
+      <span class="sv-ind" aria-hidden="true"></span>
+    </div>
 
-      <div class="service-category">
-        <div class="svc-img"><img src="pillar-1.jpg" alt="Organisation Development" width="800" height="432" loading="lazy"/><div class="svc-img-inner"></div></div>
-        <div class="svc-body">
+    <div class="sv-panels sv-rv">
+      <div class="sv-panel" id="org" data-sv-tab="sv-tab-org">
+        <div class="sv-panel-copy">
           <h2>Organisation Development</h2>
-          <ul class="service-list">
-            <li>HR &amp; Talent Management Advisory</li>
-            <li>High Performing Teams Facilitation</li>
-            <li>Challenging Conversations &amp; Constructive Conflict Management</li>
-            <li>Leadership Skills Development</li>
-            <li>Organisation Culture Transformation</li>
-            <li>Change Management Skills</li>
+          <ul class="sv-list">
+            <li class="sv-item"><span class="sv-dot" aria-hidden="true"></span><span>HR &amp; Talent Management Advisory</span></li>
+            <li class="sv-item"><span class="sv-dot" aria-hidden="true"></span><span>High Performing Teams Facilitation</span></li>
+            <li class="sv-item"><span class="sv-dot" aria-hidden="true"></span><span>Challenging Conversations &amp; Constructive Conflict Management</span></li>
+            <li class="sv-item"><span class="sv-dot" aria-hidden="true"></span><span>Leadership Skills Development</span></li>
+            <li class="sv-item"><span class="sv-dot" aria-hidden="true"></span><span>Organisation Culture Transformation</span></li>
+            <li class="sv-item"><span class="sv-dot" aria-hidden="true"></span><span>Change Management Skills</span></li>
           </ul>
           <a class="et_pb_button btn-outline" href="contact.html">Enquire About Org Dev</a>
         </div>
+        <figure class="sv-fig"><img src="pillar-1.jpg" alt="Organisation Development" width="800" height="432" loading="lazy"/></figure>
       </div>
 
-      <div class="service-category">
-        <div class="svc-img"><img src="pillar-2.jpg" alt="Resilience Building" width="800" height="432" loading="lazy"/><div class="svc-img-inner"></div></div>
-        <div class="svc-body">
+      <div class="sv-panel" id="resilience" data-sv-tab="sv-tab-resilience">
+        <div class="sv-panel-copy">
           <h2>Resilience Building</h2>
-          <ul class="service-list">
-            <li>Somatic Coaching &mdash; body-based work integrated with neuroscience and energy psychology</li>
-            <li>Tension &amp; Trauma Releasing Exercises (TRE&trade;) &mdash; neurogenic stress release without detailed discussion</li>
-            <li>Stress Management &amp; Burnout Prevention</li>
-            <li>Psychological Safety Workshops</li>
-            <li>Conflict Resolution</li>
+          <ul class="sv-list">
+            <li class="sv-item"><span class="sv-dot" aria-hidden="true"></span><span>Somatic Coaching <span class="sv-item-d">&mdash; body-based work integrated with neuroscience and energy psychology</span></span></li>
+            <li class="sv-item"><span class="sv-dot" aria-hidden="true"></span><span>Tension &amp; Trauma Releasing Exercises (TRE&trade;) <span class="sv-item-d">&mdash; neurogenic stress release without detailed discussion</span></span></li>
+            <li class="sv-item"><span class="sv-dot" aria-hidden="true"></span><span>Stress Management &amp; Burnout Prevention</span></li>
+            <li class="sv-item"><span class="sv-dot" aria-hidden="true"></span><span>Psychological Safety Workshops</span></li>
+            <li class="sv-item"><span class="sv-dot" aria-hidden="true"></span><span>Conflict Resolution</span></li>
           </ul>
           <a class="et_pb_button btn-outline" href="contact.html">Enquire About Resilience</a>
         </div>
+        <figure class="sv-fig"><img src="pillar-2.jpg" alt="Resilience Building" width="800" height="432" loading="lazy"/></figure>
       </div>
 
-      <div class="service-category">
-        <div class="svc-img"><img src="pillar-3.jpg" alt="Individual Development" width="800" height="432" loading="lazy"/><div class="svc-img-inner"></div></div>
-        <div class="svc-body">
+      <div class="sv-panel" id="individual" data-sv-tab="sv-tab-individual">
+        <div class="sv-panel-copy">
           <h2>Individual Development</h2>
-          <ul class="service-list">
-            <li>Executive Coaching</li>
-            <li>Transition Coaching</li>
-            <li>Performance Coaching</li>
-            <li>Career Coaching</li>
-            <li>Self Awareness Development</li>
-            <li>360&deg; Debrief</li>
+          <ul class="sv-list">
+            <li class="sv-item"><span class="sv-dot" aria-hidden="true"></span><span>Executive Coaching</span></li>
+            <li class="sv-item"><span class="sv-dot" aria-hidden="true"></span><span>Transition Coaching</span></li>
+            <li class="sv-item"><span class="sv-dot" aria-hidden="true"></span><span>Performance Coaching</span></li>
+            <li class="sv-item"><span class="sv-dot" aria-hidden="true"></span><span>Career Coaching</span></li>
+            <li class="sv-item"><span class="sv-dot" aria-hidden="true"></span><span>Self Awareness Development</span></li>
+            <li class="sv-item"><span class="sv-dot" aria-hidden="true"></span><span>360&deg; Debrief</span></li>
           </ul>
           <a class="et_pb_button btn-outline" href="contact.html">Enquire About Coaching</a>
         </div>
-      </div>
-
-    </div>
-
-    <div class="coaching-package">
-      <div class="coaching-pkg-img"><img src="svc-coaching.jpg" alt="Corporate Coaching Package" width="800" height="432" loading="lazy"/><div class="coaching-pkg-img-inner"></div></div>
-      <div class="coaching-pkg-body">
-        <h3>Corporate Coaching Package</h3>
-        <div class="price">from SGD 6,000 <span>/ 8 sessions</span></div>
-        <p>Bespoke executive coaching for organisations investing in their leaders. Each engagement includes an initial diagnostic, eight one-on-one coaching sessions tailored to the leader&rsquo;s goals and the organisation&rsquo;s context, targeted work between sessions, and a follow-up review &mdash; supporting leadership development, transition, and high-performing, resilient teams.</p>
-        <a class="et_pb_button" href="contact.html" style="margin-top:14px;display:inline-block">Enquire &mdash; Book a Discovery Call</a>
+        <figure class="sv-fig"><img src="pillar-3.jpg" alt="Individual Development" width="800" height="432" loading="lazy"/></figure>
       </div>
     </div>
-
-    <div class="coaching-package" style="margin-top:0;border-left-color:var(--blue-text)">
-      <div class="coaching-pkg-img"><img src="svc-leader.jpg" alt="New Leader Accelerator Program" width="800" height="432" loading="lazy"/><div class="coaching-pkg-img-inner"></div></div>
-      <div class="coaching-pkg-body">
-        <h3>New Leader Accelerator Program</h3>
-        <div class="price" style="font-size:22px;margin-bottom:10px;color:var(--blue-text)">For Leaders in Transition</div>
-        <p>Designed for newly appointed managers, directors, or executives stepping into an expanded role, this programme accelerates the critical first 90 days. Through a blend of structured coaching, stakeholder alignment, and leadership diagnostics, new leaders build confidence, establish credibility, and avoid the common pitfalls that derail early-tenure success.</p>
-        <p style="margin-top:8px;padding-top:0;font-size:13px;color:var(--muted)">Includes role diagnostics, up to 6 coaching sessions, stakeholder feedback, and a personalised leadership action plan. Duration and pricing tailored to the individual engagement.</p>
-        <a class="et_pb_button btn-outline" href="contact.html" style="margin-top:14px;display:inline-block">Enquire About This Programme</a>
-      </div>
-    </div>
-
   </div>
-</div>
+</section>
 
-<section style="background:var(--off-white);border-top:1px solid var(--border);padding:60px 0" id="faq">
-  <div class="container" style="max-width:800px">
-    <span class="section-label">Common Questions</span>
-    <h2 style="margin-bottom:32px">Frequently Asked Questions</h2>
+<section class="sv-pkg sv-sec" id="packages" aria-labelledby="sv-pkg-h">
+  <div class="container">
+    <div class="sv-pkg-head sv-rv">
+      <h2 id="sv-pkg-h">Coaching Packages</h2>
+    </div>
+    <div class="sv-pkg-switch" role="tablist" aria-label="Coaching packages" data-sv-at="0">
+      <span class="sv-pkg-pill" aria-hidden="true"></span>
+      <button type="button" class="sv-pkg-tab" role="tab" id="sv-ptab-corporate" aria-controls="corporate-coaching" aria-selected="true">Corporate Coaching</button>
+      <button type="button" class="sv-pkg-tab" role="tab" id="sv-ptab-leader" aria-controls="new-leader" aria-selected="false" tabindex="-1">New Leader Accelerator</button>
+    </div>
+    <div class="sv-pkg-grid">
+      <article class="sv-card sv-rv" id="corporate-coaching" data-sv-tab="sv-ptab-corporate">
+        <figure class="sv-card-fig"><img src="svc-coaching.jpg" alt="Corporate Coaching Package" width="800" height="432" loading="lazy"/></figure>
+        <div class="sv-card-body">
+          <h3>Corporate Coaching Package</h3>
+          <div class="sv-price">from SGD 6,000 <span>/ 8 sessions</span></div>
+          <div class="sv-sess" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+          <p>Bespoke executive coaching for organisations investing in their leaders. Each engagement includes an initial diagnostic, eight one-on-one coaching sessions tailored to the leader&rsquo;s goals and the organisation&rsquo;s context, targeted work between sessions, and a follow-up review &mdash; supporting leadership development, transition, and high-performing, resilient teams.</p>
+          <a class="et_pb_button" href="contact.html">Enquire &mdash; Book a Discovery Call</a>
+        </div>
+      </article>
+
+      <article class="sv-card sv-rv" id="new-leader" data-sv-tab="sv-ptab-leader">
+        <figure class="sv-card-fig"><img src="svc-leader.jpg" alt="New Leader Accelerator Program" width="800" height="432" loading="lazy"/></figure>
+        <div class="sv-card-body">
+          <h3>New Leader Accelerator Program</h3>
+          <div class="sv-price sv-price-t">For Leaders in Transition</div>
+          <p>Designed for newly appointed managers, directors, or executives stepping into an expanded role, this programme accelerates the critical first 90 days. Through a blend of structured coaching, stakeholder alignment, and leadership diagnostics, new leaders build confidence, establish credibility, and avoid the common pitfalls that derail early-tenure success.</p>
+          <p class="sv-note">Includes role diagnostics, up to 6 coaching sessions, stakeholder feedback, and a personalised leadership action plan. Duration and pricing tailored to the individual engagement.</p>
+          <a class="et_pb_button btn-outline" href="contact.html">Enquire About This Programme</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="sv-faq sv-sec" id="faq" aria-labelledby="sv-faq-h">
+  <div class="container sv-faq-grid">
+    <div class="sv-faq-head sv-rv">
+      <span class="section-label">Common Questions</span>
+      <h2 id="sv-faq-h">Frequently Asked Questions</h2>
+    </div>
     <script type="application/ld+json">
     {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Do you work with SMEs or only large corporations?","acceptedAnswer":{"@type":"Answer","text":"We work with organisations of all sizes — from growth-stage companies to global multinationals. Our programmes are co-designed to fit your team size, budget and goals."}},{"@type":"Question","name":"How long does a typical engagement take?","acceptedAnswer":{"@type":"Answer","text":"Engagements range from a single leadership workshop to a 12-month executive coaching programme."}},{"@type":"Question","name":"Can you deliver programmes outside Singapore?","acceptedAnswer":{"@type":"Answer","text":"Yes. BHD Asia has delivered programmes across Europe, the US, Asia, Japan and the Middle East."}},{"@type":"Question","name":"Is coaching available in languages other than English?","acceptedAnswer":{"@type":"Answer","text":"Isabelle coaches in English, French and Spanish, and partners with trusted coaches to meet more language and support needs."}},{"@type":"Question","name":"What is the first step to working with BHD Asia?","acceptedAnswer":{"@type":"Answer","text":"Book a free 30-minute discovery call. We will listen to your challenges and — only if there is a genuine fit — propose a programme design."}}]}
     </script>
-    <details style="border-bottom:1px solid var(--border);padding:18px 0">
-      <summary style="font-weight:600;font-size:15px;cursor:pointer;color:var(--text);list-style:none;display:flex;justify-content:space-between">Do you work with SMEs or only large corporations?</summary>
-      <p style="margin-top:12px;font-size:15px;color:var(--body);line-height:1.75">We work with organisations of all sizes — from growth-stage companies to global multinationals. Our programmes are co-designed to fit your team size, budget and goals.</p>
-    </details>
-    <details style="border-bottom:1px solid var(--border);padding:18px 0">
-      <summary style="font-weight:600;font-size:15px;cursor:pointer;color:var(--text);list-style:none;display:flex;justify-content:space-between">How long does a typical engagement take?</summary>
-      <p style="margin-top:12px;font-size:15px;color:var(--body);line-height:1.75">Engagements range from a single leadership workshop to a 12-month executive coaching programme. We start with a discovery conversation to understand your needs and propose a timeline.</p>
-    </details>
-    <details style="border-bottom:1px solid var(--border);padding:18px 0">
-      <summary style="font-weight:600;font-size:15px;cursor:pointer;color:var(--text);list-style:none;display:flex;justify-content:space-between">Can you deliver programmes outside Singapore?</summary>
-      <p style="margin-top:12px;font-size:15px;color:var(--body);line-height:1.75">Yes. BHD Asia has delivered programmes across Europe, the US, Asia, Japan and the Middle East. We adapt delivery language and format to your team's location and culture.</p>
-    </details>
-    <details style="border-bottom:1px solid var(--border);padding:18px 0">
-      <summary style="font-weight:600;font-size:15px;cursor:pointer;color:var(--text);list-style:none;display:flex;justify-content:space-between">Is coaching available in languages other than English?</summary>
-      <p style="margin-top:12px;font-size:15px;color:var(--body);line-height:1.75">Isabelle coaches in English, French and Spanish, and partners with trusted coaches to meet more language and support needs — serving multinational leadership teams across regions.</p>
-    </details>
-    <details style="padding:18px 0">
-      <summary style="font-weight:600;font-size:15px;cursor:pointer;color:var(--text);list-style:none;display:flex;justify-content:space-between">What is the first step to working with BHD Asia?</summary>
-      <p style="margin-top:12px;font-size:15px;color:var(--body);line-height:1.75">Book a free 30-minute discovery call. We will listen to your challenges and — only if there is a genuine fit — propose a programme design.</p>
-    </details>
+    <div class="sv-acc sv-rv">
+      <div class="sv-acc-item">
+        <h3 class="sv-acc-h"><button type="button" class="sv-acc-btn" id="sv-q1" aria-expanded="true" aria-controls="sv-a1"><span>Do you work with SMEs or only large corporations?</span><span class="sv-acc-x" aria-hidden="true"></span></button></h3>
+        <div class="sv-acc-p" id="sv-a1" role="region" aria-labelledby="sv-q1"><div><p>We work with organisations of all sizes — from growth-stage companies to global multinationals. Our programmes are co-designed to fit your team size, budget and goals.</p></div></div>
+      </div>
+      <div class="sv-acc-item">
+        <h3 class="sv-acc-h"><button type="button" class="sv-acc-btn" id="sv-q2" aria-expanded="true" aria-controls="sv-a2"><span>How long does a typical engagement take?</span><span class="sv-acc-x" aria-hidden="true"></span></button></h3>
+        <div class="sv-acc-p" id="sv-a2" role="region" aria-labelledby="sv-q2"><div><p>Engagements range from a single leadership workshop to a 12-month executive coaching programme. We start with a discovery conversation to understand your needs and propose a timeline.</p></div></div>
+      </div>
+      <div class="sv-acc-item">
+        <h3 class="sv-acc-h"><button type="button" class="sv-acc-btn" id="sv-q3" aria-expanded="true" aria-controls="sv-a3"><span>Can you deliver programmes outside Singapore?</span><span class="sv-acc-x" aria-hidden="true"></span></button></h3>
+        <div class="sv-acc-p" id="sv-a3" role="region" aria-labelledby="sv-q3"><div><p>Yes. BHD Asia has delivered programmes across Europe, the US, Asia, Japan and the Middle East. We adapt delivery language and format to your team's location and culture.</p></div></div>
+      </div>
+      <div class="sv-acc-item">
+        <h3 class="sv-acc-h"><button type="button" class="sv-acc-btn" id="sv-q4" aria-expanded="true" aria-controls="sv-a4"><span>Is coaching available in languages other than English?</span><span class="sv-acc-x" aria-hidden="true"></span></button></h3>
+        <div class="sv-acc-p" id="sv-a4" role="region" aria-labelledby="sv-q4"><div><p>Isabelle coaches in English, French and Spanish, and partners with trusted coaches to meet more language and support needs — serving multinational leadership teams across regions.</p></div></div>
+      </div>
+      <div class="sv-acc-item">
+        <h3 class="sv-acc-h"><button type="button" class="sv-acc-btn" id="sv-q5" aria-expanded="true" aria-controls="sv-a5"><span>What is the first step to working with BHD Asia?</span><span class="sv-acc-x" aria-hidden="true"></span></button></h3>
+        <div class="sv-acc-p" id="sv-a5" role="region" aria-labelledby="sv-q5"><div><p>Book a free 30-minute discovery call. We will listen to your challenges and — only if there is a genuine fit — propose a programme design.</p></div></div>
+      </div>
+    </div>
   </div>
 </section>
-<div class="cta-strip">
+
+<div class="cta-strip sv-cta">
   <div class="container">
-    <h2>Ready to Get a Proposal?</h2>
-    <p>All our services are co-designed with you. Start with a no-obligation discovery conversation.</p>
-    <a class="et_pb_button" href="contact.html">Book a Discovery Call</a>
-    <a class="et_pb_button btn-outline" href="isabelle.html">Meet Isabelle</a>
+    <div class="sv-cta-in sv-rv">
+      <div class="sv-cta-copy">
+        <h2>Ready to Get a Proposal?</h2>
+        <p>All our services are co-designed with you. Start with a no-obligation discovery conversation.</p>
+      </div>
+      <div class="sv-cta-btns">
+        <a class="et_pb_button" href="contact.html">Book a Discovery Call</a>
+        <a class="et_pb_button btn-outline" href="isabelle.html">Meet Isabelle</a>
+      </div>
+    </div>
   </div>
+</div>
+
 </div>
 
 </div>
@@ -274,7 +473,198 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div></div>
 </footer>
 </div>
-<script src="shared.js?v=6"></script>
+<script src="shared.js?v=7"></script>
+<script>
+/* services.html interactions (sv-): service-area tabs + hash deep links, package switch (narrow screens), FAQ accordion, reveal, pointer effects */
+(function () {
+  var root = document.querySelector('.sv-root');
+  if (!root) return;
+  root.classList.add('sv-js');
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var fine = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+  function scrollToEl(el) {
+    if (!el) return;
+    requestAnimationFrame(function () { el.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' }); });
+  }
+  function setHash(id) {
+    try { history.replaceState(null, '', '#' + id); } catch (e) {}
+  }
+  function keyNav(tabs, e, activate) {
+    var i = tabs.indexOf(e.currentTarget), n = tabs.length, j = -1;
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') j = (i + 1) % n;
+    else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') j = (i - 1 + n) % n;
+    else if (e.key === 'Home') j = 0;
+    else if (e.key === 'End') j = n - 1;
+    if (j < 0) return;
+    e.preventDefault(); activate(j, true); tabs[j].focus();
+  }
+
+  /* ---------- service-area switcher ---------- */
+  var svTabs = [].slice.call(root.querySelectorAll('.sv-tab'));
+  var svPanels = svTabs.map(function (t) { return document.getElementById(t.getAttribute('aria-controls')); });
+  var ind = root.querySelector('.sv-ind');
+  var svCur = 0;
+  function moveInd() {
+    var t = svTabs[svCur]; if (!ind || !t) return;
+    ind.style.width = t.offsetWidth + 'px';
+    ind.style.transform = 'translateX(' + t.offsetLeft + 'px)';
+  }
+  function showSv(i, animate) {
+    svCur = i;
+    svTabs.forEach(function (t, k) {
+      var on = k === i;
+      t.setAttribute('aria-selected', on ? 'true' : 'false');
+      t.tabIndex = on ? 0 : -1;
+      var p = svPanels[k];
+      p.hidden = !on;
+      p.classList.remove('sv-enter');
+      if (on && animate && !reduce) { void p.offsetWidth; p.classList.add('sv-enter'); }
+    });
+    moveInd();
+  }
+  svPanels.forEach(function (p, k) {
+    p.setAttribute('role', 'tabpanel');
+    p.setAttribute('aria-labelledby', svTabs[k].id);
+    p.tabIndex = 0;
+    p.addEventListener('animationend', function (e) { if (e.target === p.querySelector('.et_pb_button')) p.classList.remove('sv-enter'); });
+  });
+  svTabs.forEach(function (t, k) {
+    t.addEventListener('click', function () { if (svCur !== k) showSv(k, true); setHash(svPanels[k].id); });
+    t.addEventListener('keydown', function (e) { keyNav(svTabs, e, function (j) { showSv(j, true); setHash(svPanels[j].id); }); });
+  });
+  showSv(0, false);
+  window.addEventListener('resize', moveInd);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(moveInd);
+
+  /* ---------- packages: switch on narrow screens, side by side on wide ---------- */
+  var pkSwitch = root.querySelector('.sv-pkg-switch');
+  var pkTabs = [].slice.call(root.querySelectorAll('.sv-pkg-tab'));
+  var pkCards = pkTabs.map(function (t) { return document.getElementById(t.getAttribute('aria-controls')); });
+  var narrow = window.matchMedia('(max-width: 899px)');
+  var pkCur = 0;
+  function showPk(i, animate) {
+    pkCur = i;
+    pkSwitch.setAttribute('data-sv-at', String(i));
+    pkTabs.forEach(function (t, k) {
+      var on = k === i;
+      t.setAttribute('aria-selected', on ? 'true' : 'false');
+      t.tabIndex = on ? 0 : -1;
+      var c = pkCards[k];
+      if (narrow.matches) {
+        c.setAttribute('role', 'tabpanel'); c.setAttribute('aria-labelledby', t.id);
+        c.hidden = !on;
+        c.classList.remove('sv-enter');
+        if (on && animate && !reduce) { void c.offsetWidth; c.classList.add('sv-enter'); }
+      } else {
+        c.removeAttribute('role'); c.removeAttribute('aria-labelledby'); c.hidden = false;
+      }
+    });
+  }
+  pkTabs.forEach(function (t, k) {
+    t.addEventListener('click', function () { if (pkCur !== k) showPk(k, true); });
+    t.addEventListener('keydown', function (e) { keyNav(pkTabs, e, function (j) { showPk(j, true); }); });
+  });
+  pkCards.forEach(function (c) { c.addEventListener('animationend', function () { c.classList.remove('sv-enter'); }); });
+  showPk(0, false);
+  if (narrow.addEventListener) narrow.addEventListener('change', function () { showPk(pkCur, false); });
+  else if (narrow.addListener) narrow.addListener(function () { showPk(pkCur, false); });
+
+  /* ---------- hash deep links: #org #resilience #individual #corporate-coaching #new-leader ---------- */
+  function openHash(scroll) {
+    var id = decodeURIComponent((location.hash || '').slice(1));
+    if (!id) return false;
+    var si = svPanels.map(function (p) { return p.id; }).indexOf(id);
+    if (si > -1) { showSv(si, false); if (scroll) scrollToEl(svPanels[si].closest('.sv-svc')); return true; }
+    var pi = pkCards.map(function (c) { return c.id; }).indexOf(id);
+    if (pi > -1) { showPk(pi, false); if (scroll) scrollToEl(narrow.matches ? pkSwitch : pkCards[pi]); return true; }
+    return false;
+  }
+  if (openHash(false)) {
+    // wait for layout (fonts, images above) before scrolling to the switcher
+    window.addEventListener('load', function () { openHash(true); });
+    setTimeout(function () { openHash(true); }, 60);
+  }
+  window.addEventListener('hashchange', function () { openHash(true); });
+  // same-hash clicks do not fire hashchange: handle in-page links to these targets directly
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href^="#"], a[href^="services.html#"]');
+    if (!a || e.defaultPrevented || e.metaKey || e.ctrlKey || e.shiftKey) return;
+    var id = a.getAttribute('href').split('#')[1];
+    var isSv = svPanels.some(function (p) { return p.id === id; }), isPk = pkCards.some(function (c) { return c.id === id; });
+    if (!isSv && !isPk) return;
+    e.preventDefault();
+    try { history.pushState(null, '', '#' + id); } catch (err) {}
+    openHash(true);
+  });
+
+  /* preload the images of hidden panels once the page has settled */
+  window.addEventListener('load', function () {
+    setTimeout(function () { root.querySelectorAll('.sv-fig img, .sv-card-fig img').forEach(function (im) { im.loading = 'eager'; }); }, 1200);
+  });
+
+  /* ---------- FAQ accordion (first open, others closed; each toggles independently) ---------- */
+  var accBtns = [].slice.call(root.querySelectorAll('.sv-acc-btn'));
+  function setAcc(b, open) {
+    b.setAttribute('aria-expanded', open ? 'true' : 'false');
+    var p = document.getElementById(b.getAttribute('aria-controls'));
+    if (p) p.classList.toggle('sv-shut', !open);
+  }
+  accBtns.forEach(function (b, k) {
+    setAcc(b, k === 0);
+    b.addEventListener('click', function () { setAcc(b, b.getAttribute('aria-expanded') !== 'true'); });
+    b.addEventListener('keydown', function (e) {
+      var i = accBtns.indexOf(b), j = -1;
+      if (e.key === 'ArrowDown') j = Math.min(i + 1, accBtns.length - 1);
+      else if (e.key === 'ArrowUp') j = Math.max(i - 1, 0);
+      else if (e.key === 'Home') j = 0;
+      else if (e.key === 'End') j = accBtns.length - 1;
+      if (j > -1) { e.preventDefault(); accBtns[j].focus(); }
+    });
+  });
+  window.addEventListener('beforeprint', function () { accBtns.forEach(function (b) { setAcc(b, true); }); });
+
+  /* ---------- reveal on scroll ---------- */
+  var rv = [].slice.call(root.querySelectorAll('.sv-rv'));
+  function revealAll() { rv.forEach(function (el) { el.classList.add('sv-in'); }); }
+  if (reduce || !('IntersectionObserver' in window)) { revealAll(); }
+  else {
+    var fired = false;
+    var io = new IntersectionObserver(function (entries) {
+      fired = true;
+      entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('sv-in'); io.unobserve(en.target); } });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    rv.forEach(function (el) { io.observe(el); });
+    // safety net: never leave content stuck invisible
+    setTimeout(function () {
+      if (!fired) { revealAll(); return; }
+      rv.forEach(function (el) { if (el.getBoundingClientRect().top < window.innerHeight) el.classList.add('sv-in'); });
+    }, 1500);
+    window.addEventListener('beforeprint', revealAll);
+  }
+
+  /* ---------- pointer effects (fine pointers only) ---------- */
+  if (fine && !reduce) {
+    root.querySelectorAll('.sv-fig').forEach(function (f) {
+      f.addEventListener('pointermove', function (e) {
+        var r = f.getBoundingClientRect();
+        f.style.setProperty('--sv-px', (((e.clientX - r.left) / r.width - .5) * -14).toFixed(1) + 'px');
+        f.style.setProperty('--sv-py', (((e.clientY - r.top) / r.height - .5) * -10).toFixed(1) + 'px');
+      });
+      f.addEventListener('pointerleave', function () { f.style.setProperty('--sv-px', '0px'); f.style.setProperty('--sv-py', '0px'); });
+    });
+    root.querySelectorAll('.sv-card, .sv-cta-in').forEach(function (c) {
+      c.addEventListener('pointermove', function (e) {
+        var r = c.getBoundingClientRect();
+        c.style.setProperty('--sv-x', (e.clientX - r.left) + 'px');
+        c.style.setProperty('--sv-y', (e.clientY - r.top) + 'px');
+      });
+    });
+  }
+
+  if (window.bhdInitButtons) window.bhdInitButtons();
+})();
+</script>
 </body>
 </html>
 

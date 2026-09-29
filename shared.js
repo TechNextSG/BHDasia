@@ -623,3 +623,218 @@ function bhdEmailLead(data){
     }).catch(function(){});
   }catch(e){}
 }
+
+/* ════════════════════════════════════════════════════════════════════════
+   INTERACTIVE LAYER — 2026-09-30 (ported from hummingbeing.com)
+   buttons · mobile menu sheet. Styles in style.css, same heading.
+   ════════════════════════════════════════════════════════════════════════ */
+(function () {
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var fine = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  var ARROW = '<svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
+
+  function lum(rgb) {
+    var m = (rgb || '').match(/[\d.]+/g); if (!m) return 1;
+    var c = m.slice(0, 3).map(function (v) { v = v / 255; return v <= .03928 ? v / 12.92 : Math.pow((v + .055) / 1.055, 2.4); });
+    return .2126 * c[0] + .7152 * c[1] + .0722 * c[2];
+  }
+  function alpha(rgb) { var m = (rgb || '').match(/[\d.]+/g); return m && m.length > 3 ? +m[3] : 1; }
+  // Dark or light surface behind an element: nearest opaque background colour, else anything
+  // painting an image/video (hero photos and videos count as dark).
+  function onDark(el) {
+    for (var e = el.parentElement; e && e !== document.documentElement; e = e.parentElement) {
+      var cs = getComputedStyle(e);
+      if (cs.backgroundImage && cs.backgroundImage !== 'none' && !/gradient/.test(cs.backgroundImage)) return true;
+      if (e.querySelector(':scope > video, :scope > .evt-hero-img, :scope > img.hero-bg, :scope > canvas')) return true;
+      if (alpha(cs.backgroundColor) > .5) return lum(cs.backgroundColor) < .35;
+      if (/gradient/.test(cs.backgroundImage)) {
+        var cols = (cs.backgroundImage.match(/rgba?\([^)]+\)/g) || []).filter(function (c) { return alpha(c) >= .5; });
+        if (cols.length) { var avg = cols.reduce(function (t, c) { return t + lum(c); }, 0) / cols.length; return avg < .35; }
+      }
+    }
+    return false;
+  }
+
+  /* ---------- buttons ---------- */
+  var SEL = '.et_pb_button, .ec-btn-fill, .ec-btn-outline, .header-contact-btn';
+  function setXY(b, e) {
+    var r = b.getBoundingClientRect();
+    b.style.setProperty('--x', ((e.clientX - r.left) / r.width * 100) + '%');
+    b.style.setProperty('--y', ((e.clientY - r.top) / r.height * 100) + '%');
+  }
+  function initButtons() {
+    document.querySelectorAll(SEL).forEach(function (b) {
+      if (b.dataset.bhdBtn) return; b.dataset.bhdBtn = '1';
+      if (b.classList.contains('et_pb_button')) b.classList.add(onDark(b) ? 'on-dark' : 'on-light');
+      if (b.tagName === 'A' && b.classList.contains('et_pb_button') && !b.querySelector('.btn-arr, svg')) {
+        var lt = b.lastChild;
+        if (lt && lt.nodeType === 3) lt.nodeValue = lt.nodeValue.replace(/\s*[→➜⟶]\s*$/, '');
+        var s = document.createElement('span'); s.className = 'btn-arr'; s.setAttribute('aria-hidden', 'true'); s.innerHTML = ARROW; b.appendChild(s);
+      }
+      b.addEventListener('pointerdown', function (e) { setXY(b, e); });
+      if (!fine) return;
+      b.addEventListener('pointerenter', function (e) { setXY(b, e); });
+      if (reduce) return;
+      b.addEventListener('pointermove', function (e) {
+        var r = b.getBoundingClientRect();
+        var dx = e.clientX - (r.left + r.width / 2), dy = e.clientY - (r.top + r.height / 2);
+        b.style.setProperty('--mx', (dx * .18).toFixed(1) + 'px');
+        b.style.setProperty('--my', (dy * .28).toFixed(1) + 'px');
+      });
+      b.addEventListener('pointerleave', function (e) {
+        setXY(b, e); b.style.setProperty('--mx', '0px'); b.style.setProperty('--my', '0px');
+      });
+    });
+  }
+
+  /* ---------- mobile menu sheet ---------- */
+  function initMenu() {
+    var btn = document.getElementById('mobile-menu-btn'), ul = document.getElementById('top-menu');
+    if (!btn || !ul) return;
+    if (!btn.querySelector('.mm-l')) btn.innerHTML = '<span class="mm-l"></span><span class="mm-l"></span><span class="mm-l"></span>';
+    if (!ul.querySelector('.nav-extra')) {
+      var li = document.createElement('li'); li.className = 'nav-extra';
+      li.innerHTML =
+        '<div class="ne-row">' +
+          '<a href="mailto:isabelle@bhdasia.com"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6.5 8.5 6.5 8.5-6.5"/></svg>isabelle@bhdasia.com</a>' +
+          '<a href="https://wa.me/818065151778" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M4 20l1.3-3.9A8 8 0 1 1 8 19z"/><path d="M9.5 9.5c.3 1.8 2.2 3.8 4 4.2l1.2-1.1 1.8.9c-.3 1-1.2 1.6-2.2 1.5-3.2-.3-6.3-3.4-6.6-6.6-.1-1 .5-1.9 1.5-2.2l.9 1.8z"/></svg>WhatsApp</a>' +
+        '</div>' +
+        '<div class="ne-soc">' +
+          '<a href="https://www.linkedin.com/in/isabelleclausteixeira/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="3"/><path d="M8 10.5v6M8 7.5h.01M11.5 16.5v-3.5a2.5 2.5 0 0 1 5 0v3.5M11.5 10.5v6"/></svg></a>' +
+          '<a href="https://www.instagram.com/isabelleclausteixeira_bhd/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.2 6.8h.01"/></svg></a>' +
+          '<a href="https://www.youtube.com/@IsabelleClausTeixeira" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24"><rect x="2.5" y="5.5" width="19" height="13" rx="4"/><path d="M10.5 9.5v5l4.5-2.5z"/></svg></a>' +
+          '<a href="https://www.facebook.com/bhdasia/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" class="fill"><path d="M14 8.5V6.8c0-.8.5-1.3 1.3-1.3H17V2.5h-2.6C11.8 2.5 10.5 4 10.5 6.4v2.1H8v3h2.5V21.5h3.5v-10h2.6l.4-3z"/></svg></a>' +
+        '</div>';
+      ul.appendChild(li);
+    }
+    function close() {
+      if (!document.body.classList.contains('mobile-nav-open')) return;
+      document.body.classList.remove('mobile-nav-open');
+      btn.setAttribute('aria-expanded', 'false'); btn.setAttribute('aria-label', 'Open navigation');
+    }
+    btn.addEventListener('click', function () {
+      if (document.body.classList.contains('mobile-nav-open')) {
+        var first = ul.querySelector('a'); if (first) setTimeout(function () { first.focus({ preventScroll: true }); }, 350);
+      }
+    });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && document.body.classList.contains('mobile-nav-open')) { close(); btn.focus(); } });
+    window.addEventListener('resize', function () { if (window.innerWidth > 980) close(); });
+  }
+
+  function start() { initButtons(); initMenu(); }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start); else start();
+  window.bhdInitButtons = initButtons; // for content injected later (event grids, countdown, agents' pages)
+})();
+
+/* ════════════════════════════════════════════════════════════════════════
+   EVENT PAGES (.evt-hero) INTERACTIVE LAYER — 2026-09-30 (from hummingbeing)
+   Reads BHD_EVENTS (defined above) so status and related events never go stale.
+   ════════════════════════════════════════════════════════════════════════ */
+(function () {
+  var hero = document.querySelector('.evt-hero');
+  if (!hero) return;
+  var body = document.body, reduce = matchMedia('(prefers-reduced-motion: reduce)').matches, fine = matchMedia('(hover: hover) and (pointer: fine)').matches;
+  function $(s, c) { return (c || document).querySelector(s); }
+  function $$(s, c) { return [].slice.call((c || document).querySelectorAll(s)); }
+  var EV = window.BHD_EVENTS || [], now = Date.now();
+  var here = (location.pathname.split('/').pop() || '').toLowerCase();
+  body.classList.add('evt-live');
+
+  /* hero: parallax + pointer glow */
+  var img = $('.evt-hero-img', hero);
+  var glow = document.createElement('span'); glow.className = 'ev-glow'; glow.setAttribute('aria-hidden', 'true');
+  hero.insertBefore(glow, $('.evt-hero-inner', hero));
+  if (!reduce && img) {
+    var tick = false;
+    window.addEventListener('scroll', function () {
+      if (tick) return; tick = true;
+      requestAnimationFrame(function () { tick = false; var y = window.scrollY || 0; if (y < hero.offsetHeight + 200) img.style.setProperty('--ev-py', (y * .2).toFixed(1) + 'px'); });
+    }, { passive: true });
+    if (fine) hero.addEventListener('pointermove', function (e) {
+      var r = hero.getBoundingClientRect(), x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height;
+      hero.style.setProperty('--ev-gx', (x * 100).toFixed(1) + '%'); hero.style.setProperty('--ev-gy', (y * 100).toFixed(1) + '%');
+      img.style.setProperty('--ev-px', ((.5 - x) * 16).toFixed(1) + 'px');
+    });
+  }
+
+  /* reveals */
+  var io = (!reduce && 'IntersectionObserver' in window) ? new IntersectionObserver(function (es) {
+    es.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('ev-in'); io.unobserve(en.target); } });
+  }, { threshold: .08, rootMargin: '0px 0px -5% 0px' }) : null;
+  function mark(root) {
+    ['.evt-facts-grid > *', '.evt-main > .evt-section', '.evt-sidebar > *', '.related-grid > .rel-card', '.facilitator-card', '.schedule-grid > *', '.included-list > li', '.pricing-cards > *', '.module-path > *', '.session-cards > *'].forEach(function (sel) {
+      $$(sel, root).forEach(function (el) {
+        if (el.classList.contains('ev-rv') || el.closest('.evt-hero')) return;
+        var i = el.parentNode ? [].indexOf.call(el.parentNode.children, el) : 0;
+        el.style.setProperty('--ev-d', Math.min(i, 6) * 70 + 'ms');
+        el.classList.add('ev-rv');
+        if (io) io.observe(el); else el.classList.add('ev-in');
+      });
+    });
+  }
+  mark(document);
+  setTimeout(function () { $$('.ev-rv:not(.ev-in)').forEach(function (el) { el.classList.add('ev-in'); }); }, 1600);
+
+  /* status for this page */
+  var mine = EV.filter(function (e) { return (e.page || '').toLowerCase() === here; });
+  var live = mine.filter(function (e) { return !e.soldOut && Date.parse(e.start) > now; }).sort(function (a, b) { return Date.parse(a.start) - Date.parse(b.start); });
+  var status = !mine.length ? '' : live.length ? 'upcoming' : mine.every(function (e) { return e.soldOut; }) ? 'sold' : mine.some(function (e) { return e.soldOut && Date.parse(e.start) > now; }) ? 'sold' : 'past';
+  function inDays(t) { var d = Math.ceil((Date.parse(t) - Date.now()) / 864e5); return d <= 1 ? 'Starts tomorrow' : 'Starts in ' + d + ' days'; }
+  var label = status === 'upcoming' ? inDays(live[0].start) : status === 'sold' ? 'Sold out' : status === 'past' ? 'This event has passed' : '';
+  var badges = $('.evt-hero-top', hero);
+  if (label && badges && !/sold|pass|ended|postpon/i.test(badges.textContent) && !$('.ev-status', badges)) {
+    var chip = document.createElement('span'); chip.className = 'evt-badge ev-status is-' + status; chip.textContent = label; badges.appendChild(chip);
+  }
+  if (status === 'past' && !$('.ev-past-note')) {
+    var note = document.createElement('div'); note.className = 'ev-past-note';
+    note.innerHTML = '<div><p><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 7.5h.01"/></svg>This event has already taken place.</p><a href="events.html" class="et_pb_button btn-outline">See upcoming events</a></div>';
+    var facts = $('.evt-facts'); (facts || hero).parentNode.insertBefore(note, (facts || hero).nextSibling);
+  }
+
+  /* live "other upcoming events" */
+  var grid = $('.related-grid');
+  var seen = {};
+  var next = EV.filter(function (e) { return (e.page || '').toLowerCase() !== here && !e.soldOut && Date.parse(e.start) > now && e.card; })
+    .sort(function (a, b) { return Date.parse(a.start) - Date.parse(b.start); })
+    .filter(function (e) { if (seen[e.page]) return false; seen[e.page] = 1; return true; }).slice(0, 3);
+  function txt(h) { var d = document.createElement('div'); d.innerHTML = h || ''; return d.textContent.trim(); }
+  if (grid && next.length) {
+    grid.innerHTML = '';
+    next.forEach(function (e) {
+      var a = document.createElement('a'); a.className = 'rel-card'; a.href = e.page;
+      var ri = document.createElement('div'); ri.className = 'rel-img';
+      var im = document.createElement('img'); im.src = e.card.img; im.alt = txt(e.card.alt || e.card.title); im.width = 400; im.height = 220; im.loading = 'lazy'; im.decoding = 'async';
+      ri.appendChild(im); a.appendChild(ri);
+      var b = document.createElement('div'); b.className = 'rel-body';
+      var st = document.createElement('strong'); st.textContent = txt(e.card.title);
+      var sp = document.createElement('span'); sp.textContent = txt(e.card.date).replace(/\s*·\s*/g, ' · ');
+      var w = document.createElement('span'); w.className = 'ev-rel-when'; w.textContent = inDays(e.start);
+      b.appendChild(st); b.appendChild(sp); b.appendChild(w); a.appendChild(b); grid.appendChild(a);
+    });
+    var sec = grid.parentNode;
+    if (!$('.ev-rel-all', sec)) { var p = document.createElement('p'); p.className = 'ev-rel-all'; p.innerHTML = '<a href="events.html" class="et_pb_button btn-outline">See all events</a>'; sec.appendChild(p); }
+    mark(sec);
+  }
+
+  /* phone booking bar */
+  var cta = $('.evt-hero-ctas a.et_pb_button');
+  if (cta && status !== 'past' && status !== 'sold') {
+    var bar = document.createElement('div'); bar.className = 'ev-bar'; bar.setAttribute('role', 'region'); bar.setAttribute('aria-label', 'Book this event');
+    var t = document.createElement('div'); t.className = 'ev-bar-t';
+    var h1 = $('h1', hero), bb = document.createElement('b'); bb.textContent = h1 ? h1.textContent.replace(/\s+/g, ' ').trim() : document.title;
+    var bs = document.createElement('span'); bs.textContent = label || '';
+    t.appendChild(bb); t.appendChild(bs); bar.appendChild(t);
+    var btn = cta.cloneNode(true); btn.removeAttribute('id'); delete btn.dataset.bhdBtn; btn.classList.remove('on-dark', 'on-light', 'btn-white', 'btn-white-outline'); $$('.btn-arr', btn).forEach(function (x) { x.remove(); });
+    var lbl = btn.textContent.replace(/[→\s]+$/, '').trim();
+    if (lbl.length > 16) btn.textContent = /zoom/i.test(lbl) ? 'Join on Zoom' : /waitlist/i.test(lbl) ? 'Waitlist' : 'Register';
+    bar.appendChild(btn); body.appendChild(bar);
+    var heroOut = false, blockers = 0, seenMap = new Map();
+    function upd() { body.classList.toggle('ev-bar-on', heroOut && blockers === 0); }
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (es) { heroOut = !es[0].isIntersecting; upd(); }).observe(hero);
+      var bo = new IntersectionObserver(function (es) { es.forEach(function (en) { seenMap.set(en.target, en.isIntersecting); }); blockers = 0; seenMap.forEach(function (v) { if (v) blockers++; }); upd(); }, { threshold: .15 });
+      $$('#register, .evt-reg-card, #main-footer').forEach(function (el) { bo.observe(el); });
+    }
+  }
+  if (window.bhdInitButtons) window.bhdInitButtons();
+})();

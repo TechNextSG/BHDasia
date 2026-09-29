@@ -38,8 +38,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap"/>
-<link rel="stylesheet" href="style.css?v=6"/>
-<link rel="stylesheet" href="event-detail.css?v=6"/>
+<link rel="stylesheet" href="style.css?v=7"/>
+<link rel="stylesheet" href="event-detail.css?v=7"/>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Course","name":"Global TRE™ Provider Certification 2027","description":"Become a Certified Global TRE™ Provider — the 2027 Singapore cohort, boosted by Internal Alchemy. Module 1: 27–28 February, Module 2: 3–4 July, Module 3: 30–31 October 2027. Led by Global TRE™ Certifying Trainer Isabelle Claus Teixeira.","provider":{"@type":"Organization","name":"BHD Asia","url":"https://bhdasia.com/"},"url":"https://bhdasia.com/event-certification-2027.html","image":"https://bhdasia.com/event-cert-2027.webp?v=4","hasCourseInstance":[{"@type":"CourseInstance","name":"Module 1 — Your Personal TRE™ Practice","courseMode":"Blended","startDate":"2027-02-27","endDate":"2027-02-28","location":{"@type":"Place","address":{"@type":"PostalAddress","addressLocality":"Singapore","addressCountry":"SG"}}},{"@type":"CourseInstance","name":"Module 2 — Teaching TRE™ to One Person","courseMode":"Blended","startDate":"2027-07-03","endDate":"2027-07-04","location":{"@type":"Place","address":{"@type":"PostalAddress","addressLocality":"Singapore","addressCountry":"SG"}}},{"@type":"CourseInstance","name":"Module 3 — Teaching TRE™ to Groups","courseMode":"Blended","startDate":"2027-10-30","endDate":"2027-10-31","location":{"@type":"Place","address":{"@type":"PostalAddress","addressLocality":"Singapore","addressCountry":"SG"}}}]}
 </script>
@@ -187,7 +187,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </div>
         </div>
 <div class="mod-step" style="border-color:var(--blue-text)">
-          <div class="mod-num" style="background:var(--navy)">✓</div>
+          <div class="mod-num" style="background:var(--navy)"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr-only">Done</span></div>
           <div class="mod-body">
             <strong>Global TRE&trade; Certified Provider</strong>
             <p>On completing all three modules you receive your Global TRE&trade; Provider certificate — qualified to offer TRE&trade; to the public in individual and group settings.</p>
@@ -374,7 +374,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div></div>
 </footer>
 </div>
-<script src="shared.js?v=6"></script>
+<script src="shared.js?v=7"></script>
 <script>
 function submitReg(e){e.preventDefault();var form=document.getElementById('evt-reg-form');var btn=form.querySelector('button[type="submit"]');btn.disabled=true;btn.textContent='Sending…';var data={source:'BHDasia Event — TRE Certification 2027 Singapore',event:form.event.value,inquiry:'Event registration enquiry',name:form.name.value,email:form.email.value,phone:form.phone.value,message:form.message.value};bhdEmailLead(data);fetch('https://script.google.com/macros/s/AKfycbxkv934L8ffTxU1TPUiw3jn9Hu6KmdE0Ol1CcJRB_vWstls2xiZHHb-LErG5qHXdTuX/exec',{method:'POST',mode:'no-cors',body:new URLSearchParams(data)}).then(function(){form.style.display='none';document.getElementById('reg-success').style.display='block'}).catch(function(){window.location.href='mailto:isabelle@bhdasia.com?subject='+encodeURIComponent('TRE Certification 2027 Enquiry: '+data.event)+'&body='+encodeURIComponent('Name: '+data.name+'\nEmail: '+data.email+'\nEvent: '+data.event+'\nMessage: '+(data.message||'—'))});}
 </script>

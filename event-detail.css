@@ -25,7 +25,7 @@
 .evt-section p{font-size:15px;color:var(--body);line-height:1.85;margin-bottom:14px;padding-bottom:0}
 .evt-for-list{list-style:none;padding:0;margin:16px 0}
 .evt-for-list li{padding:9px 0;border-bottom:1px solid var(--border);font-size:15px;color:var(--body);display:flex;align-items:flex-start;gap:10px;line-height:1.5}
-.evt-for-list li::before{content:'→';color:var(--blue-text);font-weight:700;flex-shrink:0}
+.evt-for-list li::before{content:'';width:15px;height:15px;margin-top:3px;background:var(--blue-text);-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14M13 6l6 6-6 6'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14M13 6l6 6-6 6'/%3E%3C/svg%3E") center/contain no-repeat;flex-shrink:0}
 .schedule-grid{display:flex;flex-direction:column;gap:16px;margin-top:20px}
 .sched-day{border:1px solid var(--border);border-radius:var(--r-md);overflow:hidden;transition:box-shadow .2s}
 .sched-day:hover{box-shadow:0 4px 18px rgba(0,0,0,.08)}
@@ -49,7 +49,7 @@
 .sched-time{flex-shrink:0;min-width:52px;font-weight:700;color:var(--blue-text)}
 .included-list{list-style:none;padding:0;margin:16px 0;display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .included-list li{background:var(--off-white);border-radius:var(--r-md);padding:12px 14px;font-size:14px;color:var(--body);display:flex;align-items:flex-start;gap:10px;line-height:1.5}
-.included-list li::before{content:'✓';color:var(--blue-text);font-weight:700;flex-shrink:0;font-size:13px;margin-top:1px}
+.included-list li::before{content:'';width:14px;height:14px;margin-top:3px;background:var(--blue-text);-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E") center/contain no-repeat;flex-shrink:0}
 .pricing-cards{display:flex;gap:16px;flex-wrap:wrap;margin-top:20px}
 .price-card{flex:1;min-width:160px;border:1.5px solid var(--border);border-radius:var(--r-md);padding:20px 18px;text-align:center;transition:border-color .2s,box-shadow .2s}
 .price-card:hover{border-color:var(--blue-text);box-shadow:0 4px 16px rgba(212,146,26,.12)}

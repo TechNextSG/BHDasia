@@ -37,7 +37,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&amp;family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400&amp;display=swap"/>
-<link rel="stylesheet" href="style.css?v=6"/>
+<link rel="stylesheet" href="style.css?v=7"/>
 <style>
 /* ── Event detail shared styles ────────── */
 .evt-hero{position:relative;min-height:480px;display:flex;align-items:flex-end;overflow:hidden;margin-top:60px}
@@ -69,7 +69,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 .evt-section p{font-size:15px;color:var(--body);line-height:1.85;margin-bottom:14px;padding-bottom:0}
 .evt-for-list{list-style:none;padding:0;margin:16px 0}
 .evt-for-list li{padding:9px 0;border-bottom:1px solid var(--border);font-size:15px;color:var(--body);display:flex;align-items:flex-start;gap:10px;line-height:1.5}
-.evt-for-list li::before{content:'→';color:var(--blue-text);font-weight:700;flex-shrink:0}
+.evt-for-list li::before{content:'';width:15px;height:15px;margin-top:3px;background:var(--blue-text);-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14M13 6l6 6-6 6'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14M13 6l6 6-6 6'/%3E%3C/svg%3E") center/contain no-repeat;flex-shrink:0}
 /* Schedule */
 .schedule-grid{display:flex;flex-direction:column;gap:16px;margin-top:20px}
 .sched-day{border:1px solid var(--border);border-radius:var(--r-md);overflow:hidden;transition:box-shadow .2s}
@@ -84,7 +84,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 /* Included list */
 .included-list{list-style:none;padding:0;margin:16px 0;display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .included-list li{background:var(--off-white);border-radius:var(--r-md);padding:12px 14px;font-size:14px;color:var(--body);display:flex;align-items:flex-start;gap:10px;line-height:1.5}
-.included-list li::before{content:'✓';color:var(--blue-text);font-weight:700;flex-shrink:0;font-size:13px;margin-top:1px}
+.included-list li::before{content:'';width:14px;height:14px;margin-top:3px;background:var(--blue-text);-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E") center/contain no-repeat;flex-shrink:0}
 /* Pricing */
 .pricing-cards{display:flex;gap:16px;flex-wrap:wrap;margin-top:20px}
 .price-card{flex:1;min-width:160px;border:1.5px solid var(--border);border-radius:var(--r-md);padding:20px 18px;text-align:center;transition:border-color .2s,box-shadow .2s}
@@ -483,7 +483,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div></div>
 </footer>
 </div>
-<script src="shared.js?v=6"></script>
+<script src="shared.js?v=7"></script>
 <script>
 function submitReg(e){
   e.preventDefault();
