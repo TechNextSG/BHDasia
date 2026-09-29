@@ -1068,3 +1068,166 @@ body.evt-live .ev-rv.ev-in { opacity: 1; transform: none; }
 .c-l, .hx-evts .c-l, .ev-cd .c-l { font-size: 11px !important; }
 .bio-stat-l { font-size: 11px !important; }
 .ct-wrap input::placeholder, .ct-wrap textarea::placeholder, .ct-news input::placeholder { color: var(--muted) !important; opacity: 1; }
+
+/* =====================================================================
+   WARM LIGHT THEME — 2026-09-30
+   Lighter, warmer, logo-led: palette taken from the BHD mark (sun yellow
+   sail, marigold B/D, thin red + royal-navy bars). Replaces the heavy navy
+   bands, dark hero overlays and uppercase buttons. Loaded last; wins.
+   ===================================================================== */
+:root {
+  --ivory: #FFFBF4; --sand: #FBF3E6; --peach: #FDECCF; --line: #EFE3D0;
+  --marigold: #FFB21A; --marigold-dk: #F2A100; --sun: #EECB36; --brand-red: #CD1827; --brand-navy: #012564;
+  --ink: #14244a; --warm-body: #4f4a45; --warm-muted: #6f6a64; --amber-ink: #8f5a00;
+  /* re-map legacy tokens */
+  --navy: #14244a; --navy-mid: #1f3160; --text: #14244a; --body: #4f4a45; --muted: #6f6a64;
+  --off-white: #FBF3E6; --border: #EFE3D0; --blue: #FFB21A; --blue-dk: #F2A100; --blue-text: #8f5a00; --gold: #EECB36;
+  --shadow-sm: 0 1px 2px rgba(120,80,20,.05), 0 6px 18px rgba(120,80,20,.06);
+  --shadow: 0 2px 6px rgba(120,80,20,.06), 0 14px 34px rgba(120,80,20,.09);
+  --shadow-lg: 0 8px 18px rgba(120,80,20,.08), 0 26px 60px rgba(120,80,20,.12);
+  --r: 10px; --r-md: 14px; --r-lg: 20px;
+  --ease-soft: cubic-bezier(.22,1,.36,1);
+  --font-warm: 'Figtree', 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+/* ---------- base ---------- */
+html body { background: var(--ivory); color: var(--warm-body); font-family: var(--font-warm) !important; }
+html body :is(h1,h2,h3,h4,h5,h6,p,li,a,span,button,input,textarea,select,label,small,strong,b,em,dt,dd,blockquote,figcaption,td,th) { font-family: var(--font-warm) !important; }
+html body :is(h1,h2,h3) { color: var(--ink); font-weight: 700; letter-spacing: -.02em; }
+html body :is(h4,h5,h6) { color: var(--ink); }
+::selection { background: var(--peach); color: var(--ink); }
+:focus-visible { outline-color: var(--marigold-dk) !important; }
+.section-light, .band-cream { background: var(--sand) !important; }
+
+/* ---------- header ---------- */
+html body #main-header { background: rgba(255,251,244,.88) !important; backdrop-filter: saturate(1.3) blur(12px); -webkit-backdrop-filter: saturate(1.3) blur(12px); border-bottom: 1px solid rgba(239,227,208,.9) !important; }
+html body #main-header.et-fixed-header { box-shadow: 0 8px 30px -18px rgba(120,80,20,.35) !important; }
+.logo_container img { height: 42px !important; image-rendering: auto; }
+html body #top-menu > li > a { color: var(--ink) !important; font-weight: 600 !important; letter-spacing: .01em !important; text-transform: none !important; font-size: 15px !important; }
+html body #top-menu > li:not(:last-child) > a::after { background: var(--marigold) !important; height: 2px !important; border-radius: 2px; transition: transform .45s var(--ease-soft) !important; }
+html body #top-menu > li > a:hover, html body #top-menu > li.current-menu-item > a { color: var(--amber-ink) !important; }
+
+/* ---------- buttons: warm pill, soft fill that blooms from the pointer ---------- */
+html body :is(.et_pb_button, .ec-btn, .ec-btn-fill, .ec-btn-outline, .header-contact-btn, .form-submit button, .evt-reg-form button, .newsletter-form button) {
+  --b: var(--marigold); --t: var(--ink); --bg: var(--marigold); --f: var(--marigold-dk); --ft: var(--ink);
+  background: var(--bg) !important; color: var(--t) !important; border: 1.5px solid var(--b) !important;
+  border-radius: 999px !important; text-transform: none !important; letter-spacing: .005em !important;
+  font-weight: 700 !important; font-size: 15px !important; line-height: 1.4 !important; padding: .78em 1.6em !important;
+  box-shadow: 0 1px 0 rgba(255,255,255,.5) inset, 0 6px 16px -10px rgba(214,140,0,.6) !important;
+  transform: none; transition: color .5s var(--ease-soft), border-color .5s var(--ease-soft), background-color .5s var(--ease-soft), transform .5s var(--ease-soft), box-shadow .6s var(--ease-soft) !important;
+}
+html body :is(.et_pb_button, .ec-btn-fill, .ec-btn-outline, .header-contact-btn)::after { background: var(--f) !important; transition: clip-path .8s var(--ease-soft) !important; }
+html body :is(.et_pb_button, .ec-btn, .ec-btn-fill, .ec-btn-outline, .header-contact-btn, .form-submit button, .evt-reg-form button, .newsletter-form button):is(:hover, :focus-visible) {
+  background: var(--bg) !important; color: var(--ft) !important; border-color: var(--f) !important;
+  transform: translateY(-2px) !important; box-shadow: 0 14px 30px -14px rgba(214,140,0,.7) !important;
+}
+html body :is(.et_pb_button, .ec-btn, .ec-btn-fill, .ec-btn-outline, .header-contact-btn):active { transform: translateY(0) scale(.98) !important; }
+/* secondary */
+html body :is(.et_pb_button.btn-outline, .et_pb_button.btn-white-outline, .ec-btn-outline) {
+  --b: rgba(20,36,74,.18); --t: var(--ink); --bg: rgba(255,251,244,.7); --f: var(--peach); --ft: var(--ink);
+  box-shadow: none !important;
+}
+html body :is(.et_pb_button.btn-outline, .et_pb_button.btn-white-outline, .ec-btn-outline):is(:hover, :focus-visible) { border-color: var(--marigold) !important; box-shadow: 0 12px 26px -16px rgba(120,80,20,.45) !important; }
+html body .et_pb_button.btn-white { --b: var(--marigold); --bg: var(--marigold); --t: var(--ink); --f: var(--marigold-dk); --ft: var(--ink); }
+html body .header-contact-btn { padding: .55em 1.3em !important; font-size: 14px !important; }
+/* the old on-dark variants no longer apply: surfaces are light */
+html body .et_pb_button.on-dark:not(.btn-outline):not(.btn-white-outline) { --b: var(--marigold); --bg: var(--marigold); --t: var(--ink); --f: var(--marigold-dk); --ft: var(--ink); }
+html body :is(.et_pb_button.btn-outline.on-dark, .et_pb_button.btn-white-outline.on-dark) { --b: rgba(20,36,74,.18); --t: var(--ink); --bg: rgba(255,251,244,.7); --f: var(--peach); --ft: var(--ink); }
+.ec-btn-sold { background: transparent !important; box-shadow: none !important; color: #b3261e !important; border-color: rgba(179,38,30,.4) !important; }
+.ec-btn-ended { background: transparent !important; box-shadow: none !important; }
+.btn-arr { margin-left: .45em; }
+
+/* ---------- heroes: light ivory wash instead of dark overlays ---------- */
+html body .hero-overlay, html body .page-hero-overlay, html body .evt-hero-overlay {
+  background: linear-gradient(90deg, rgba(255,251,244,.96) 0%, rgba(255,251,244,.9) 34%, rgba(255,251,244,.45) 62%, rgba(255,251,244,.08) 100%) !important;
+}
+html body .page-title-wrap { background: var(--sand) !important; border-bottom: 0 !important; }
+html body :is(.hero, .page-title-wrap, .evt-hero) :is(h1, .hero-title, .page-title) { color: var(--ink) !important; }
+html body :is(.hero, .page-title-wrap, .evt-hero) :is(p, .hero-sub, .page-hero-sub, .evt-hero-sub) { color: var(--warm-body) !important; }
+html body .hero-title span, html body .hero h1 em { color: var(--amber-ink) !important; }
+html body .page-breadcrumb, html body .page-breadcrumb a { color: var(--warm-muted) !important; }
+html body .evt-badge-loc { background: var(--marigold) !important; color: var(--ink) !important; }
+html body .evt-badge-type, html body .evt-badge.ev-status { background: rgba(255,251,244,.8) !important; color: var(--ink) !important; border: 1px solid var(--line) !important; }
+.warm-blobs { position: absolute; inset: 0; z-index: 1; pointer-events: none; overflow: hidden; }
+.warm-blobs i { position: absolute; border-radius: 50%; filter: blur(60px); opacity: .5; will-change: transform; animation: warm-drift 22s var(--ease-soft) infinite alternate; }
+.warm-blobs i:nth-child(1) { width: 38vw; height: 38vw; left: -10vw; top: -14vw; background: radial-gradient(circle, rgba(238,203,54,.55), transparent 65%); }
+.warm-blobs i:nth-child(2) { width: 30vw; height: 30vw; left: 18vw; bottom: -16vw; background: radial-gradient(circle, rgba(255,178,26,.45), transparent 65%); animation-duration: 26s; animation-delay: -6s; }
+.warm-blobs i:nth-child(3) { width: 22vw; height: 22vw; left: 34vw; top: 12%; background: radial-gradient(circle, rgba(253,236,207,.9), transparent 65%); animation-duration: 30s; animation-delay: -12s; }
+@keyframes warm-drift { 0% { transform: translate3d(0,0,0) scale(1); } 50% { transform: translate3d(3vw,2vw,0) scale(1.08); } 100% { transform: translate3d(-2vw,3vw,0) scale(.96); } }
+html body :is(.hero-inner, .page-title-wrap .container, .evt-hero-inner) { position: relative; z-index: 2; }
+@media (max-width: 767px) {
+  html body .hero-overlay, html body .page-hero-overlay, html body .evt-hero-overlay {
+    background: linear-gradient(180deg, rgba(255,251,244,.2) 0%, rgba(255,251,244,.55) 26%, rgba(255,251,244,.92) 52%, rgba(255,251,244,.97) 100%) !important;
+  }
+}
+
+/* ---------- former navy bands (shared templates) → warm light ---------- */
+html body .stats-bar { background: var(--sand) !important; border: 0 !important; }
+html body .stat-item { border-color: var(--line) !important; }
+html body .stat-item .stat-n { color: var(--amber-ink) !important; }
+html body .stat-item .stat-l { color: var(--warm-muted) !important; }
+html body .countdown-section { background: var(--ivory) !important; border-color: var(--line) !important; }
+html body .cta-strip { background: var(--sand) !important; border-top: 0 !important; }
+html body .c-n { color: var(--ink) !important; }
+html body .c-sep { color: var(--marigold) !important; }
+/* event pages */
+html body .evt-facts { background: var(--sand) !important; border-bottom: 1px solid var(--line); }
+html body .evt-fact { border-color: var(--line) !important; }
+html body .evt-fact-label { color: var(--warm-muted) !important; }
+html body .evt-fact-val { color: var(--ink) !important; }
+html body :is(.sched-day-head, .evt-reg-head, .icf-callout, .online-prep-strip) { background: var(--peach) !important; color: var(--ink) !important; }
+html body :is(.sched-day-title, .sched-day-title strong, .evt-reg-head h3, .icf-callout strong, .icf-callout-text strong, .online-prep-strip .ops-text strong) { color: var(--ink) !important; }
+html body :is(.sched-day-title em, .evt-reg-head p, .icf-callout, .icf-callout-text p, .online-prep-strip .ops-text span) { color: var(--warm-body) !important; }
+html body .session-tag { background: var(--peach) !important; color: var(--ink) !important; }
+html body :is(.sched-day-num, .mod-num, .icf-icon) { background: var(--marigold) !important; color: var(--ink) !important; }
+html body .mod-num svg { stroke: var(--ink) !important; }
+html body .ev-bar { background: rgba(255,251,244,.96) !important; color: var(--ink) !important; border: 1px solid var(--line); backdrop-filter: blur(10px); }
+html body .ev-bar-t span { color: var(--warm-muted) !important; }
+/* footer */
+html body #main-footer { background: var(--sand) !important; color: var(--warm-body) !important; border-top: 1px solid var(--line) !important; }
+html body #main-footer :is(p, li, a, span) { color: var(--warm-body) !important; }
+html body #main-footer .footer-brand-name { color: var(--ink) !important; }
+html body #main-footer .footer-brand-name span { color: var(--amber-ink) !important; }
+html body #main-footer .footer-widget h4 { color: var(--amber-ink) !important; }
+html body #main-footer a:hover { color: var(--amber-ink) !important; }
+html body #footer-bottom { background: var(--peach) !important; border-top: 0 !important; }
+html body #footer-bottom :is(span, a, div) { color: var(--warm-body) !important; }
+html body .footer-soc-btn { border-color: rgba(20,36,74,.18) !important; color: var(--ink) !important; }
+html body .footer-soc-btn:hover { background: var(--marigold) !important; border-color: var(--marigold) !important; }
+/* mobile menu sheet: warm ivory */
+@media (max-width: 980px) {
+  html body #top-menu-nav { background: radial-gradient(90% 60% at 100% 0%, rgba(238,203,54,.28), transparent 60%), radial-gradient(80% 50% at 0% 100%, rgba(253,236,207,.9), transparent 60%), var(--ivory) !important; }
+  html body.mobile-nav-open #main-header { background: var(--ivory) !important; }
+  html body.mobile-nav-open #top-menu > li { border-bottom-color: var(--line) !important; }
+  html body.mobile-nav-open #top-menu > li > a, html body.mobile-nav-open #top-menu > li:last-child > a { color: var(--ink) !important; font-weight: 700 !important; }
+  html body.mobile-nav-open #top-menu > li.current-menu-item > a { color: var(--amber-ink) !important; }
+  html body .nav-extra .ne-row a { color: var(--warm-body) !important; }
+  html body .nav-extra svg { stroke: var(--amber-ink); }
+  html body .nav-extra .ne-soc a { border-color: rgba(20,36,74,.16) !important; color: var(--ink) !important; }
+  html body.mobile-nav-open .mobile_menu_bar .mm-l { background: var(--ink); }
+  html body.mobile-nav-open .mobile_menu_bar { border-color: var(--marigold) !important; background: var(--peach) !important; }
+}
+/* chat widget header */
+html body .bhd-chat-head { background: var(--peach) !important; color: var(--ink) !important; border-top: 0 !important; }
+html body .bhd-chat-head :is(.bhd-chat-title, .bhd-chat-status, .bhd-chat-close) { color: var(--ink) !important; }
+html body .bhd-chat-toggle { background: var(--marigold) !important; color: var(--ink) !important; }
+
+/* ---------- smoother reveals ---------- */
+html body .sr { transform: translateY(22px); transition: opacity .9s var(--ease-soft), transform 1.1s var(--ease-soft) !important; }
+
+@media (prefers-reduced-motion: reduce) {
+  .warm-blobs i { animation: none !important; }
+  html body :is(.et_pb_button, .ec-btn, .header-contact-btn) { transition: none !important; }
+}
+/* warm theme refinements */
+html body .evt-hero-img { filter: blur(7px) saturate(.85) brightness(1.04); transform: scale(1.08) !important; }
+html body .evt-hero-overlay { background: linear-gradient(90deg, rgba(255,251,244,.97) 0%, rgba(255,251,244,.93) 45%, rgba(255,251,244,.78) 100%) !important; }
+@media (max-width: 980px) { html body .header-contact-btn { padding: .42em 1em !important; font-size: 13px !important; } }
+/* warm theme: hero/footer buttons — beat the old dark-container variants */
+html body :is(.hero, .page-title-wrap, .evt-hero, .stats-bar, #main-footer, .countdown-section) .et_pb_button:not(.btn-outline):not(.btn-white-outline),
+html body :is(.hero, .page-title-wrap, .evt-hero) .et_pb_button.btn-white { --b: var(--marigold); --bg: var(--marigold); --t: var(--ink); --f: var(--marigold-dk); --ft: var(--ink); }
+html body :is(.hero, .page-title-wrap, .evt-hero, .stats-bar, #main-footer, .countdown-section) :is(.et_pb_button.btn-outline, .et_pb_button.btn-white-outline) { --b: rgba(20,36,74,.2); --t: var(--ink); --bg: rgba(255,251,244,.75); --f: var(--peach); --ft: var(--ink); }
+html body #main-footer { background: #F6EAD6 !important; border-top: 1px solid #EADBC2 !important; }
+html body :is(.ct-wrap, .ct-news, .evt-reg-form) :is(input:not([type=radio]):not([type=hidden]), textarea, select) { border-color: #A38B66 !important; }
+html body .ec-btn.ec-btn-sold, html body .ec-btn.ec-btn-sold:hover { background: #fff !important; color: #b3261e !important; border-color: rgba(179,38,30,.45) !important; box-shadow: none !important; transform: none !important; cursor: default; }
+html body .ec-btn.ec-btn-ended, html body .ec-btn.ec-btn-ended:hover { background: var(--sand) !important; color: var(--warm-muted) !important; border-color: var(--line) !important; box-shadow: none !important; transform: none !important; cursor: default; }

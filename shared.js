@@ -838,3 +838,37 @@ function bhdEmailLead(data){
   }
   if (window.bhdInitButtons) window.bhdInitButtons();
 })();
+
+/* ════════════════════════════════════════════════════════════════════════
+   WARM LIGHT THEME — 2026-09-30 (styles in style.css, same heading)
+   Heroes are light now: re-tag their buttons, soften the magnetic pull,
+   add slow drifting colour from the logo palette behind hero copy.
+   ════════════════════════════════════════════════════════════════════════ */
+(function () {
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function lightHeroButtons() {
+    document.querySelectorAll('.hero .et_pb_button, .page-title-wrap .et_pb_button, .evt-hero .et_pb_button').forEach(function (b) {
+      b.classList.remove('on-dark'); b.classList.add('on-light');
+    });
+  }
+  function softenMagnet() {
+    document.querySelectorAll('.et_pb_button, .ec-btn-fill, .ec-btn-outline, .header-contact-btn').forEach(function (b) {
+      if (b.dataset.warm) return; b.dataset.warm = '1';
+      b.addEventListener('pointermove', function () { b.style.setProperty('--mx', '0px'); b.style.setProperty('--my', '0px'); });
+    });
+  }
+  function blobs() {
+    if (reduce) return;
+    document.querySelectorAll('.hero, .page-title-wrap, .evt-hero').forEach(function (h) {
+      if (h.querySelector('.warm-blobs')) return;
+      var d = document.createElement('div'); d.className = 'warm-blobs'; d.setAttribute('aria-hidden', 'true');
+      d.innerHTML = '<i></i><i></i><i></i>';
+      var ov = h.querySelector('.hero-overlay, .page-hero-overlay, .evt-hero-overlay');
+      if (ov && ov.nextSibling) h.insertBefore(d, ov.nextSibling); else h.appendChild(d);
+    });
+  }
+  function start() { lightHeroButtons(); softenMagnet(); blobs(); }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start); else start();
+  var wrap = window.bhdInitButtons;
+  window.bhdInitButtons = function () { if (wrap) wrap(); lightHeroButtons(); softenMagnet(); };
+})();
