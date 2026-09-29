@@ -872,3 +872,11 @@ function bhdEmailLead(data){
   var wrap = window.bhdInitButtons;
   window.bhdInitButtons = function () { if (wrap) wrap(); lightHeroButtons(); softenMagnet(); };
 })();
+
+/* v9 — transparent header only where a dark hero sits under it */
+(function () {
+  var h = document.getElementById('main-header'); if (!h) return;
+  var hero = document.querySelector('.hero, .page-title-wrap, .evt-hero');
+  var top = hero ? hero.getBoundingClientRect().top + (window.scrollY || 0) : 999;
+  if (!hero || top > 80) h.classList.add('hdr-solid');
+})();
