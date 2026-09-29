@@ -1,4 +1,11 @@
-﻿(function(){
+﻿/* clean URLs: someone who lands on /about.html sees /about (index.html -> /) */
+(function () {
+  var p = location.pathname;
+  if (!/\.html$/i.test(p) || /\/(google[^/]*|404)\.html$/i.test(p)) return;
+  var c = p.replace(/(^|\/)index\.html$/i, '$1').replace(/\.html$/i, '');
+  try { history.replaceState(history.state, '', c + location.search + location.hash); } catch (e) {}
+})();
+(function(){
   document.documentElement.classList.add('js');
   // Skip-to-content link (accessibility)
   var skip = document.createElement('a');
@@ -135,32 +142,32 @@
     {
       re:/^how$/,
       a:"Happy to help! Are you asking about <strong>how to book</strong>, <strong>how our sessions work</strong>, or <strong>how much it costs</strong>? Tap a topic below or just type.",
-      btns:[{t:'How to Book',u:'contact.html'},{t:'Pricing',u:'services.html'},{t:'Our Approach',u:'about.html'}]
+      btns:[{t:'How to Book',u:'contact'},{t:'Pricing',u:'services'},{t:'Our Approach',u:'about'}]
     },
     {
       re:/^(who|whose)$/,
       a:"We're <strong>BHD Asia</strong> (Business and Human Development Consulting Pte Ltd) — led by <strong>Isabelle Claus Teixeira</strong>, 27+ years in HR &amp; coaching.",
-      btns:[{t:'Meet the Team',u:'about.html'},{t:'About Isabelle',u:'isabelle.html'}]
+      btns:[{t:'Meet the Team',u:'about'},{t:'About Isabelle',u:'isabelle'}]
     },
     {
       re:/^what$/,
       a:"We offer <strong>Organisation Development</strong>, <strong>Resilience Building</strong> (incl. TRE™), and <strong>Individual Coaching</strong>. What area interests you?",
-      btns:[{t:'All Services',u:'services.html'},{t:'TRE™ Workshops',u:'events.html'}]
+      btns:[{t:'All Services',u:'services'},{t:'TRE™ Workshops',u:'events'}]
     },
     {
       re:/^why$/,
       a:"<strong>Why BHD Asia?</strong> We co-design bespoke solutions — not off-the-shelf programmes. 27+ years across 9 countries, blending executive coaching, somatic methods, and real HR expertise.",
-      btns:[{t:'Our Story',u:'about.html'},{t:'Book a Free Call',u:'contact.html'}]
+      btns:[{t:'Our Story',u:'about'},{t:'Book a Free Call',u:'contact'}]
     },
     {
       re:/^(help|\?+|start|menu|topics?|options?)$/,
       a:"Here's what I can help with:<br>• <strong>Services</strong> — what we offer<br>• <strong>TRE™ workshops</strong> — dates &amp; pricing<br>• <strong>Coaching</strong> — executive &amp; career<br>• <strong>Events</strong> — upcoming workshops<br>• <strong>Team</strong> — about Isabelle<br>• <strong>Location &amp; online</strong> — where we work<br>• <strong>Contact</strong> — how to reach us<br><br>Just type any topic!",
-      btns:[{t:'Services',u:'services.html'},{t:'Events',u:'events.html'},{t:'Contact',u:'contact.html'}]
+      btns:[{t:'Services',u:'services'},{t:'Events',u:'events'},{t:'Contact',u:'contact'}]
     },
     {
       re:/^(yes|yeah|yep|yup|ok|okay|sure|go ahead|sounds good)$/,
       a:"Great! What would you like to know? Ask about our <strong>services</strong>, <strong>pricing</strong>, <strong>TRE™ workshops</strong>, or how to <strong>book a session</strong>.",
-      btns:[{t:'Services',u:'services.html'},{t:'Events',u:'events.html'},{t:'Contact',u:'contact.html'}]
+      btns:[{t:'Services',u:'services'},{t:'Events',u:'events'},{t:'Contact',u:'contact'}]
     },
     {
       re:/^(no|nope|nah|not now|later)$/,
@@ -172,72 +179,72 @@
     {
       re:/(service|services|offer|offering|programme|programs?|help with|what do you|what you do|specialise|specialize|expertise|capabilities?|solutions?)/,
       a:"We focus on three areas: <strong>Organisation Development</strong>, <strong>Resilience Building</strong> (TRE™, somatic coaching, stress &amp; burnout), and <strong>Individual Development</strong> (executive, career &amp; transition coaching). Each solution is co-designed with you.",
-      btns:[{t:'View All Services',u:'services.html'},{t:'Book a Free Call',u:'contact.html'}]
+      btns:[{t:'View All Services',u:'services'},{t:'Book a Free Call',u:'contact'}]
     },
     {
       re:/(\btre\b|tension|trauma|somatic|tremor|neurogenic|releasing exercise|nervous system|body.?based|bodywork)/,
       a:"<strong>TRE™ (Tension &amp; Trauma Releasing Exercises)</strong> is a neurogenic method that helps the body release deep muscle tension and stress without detailed discussion of past events. We run open workshops — Module 1 (personal use) and Modules 2/3 (provider certification).",
-      btns:[{t:'See TRE™ Events',u:'events.html'},{t:'Enquire Now',u:'contact.html'}]
+      btns:[{t:'See TRE™ Events',u:'events'},{t:'Enquire Now',u:'contact'}]
     },
     {
       re:/(event|events|workshop|workshops|upcoming|module|when|next date|schedule|calendar|dates?|availability|timetable|course|training|certif)/,
       a:"Our next workshops: <strong>TRE™ for Personal Use (Module 1)</strong> — <strong>29–30 Aug 2026</strong>, and <strong>TRE™ Certification (Module 2)</strong> — 26–27 Sep 2026. Both in-person, Singapore.",
-      btns:[{t:'View All Events',u:'events.html'},{t:'Reserve a Spot',u:'contact.html'}]
+      btns:[{t:'View All Events',u:'events'},{t:'Reserve a Spot',u:'contact'}]
     },
     {
       re:/(price|pricing|cost|fee|how much|rate|sgd|dollar|package|invest|money|budget|afford|pay|payment)/,
       a:"The 2026 TRE™ certification intake is closed. The <strong>2027 Singapore cohort</strong> opens with Module 1 on 27–28 February 2027, co-taught by Isabelle Claus Teixeira and Simba Stenqvist, with <strong>early-bird pricing until 31 December 2026</strong>. Our 8-week individual coaching package is <strong>SGD 2,200</strong>. Group and corporate rates on request.",
-      btns:[{t:'Full Pricing',u:'services.html'},{t:'Ask About Rates',u:'contact.html'}]
+      btns:[{t:'Full Pricing',u:'services'},{t:'Ask About Rates',u:'contact'}]
     },
     {
       re:/(contact|email|phone|call|reach|whatsapp|enquire|inquire|message|get in touch|speak|talk|connect)/,
       a:"You can reach us by email at <a href='mailto:isabelle@bhdasia.com'>isabelle@bhdasia.com</a>, call or WhatsApp <strong>+81 80 6515 1778</strong>, or fill in our online contact form.",
-      btns:[{t:'Contact Form',u:'contact.html'}]
+      btns:[{t:'Contact Form',u:'contact'}]
     },
     {
       re:/(location|where|address|office|located|based|singapore|raffles|online|virtual|remote|in.?person|hybrid)/,
       a:"Based at <strong>50 Raffles Place, Singapore Land Tower #30-00, Singapore 048623</strong>. We also work remotely with clients across Asia Pacific, Japan, Europe, and beyond.",
-      btns:[{t:'Contact Us',u:'contact.html'},{t:'About BHD Asia',u:'about.html'}]
+      btns:[{t:'Contact Us',u:'contact'},{t:'About BHD Asia',u:'about'}]
     },
     {
       re:/(isabelle|founder|who runs|co.?founder|director|team|staff|people|credentials?|qualif)/,
       a:"<strong>Isabelle Claus Teixeira</strong> is our founder — 27+ years in HR leadership across 9 countries, certified coach since 2012, TRE™ provider, and Forbes Coaches Council contributor.",
-      btns:[{t:'Meet Isabelle',u:'isabelle.html'},{t:'Our Team',u:'about.html#team'}]
+      btns:[{t:'Meet Isabelle',u:'isabelle'},{t:'Our Team',u:'about#team'}]
     },
     {
       re:/(resilience|resilient|stress|burnout|burn.?out|anxiety|overwhelm|wellbeing|well.?being|mental.?health|pressure|fatigue|exhaust|psychological.?safety)/,
       a:"Our <strong>Resilience Building</strong> programmes include TRE™ (neurogenic stress release), somatic coaching, burnout prevention, stress management, and psychological safety workshops.",
-      btns:[{t:'Resilience Services',u:'services.html'},{t:'TRE™ Events',u:'events.html'}]
+      btns:[{t:'Resilience Services',u:'services'},{t:'TRE™ Events',u:'events'}]
     },
     {
       re:/(hr|human.?resource|talent|organisat|organizat|culture|change.?management|facilitat|corporate|leadership.?develop|workforce)/,
       a:"Our <strong>Organisation Development</strong> practice covers HR &amp; Talent Management advisory, high-performing team facilitation, culture transformation, leadership development, and change management.",
-      btns:[{t:'Org Development',u:'services.html'},{t:'Talk to Us',u:'contact.html'}]
+      btns:[{t:'Org Development',u:'services'},{t:'Talk to Us',u:'contact'}]
     },
     {
       re:/(mediat|conflict|dispute|disagree|difficult.?conversation|resolution|simi)/,
       a:"We facilitate <em>Challenging Conversations &amp; Constructive Conflict</em> workshops and support leaders and teams with professional conflict resolution.",
-      btns:[{t:'Our Services',u:'services.html'},{t:'Book a Consult',u:'contact.html'}]
+      btns:[{t:'Our Services',u:'services'},{t:'Book a Consult',u:'contact'}]
     },
     {
       re:/(about|company|bhd|background|history|who are you|what is bhd|mission|values?|philosophy|approach|methodology|how.*work|how does)/,
       a:"<strong>BHD Asia</strong> is a boutique HR consulting, executive coaching and leadership development firm. Founded in Singapore in 2012, we co-design bespoke solutions for clients across Asia Pacific and globally.",
-      btns:[{t:'About Us',u:'about.html'},{t:'Our Services',u:'services.html'}]
+      btns:[{t:'About Us',u:'about'},{t:'Our Services',u:'services'}]
     },
     {
       re:/(book|booking|appointment|sign.?up|register|enrol|enroll|reserve|1.?on.?1|one.?on.?one|free call|consult|discovery|get started|next step|how do i|how to)/,
-      a:"To book, use our <a href='contact.html'>Contact form</a> or WhatsApp <strong>+81 80 6515 1778</strong> to schedule a free discovery conversation — no commitment needed.",
-      btns:[{t:'Book a Free 1:1',u:'contact.html'}]
+      a:"To book, use our <a href='contact'>Contact form</a> or WhatsApp <strong>+81 80 6515 1778</strong> to schedule a free discovery conversation — no commitment needed.",
+      btns:[{t:'Book a Free 1:1',u:'contact'}]
     },
     {
       re:/(coaching|executive.?coach|leadership.?coach|career.?coach|transition.?coach|performance.?coach|life.?coach|personal.?develop|growth|goal)/,
       a:"Our coaching covers <strong>Executive Coaching</strong>, <strong>Transition Coaching</strong>, <strong>Performance Coaching</strong>, <strong>Career Coaching</strong>, Self-Awareness Development, and 360° Debriefs — all fully co-designed.",
-      btns:[{t:'Coaching Services',u:'services.html'},{t:'Book a Consult',u:'contact.html'}]
+      btns:[{t:'Coaching Services',u:'services'},{t:'Book a Consult',u:'contact'}]
     },
     {
       re:/(partner|associate|network|client|clients|who.*(work|worked)|companies|testimonial|review|results|forbes|icf|noomii)/,
       a:"We've worked with ByteDance (TikTok), Novartis, Philips, VISA, Mastercard, Heineken APAC, and more. Isabelle is a Forbes Coaches Council contributor and ICF-certified coach.",
-      btns:[{t:'Our Partners',u:'partners.html'},{t:'Our Story',u:'about.html'}]
+      btns:[{t:'Our Partners',u:'partners'},{t:'Our Story',u:'about'}]
     },
     {
       re:/(^(hi|hello|hey|hiya|greetings|yo|howdy|sup)$|^good (morning|afternoon|evening)|how are you)/,
@@ -253,7 +260,7 @@
   ];
 
   var FALLBACK_A = "I can help with our <strong>services</strong>, <strong>TRE™ workshops</strong>, <strong>pricing</strong>, <strong>events</strong>, <strong>location</strong> and <strong>contact</strong>. For anything specific, reach Isabelle at <a href='mailto:isabelle@bhdasia.com'>isabelle@bhdasia.com</a> or WhatsApp +81 80 6515 1778.";
-  var FALLBACK_BTNS = [{t:'Services',u:'services.html'},{t:'Events',u:'events.html'},{t:'Contact Us',u:'contact.html'}];
+  var FALLBACK_BTNS = [{t:'Services',u:'services'},{t:'Events',u:'events'},{t:'Contact Us',u:'contact'}];
 
   function answerFor(raw){
     var t = raw.toLowerCase().replace(/['".,!?;:()–—]/g,' ').replace(/\s+/g,' ').trim();
@@ -265,7 +272,7 @@
     if(t.length <= 25){
       return {
         a:"I'm not sure about <em>\"" + esc(raw.trim().substring(0,40)) + "\"</em> — try asking about <strong>services</strong>, <strong>pricing</strong>, <strong>TRE™ workshops</strong>, <strong>events</strong>, or <strong>contact</strong>.",
-        btns:[{t:'Services',u:'services.html'},{t:'Events',u:'events.html'},{t:'Contact',u:'contact.html'}]
+        btns:[{t:'Services',u:'services'},{t:'Events',u:'events'},{t:'Contact',u:'contact'}]
       };
     }
     return {a:FALLBACK_A, btns:FALLBACK_BTNS};
@@ -386,99 +393,99 @@
    to add one, add an entry (keep the list in date order). */
 (function(){
   var EVENTS=[
-    {id:'module1-singapore',page:'event-module1-singapore.html',start:'2026-08-29T10:00:00+08:00',soldOut:true,
+    {id:'module1-singapore',page:'event-module1-singapore',start:'2026-08-29T10:00:00+08:00',soldOut:true,
      cdTitle:'Nervous System Regulation &amp; Neurogenic Tremoring &middot; Singapore',
      cdMeta:'Saturday &amp; Sunday, 29&ndash;30 August 2026 &middot; In-Person &middot; Singapore',
-     link:'event-module1-singapore.html',linkText:'View Event'},
-    {id:'internal-alchemy',page:'event-internal-alchemy.html',start:'2026-09-01T19:00:00+08:00',soldOut:false,
+     link:'event-module1-singapore',linkText:'View Event'},
+    {id:'internal-alchemy',page:'event-internal-alchemy',start:'2026-09-01T19:00:00+08:00',soldOut:false,
      cdTitle:'Internal Alchemy &middot; Introductory Workshop &middot; Singapore',
      cdMeta:'Tuesday, 1 September 2026 &middot; 7&ndash;9PM &middot; Nilayam Ashtanga Studio, Singapore',
-     link:'event-internal-alchemy.html',linkText:'View Event',
+     link:'event-internal-alchemy',linkText:'View Event',
      card:{img:'event-internal-alchemy.webp?v=2',alt:'Internal Alchemy &mdash; Introductory Workshop with Simba Stenqvist',
        tag:'First Time in Singapore',date:'1 September 2026 &nbsp;&middot;&nbsp; 7&ndash;9PM &middot; In-Person &middot; Singapore',
        title:'Internal Alchemy &mdash; Introductory Workshop',
        desc:'Breathwork, fascial release, grounding and tremor work in one integrated system &mdash; led by Simba Stenqvist, creator of Internal Alchemy and Global TRE&trade; Certifying Trainer. S$79.',
-       venue:'Nilayam Ashtanga Studio',url:'event-internal-alchemy.html#register',cta:'Register'}},
-    {id:'shaking-online-sep3',page:'event-shaking-shaping-sep3.html',start:'2026-09-03T19:00:00+08:00',soldOut:true,
+       venue:'Nilayam Ashtanga Studio',url:'event-internal-alchemy#register',cta:'Register'}},
+    {id:'shaking-online-sep3',page:'event-shaking-shaping-sep3',start:'2026-09-03T19:00:00+08:00',soldOut:true,
      cdTitle:'From Shaking to Shaping &middot; Live Online Session',
      cdMeta:'Thursday, 3 September 2026 &middot; 7&ndash;9PM &middot; Online',
-     link:'event-shaking-shaping-sep3.html',linkText:'View Event'},
-    {id:'cert-module2',page:'event-certification.html',start:'2026-09-26T10:00:00+08:00',soldOut:true,
+     link:'event-shaking-shaping-sep3',linkText:'View Event'},
+    {id:'cert-module2',page:'event-certification',start:'2026-09-26T10:00:00+08:00',soldOut:true,
      cdTitle:'TRE&trade; Provider Certification &middot; Module 2 &middot; Singapore',
      cdMeta:'Saturday &amp; Sunday, 26&ndash;27 September 2026 &middot; In-Person &middot; Singapore',
-     link:'event-certification.html#register',linkText:'Register Now',
+     link:'event-certification#register',linkText:'Register Now',
      card:{img:'event-module2.webp?v=4',alt:'TRE&trade; Provider Certification &mdash; Module 2, 26&ndash;27 September 2026, Singapore',
        tag:'Certification &middot; Singapore',date:'26&ndash;27 September 2026 &nbsp;&middot;&nbsp; In-Person &middot; Singapore',
        title:'TRE&trade; Provider Certification &mdash; Module 2',
        desc:'The certification journey continues &mdash; Module 2 of the Global TRE&trade; Provider Certification with Isabelle Claus Teixeira, Global TRE&trade; Certifying Trainer. The 2026 intake is now closed — the next cohort runs in 2027.',
-       venue:'Singapore',url:'event-certification.html#register',cta:'Register'}},
-    {id:'body-in-the-room',page:'event-body-in-the-room.html',start:'2026-11-25T19:00:00+08:00',soldOut:false,
+       venue:'Singapore',url:'event-certification#register',cta:'Register'}},
+    {id:'body-in-the-room',page:'event-body-in-the-room',start:'2026-11-25T19:00:00+08:00',soldOut:false,
      cdTitle:'The Body in the Room &middot; Aun Ali',
      cdMeta:'Wednesday, 25 November 2026 &middot; 7PM SGT &middot; Live Online',
-     link:'event-body-in-the-room.html',linkText:'View Event',
+     link:'event-body-in-the-room',linkText:'View Event',
      card:{img:'event-body-in-the-room.webp',alt:'The Body in the Room &mdash; Aun Ali, 25 November 2026',
        tag:'Live Online',date:'25 November 2026 &nbsp;&middot;&nbsp; 7PM SGT &middot; Live Online',
        title:'The Body in the Room',
        desc:'Integrating TRE&trade; and somatic practice into psychotherapy &mdash; a trauma-informed online workshop with Aun Ali for psychologists, counsellors and narrative therapists.',
-       venue:'Online',url:'event-body-in-the-room.html',cta:'Details'}},
-    {id:'feminine-masculine',page:'event-feminine-masculine.html',start:'2026-10-28T19:00:00+08:00',soldOut:false,
+       venue:'Online',url:'event-body-in-the-room',cta:'Details'}},
+    {id:'feminine-masculine',page:'event-feminine-masculine',start:'2026-10-28T19:00:00+08:00',soldOut:false,
      cdTitle:'Navigating Feminine &amp; Masculine Energetics &middot; Sara Marie',
      cdMeta:'Wednesday, 28 October 2026 &middot; 7&ndash;9:30PM SGT &middot; Live Online',
-     link:'event-feminine-masculine.html',linkText:'View Event',
+     link:'event-feminine-masculine',linkText:'View Event',
      card:{img:'event-feminine-masculine.webp?v=2',alt:'Navigating Feminine &amp; Masculine Energetics &mdash; Sara Marie, 28 October 2026',
        tag:'Live Online',date:'28 October 2026 &nbsp;&middot;&nbsp; 7&ndash;9:30PM SGT &middot; Live Online',
        title:'Navigating Feminine &amp; Masculine Energetics',
        desc:'A live online workshop with Sara Marie &mdash; The Alchemist. Alchemising the pressure of masculine corporate structures into liberation, ease and personal power.',
-       venue:'Online',url:'event-feminine-masculine.html',cta:'Details'}},
-    {id:'shaking-oct8',page:'event-shaking-shaping-oct8.html',start:'2026-10-08T19:00:00+08:00',soldOut:false,
+       venue:'Online',url:'event-feminine-masculine',cta:'Details'}},
+    {id:'shaking-oct8',page:'event-shaking-shaping-oct8',start:'2026-10-08T19:00:00+08:00',soldOut:false,
      cdTitle:'From Shaking to Shaping &middot; Live Online Session',
      cdMeta:'Thursday, 8 October 2026 &middot; 7&ndash;9PM &middot; Live Online',
-     link:'event-shaking-shaping-oct8.html',linkText:'View Event',
+     link:'event-shaking-shaping-oct8',linkText:'View Event',
      card:{img:'event-shaking-oct8.webp?v=2',alt:'From Shaking to Shaping &mdash; live online session, 8 October 2026',
        tag:'Live Online',date:'8 October 2026 &nbsp;&middot;&nbsp; 7&ndash;9PM &middot; Live Online',
        title:'From Shaking to Shaping &mdash; Live Online Session',
        desc:'Use of TRE&trade; in a coaching context &mdash; one evening online with Isabelle Claus Teixeira, Global TRE&trade; Certifying Trainer, and Saymara Ryon, President of Asocia&#539;ia TRE&trade; Rom&acirc;nia.',
-       venue:'Online',url:'event-shaking-shaping-oct8.html',cta:'Details'}},
-    {id:'module1-bucharest',page:'event-module1-bucharest.html',start:'2026-10-15T17:00:00+03:00',soldOut:true,
+       venue:'Online',url:'event-shaking-shaping-oct8',cta:'Details'}},
+    {id:'module1-bucharest',page:'event-module1-bucharest',start:'2026-10-15T17:00:00+03:00',soldOut:true,
      cdTitle:'TRE&trade; Module 1 Bucharest &middot; 15 October 2026',
      cdMeta:'Thursday, 15 October 2026 &middot; Introductory Evening 17:00&ndash;19:00 EET &middot; Bucharest',
-     link:'event-module1-bucharest.html',linkText:'View Event',
+     link:'event-module1-bucharest',linkText:'View Event',
      card:{img:'event-bucharest-module1.webp?v=4',alt:'TRE&trade; Module 1 &mdash; Bucharest, Romania, 15&ndash;17 October 2026',
        tag:'21 ICF CCEUs',date:'15&ndash;17 October 2026 &nbsp;&middot;&nbsp; In-Person &middot; Bucharest',
        title:'TRE&trade; Module 1 &mdash; Bucharest, Romania',
        desc:'An immersive 3-day certification training &mdash; the first in Europe in English. Valid as Module 1 of the Global TRE&trade; Provider Certification Program. 21 ICF CCEUs. From &euro;739.',
-       venue:'Bucharest, Rom&acirc;nia',url:'event-module1-bucharest.html',cta:'Details'}},
-    {id:'shaking-bucharest-1',page:'event-shaking-shaping.html',start:'2026-10-20T10:00:00+03:00',soldOut:true,
+       venue:'Bucharest, Rom&acirc;nia',url:'event-module1-bucharest',cta:'Details'}},
+    {id:'shaking-bucharest-1',page:'event-shaking-shaping',start:'2026-10-20T10:00:00+03:00',soldOut:true,
      cdTitle:'From Shaking to Shaping &middot; Bucharest &middot; 20 October 2026',
      cdMeta:'Tuesday, 20 October 2026 &middot; In-Person &middot; Bucharest, Rom&acirc;nia',
-     link:'event-shaking-shaping.html',linkText:'View Event',
+     link:'event-shaking-shaping',linkText:'View Event',
      card:{img:'event-shaking-shaping.webp?v=4',alt:'From Shaking to Shaping &mdash; Isabelle Claus Teixeira and Saymara Ryon, Bucharest',
        tag:'Isabelle &amp; Saymara',date:'20 &amp; 24 October 2026 &nbsp;&middot;&nbsp; In-Person &middot; Bucharest',
        title:'From Shaking to Shaping &mdash; Bucharest',
        desc:'Use of TRE&trade; in a coaching context &mdash; half-day in-person intensives in Bucharest, co-led by Isabelle Claus Teixeira and Saymara Ryon, President of Asocia&#539;ia TRE&trade; Rom&acirc;nia. From &euro;97.',
-       venue:'Bucharest',url:'event-shaking-shaping.html',cta:'Details'}},
-    {id:'shaking-bucharest-2',page:'event-shaking-shaping.html',start:'2026-10-24T10:00:00+03:00',soldOut:true,
+       venue:'Bucharest',url:'event-shaking-shaping',cta:'Details'}},
+    {id:'shaking-bucharest-2',page:'event-shaking-shaping',start:'2026-10-24T10:00:00+03:00',soldOut:true,
      cdTitle:'From Shaking to Shaping &middot; Bucharest &middot; 24 October 2026',
      cdMeta:'Saturday, 24 October 2026 &middot; In-Person &middot; Bucharest, Rom&acirc;nia',
-     link:'event-shaking-shaping.html',linkText:'View Event'},
-    {id:'cert-module3',page:'event-certification.html',start:'2027-02-20T10:00:00+08:00',soldOut:true,
+     link:'event-shaking-shaping',linkText:'View Event'},
+    {id:'cert-module3',page:'event-certification',start:'2027-02-20T10:00:00+08:00',soldOut:true,
      cdTitle:'TRE&trade; Provider Certification &middot; Module 3 &middot; Singapore',
      cdMeta:'Saturday &amp; Sunday, 20&ndash;21 February 2027 &middot; In-Person &middot; Singapore',
-     link:'event-certification.html#register',linkText:'Register Now',
+     link:'event-certification#register',linkText:'Register Now',
      card:{img:'event-module2.webp?v=4',alt:'TRE&trade; Provider Certification &mdash; Module 3, 20&ndash;21 February 2027, Singapore',
        tag:'Certification &middot; Singapore',date:'20&ndash;21 February 2027 &nbsp;&middot;&nbsp; In-Person &middot; Singapore',
        title:'TRE&trade; Provider Certification &mdash; Module 3',
        desc:'The final module of the Global TRE&trade; Provider Certification &mdash; certification weekend with Isabelle Claus Teixeira, Global TRE&trade; Certifying Trainer. The 2026 intake is now closed.',
-       venue:'Singapore',url:'event-certification.html#register',cta:'Register'}},
-    {id:'cert-2027',page:'event-certification-2027.html',start:'2027-02-27T09:00:00+08:00',soldOut:false,
+       venue:'Singapore',url:'event-certification#register',cta:'Register'}},
+    {id:'cert-2027',page:'event-certification-2027',start:'2027-02-27T09:00:00+08:00',soldOut:false,
      cdTitle:'Become a Certified TRE&trade; Provider &middot; 2027 Cohort &middot; Singapore',
      cdMeta:'Module 1: 27&ndash;28 February 2027 &middot; In-Person &middot; Singapore',
-     link:'event-certification-2027.html#register',linkText:'Register Now',
+     link:'event-certification-2027#register',linkText:'Register Now',
      card:{img:'event-cert-2027.webp?v=4',alt:'Become a Certified TRE&trade; Provider &mdash; 2027 Cohort, Singapore',
        tag:'Certification &middot; 2027',date:'Feb&ndash;Oct 2027 &nbsp;&middot;&nbsp; In-Person &middot; Singapore',
        title:'Become a Certified TRE&trade; Provider &mdash; 2027 Cohort',
        desc:'The 2027 Singapore cohort of the Global TRE&trade; Provider Certification &mdash; co-taught by Isabelle Claus Teixeira &amp; Simba Stenqvist. Module 1: 27&ndash;28 Feb, Module 2: 3&ndash;4 Jul, Module 3: 30&ndash;31 Oct 2027, plus online supervisions and three bonus programs. From S$5,888 early bird.',
-       venue:'Singapore',url:'event-certification-2027.html',cta:'Details'}}
+       venue:'Singapore',url:'event-certification-2027',cta:'Details'}}
   ];
   window.BHD_EVENTS=EVENTS;
 
@@ -493,7 +500,7 @@
     out.sort(function(a,b){return new Date(a.start)-new Date(b.start)});
     return out;
   }
-  var pageFile=(location.pathname.split('/').pop()||'index.html').toLowerCase();
+  var pageFile=((location.pathname.split('/').pop()||'index').replace(/\.html$/i,'')||'index').toLowerCase();
 
   /* --- Homepage featured cards: always the next two active events --- */
   var homeGrid=document.querySelector('.home-events-grid');
@@ -518,7 +525,7 @@
           +'</div></div></div>';
       }).join('');
     }else{
-      homeGrid.innerHTML='<div class="home-evt-card"><div class="hec-body"><span class="hec-tag">Upcoming Events</span><h3>New dates coming soon</h3><p>New workshops and certification dates are announced here first &mdash; check back soon.</p><div class="hec-footer"><span class="hec-meta"></span><a class="et_pb_button" href="events.html">View All Events &rarr;</a></div></div></div>';
+      homeGrid.innerHTML='<div class="home-evt-card"><div class="hec-body"><span class="hec-tag">Upcoming Events</span><h3>New dates coming soon</h3><p>New workshops and certification dates are announced here first &mdash; check back soon.</p><div class="hec-footer"><span class="hec-meta"></span><a class="et_pb_button" href="events">View All Events &rarr;</a></div></div></div>';
     }
   }
 
@@ -737,7 +744,7 @@ function bhdEmailLead(data){
   function $(s, c) { return (c || document).querySelector(s); }
   function $$(s, c) { return [].slice.call((c || document).querySelectorAll(s)); }
   var EV = window.BHD_EVENTS || [], now = Date.now();
-  var here = (location.pathname.split('/').pop() || '').toLowerCase();
+  var here = ((location.pathname.split('/').pop()||'index').replace(/\.html$/i,'')||'index').toLowerCase();
   body.classList.add('evt-live');
 
   /* hero: parallax + pointer glow */
@@ -787,7 +794,7 @@ function bhdEmailLead(data){
   }
   if (status === 'past' && !$('.ev-past-note')) {
     var note = document.createElement('div'); note.className = 'ev-past-note';
-    note.innerHTML = '<div><p><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 7.5h.01"/></svg>This event has already taken place.</p><a href="events.html" class="et_pb_button btn-outline">See upcoming events</a></div>';
+    note.innerHTML = '<div><p><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 7.5h.01"/></svg>This event has already taken place.</p><a href="events" class="et_pb_button btn-outline">See upcoming events</a></div>';
     var facts = $('.evt-facts'); (facts || hero).parentNode.insertBefore(note, (facts || hero).nextSibling);
   }
 
@@ -812,7 +819,7 @@ function bhdEmailLead(data){
       b.appendChild(st); b.appendChild(sp); b.appendChild(w); a.appendChild(b); grid.appendChild(a);
     });
     var sec = grid.parentNode;
-    if (!$('.ev-rel-all', sec)) { var p = document.createElement('p'); p.className = 'ev-rel-all'; p.innerHTML = '<a href="events.html" class="et_pb_button btn-outline">See all events</a>'; sec.appendChild(p); }
+    if (!$('.ev-rel-all', sec)) { var p = document.createElement('p'); p.className = 'ev-rel-all'; p.innerHTML = '<a href="events" class="et_pb_button btn-outline">See all events</a>'; sec.appendChild(p); }
     mark(sec);
   }
 
