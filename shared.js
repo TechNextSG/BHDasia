@@ -880,3 +880,173 @@ function bhdEmailLead(data){
   var top = hero ? hero.getBoundingClientRect().top + (window.scrollY || 0) : 999;
   if (!hero || top > 80) h.classList.add('hdr-solid');
 })();
+
+/* v11 — animated, interactive dark CTA cards */
+(function () {
+  var SEL = '.hx-cta, .sv-cta-in, .ab-cta > .ab-wrap, .ev-cta-in, .pt-cta-card, .ct-cta-card, .ct-book, .bio-cta > .container, .cta-strip > .container';
+  var INNER = '.hx-cta, .sv-cta-in, .ev-cta-in, .pt-cta-card, .ct-cta-card, .ct-book, .ab-wrap';
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function init() {
+    var cards = [].slice.call(document.querySelectorAll(SEL)).filter(function (el) {
+      return !(el.matches('.cta-strip > .container') && el.querySelector(INNER));
+    });
+    cards.forEach(function (card) {
+      if (card.classList.contains('v11-card')) return;
+      card.classList.add('v11-card');
+      var g = document.createElement('span'); g.className = 'v11-glow'; g.setAttribute('aria-hidden', 'true');
+      g.innerHTML = '<i></i><i></i><b></b>'; card.insertBefore(g, card.firstChild);
+      var tx = 88, ty = 0, cx = 88, cy = 0, raf = 0;
+      function paint() {
+        card.style.setProperty('--v11x', cx.toFixed(1) + '%'); card.style.setProperty('--v11y', cy.toFixed(1) + '%');
+        g.style.transform = 'translate3d(' + ((cx - 50) * .06).toFixed(2) + 'px,' + ((cy - 50) * .06).toFixed(2) + 'px,0)';
+      }
+      function tick() {
+        cx += (tx - cx) * .12; cy += (ty - cy) * .12; paint();
+        raf = (Math.abs(tx - cx) > .2 || Math.abs(ty - cy) > .2) ? requestAnimationFrame(tick) : 0;
+      }
+      card.addEventListener('pointermove', function (e) {
+        if (e.pointerType === 'touch') return;
+        var r = card.getBoundingClientRect();
+        tx = (e.clientX - r.left) / r.width * 100; ty = (e.clientY - r.top) / r.height * 100;
+        if (reduce) { cx = tx; cy = ty; paint(); return; }
+        if (!raf) raf = requestAnimationFrame(tick);
+      });
+      card.addEventListener('pointerenter', function () { card.classList.add('v11-hot'); });
+      card.addEventListener('pointerleave', function () {
+        card.classList.remove('v11-hot'); tx = 88; ty = 0;
+        if (reduce) { cx = tx; cy = ty; paint(); } else if (!raf) raf = requestAnimationFrame(tick);
+      });
+      if (reduce || !('IntersectionObserver' in window)) return;
+      if (card.getBoundingClientRect().top < innerHeight * .9) return;   /* already on screen: no entrance */
+      card.classList.add('v11-wait');
+      var io = new IntersectionObserver(function (en) {
+        if (!en[0].isIntersecting) return;
+        io.disconnect(); card.classList.remove('v11-wait'); card.classList.add('v11-in');
+        setTimeout(function () { card.classList.remove('v11-in'); }, 2900);
+      }, { threshold: .18 });
+      io.observe(card);
+    });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
+})();
+
+/* v11 — auto-advance for every switcher: tabs, rosters, timelines, the partners
+   list and horizontal card strips. Moves on every 3s and loops; pauses while the
+   visitor hovers, reads (text selected), uses the keyboard in it, or has just
+   picked an item; picks up the count again once they leave. */
+(function () {
+  if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var STEP = 3000, HOLD = 6000, units = [];
+  window.__bhdAuto = units;
+  function vis(el) { return !!(el && el.offsetParent !== null && getComputedStyle(el).visibility !== 'hidden'); }
+  function common(a, b) { if (!b) return a; var n = a; while (n && !n.contains(b)) n = n.parentElement; return n || a; }
+  function unit(zone, o) {
+    var u = { zone: zone, t: 0, hover: false, hold: 0, inView: false, o: o };
+    zone.classList.add('ac-zone');
+    zone.addEventListener('pointerenter', function (e) { if (e.pointerType === 'mouse') u.hover = true; });
+    zone.addEventListener('pointerleave', function (e) { if (e.pointerType === 'mouse') u.hover = false; });
+    zone.addEventListener('pointerdown', function () { u.hold = Date.now() + HOLD; u.t = 0; }, true);
+    zone.addEventListener('click', function (e) { if (e.isTrusted) { u.hold = Date.now() + HOLD; u.t = 0; } }, true);
+    zone.addEventListener('keydown', function () { u.hold = Date.now() + HOLD; u.t = 0; }, true);
+    zone.addEventListener('wheel', function (e) { if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) { u.hold = Date.now() + HOLD; } }, { passive: true });
+    zone.addEventListener('touchstart', function () { u.hold = Date.now() + HOLD; u.t = 0; }, { passive: true });
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (en) {
+        var e = en[0]; u.inView = e.isIntersecting && (e.intersectionRatio >= .3 || e.intersectionRect.height >= innerHeight * .45);
+      }, { threshold: [0, .15, .3, .5, .75, 1] }).observe(zone);
+    } else u.inView = true;
+    units.push(u); return u;
+  }
+  function paused(u) {
+    if (!u.inView || document.hidden || u.hover || Date.now() < u.hold) return true;
+    var f = u.zone.querySelector(':focus-visible'); if (f) return true;
+    var s = window.getSelection && getSelection();
+    if (s && !s.isCollapsed && s.anchorNode && u.zone.contains(s.anchorNode)) return true;
+    return false;
+  }
+  /* progress line inside the active tab */
+  function bar(tab, p) {
+    if (!tab) return;
+    var b = tab.querySelector(':scope > .ac-prog');
+    if (!b) {
+      [].forEach.call(document.querySelectorAll('.ac-prog'), function (x) { if (x.parentElement.closest('.ac-zone') === tab.closest('.ac-zone') && x.parentElement !== tab) x.remove(); });
+      b = document.createElement('span'); b.className = 'ac-prog'; b.setAttribute('aria-hidden', 'true'); b.innerHTML = '<i></i>';
+      tab.classList.add('ac-tab'); tab.appendChild(b);
+    }
+    b.firstChild.style.transform = 'scaleX(' + p.toFixed(3) + ')';
+  }
+  /* programmatic click that leaves the URL alone (some tabs write a #hash) */
+  function press(el) {
+    var href = location.href, st = history.state, y = scrollY;
+    el.click();
+    if (location.href !== href) { try { history.replaceState(st, '', href); } catch (e) {} }
+    if (Math.abs(scrollY - y) > 2) scrollTo(scrollX, y);
+  }
+
+  function tabsUnit(list, opt) {
+    opt = opt || {};
+    var tabs = function () { return [].slice.call(list.querySelectorAll('[role="tab"]')).filter(vis); };
+    var first = tabs()[0]; if (!first) return;
+    var panel = document.getElementById(first.getAttribute('aria-controls') || '');
+    var u = unit(opt.zone || common(list, panel), opt);
+    u.ok = function () { return vis(list) && tabs().length > 1 && (!opt.when || opt.when()); };
+    u.cur = function () { var t = tabs(), i = t.findIndex(function (x) { return x.getAttribute('aria-selected') === 'true'; }); return { t: t, i: i < 0 ? 0 : i }; };
+    u.show = function (p) { if (opt.bar === false) return; var c = u.cur(); bar(c.t[c.i], p); };
+    u.next = function () { var c = u.cur(); press(c.t[(c.i + 1) % c.t.length]); };
+  }
+
+  function stripUnit(el) {
+    var u = unit(el, {});
+    u.ok = function () { return vis(el) && el.scrollWidth > el.clientWidth + 8; };
+    u.show = function () {};
+    u.next = function () {
+      var kids = [].slice.call(el.children).filter(vis); if (!kids.length) return;
+      var end = el.scrollLeft + el.clientWidth >= el.scrollWidth - 6;
+      if (end) { el.scrollTo({ left: 0, behavior: 'smooth' }); return; }
+      var x0 = el.getBoundingClientRect().left, target = null;
+      for (var i = 0; i < kids.length; i++) { if (kids[i].getBoundingClientRect().left - x0 > 8) { target = kids[i]; break; } }
+      var dx = target ? target.getBoundingClientRect().left - x0 : el.clientWidth;
+      el.scrollBy({ left: dx, behavior: 'smooth' });
+    };
+  }
+
+  function init() {
+    /* the homepage pillars had their own 9s one-shot rotation: this engine takes over */
+    var pil = document.querySelector('.hx-pil'); if (pil) pil.classList.remove('hx-pil-auto');
+    [].forEach.call(document.querySelectorAll('[role="tablist"]'), function (l) {
+      if (l.closest('#main-header, #main-footer')) return;
+      if (l.matches('.ev-pills, [aria-label^="Filter"]')) return;           /* filters are not slides */
+      if (l.matches('.sv-pkg-switch')) { tabsUnit(l, { zone: l.parentElement }); return; } /* phones: one package at a time */
+      if (l.matches('.bio-tl-track')) { tabsUnit(l, { bar: false, zone: l.closest('section') || l.parentElement }); return; }
+      tabsUnit(l);
+    });
+    /* partners: list + detail card on wide screens */
+    var pw = document.querySelector('.pt-wrap');
+    if (pw) {
+      var trig = function () { return [].slice.call(pw.querySelectorAll('.pt-trig')).filter(vis); };
+      var u = unit(pw, {});
+      u.ok = function () { return pw.classList.contains('pt-desk') && trig().length > 1; };
+      u.cur = function () { var t = trig(), i = t.findIndex(function (x) { return x.getAttribute('aria-expanded') === 'true'; }); return { t: t, i: i < 0 ? 0 : i }; };
+      u.show = function (p) { var c = u.cur(); bar(c.t[c.i], p); };
+      u.next = function () { var c = u.cur(); press(c.t[(c.i + 1) % c.t.length]); };
+    }
+    /* horizontal snap strips (event cards, bio highlights on phones, ...) */
+    [].forEach.call(document.querySelectorAll('body *'), function (el) {
+      if (el.closest('#main-header, #main-footer, [role="tablist"]') || el.querySelector('[role="tab"]')) return;
+      var cs = getComputedStyle(el);
+      if (/x|both|inline/.test(cs.scrollSnapType) && /(auto|scroll)/.test(cs.overflowX)) stripUnit(el);
+    });
+    var last = Date.now();
+    setInterval(function () {
+      var now = Date.now(), dt = Math.min(now - last, 250); last = now;
+      units.forEach(function (u) {
+        if (!u.ok()) return;
+        if (!paused(u)) u.t += dt;
+        if (u.t >= STEP) { u.t = 0; u.next(); }
+        u.show(u.t / STEP);
+      });
+    }, 80);
+  }
+  if (document.readyState !== 'loading') setTimeout(init, 400);
+  else document.addEventListener('DOMContentLoaded', function () { setTimeout(init, 400); });
+})();

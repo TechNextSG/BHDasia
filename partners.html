@@ -41,7 +41,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="preconnect" href="https://sp-ao.shortpixel.ai"/>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&amp;family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400&amp;display=swap"/>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&amp;display=swap"/>
-<link rel="stylesheet" href="style.css?v=10"/>
+<link rel="stylesheet" href="style.css?v=11"/>
 <style>
 .partners-section{padding:40px 0 70px}
 .partners-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
@@ -190,6 +190,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .pt-cta p{font-size:16px}
   .pt-cta-act .et_pb_button{flex:1 1 100%;text-align:center;box-sizing:border-box}
 }
+/* partner photo (decorative, related scene) */
+.pt-fig{margin:0 0 14px;border-radius:14px;overflow:hidden;aspect-ratio:16/9;background:var(--sand);position:relative;align-self:stretch}
+.pt-fig img{display:block;width:100%;height:100%;object-fit:cover;transform:scale(1.001)}
+.pt-fig::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(20,36,74,0) 55%,rgba(20,36,74,.18) 100%)}
+.pt-panel .pt-fig{margin:0;border-radius:0;aspect-ratio:auto;height:clamp(200px,20vw,260px);order:-1}
+.pt-panel .pt-fig::after{background:linear-gradient(180deg,rgba(20,36,74,0) 45%,rgba(255,244,222,.55) 100%)}
+.pt-panel .pt-cur .pt-fig img{animation:pt-kb 7s var(--pt-e) both}
+.pt-panel .pt-cur .pt-fig{animation:pt-fig-in .8s var(--pt-e) both}
+@keyframes pt-kb{from{transform:scale(1.08)}to{transform:scale(1.001)}}
+@keyframes pt-fig-in{from{opacity:0}to{opacity:1}}
+@media (max-width:600px){.pt-fig{border-radius:12px;margin-bottom:12px}}
 @media (prefers-reduced-motion:reduce){
   .pt-dir *,.pt-dir *::before,.pt-dir *::after,.pt-cta *,.pt-cta *::before,.pt-cta *::after{transition:none!important;animation:none!important}
   .pt-js .pt-rv{opacity:1;transform:none}
@@ -277,6 +288,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <h3 class="pt-name"><button type="button" class="pt-trig" id="pt-t-icf" aria-controls="pt-b-icf"><span class="pt-mono" aria-hidden="true">ICF</span><span class="pt-tx"><span class="pt-nm">ICF &mdash; International Coaching Federation</span><span class="pt-role">Certified Member</span></span><svg class="pt-chev" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg></button></h3>
               <div class="pt-body" id="pt-b-icf" role="region" aria-labelledby="pt-t-icf">
                 <div class="pt-bin">
+                  <figure class="pt-fig" aria-hidden="true"><img src="pillar-3.jpg" alt="" loading="lazy" decoding="async" style="object-position:center"></figure>
                   <div class="pt-hd" aria-hidden="true">
                     <span class="pt-wm">ICF</span>
                     <p class="pt-kick" aria-hidden="true"><span>Coaching</span><span class="pt-ct">01 / 10</span></p>
@@ -292,6 +304,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <h3 class="pt-name"><button type="button" class="pt-trig" id="pt-t-glocoach" aria-controls="pt-b-glocoach"><span class="pt-mono" aria-hidden="true">GC</span><span class="pt-tx"><span class="pt-nm">GloCoach</span><span class="pt-role">Executive Coaching Partner</span></span><svg class="pt-chev" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg></button></h3>
               <div class="pt-body" id="pt-b-glocoach" role="region" aria-labelledby="pt-t-glocoach">
                 <div class="pt-bin">
+                  <figure class="pt-fig" aria-hidden="true"><img src="svc-leader.jpg" alt="" loading="lazy" decoding="async" style="object-position:center"></figure>
                   <div class="pt-hd" aria-hidden="true">
                     <span class="pt-wm">GC</span>
                     <p class="pt-kick" aria-hidden="true"><span>Coaching</span><span class="pt-ct">02 / 10</span></p>
@@ -307,6 +320,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <h3 class="pt-name"><button type="button" class="pt-trig" id="pt-t-tcs" aria-controls="pt-b-tcs"><span class="pt-mono" aria-hidden="true">TCS</span><span class="pt-tx"><span class="pt-nm">The Coaching Solution</span><span class="pt-role">UK Executive Coaching Partner</span></span><svg class="pt-chev" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg></button></h3>
               <div class="pt-body" id="pt-b-tcs" role="region" aria-labelledby="pt-t-tcs">
                 <div class="pt-bin">
+                  <figure class="pt-fig" aria-hidden="true"><img src="pillar-1.jpg" alt="" loading="lazy" decoding="async" style="object-position:center"></figure>
                   <div class="pt-hd" aria-hidden="true">
                     <span class="pt-wm">TCS</span>
                     <p class="pt-kick" aria-hidden="true"><span>Coaching</span><span class="pt-ct">03 / 10</span></p>
@@ -322,6 +336,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <h3 class="pt-name"><button type="button" class="pt-trig" id="pt-t-scc" aria-controls="pt-b-scc"><span class="pt-mono" aria-hidden="true">SCC</span><span class="pt-tx"><span class="pt-nm">Stakeholder Centered Coaching</span><span class="pt-role">Accredited &mdash; Marshall Goldsmith Method</span></span><svg class="pt-chev" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg></button></h3>
               <div class="pt-body" id="pt-b-scc" role="region" aria-labelledby="pt-t-scc">
                 <div class="pt-bin">
+                  <figure class="pt-fig" aria-hidden="true"><img src="pillar-2.jpg" alt="" loading="lazy" decoding="async" style="object-position:center"></figure>
                   <div class="pt-hd" aria-hidden="true">
                     <span class="pt-wm">SCC</span>
                     <p class="pt-kick" aria-hidden="true"><span>Coaching</span><span class="pt-ct">04 / 10</span></p>
@@ -342,6 +357,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <h3 class="pt-name"><button type="button" class="pt-trig" id="pt-t-trefr" aria-controls="pt-b-trefr"><span class="pt-mono" aria-hidden="true">TF</span><span class="pt-tx"><span class="pt-nm">TRE™ France</span><span class="pt-role">Francophone TRE&trade; Network</span></span><svg class="pt-chev" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg></button></h3>
               <div class="pt-body" id="pt-b-trefr" role="region" aria-labelledby="pt-t-trefr">
                 <div class="pt-bin">
+                  <figure class="pt-fig" aria-hidden="true"><img src="cert2027-photo1.webp" alt="" loading="lazy" decoding="async" style="object-position:center 62%"></figure>
                   <div class="pt-hd" aria-hidden="true">
                     <span class="pt-wm">TF</span>
                     <p class="pt-kick" aria-hidden="true"><span>TRE&trade; networks</span><span class="pt-ct">05 / 10</span></p>
@@ -357,6 +373,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <h3 class="pt-name"><button type="button" class="pt-trig" id="pt-t-treib" aria-controls="pt-b-treib"><span class="pt-mono" aria-hidden="true">TI</span><span class="pt-tx"><span class="pt-nm">TRE™ Iberoam&eacute;rica</span><span class="pt-role">Spanish-Speaking TRE&trade; Network</span></span><svg class="pt-chev" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg></button></h3>
               <div class="pt-body" id="pt-b-treib" role="region" aria-labelledby="pt-t-treib">
                 <div class="pt-bin">
+                  <figure class="pt-fig" aria-hidden="true"><img src="simba-pc-2.jpg" alt="" loading="lazy" decoding="async" style="object-position:center"></figure>
                   <div class="pt-hd" aria-hidden="true">
                     <span class="pt-wm">TI</span>
                     <p class="pt-kick" aria-hidden="true"><span>TRE&trade; networks</span><span class="pt-ct">06 / 10</span></p>
@@ -372,6 +389,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <h3 class="pt-name"><button type="button" class="pt-trig" id="pt-t-tre4all" aria-controls="pt-b-tre4all"><span class="pt-mono" aria-hidden="true">T4A</span><span class="pt-tx"><span class="pt-nm">TRE&trade; for All</span><span class="pt-role">Certified TRE&trade; Provider</span></span><svg class="pt-chev" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg></button></h3>
               <div class="pt-body" id="pt-b-tre4all" role="region" aria-labelledby="pt-t-tre4all">
                 <div class="pt-bin">
+                  <figure class="pt-fig" aria-hidden="true"><img src="cert2027-photo2.webp" alt="" loading="lazy" decoding="async" style="object-position:center 55%"></figure>
                   <div class="pt-hd" aria-hidden="true">
                     <span class="pt-wm">T4A</span>
                     <p class="pt-kick" aria-hidden="true"><span>TRE&trade; networks</span><span class="pt-ct">07 / 10</span></p>
@@ -392,6 +410,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <h3 class="pt-name"><button type="button" class="pt-trig" id="pt-t-lws" aria-controls="pt-b-lws"><span class="pt-mono" aria-hidden="true">LS</span><span class="pt-tx"><span class="pt-nm">Living with the Spirit</span><span class="pt-role">Sister Practice &mdash; Internal Alchemy</span></span><svg class="pt-chev" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg></button></h3>
               <div class="pt-body" id="pt-b-lws" role="region" aria-labelledby="pt-t-lws">
                 <div class="pt-bin">
+                  <figure class="pt-fig" aria-hidden="true"><img src="simba-pc-1.jpg" alt="" loading="lazy" decoding="async" style="object-position:center"></figure>
                   <div class="pt-hd" aria-hidden="true">
                     <span class="pt-wm">LS</span>
                     <p class="pt-kick" aria-hidden="true"><span>Sister brands &amp; media</span><span class="pt-ct">08 / 10</span></p>
@@ -407,6 +426,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <h3 class="pt-name"><button type="button" class="pt-trig" id="pt-t-lag" aria-controls="pt-b-lag"><span class="pt-mono" aria-hidden="true">LG</span><span class="pt-tx"><span class="pt-nm">Languages &agrave; Gogo</span><span class="pt-role">Sister Brand &mdash; Language Training</span></span><svg class="pt-chev" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg></button></h3>
               <div class="pt-body" id="pt-b-lag" role="region" aria-labelledby="pt-t-lag">
                 <div class="pt-bin">
+                  <figure class="pt-fig" aria-hidden="true"><img src="hero-about.webp" alt="" loading="lazy" decoding="async" style="object-position:center"></figure>
                   <div class="pt-hd" aria-hidden="true">
                     <span class="pt-wm">LG</span>
                     <p class="pt-kick" aria-hidden="true"><span>Sister brands &amp; media</span><span class="pt-ct">09 / 10</span></p>
@@ -422,6 +442,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <h3 class="pt-name"><button type="button" class="pt-trig" id="pt-t-brainz" aria-controls="pt-b-brainz"><span class="pt-mono" aria-hidden="true">BM</span><span class="pt-tx"><span class="pt-nm">Brainz Magazine</span><span class="pt-role">Editorial Contributor</span></span><svg class="pt-chev" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg></button></h3>
               <div class="pt-body" id="pt-b-brainz" role="region" aria-labelledby="pt-t-brainz">
                 <div class="pt-bin">
+                  <figure class="pt-fig" aria-hidden="true"><img src="isa-photo.jpg" alt="" loading="lazy" decoding="async" style="object-position:center 22%"></figure>
                   <div class="pt-hd" aria-hidden="true">
                     <span class="pt-wm">BM</span>
                     <p class="pt-kick" aria-hidden="true"><span>Sister brands &amp; media</span><span class="pt-ct">10 / 10</span></p>
@@ -481,7 +502,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div></div>
 </footer>
 </div>
-<script src="shared.js?v=10"></script>
+<script src="shared.js?v=11"></script>
 <script>
 /* partners.html: grouped directory (filter chips, list + detail panel on desktop, accordion on phones), reveal, pointer light */
 (function () {

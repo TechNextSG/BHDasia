@@ -1347,3 +1347,72 @@ html body :is(.hx-cta, .sv-cta-in, .ab-cta > .ab-wrap, .ev-cta-in, .pt-cta-card,
 html body .cta-strip > .container:has(.sv-cta-in, .ev-cta-in, .ct-cta-card, .pt-cta-card, .hx-cta, .bio-cta, .ab-wrap) {
   background: none !important; border: 0 !important; box-shadow: none !important; padding: 0 32px !important; max-width: var(--wrap-w) !important; border-radius: 0;
 }
+
+/* =====================================================================
+   v11 — CTA card fix (no square wrapper, no grey wash) + animated,
+   interactive dark CTA cards (2026-09-30, client request)
+   ===================================================================== */
+/* wrapper .container around a page card is NOT a card (ID-weight so it beats v10) */
+html body :is(.cta-strip, #v11-lift) > .container:has(.hx-cta, .sv-cta-in, .ev-cta-in, .pt-cta-card, .ct-cta-card, .ct-book, .ab-wrap) {
+  background: none !important; border: 0 !important; box-shadow: none !important; border-radius: 0 !important;
+  padding: 0 32px !important; max-width: var(--wrap-w) !important; margin-left: auto !important; margin-right: auto !important;
+}
+@media (max-width: 980px) { html body :is(.cta-strip, #v11-lift) > .container:has(.hx-cta, .sv-cta-in, .ev-cta-in, .pt-cta-card, .ct-cta-card, .ct-book, .ab-wrap) { padding: 0 22px !important; } }
+@media (max-width: 480px) { html body :is(.cta-strip, #v11-lift) > .container:has(.hx-cta, .sv-cta-in, .ev-cta-in, .pt-cta-card, .ct-cta-card, .ct-book, .ab-wrap) { padding: 0 16px !important; } }
+
+/* the card itself: own stacking context so glows stay inside the rounded shape */
+html body .v11-card { position: relative !important; isolation: isolate; overflow: hidden !important; border-radius: 20px !important; }
+/* the old light-theme washes used a "screen" blend that turned grey on navy */
+html body :is(.hx-cta, .sv-cta-in, .ev-cta-in, .pt-cta-card, .ct-cta-card, .ct-book, .bio-cta > .container, #v11-lift)::before { mix-blend-mode: normal !important; opacity: .5 !important; }
+/* one clean pointer spotlight */
+html body :is(.v11-card, #v11-lift)::before {
+  content: "" !important; position: absolute !important; inset: 0 !important; z-index: -1 !important; pointer-events: none !important;
+  mix-blend-mode: normal !important; filter: none !important; transform: none !important; animation: none !important; border-radius: inherit;
+  background: radial-gradient(480px circle at var(--v11x, 88%) var(--v11y, 0%), rgba(126,164,255,.20), rgba(126,164,255,.06) 42%, transparent 66%) !important;
+  opacity: .75 !important; transition: opacity .7s var(--ease-soft) !important;
+}
+html body :is(.v11-card, #v11-lift).v11-hot::before { opacity: 1 !important; }
+
+/* clean navy ground: no yellow wash over blue (it reads olive/grey) */
+html body :is(.v11-card, #v11-lift) {
+  background: linear-gradient(135deg, #15295a 0%, #0f1f44 55%, #0c1a38 100%) !important;
+}
+html body :is(.v11-card, #v11-lift)::after { border-color: rgba(255,255,255,.07) !important; box-shadow: none !important; background-color: transparent; }
+html body .v11-card.pt-cta-card::after { border-color: rgba(255,255,255,.08) !important; }
+/* slow drifting logo-colour light + a hairline sheen */
+.v11-glow { position: absolute; inset: 0; z-index: -1; pointer-events: none; border-radius: inherit; overflow: hidden; }
+.v11-glow i { position: absolute; border-radius: 50%; filter: blur(46px); opacity: .5; will-change: transform; }
+.v11-glow i:nth-child(1) { width: 52%; aspect-ratio: 1; right: -14%; top: -46%; background: radial-gradient(circle, rgba(58,104,214,.75), transparent 70%); animation: v11-drift-a 26s ease-in-out infinite alternate; }
+.v11-glow i:nth-child(2) { width: 22%; aspect-ratio: 1; left: -6%; bottom: -34%; background: radial-gradient(circle, rgba(255,178,26,.5), transparent 68%); animation: v11-drift-b 32s ease-in-out infinite alternate; }
+.v11-glow b { position: absolute; left: 0; right: 0; top: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(238,203,54,.7), transparent); background-size: 40% 100%; background-repeat: no-repeat; background-position: -40% 0; opacity: 0; }
+.v11-card.v11-in .v11-glow b { animation: v11-sheen 2.4s var(--ease-soft) .35s 1 both; }
+.v11-card:hover .v11-glow b { animation: v11-sheen 2.4s var(--ease-soft) 0s 1 both; }
+@keyframes v11-drift-a { from { transform: translate3d(0,0,0) scale(1); } to { transform: translate3d(-18%, 22%, 0) scale(1.15); } }
+@keyframes v11-drift-b { from { transform: translate3d(0,0,0) scale(1); } to { transform: translate3d(24%, -18%, 0) scale(1.1); } }
+@keyframes v11-sheen { 0% { opacity: 0; background-position: -40% 0; } 20% { opacity: 1; } 100% { opacity: 0; background-position: 140% 0; } }
+
+/* entrance: the card opens up, its contents rise in a soft stagger */
+.v11-card.v11-wait { clip-path: inset(7% 3% round 20px); opacity: .001; }
+.v11-card.v11-in { animation: v11-open 1s var(--ease-soft) both; }
+.v11-card.v11-in > :not(.v11-glow) { animation: v11-rise .9s var(--ease-soft) both; }
+.v11-card.v11-in > :nth-child(2) { animation-delay: .08s; } .v11-card.v11-in > :nth-child(3) { animation-delay: .16s; }
+.v11-card.v11-in > :nth-child(4) { animation-delay: .24s; } .v11-card.v11-in > :nth-child(n+5) { animation-delay: .32s; }
+@keyframes v11-open { from { clip-path: inset(7% 3% round 20px); opacity: .001; } to { clip-path: inset(0 0 round 20px); opacity: 1; } }
+@keyframes v11-rise { from { opacity: 0; transform: translate3d(0, 14px, 0); } to { opacity: 1; transform: none; } }
+/* hover: the card warms up a touch */
+html body .v11-card { transition: box-shadow .6s var(--ease-soft), border-color .6s var(--ease-soft); }
+html body :is(.v11-card, #v11-lift):hover { border-color: rgba(238,203,54,.22) !important; box-shadow: 0 30px 70px -30px rgba(14,28,58,.7), 0 0 0 1px rgba(238,203,54,.06) !important; }
+
+@media (prefers-reduced-motion: reduce) {
+  .v11-glow i, .v11-glow b, .v11-card.v11-in, .v11-card.v11-in > * { animation: none !important; }
+  .v11-card.v11-wait { clip-path: none; opacity: 1; }
+}
+
+/* v11 — auto-advance progress line inside the active tab / item */
+.ac-tab { position: relative; }
+.ac-prog { position: absolute; left: 14px; right: 14px; bottom: 5px; height: 2px; border-radius: 2px; overflow: hidden; pointer-events: none; }
+.ac-prog i { display: block; height: 100%; border-radius: inherit; background: currentColor; opacity: .5; transform-origin: left center; transform: scaleX(0); transition: transform .12s linear; }
+.hx-pil.ac-zone .hx-pil-bar, .ac-zone .hx-pil-bar { display: none !important; }
+.pt-trig .ac-prog { left: 70px; right: 20px; bottom: 6px; }
+.pt-trig .ac-prog i { background: linear-gradient(90deg, var(--marigold), var(--sun)); opacity: 1; }
+@media (prefers-reduced-motion: reduce) { .ac-prog { display: none; } }
