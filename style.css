@@ -1308,3 +1308,42 @@ html body :is(.hero, .page-title-wrap, .evt-hero, #v9-lift) :is(.et_pb_button.bt
 html body :is(.hero, .page-title-wrap, .evt-hero, #v9-lift) .et_pb_button:not(.btn-outline):not(.btn-white-outline) { --b: var(--marigold); --bg: var(--marigold); --t: var(--ink); --f: var(--marigold-dk); --ft: var(--ink); }
 html body .evt-hero-img { filter: blur(9px) saturate(.85) !important; transform: scale(1.1) !important; }
 html body .evt-hero-overlay { background: linear-gradient(100deg, rgba(10,20,42,.92) 0%, rgba(10,20,42,.84) 45%, rgba(10,20,42,.74) 100%) !important; }
+
+/* =====================================================================
+   v10 — dark-blue CTA cards on every page + no shade under the
+   transparent header (2026-09-30, client request)
+   ===================================================================== */
+html body #main-header:not(.et-fixed-header):not(.hdr-solid) { background: transparent !important; box-shadow: none !important; border-bottom: 0 !important; }
+html body #main-header:not(.et-fixed-header):not(.hdr-solid) #top-menu > li > a { text-shadow: 0 1px 12px rgba(0,0,0,.45); }
+
+/* the cards */
+html body :is(.hx-cta, .sv-cta-in, .ab-cta > .ab-wrap, .ev-cta-in, .pt-cta-card, .ct-cta-card, .ct-book, .bio-cta > .container, .cta-strip > .container, #v10-lift) {
+  background:
+    radial-gradient(70% 120% at 100% 0%, rgba(238,203,54,.16), transparent 60%),
+    radial-gradient(60% 110% at 0% 100%, rgba(255,178,26,.12), transparent 60%),
+    linear-gradient(135deg, #13254d 0%, #0e1c3a 100%) !important;
+  border: 1px solid rgba(255,255,255,.08) !important;
+  box-shadow: 0 24px 60px -30px rgba(14,28,58,.55) !important;
+  color: rgba(255,255,255,.82) !important;
+}
+html body .ab-cta, html body .bio-cta, html body .cta-strip { background: var(--ivory) !important; }
+html body .ab-cta > .ab-wrap { border-radius: 20px; padding: clamp(40px,6vw,68px) clamp(20px,5vw,56px) !important; }
+html body .cta-strip > .container { border-radius: 20px; padding: clamp(40px,6vw,64px) clamp(20px,5vw,56px) !important; max-width: 1120px !important; }
+@media (max-width: 480px) { html body .cta-strip > .container, html body .ab-cta > .ab-wrap { margin-left: 16px !important; margin-right: 16px !important; } }
+/* soft pointer glows stay, tuned for the dark ground */
+html body :is(.hx-cta, .sv-cta-in, .ev-cta-in, .pt-cta-card, .ct-cta-card, .ct-book, .bio-cta > .container)::before { opacity: .9; mix-blend-mode: screen; }
+
+/* text */
+html body :is(.hx-cta, .sv-cta-in, .ab-cta > .ab-wrap, .ev-cta-in, .pt-cta-card, .ct-cta-card, .ct-book, .bio-cta > .container, .cta-strip > .container, #v10-lift) :is(h2, h3, h4, strong, b) { color: #fff !important; }
+html body :is(.hx-cta, .sv-cta-in, .ab-cta > .ab-wrap, .ev-cta-in, .pt-cta-card, .ct-cta-card, .ct-book, .bio-cta > .container, .cta-strip > .container, #v10-lift) :is(p, li, span:not(.btn-arr):not(.ab-bars):not([class*="bars"])) { color: rgba(255,255,255,.8) !important; }
+html body :is(.hx-cta, .sv-cta-in, .ab-cta > .ab-wrap, .ev-cta-in, .pt-cta-card, .ct-cta-card, .ct-book, .bio-cta > .container, .cta-strip > .container, #v10-lift) :is(.section-label, [class*="-kicker"], [class*="-eyebrow"], [class*="label"]) { color: var(--sun) !important; }
+html body :is(.hx-cta, .sv-cta-in, .ab-cta > .ab-wrap, .ev-cta-in, .pt-cta-card, .ct-cta-card, .ct-book, .bio-cta > .container, .cta-strip > .container, #v10-lift) a:not(.et_pb_button) { color: var(--sun) !important; }
+html body .ct-book :is(svg) { stroke: var(--sun); }
+html body .ct-book [class*="ico"], html body .ct-book [class*="tile"] { background: rgba(255,255,255,.08) !important; border-color: rgba(255,255,255,.16) !important; color: var(--sun) !important; }
+
+/* buttons inside the dark cards */
+html body :is(.hx-cta, .sv-cta-in, .ab-cta > .ab-wrap, .ev-cta-in, .pt-cta-card, .ct-cta-card, .ct-book, .bio-cta > .container, .cta-strip > .container, #v10-lift) .et_pb_button:not(.btn-outline):not(.btn-white-outline) { --b: var(--marigold); --bg: var(--marigold); --t: var(--ink); --f: var(--sun); --ft: var(--ink); }
+html body :is(.hx-cta, .sv-cta-in, .ab-cta > .ab-wrap, .ev-cta-in, .pt-cta-card, .ct-cta-card, .ct-book, .bio-cta > .container, .cta-strip > .container, #v10-lift) :is(.et_pb_button.btn-outline, .et_pb_button.btn-white-outline) { --b: rgba(255,255,255,.55); --t: #fff; --bg: rgba(255,255,255,.04); --f: #fff; --ft: var(--ink); box-shadow: none !important; }
+html body .cta-strip > .container:has(.sv-cta-in, .ev-cta-in, .ct-cta-card, .pt-cta-card, .hx-cta, .bio-cta, .ab-wrap) {
+  background: none !important; border: 0 !important; box-shadow: none !important; padding: 0 32px !important; max-width: var(--wrap-w) !important; border-radius: 0;
+}
