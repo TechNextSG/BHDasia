@@ -261,15 +261,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <h2>Related Events</h2>
       <div class="related-grid">
         <a class="rel-card" href="event-certification">
-          <div class="rel-img"><img src="event-module2.webp?v=4" alt="TRE™ Certification 2026" width="400" height="220" loading="lazy"/></div>
+          <div class="rel-img"><img src="card-transform-practice.webp?v=1" alt="TRE™ Certification 2026" width="400" height="220" loading="lazy"/></div>
           <div class="rel-body"><strong>Certification 2026 Cohort</strong><span>Aug 2026 – Feb 2027 &middot; Singapore</span></div>
         </a>
         <a class="rel-card" href="event-shaking-shaping">
-          <div class="rel-img"><img src="event-shaking-shaping.webp?v=4" alt="From Shaking to Shaping" width="400" height="220" loading="lazy"/></div>
+          <div class="rel-img"><img src="card-shaking-to-shaping.webp?v=1" alt="From Shaking to Shaping" width="400" height="220" loading="lazy"/></div>
           <div class="rel-body"><strong>From Shaking to Shaping</strong><span>Romania &middot; Sep–Oct 2026 &middot; from &euro;97</span></div>
         </a>
         <a class="rel-card" href="event-module1-bucharest">
-          <div class="rel-img"><img src="event-bucharest-module1.webp?v=4" alt="TRE™ Module 1 Bucharest" width="400" height="220" loading="lazy"/></div>
+          <div class="rel-img"><img src="card-bucharest-module1.webp?v=1" alt="TRE™ Module 1 Bucharest" width="400" height="220" loading="lazy"/></div>
           <div class="rel-body"><strong>TRE&trade; Module 1 — Bucharest</strong><span>Romania &middot; Oct 15–17, 2026</span></div>
         </a>
       </div>
@@ -369,7 +369,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div></div>
 </footer>
 </div>
-<script src="shared.js?v=13"></script>
+<script src="shared.js?v=14"></script>
 <script>
 function submitReg(e){e.preventDefault();var form=document.getElementById('evt-reg-form');var btn=form.querySelector('button[type="submit"]');btn.disabled=true;btn.textContent='Sending…';var data={source:'BHDasia Event — TRE Certification 2027 Singapore',event:form.event.value,inquiry:'Event registration enquiry',name:form.name.value,email:form.email.value,phone:form.phone.value,message:form.message.value};bhdEmailLead(data);fetch('https://script.google.com/macros/s/AKfycbxkv934L8ffTxU1TPUiw3jn9Hu6KmdE0Ol1CcJRB_vWstls2xiZHHb-LErG5qHXdTuX/exec',{method:'POST',mode:'no-cors',body:new URLSearchParams(data)}).then(function(){form.style.display='none';document.getElementById('reg-success').style.display='block'}).catch(function(){window.location.href='mailto:isabelle@bhdasia.com?subject='+encodeURIComponent('TRE Certification 2027 Enquiry: '+data.event)+'&body='+encodeURIComponent('Name: '+data.name+'\nEmail: '+data.email+'\nEvent: '+data.event+'\nMessage: '+(data.message||'—'))});}
 </script>
