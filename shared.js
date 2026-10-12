@@ -1,4 +1,4 @@
-﻿/* clean URLs: someone who lands on /about.html sees /about (index.html -> /) */
+/* clean URLs: someone who lands on /about.html sees /about (index.html -> /) */
 (function () {
   var p = location.pathname;
   if (!/\.html$/i.test(p) || /\/(google[^/]*|404)\.html$/i.test(p)) return;
@@ -432,7 +432,7 @@
      cdTitle:'Breath as a medicine &middot; Ania Zieli&#324;ska',
      cdMeta:'Tuesday, 15 December 2026 &middot; 7&ndash;9PM SGT &middot; Live Online &middot; S$88',
      link:'event-breath-as-medicine',linkText:'View Event',
-     card:{img:'event-breath-as-medicine.webp?v=1',alt:'Ania Zieli&#324;ska, yoga teacher &mdash; Breath as a medicine, 15 December 2026',
+     card:{img:'card-breath-as-medicine.webp?v=1',alt:'Ania Zieli&#324;ska, yoga teacher &mdash; Breath as a medicine, 15 December 2026',
        tag:'Live Online',date:'15 December 2026 &nbsp;&middot;&nbsp; 7&ndash;9PM SGT &middot; Live Online',
        title:'Breath as a medicine',
        desc:'An introduction to pranayama with Ania Zieli&#324;ska &mdash; how conscious breathing can support your physical, mental and emotional wellbeing. Beginners welcome.',
