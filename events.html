@@ -38,7 +38,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&amp;family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400&amp;display=swap"/>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&amp;display=swap"/>
-<link rel="stylesheet" href="style.css?v=13"/>
+<link rel="stylesheet" href="style.css?v=12"/>
 <style>
 /* ── Event cards grid ─────────────────── */
 .events-section{padding:64px 0 80px;background:var(--off-white)}
@@ -478,7 +478,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <span class="section-label">Workshops &amp; Certifications</span>
         <h2 id="ev-up-title">Upcoming Events</h2>
         <p>Singapore &amp; Bucharest &middot; 2026–2027 &middot; Led by Isabelle Claus Teixeira</p>
-        <p class="ev-count" id="ev-count" hidden><b class="ev-cu" id="ev-count-up">0</b> upcoming &middot; <b id="ev-count-past">0</b> past</p>
+        <p class="ev-count" id="ev-count" hidden><b class="ev-cu" id="ev-count-up">0</b> upcoming &middot; <b id="ev-count-past">0</b> past &amp; sold out</p>
       </div>
       <div class="ev-views ev-rv" role="group" aria-label="Choose a layout" style="--d:120ms">
         <button type="button" class="ev-view" data-view="grid" aria-pressed="true"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.5"/></svg>Grid</button>
@@ -493,7 +493,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <button type="button" class="ev-pill" data-filter="singapore" role="tab" id="ev-tab-singapore" aria-selected="false" aria-controls="up-grid" tabindex="-1">Singapore</button>
         <button type="button" class="ev-pill" data-filter="romania" role="tab" id="ev-tab-romania" aria-selected="false" aria-controls="up-grid" tabindex="-1">Romania</button>
         <button type="button" class="ev-pill" data-filter="certification" role="tab" id="ev-tab-certification" aria-selected="false" aria-controls="up-grid" tabindex="-1">Certification</button>
-        <button type="button" class="ev-pill" data-filter="soldout" role="tab" id="ev-tab-soldout" aria-selected="false" aria-controls="up-grid" tabindex="-1">Sold Out</button>
       </div>
       <p class="ev-status" id="ev-status" aria-live="polite"></p>
     </div>
@@ -767,16 +766,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 </div>
 
-<!-- PAST EVENTS: swipeable archive strip -->
+<!-- PAST AND SOLD OUT EVENTS: swipeable archive strip -->
 <section class="ev-sec ev-past" id="past-events" aria-labelledby="ev-past-title"><div class="container">
   <div class="ev-head">
-    <div class="ev-head-t ev-rv"><span class="section-label">Archive</span><h2 id="ev-past-title">Past Events</h2><p>Recently with us &mdash; now closed</p></div>
+    <div class="ev-head-t ev-rv"><span class="section-label">Archive</span><h2 id="ev-past-title">Past and Sold Out Events</h2><p>Recently with us, or fully booked &mdash; now closed</p></div>
     <div class="ev-nav ev-rv" hidden style="--d:120ms">
-      <button type="button" class="ev-arrow" data-dir="-1" aria-label="Scroll to earlier past events"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
-      <button type="button" class="ev-arrow" data-dir="1" aria-label="Scroll to more past events"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+      <button type="button" class="ev-arrow" data-dir="-1" aria-label="Scroll to earlier past and sold out events"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+      <button type="button" class="ev-arrow" data-dir="1" aria-label="Scroll to more past and sold out events"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
     </div>
   </div>
-  <div class="events-grid ev-strip" id="past-events-grid" role="region" aria-label="Past events, scroll sideways" tabindex="0"></div>
+  <div class="events-grid ev-strip" id="past-events-grid" role="region" aria-label="Past and sold out events, scroll sideways" tabindex="0"></div>
   <div class="ev-prog" hidden aria-hidden="true"><span></span></div>
 </div></section>
 
@@ -825,8 +824,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 /* ==========================================================================
    EVENTS PAGE (ev-) — one script, runs after shared.js.
    1. Date-driven status (unchanged behaviour): badge every .evt-card, move
-      passed events into #past-events-grid, order #up-grid (bookable by date,
-      then sold out), hide the archive when it is empty.
+      passed and sold-out events into #past-events-grid, order #up-grid by date,
+      hide the archive when it is empty.
    2. Countdown: shared.js stays the only timer and keeps writing #c-days..#c-secs;
       we mirror those values as rolling digits + progress bars, show the time in
       the visitor's zone and build an .ics for the event shown (Blob, no network).
@@ -875,8 +874,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       if (st === 'past') c.classList.add('is-past');
       var b = d.createElement('span'); b.className = 'ec-badge ' + st; b.textContent = LABEL[st]; img.insertBefore(b, img.firstChild);
     }
-    if (st === 'past') {
-      var soldBtn = c.querySelector('.ec-btn-sold');
+    if (st === 'past' || st === 'sold') {
+      var soldBtn = st === 'past' && c.querySelector('.ec-btn-sold');
       if (soldBtn) { var sp = d.createElement('span'); sp.className = 'ec-btn ec-btn-ended'; sp.textContent = 'Event Ended'; soldBtn.replaceWith(sp); }
       if (past && c.parentElement !== past) past.appendChild(c);
     } else if (up && c.parentElement !== up) { c.classList.remove('hidden', 'ev-hide'); up.appendChild(c); }
@@ -892,6 +891,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       return sa - sb;
     });
     live0.forEach(function (c) { up.appendChild(c); });
+  }
+  if (past) { /* archive order: sold out first (soonest first), then passed (most recent first) */
+    $$('.evt-card', past).sort(function (a, b) {
+      var sa = a.getAttribute('data-status') === 'sold', sb = b.getAttribute('data-status') === 'sold';
+      if (sa !== sb) return sa ? -1 : 1;
+      if (sa) return ms(a.getAttribute('data-start'), 0) - ms(b.getAttribute('data-start'), 0);
+      return ms(b.getAttribute('data-end') || b.getAttribute('data-start'), 1) - ms(a.getAttribute('data-end') || a.getAttribute('data-start'), 1);
+    }).forEach(function (c) { past.appendChild(c); });
   }
   if (pastSec && past && !past.querySelector('.evt-card')) pastSec.style.display = 'none';
 
