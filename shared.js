@@ -171,7 +171,7 @@
     },
     {
       re:/^(no|nope|nah|not now|later)$/,
-      a:"No problem at all! Feel free to come back anytime. You can always reach us at <a href='mailto:isabelle@bhdasia.com'>isabelle@bhdasia.com</a>.",
+      a:"No problem at all! Feel free to come back anytime. You can always reach us at <a href='mailto:bonjour@bhdasia.com'>bonjour@bhdasia.com</a>.",
       btns:[]
     },
 
@@ -198,7 +198,7 @@
     },
     {
       re:/(contact|email|phone|call|reach|whatsapp|enquire|inquire|message|get in touch|speak|talk|connect)/,
-      a:"You can reach us by email at <a href='mailto:isabelle@bhdasia.com'>isabelle@bhdasia.com</a>, call or WhatsApp <strong>+81 80 6515 1778</strong>, or fill in our online contact form.",
+      a:"You can reach us by email at <a href='mailto:bonjour@bhdasia.com'>bonjour@bhdasia.com</a>, call or WhatsApp <strong>+81 80 6515 1778</strong>, or fill in our online contact form.",
       btns:[{t:'Contact Form',u:'contact'}]
     },
     {
@@ -253,13 +253,13 @@
     },
     {
       re:/(thank|thanks|cheers|appreciate|great|perfect|helpful|awesome|wonderful)/,
-      a:"You're very welcome! Feel free to ask anything else, or reach us at <a href='mailto:isabelle@bhdasia.com'>isabelle@bhdasia.com</a>.",
+      a:"You're very welcome! Feel free to ask anything else, or reach us at <a href='mailto:bonjour@bhdasia.com'>bonjour@bhdasia.com</a>.",
       btns:[]
     },
     {re:/(bye|goodbye|see you|farewell|that.?s all)/, a:"Thanks for visiting BHD Asia. Have a wonderful day! 😊", btns:[]}
   ];
 
-  var FALLBACK_A = "I can help with our <strong>services</strong>, <strong>TRE™ workshops</strong>, <strong>pricing</strong>, <strong>events</strong>, <strong>location</strong> and <strong>contact</strong>. For anything specific, reach Isabelle at <a href='mailto:isabelle@bhdasia.com'>isabelle@bhdasia.com</a> or WhatsApp +81 80 6515 1778.";
+  var FALLBACK_A = "I can help with our <strong>services</strong>, <strong>TRE™ workshops</strong>, <strong>pricing</strong>, <strong>events</strong>, <strong>location</strong> and <strong>contact</strong>. For anything specific, reach Isabelle at <a href='mailto:bonjour@bhdasia.com'>bonjour@bhdasia.com</a> or WhatsApp +81 80 6515 1778.";
   var FALLBACK_BTNS = [{t:'Services',u:'services'},{t:'Events',u:'events'},{t:'Contact Us',u:'contact'}];
 
   function answerFor(raw){
@@ -616,7 +616,7 @@
 
 // ── Email a form submission straight to Isabelle (FormSubmit) ────────────────
 // Called alongside the existing Google Sheet POST so every enquiry both logs
-// to the sheet AND lands in isabelle@bhdasia.com's inbox.
+// to the sheet AND lands in bonjour@bhdasia.com's inbox.
 function bhdEmailLead(data){
   try{
     data = data || {};
@@ -632,7 +632,7 @@ function bhdEmailLead(data){
       Source: data.source || '',
       Message: data.message || ''
     };
-    fetch('https://formsubmit.co/ajax/isabelle@bhdasia.com', {
+    fetch('https://formsubmit.co/ajax/bonjour@bhdasia.com', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
       body: JSON.stringify(payload)
@@ -712,7 +712,7 @@ function bhdEmailLead(data){
       var li = document.createElement('li'); li.className = 'nav-extra';
       li.innerHTML =
         '<div class="ne-row">' +
-          '<a href="mailto:isabelle@bhdasia.com"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6.5 8.5 6.5 8.5-6.5"/></svg>isabelle@bhdasia.com</a>' +
+          '<a href="mailto:bonjour@bhdasia.com"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6.5 8.5 6.5 8.5-6.5"/></svg>bonjour@bhdasia.com</a>' +
           '<a href="https://wa.me/818065151778" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M4 20l1.3-3.9A8 8 0 1 1 8 19z"/><path d="M9.5 9.5c.3 1.8 2.2 3.8 4 4.2l1.2-1.1 1.8.9c-.3 1-1.2 1.6-2.2 1.5-3.2-.3-6.3-3.4-6.6-6.6-.1-1 .5-1.9 1.5-2.2l.9 1.8z"/></svg>WhatsApp</a>' +
         '</div>' +
         '<div class="ne-soc">' +
