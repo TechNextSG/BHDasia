@@ -1448,3 +1448,7 @@ html body .ab-glow { display: none !important; }
 html body :is(.bio-quote, .bio-tl-card) { background-image: none !important; }
 /* closing strips: beat the page-level `.ev-cta.cta-strip` inline rules */
 html body .cta-strip.cta-strip.cta-strip { background: var(--sec-a) !important; }
+
+/* 2026-10-16: yellow buttons carry white text (client request) */
+html body :is(.et_pb_button, .ec-btn, .ec-btn-fill, .header-contact-btn, .form-submit button, .evt-reg-form button, .newsletter-form button):not(.btn-outline):not(.btn-white-outline):not(.ec-btn-outline) { --t: #fff !important; --ft: #fff !important; color: #fff !important; }
+html body .bhd-chat-toggle { color: #fff !important; }
