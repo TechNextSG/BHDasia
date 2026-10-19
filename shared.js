@@ -642,7 +642,7 @@ function bhdEmailLead(data){
       Message: data.message || ''
     };
     // keepalive: the send survives a navigation (register gate redirects to the payment page)
-    return fetch('https://formsubmit.co/ajax/rico@bhdasia.com', {
+    return fetch('https://formsubmit.co/ajax/bonjour@bhdasia.com', {
       method: 'POST',
       keepalive: true,
       headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
