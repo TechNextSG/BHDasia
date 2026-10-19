@@ -73,6 +73,12 @@
 .evt-reg-form textarea{resize:vertical;min-height:80px}
 .evt-reg-form button{width:100%;padding:13px;background:var(--blue);color:var(--navy);border:none;border-radius:var(--r-md);font-size:15px;font-weight:700;font-family:inherit;cursor:pointer;transition:background .2s,transform .15s;letter-spacing:.01em}
 .evt-reg-form button:hover{background:var(--navy);color:#fff}.evt-reg-form button:disabled{opacity:.6;cursor:not-allowed;transform:none}
+/* Register gate: consent + updates checkboxes (2026-10-19) */
+.evt-reg-form .reg-consent{display:flex;flex-direction:column;gap:10px;margin:2px 0}
+.evt-reg-form .reg-check{display:flex;align-items:flex-start;gap:10px;font-size:13px;line-height:1.55;color:var(--body);cursor:pointer;text-align:left}
+.evt-reg-form .reg-check input{width:18px;height:18px;min-width:18px;flex:none;margin:1px 0 0;padding:0;border:0;accent-color:var(--navy);cursor:pointer}
+.evt-reg-form .reg-check input:focus-visible{outline:2px solid var(--blue-text);outline-offset:2px}
+.evt-reg-form .reg-check a{color:var(--blue-text);text-decoration:underline}
 .evt-reg-alt{font-size:12px;color:var(--muted);text-align:center;margin-top:10px;line-height:1.6}
 .evt-reg-alt a{color:var(--blue-text)}
 .reg-success-box{text-align:center;padding:30px 20px}

@@ -39,7 +39,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap"/>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&amp;display=swap"/>
 <link rel="stylesheet" href="style.css?v=14"/>
-<link rel="stylesheet" href="event-detail.css?v=13"/>
+<link rel="stylesheet" href="event-detail.css?v=14"/>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Event","name":"Breath as a medicine — Introduction to pranayama","description":"An introductory online workshop with Ania Zielińska (yoga teacher, holistic health coach and life realignment mentor): what pranayama is and how conscious breathing supports physical, mental and emotional wellbeing. Suitable for beginners.","startDate":"2026-12-15T19:00:00+08:00","endDate":"2026-12-15T21:00:00+08:00","eventStatus":"https://schema.org/EventScheduled","eventAttendanceMode":"https://schema.org/OnlineEventAttendanceMode","location":{"@type":"VirtualLocation","url":"https://bhdasia.com/event-breath-as-medicine"},"isAccessibleForFree":false,"offers":[{"@type":"Offer","name":"Public price","price":"88","priceCurrency":"SGD","url":"https://bhdasia.com/event-breath-as-medicine#register","availability":"https://schema.org/InStock","validFrom":"2026-10-12T00:00:00+08:00"},{"@type":"Offer","name":"Discounted price (with a discount code)","price":"68","priceCurrency":"SGD","url":"https://bhdasia.com/event-breath-as-medicine#register","availability":"https://schema.org/InStock","validFrom":"2026-10-12T00:00:00+08:00"}],"image":"https://bhdasia.com/event-breath-as-medicine.webp?v=1","organizer":{"@type":"Organization","name":"BHD Asia","url":"https://bhdasia.com"},"performer":{"@type":"Person","name":"Ania Zielińska","jobTitle":"Yoga Teacher, Holistic Health Coach, Life Realignment Mentor"},"url":"https://bhdasia.com/event-breath-as-medicine"}
 </script>
@@ -249,6 +249,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <input type="text" name="country" placeholder="Country (optional)" aria-label="Country (optional)" autocomplete="country-name"/>
           <input type="text" name="code" placeholder="Discount code (optional)" aria-label="Discount code (optional)" autocomplete="off" autocapitalize="characters"/>
           <textarea name="message" rows="3" placeholder="Message (optional)" aria-label="Message (optional)"></textarea>
+          <div class="reg-consent">
+            <label class="reg-check"><input type="checkbox" name="consent" value="yes" required/><span>I agree that my details will be collected and used to process my registration and to contact me about this event, in line with the <a href="privacy" target="_blank" rel="noopener">Privacy Policy</a>.</span></label>
+            <label class="reg-check"><input type="checkbox" name="updates" value="yes"/><span>Keep me informed about future events and workshops.</span></label>
+          </div>
           <button type="submit">Continue to registration &rarr;</button>
         </form>
         </div>
@@ -292,51 +296,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div></div>
 </footer>
 </div>
-<script src="shared.js?v=16"></script>
+<script src="shared.js?v=17"></script>
 <script>
 (function(){
 var REG={"slug": "breath-as-medicine", "title": "Breath as a medicine", "sheet": "https://script.google.com/macros/s/AKfycbxkv934L8ffTxU1TPUiw3jn9Hu6KmdE0Ol1CcJRB_vWstls2xiZHHb-LErG5qHXdTuX/exec", "event": "Breath as a medicine — 15 Dec 2026 (online)", "source": "BHDasia Event — Breath as a medicine (Ania Zielinska) 15 Dec", "price": "Public price S$88; S$68 with a valid discount code.", "pay": [{"label": "Pay with Wise →", "url": "https://wise.com/pay/me/annaz337"}, {"label": "PayPal — send to", "value": "azielinska@hotmail.com"}], "note": "Pay S$88 (or S$68 with a valid discount code) by Wise or PayPal. Please use your full name as the payment reference. The Zoom link is shared with registered participants before the session."};
 
-var s1=document.getElementById('reg-step1'),s2=document.getElementById('reg-step2'),KEY='reg-'+REG.slug;
-function store(op,v){try{if(op==='get')return localStorage.getItem(KEY);if(op==='set')localStorage.setItem(KEY,v);if(op==='del')localStorage.removeItem(KEY)}catch(e){}return null}
-function el(t,c,x){var n=document.createElement(t);if(c)n.className=c;if(x!=null)n.textContent=x;return n}
-function show2(first,hasCode){
-  s2.textContent='';
-  var h=el('h4',null,'Complete your registration');h.tabIndex=-1;h.id='reg-step2-title';s2.appendChild(h);
-  s2.appendChild(el('p',null,'Thank you'+(first?', '+first:'')+'. '+REG.price));
-  var pay=el('div','reg-pay');
-  REG.pay.forEach(function(p){
-    if(p.url){var a=el('a','et_pb_button',p.label);a.href=p.url;a.target='_blank';a.rel='noopener';pay.appendChild(a)}
-    else{var b=el('div','reg-paypal'),sp=el('span');var lab=el('b',null,p.label);sp.appendChild(lab);sp.appendChild(document.createTextNode(p.value));b.appendChild(sp);
-      var cb=el('button','reg-copy','Copy');cb.type='button';cb.setAttribute('aria-label','Copy '+p.label+' address');
-      cb.onclick=function(){var done=function(){cb.textContent='Copied'};if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(p.value).then(done,function(){})}else{var t=el('textarea');t.value=p.value;document.body.appendChild(t);t.select();try{document.execCommand('copy');done()}catch(e){}document.body.removeChild(t)}};
-      b.appendChild(cb);pay.appendChild(b)}
-  });
-  s2.appendChild(pay);
-  if(hasCode&&REG.codeNote)s2.appendChild(el('p',null,REG.codeNote));
-  s2.appendChild(el('p',null,REG.note));
-  var again=el('button','reg-again','Not you? Register someone else');again.type='button';
-  again.onclick=function(){store('del');s2.hidden=true;s1.hidden=false;var f=document.getElementById('evt-reg-form');if(f){f.reset();f.querySelector('input').focus()}};
-  s2.appendChild(again);
-  s1.hidden=true;s2.hidden=false;
-}
-function focusBox(){if(!s2.hidden){var t=document.getElementById('reg-step2-title');if(t)t.focus({preventScroll:true})}else{var i=s1.querySelector('input[name=name]');if(i)i.focus({preventScroll:true})}}
-window.submitReg=function(e){
-  e.preventDefault();var f=document.getElementById('evt-reg-form'),btn=f.querySelector('button[type=submit]');
-  btn.disabled=true;btn.textContent='Sending\u2026';
-  var code=(f.code?f.code.value:'').trim(),msg=[];
-  if(f.country.value.trim())msg.push('Country: '+f.country.value.trim());
-  if(code)msg.push('Discount code: '+code);
-  if(f.message.value.trim())msg.push('Message: '+f.message.value.trim());
-  var data={source:REG.source,event:REG.event,inquiry:'Event registration \u2014 '+REG.title,name:f.name.value.trim(),email:f.email.value.trim(),phone:f.phone.value.trim(),country:f.country.value.trim(),discount_code:code,message:msg.join('\n')};
-  try{bhdEmailLead(data)}catch(x){}
-  var first=data.name.split(/\s+/)[0],done=function(){store('set',JSON.stringify({first:first,code:!!code}));show2(first,!!code);btn.disabled=false;btn.textContent='Continue to registration \u2192';focusBox()};
-  try{fetch(REG.sheet,{method:'POST',mode:'no-cors',body:new URLSearchParams(data)}).then(done,done)}catch(x){done()}
-};
-var saved=store('get');
-if(saved){try{var o=JSON.parse(saved);show2(o.first||'',!!o.code)}catch(e){store('del')}}
-document.addEventListener('click',function(ev){var a=ev.target.closest&&ev.target.closest('a[href="#register"]');if(a)setTimeout(focusBox,450)});
-if(location.hash==='#register')setTimeout(focusBox,600);
+bhdRegGate(REG);
 })();
 </script>
 </body>

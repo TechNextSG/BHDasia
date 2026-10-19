@@ -477,6 +477,15 @@
      cdTitle:'From Shaking to Shaping &middot; Bucharest &middot; 24 October 2026',
      cdMeta:'Saturday, 24 October 2026 &middot; In-Person &middot; Bucharest, Rom&acirc;nia',
      link:'event-shaking-shaping',linkText:'View Event'},
+    {id:'art-of-conscious-rest',page:'event-art-of-conscious-rest',start:'2027-01-24T20:00:00+08:00',soldOut:false,
+     cdTitle:'The Art of Conscious Rest &middot; Olga Titkova',
+     cdMeta:'Sunday, 24 January 2027 &middot; 8&ndash;10PM SGT &middot; Live Online &middot; S$88',
+     link:'event-art-of-conscious-rest',linkText:'View Event',
+     card:{img:'card-art-of-conscious-rest.webp?v=1',alt:'Olga Titkova, yoga and mindfulness teacher &mdash; The Art of Conscious Rest, 24 January 2027',
+       tag:'Live Online',date:'24 January 2027 &nbsp;&middot;&nbsp; 8&ndash;10PM SGT &middot; Live Online',
+       title:'The Art of Conscious Rest',
+       desc:'Experiencing deep relaxation through Yoga Nidra with Olga Titkova, yoga and mindfulness teacher. No previous Yoga Nidra experience is required.',
+       venue:'Online',url:'event-art-of-conscious-rest',cta:'Details'}},
     {id:'cert-module3',page:'event-certification',start:'2027-02-20T10:00:00+08:00',soldOut:true,
      cdTitle:'TRE&trade; Provider Certification &middot; Module 3 &middot; Singapore',
      cdMeta:'Saturday &amp; Sunday, 20&ndash;21 February 2027 &middot; In-Person &middot; Singapore',
@@ -632,12 +641,94 @@ function bhdEmailLead(data){
       Source: data.source || '',
       Message: data.message || ''
     };
-    fetch('https://formsubmit.co/ajax/bonjour@bhdasia.com', {
+    // keepalive: the send survives a navigation (register gate redirects to the payment page)
+    return fetch('https://formsubmit.co/ajax/bonjour@bhdasia.com', {
       method: 'POST',
+      keepalive: true,
       headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
       body: JSON.stringify(payload)
     }).catch(function(){});
   }catch(e){}
+}
+
+// ── Register-first gate for guest-facilitator events (2026-10-12, extended 2026-10-19) ──
+// Each event page has #reg-step1 (form #evt-reg-form, with the required consent box) and
+// #reg-step2, then calls bhdRegGate(REG) with its config:
+//   slug, title, sheet, event, source, price, note, codeNote?,
+//   pay:[{label,url}|{label,value}],
+//   discount?:{hash:<sha256 hex of the UPPERCASE code>, price, pay:[{label,url}]}
+// The lead goes out via bhdEmailLead + the Apps Script sheet (keepalive). Then step 2 shows;
+// when the event has exactly ONE payment link, the visitor is taken there in the same tab after
+// ~1.5 s (a valid discount code picks the discounted link). Several payment options (Wise +
+// PayPal) or a code without a discounted link: step 2 only, no auto redirect. A returning visitor
+// (localStorage reg-<slug>) sees step 2 with the button, never an auto redirect.
+function bhdRegGate(REG){
+  var s1=document.getElementById('reg-step1'),s2=document.getElementById('reg-step2'),KEY='reg-'+REG.slug;
+  if(!s1||!s2)return;
+  function store(op,v){try{if(op==='get')return localStorage.getItem(KEY);if(op==='set')localStorage.setItem(KEY,v);if(op==='del')localStorage.removeItem(KEY)}catch(e){}return null}
+  function el(t,c,x){var n=document.createElement(t);if(c)n.className=c;if(x!=null)n.textContent=x;return n}
+  function payFor(disc){return disc&&REG.discount?REG.discount.pay:REG.pay}
+  function autoUrl(hasCode,disc){
+    var p=payFor(disc);
+    if(!p||p.length!==1||!p[0].url)return null;
+    if(hasCode&&!disc&&REG.codeNote)return null; // code given, discounted link unknown: Isabelle follows up
+    return p[0].url;
+  }
+  function show2(first,hasCode,disc,auto){
+    s2.textContent='';
+    var h=el('h4',null,'Complete your registration');h.tabIndex=-1;h.id='reg-step2-title';s2.appendChild(h);
+    var price=disc&&REG.discount&&REG.discount.price?REG.discount.price:REG.price;
+    if(auto)s2.appendChild(el('p','reg-going','Thank you'+(first?', '+first:'')+' — taking you to the secure payment page…'));
+    else s2.appendChild(el('p',null,'Thank you'+(first?', '+first:'')+'. '+price));
+    var pay=el('div','reg-pay');
+    payFor(disc).forEach(function(p){
+      if(p.url){var a=el('a','et_pb_button',p.label);a.href=p.url;a.target='_blank';a.rel='noopener';pay.appendChild(a)}
+      else{var b=el('div','reg-paypal'),sp=el('span');var lab=el('b',null,p.label);sp.appendChild(lab);sp.appendChild(document.createTextNode(p.value));b.appendChild(sp);
+        var cb=el('button','reg-copy','Copy');cb.type='button';cb.setAttribute('aria-label','Copy '+p.label+' address');
+        cb.onclick=function(){var done=function(){cb.textContent='Copied'};if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(p.value).then(done,function(){})}else{var t=el('textarea');t.value=p.value;document.body.appendChild(t);t.select();try{document.execCommand('copy');done()}catch(e){}document.body.removeChild(t)}};
+        b.appendChild(cb);pay.appendChild(b)}
+    });
+    s2.appendChild(pay);
+    if(hasCode&&!disc&&REG.codeNote)s2.appendChild(el('p',null,REG.codeNote));
+    s2.appendChild(el('p',null,REG.note));
+    var again=el('button','reg-again','Not you? Register someone else');again.type='button';
+    again.onclick=function(){store('del');s2.hidden=true;s1.hidden=false;var f=document.getElementById('evt-reg-form');if(f){f.reset();f.querySelector('input:not([type=hidden])').focus()}};
+    s2.appendChild(again);
+    s1.hidden=true;s2.hidden=false;
+  }
+  function focusBox(){if(!s2.hidden){var t=document.getElementById('reg-step2-title');if(t)t.focus({preventScroll:true})}else{var i=s1.querySelector('input[name=name]');if(i)i.focus({preventScroll:true})}}
+  function sha256hex(s){
+    try{if(!(window.crypto&&crypto.subtle&&window.TextEncoder))return Promise.resolve('');
+      return crypto.subtle.digest('SHA-256',new TextEncoder().encode(s)).then(function(b){return Array.prototype.map.call(new Uint8Array(b),function(x){return('0'+x.toString(16)).slice(-2)}).join('')},function(){return''})}
+    catch(e){return Promise.resolve('')}
+  }
+  window.submitReg=function(e){
+    e.preventDefault();var f=document.getElementById('evt-reg-form'),btn=f.querySelector('button[type=submit]');
+    if(f.consent&&!f.consent.checked){f.consent.focus();return}
+    btn.disabled=true;btn.textContent='Sending…';
+    var code=(f.code?f.code.value:'').trim(),msg=[],ts=new Date().toISOString(),upd=(f.updates&&f.updates.checked)?'yes':'no';
+    if(f.country&&f.country.value.trim())msg.push('Country: '+f.country.value.trim());
+    if(code)msg.push('Discount code: '+code);
+    if(f.message&&f.message.value.trim())msg.push('Message: '+f.message.value.trim());
+    msg.push('Consent: yes ('+ts+') | Updates: '+upd);
+    var data={source:REG.source,event:REG.event,inquiry:'Event registration — '+REG.title,name:f.name.value.trim(),email:f.email.value.trim(),phone:f.phone.value.trim(),country:f.country?f.country.value.trim():'',discount_code:code,consent:'yes ('+ts+')',updates:upd,message:msg.join('\n')};
+    var sends=[];
+    try{sends.push(bhdEmailLead(data))}catch(x){}
+    try{sends.push(fetch(REG.sheet,{method:'POST',mode:'no-cors',keepalive:true,body:new URLSearchParams(data)}).catch(function(){}))}catch(x){}
+    var hashP=(code&&REG.discount&&REG.discount.hash)?sha256hex(code.toUpperCase()):Promise.resolve('');
+    var waitSends=new Promise(function(res){Promise.all(sends).then(res,res);setTimeout(res,1500)});
+    var first=data.name.split(/\s+/)[0];
+    Promise.all([hashP,waitSends]).then(function(r){
+      var disc=!!(REG.discount&&r[0]&&r[0]===REG.discount.hash),url=autoUrl(!!code,disc);
+      store('set',JSON.stringify({first:first,code:!!code,disc:disc}));
+      show2(first,!!code,disc,!!url);btn.disabled=false;btn.textContent='Continue to registration →';focusBox();
+      if(url)setTimeout(function(){window.location.href=url},1500);
+    });
+  };
+  var saved=store('get');
+  if(saved){try{var o=JSON.parse(saved);show2(o.first||'',!!o.code,!!o.disc,false)}catch(e){store('del')}}
+  document.addEventListener('click',function(ev){var a=ev.target.closest&&ev.target.closest('a[href="#register"]');if(a)setTimeout(focusBox,450)});
+  if(location.hash==='#register')setTimeout(focusBox,600);
 }
 
 /* ════════════════════════════════════════════════════════════════════════
