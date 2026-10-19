@@ -337,7 +337,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <h3 class="ct-h3">Send a Message</h3>
         <p class="ct-formnote">Choose a topic, then add your details.</p>
         <!-- FormSubmit: emails every submission straight to bonjour@bhdasia.com (no account needed). -->
-<form id="contact-form" class="ct-form" action="https://formsubmit.co/ajax/bonjour@bhdasia.com" method="post">
+<form id="contact-form" class="ct-form" action="https://formsubmit.co/ajax/rico@bhdasia.com" method="post">
 <input type="hidden" name="_subject" value="New enquiry from BHD Asia website"/>
 <input type="hidden" name="_template" value="table"/>
 <input type="text" name="_honey" style="display:none"/>
@@ -438,7 +438,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div></div>
 </footer>
 </div>
-<script src="shared.js?v=17"></script>
+<script src="shared.js?v=18"></script>
 <script>
 document.getElementById('contact-form').addEventListener('submit', function(e){
   e.preventDefault();
@@ -484,7 +484,7 @@ document.getElementById('newsletter-form').addEventListener('submit', function(e
   var input = this.querySelector('input[type="email"]');
   if(!input.value.trim()){ return; }
   try{
-    fetch('https://formsubmit.co/ajax/bonjour@bhdasia.com', {
+    fetch('https://formsubmit.co/ajax/rico@bhdasia.com', {
       method:'POST', headers:{'Content-Type':'application/json','Accept':'application/json'},
       body: JSON.stringify({ _subject:'New newsletter signup — BHD Asia', _template:'table', Email: input.value.trim(), Source:'Newsletter signup — contact.html' })
     }).catch(function(){});

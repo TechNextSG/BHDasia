@@ -434,7 +434,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div></div>
 </footer>
 </div>
-<script src="shared.js?v=17"></script>
+<script src="shared.js?v=18"></script>
 <script>
 function submitReg(e){e.preventDefault();var form=document.getElementById('evt-reg-form');var btn=form.querySelector('button[type="submit"]');btn.disabled=true;btn.textContent='Sending…';var data={source:'BHDasia Event — TRE Module 1 Bucharest',event:'TRE™ Module 1 — Bucharest, Romania · Oct 15–17, 2026',inquiry:'Event registration enquiry',name:form.name.value,email:form.email.value,phone:form.phone.value,message:(form.profession.value?('Profession: '+form.profession.value+' — '):'')+form.message.value};bhdEmailLead(data);fetch('https://script.google.com/macros/s/AKfycbxkv934L8ffTxU1TPUiw3jn9Hu6KmdE0Ol1CcJRB_vWstls2xiZHHb-LErG5qHXdTuX/exec',{method:'POST',mode:'no-cors',body:new URLSearchParams(data)}).then(function(){form.style.display='none';document.getElementById('reg-success').style.display='block'}).catch(function(){window.location.href='mailto:bonjour@bhdasia.com?subject='+encodeURIComponent('TRE Module 1 Bucharest Enquiry')+'&body='+encodeURIComponent('Name: '+data.name+'\nEmail: '+data.email+'\nProfession: '+(data.profession||'—')+'\nMessage: '+(data.message||'—'))});}
 </script>
