@@ -639,7 +639,8 @@ function bhdEmailLead(data){
       Event: data.event || '',
       Enquiry: data.inquiry || '',
       Source: data.source || '',
-      Message: data.message || ''
+      Message: data.message || '',
+      Consent: data.gdpr_consent || (window.gdprConsentSummary ? window.gdprConsentSummary() : '')
     };
     // keepalive: the send survives a navigation (register gate redirects to the payment page)
     return fetch('https://formsubmit.co/ajax/bonjour@bhdasia.com', {
@@ -706,12 +707,12 @@ function bhdRegGate(REG){
     e.preventDefault();var f=document.getElementById('evt-reg-form'),btn=f.querySelector('button[type=submit]');
     if(f.consent&&!f.consent.checked){f.consent.focus();return}
     btn.disabled=true;btn.textContent='Sending…';
-    var code=(f.code?f.code.value:'').trim(),msg=[],ts=new Date().toISOString(),upd=(f.updates&&f.updates.checked)?'yes':'no';
+    var code=(f.code?f.code.value:'').trim(),msg=[],ts=new Date().toISOString(),upd=(window.gdprConsentSummary&&gdprConsentSummary(f))||'not recorded';
     if(f.country&&f.country.value.trim())msg.push('Country: '+f.country.value.trim());
     if(code)msg.push('Discount code: '+code);
     if(f.message&&f.message.value.trim())msg.push('Message: '+f.message.value.trim());
-    msg.push('Consent: yes ('+ts+') | Updates: '+upd);
-    var data={source:REG.source,event:REG.event,inquiry:'Event registration — '+REG.title,name:f.name.value.trim(),email:f.email.value.trim(),phone:f.phone.value.trim(),country:f.country?f.country.value.trim():'',discount_code:code,consent:'yes ('+ts+')',updates:upd,message:msg.join('\n')};
+    msg.push('Registration consent: yes ('+ts+') | GDPR: '+upd);
+    var data={source:REG.source,event:REG.event,inquiry:'Event registration — '+REG.title,name:f.name.value.trim(),email:f.email.value.trim(),phone:f.phone.value.trim(),country:f.country?f.country.value.trim():'',discount_code:code,consent:'yes ('+ts+')',gdpr_consent:upd,message:msg.join('\n')};
     var sends=[];
     try{sends.push(bhdEmailLead(data))}catch(x){}
     try{sends.push(fetch(REG.sheet,{method:'POST',mode:'no-cors',keepalive:true,body:new URLSearchParams(data)}).catch(function(){}))}catch(x){}
