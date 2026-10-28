@@ -336,11 +336,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="ct-formcard ct-rv ct-d2" id="ct-formcard">
         <h3 class="ct-h3">Send a Message</h3>
         <p class="ct-formnote">Choose a topic, then add your details.</p>
-        <!-- FormSubmit: emails every submission straight to bonjour@bhdasia.com (no account needed). -->
-<form id="contact-form" class="ct-form" action="https://formsubmit.co/ajax/bonjour@bhdasia.com" method="post">
+        <!-- FormSubmit: emails every submission to bonjour@bhdasia.com. The endpoint is set in the script below, NOT in action=,
+             so form-crawling spam bots (which POST straight to the action URL) can no longer reach the inbox. -->
+<form id="contact-form" class="ct-form" action="#" method="post">
 <input type="hidden" name="_subject" value="New enquiry from BHD Asia website"/>
 <input type="hidden" name="_template" value="table"/>
-<input type="text" name="_honey" style="display:none"/>
+<input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off"/>
           <fieldset class="form-group ct-topics">
             <legend>What can we help with? <span>(optional)</span></legend>
             <div class="ct-chips">
@@ -441,6 +442,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <script src="shared.js?v=20"></script>
 <script src="gdpr-consent.js?v=1"></script>
 <script>
+var CT_ENDPOINT = 'https://formsubmit.co/ajax/' + 'bonjour' + '@' + 'bhdasia.com', CT_LOADED = Date.now();
 document.getElementById('contact-form').addEventListener('submit', function(e){
   e.preventDefault();
   var fields = [
@@ -456,10 +458,19 @@ document.getElementById('contact-form').addEventListener('submit', function(e){
   if(!valid){ return; }
   var btn = document.getElementById('form-btn');
   var form = document.getElementById('contact-form');
+  /* Spam guard: honeypot filled, sent within 3 s of page load, or links in the name/phone = bot.
+     Show the normal success state but send nothing. */
+  var nameVal = document.getElementById('fullname').value, phoneVal = document.getElementById('phone').value;
+  if(form.querySelector('[name="_honey"]').value || (Date.now() - CT_LOADED) < 3000 ||
+     /https?:|www\.|\.com\b/i.test(nameVal + ' ' + phoneVal) || /[^0-9+()\-.\s]/.test(phoneVal)){
+    form.querySelectorAll('.form-group,.form-submit').forEach(function(el){ el.style.display='none'; });
+    document.getElementById('form-success').style.display = 'block';
+    return;
+  }
   btn.classList.add('loading');
   btn.disabled = true;
   btn.childNodes[0].textContent = 'Sending…';
-  fetch(form.action, {
+  fetch(CT_ENDPOINT, {
     method: 'POST',
     headers: {'Accept': 'application/json'},
     body: new FormData(form)
