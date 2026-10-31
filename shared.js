@@ -138,6 +138,12 @@
   // Knowledge base — single-word exact matches first, then broader topic patterns
   var KB = [
 
+    {
+      re:/(scotland|vicki|online module ?1|module ?1 online|18.?20 june)/,
+      a:"<strong>TRE™ Module 1 ONLINE with TRE Scotland</strong> runs online (UK time) on 18–20 June 2027, led by Isabelle Claus Teixeira with TRE Scotland. It carries 21 ICF CCEUs and is limited to 15 participants. Early bird £488 until 31 May 2027, then £589. Personal TRE™ sessions are not included and can be added at £85 each.",
+      btns:[{t:'Event Details',u:'event-tre-module1-online-scotland'},{t:'Register',u:'event-tre-module1-online-scotland#register'}]
+    },
+
     // ── Single-word / short exact-match handlers ──────────────
     {
       re:/^how$/,
@@ -530,7 +536,16 @@
        tag:'Certification &middot; 2027',date:'Feb&ndash;Oct 2027 &nbsp;&middot;&nbsp; In-Person &middot; Singapore',
        title:'Refresher Packages &mdash; TRE&trade; Provider Certification 2027',
        desc:'For accredited TRE&trade; Providers and trainees: 4 options from S$2,200 early bird until 31 Jan 2027 (regular from S$2,900).',
-       venue:'Singapore',url:'event-certification-2027-refresher',cta:'Details'}}
+       venue:'Singapore',url:'event-certification-2027-refresher',cta:'Details'}},
+    {id:'tre-scotland-online',page:'event-tre-module1-online-scotland',start:'2027-06-18T14:00:00+01:00',soldOut:false,
+     cdTitle:'TRE&trade; Module 1 ONLINE with TRE Scotland',
+     cdMeta:'18&ndash;20 June 2027 &middot; Live Online &middot; UK time',
+     link:'event-tre-module1-online-scotland#register',linkText:'Register Now',
+     card:{img:'event-tre-scotland-online.webp?v=1',alt:'TRE&trade; Module 1 ONLINE with TRE Scotland, 18&ndash;20 June 2027',
+       tag:'Live Online &middot; 21 ICF CCEUs',date:'18&ndash;20 June 2027 &nbsp;&middot;&nbsp; Live Online &middot; UK time',
+       title:'TRE&trade; Module 1 ONLINE with TRE Scotland',
+       desc:'ICF-accredited TRE&trade; Module 1 taught online by Isabelle Claus Teixeira with TRE Scotland. Limited to 15 participants. Early bird &pound;488 until 31 May 2027, then &pound;589.',
+       venue:'Online',url:'event-tre-module1-online-scotland',cta:'Details'}}
   ];
   window.BHD_EVENTS=EVENTS;
 
