@@ -193,7 +193,7 @@
     },
     {
       re:/(price|pricing|cost|fee|how much|rate|sgd|dollar|package|invest|money|budget|afford|pay|payment)/,
-      a:"The 2026 TRE™ certification intake is closed. The <strong>2027 Singapore cohort</strong> opens with Module 1 on 27–28 February 2027, co-taught by Isabelle Claus Teixeira and Simba Stenqvist, with <strong>early-bird pricing until 31 December 2026</strong>. Our 8-week individual coaching package is <strong>SGD 2,200</strong>. Group and corporate rates on request.",
+      a:"The 2026 TRE™ certification intake is closed. The <strong>2027 Singapore cohort</strong> opens with Module 1 on 27–28 February 2027, co-taught by Isabelle Claus Teixeira and Simba Stenqvist, with <strong>early-bird pricing until 31 January 2027</strong>: Growth Package S$5,888, Foundational Package S$4,888 and Refresher Packages from S$2,200 (regular prices S$6,888, S$5,888 and from S$2,900). Card charges are added on top of every instalment; payment is by credit card only. Our 8-week individual coaching package is <strong>SGD 2,200</strong>. Group and corporate rates on request.",
       btns:[{t:'Full Pricing',u:'services'},{t:'Ask About Rates',u:'contact'}]
     },
     {
@@ -502,7 +502,7 @@
      card:{img:'card-certification-2027.webp?v=1',alt:'Become a Certified TRE&trade; Provider &mdash; 2027 Cohort, Singapore',
        tag:'Certification &middot; 2027',date:'Feb&ndash;Oct 2027 &nbsp;&middot;&nbsp; In-Person &middot; Singapore',
        title:'Become a Certified TRE&trade; Provider &mdash; 2027 Cohort',
-       desc:'The 2027 Singapore cohort of the Global TRE&trade; Provider Certification &mdash; co-taught by Isabelle Claus Teixeira &amp; Simba Stenqvist. Module 1: 27&ndash;28 Feb, Module 2: 3&ndash;4 Jul, Module 3: 30&ndash;31 Oct 2027, plus online supervisions and three bonus programs. From S$5,888 early bird.',
+       desc:'The 2027 Singapore cohort of the Global TRE&trade; Provider Certification &mdash; co-taught by Isabelle Claus Teixeira &amp; Simba Stenqvist. Module 1: 27&ndash;28 Feb, Module 2: 3&ndash;4 Jul, Module 3: 30&ndash;31 Oct 2027, with Growth, Foundational and Refresher packages. From S$2,200 early bird until 31 Jan 2027.',
        venue:'Singapore',url:'event-certification-2027',cta:'Details'}}
   ];
   window.BHD_EVENTS=EVENTS;
