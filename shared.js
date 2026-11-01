@@ -199,7 +199,7 @@
     },
     {
       re:/(price|pricing|cost|fee|how much|rate|sgd|dollar|package|invest|money|budget|afford|pay|payment)/,
-      a:"The 2026 TRE™ certification intake is closed. The <strong>2027 Singapore cohort</strong> opens with Module 1 on 27–28 February 2027, co-taught by Isabelle Claus Teixeira and Simba Stenqvist, with <strong>early-bird pricing until 31 January 2027</strong>: Growth Package S$5,888, Foundational Package S$4,888 and Refresher Packages from S$2,200 (regular prices S$6,888, S$5,888 and from S$2,900). Card charges are added on top of every instalment; payment is by credit card only. Our 8-week individual coaching package is <strong>SGD 2,200</strong>. Group and corporate rates on request.",
+      a:"The 2026 TRE™ certification intake is closed. The <strong>2027 Singapore cohort</strong> opens with Module 1 on 27–28 February 2027, co-taught by Isabelle Claus Teixeira and Simba Stenqvist, with <strong>early-bird pricing until 31 January 2027</strong>: Growth Package S$5,888, Foundational Package S$4,888 and Refresher Packages from S$2,200 (regular prices S$6,888, S$5,888 and from S$2,900). Card charges are added on top of every instalment; payment is by credit card only. You can also pay the full package price at registration instead of three instalments. Our 8-week individual coaching package is <strong>SGD 2,200</strong>. Group and corporate rates on request.",
       btns:[{t:'Full Pricing',u:'services'},{t:'Ask About Rates',u:'contact'}]
     },
     {
@@ -537,7 +537,7 @@
        title:'Refresher Packages &mdash; TRE&trade; Provider Certification 2027',
        desc:'For accredited TRE&trade; Providers and trainees: 4 options from S$2,200 early bird until 31 Jan 2027 (regular from S$2,900).',
        venue:'Singapore',url:'event-certification-2027-refresher',cta:'Details'}},
-    {id:'tre-scotland-online',page:'event-tre-module1-online-scotland',start:'2027-06-18T14:00:00+01:00',soldOut:false,
+    {id:'tre-scotland-online',page:'event-tre-module1-online-scotland',start:'2027-06-18T14:00:00+01:00',end:'2027-06-20T18:00:00+01:00',soldOut:false,
      cdTitle:'TRE&trade; Module 1 ONLINE with TRE Scotland',
      cdMeta:'18&ndash;20 June 2027 &middot; Live Online &middot; UK time',
      link:'event-tre-module1-online-scotland#register',linkText:'Register Now',
@@ -944,11 +944,14 @@ function bhdRegGate(REG){
   /* live "other upcoming events" */
   var grid = $('.related-grid');
   var seen = {};
-  var next = EV.filter(function (e) { return (e.page || '').toLowerCase() !== here && !e.soldOut && Date.parse(e.start) > now && e.card; })
+  var famPrefix = /^event-certification-2027/.test(here) ? 'event-certification-2027' : '';
+  var next = EV.filter(function (e) { var pg = (e.page || '').toLowerCase(); return pg !== here && !(famPrefix && pg.indexOf(famPrefix) === 0) && !e.soldOut && Date.parse(e.end || e.start) > now && e.card; })
     .sort(function (a, b) { return Date.parse(a.start) - Date.parse(b.start); })
     .filter(function (e) { if (seen[e.page]) return false; seen[e.page] = 1; return true; }).slice(0, 3);
   function txt(h) { var d = document.createElement('div'); d.innerHTML = h || ''; return d.textContent.trim(); }
   if (grid && next.length) {
+    grid.hidden = false;
+    var emptyBox = $('.ev-rel-empty', grid.parentNode); if (emptyBox) emptyBox.hidden = true;
     grid.innerHTML = '';
     next.forEach(function (e) {
       var a = document.createElement('a'); a.className = 'rel-card'; a.href = e.page;
