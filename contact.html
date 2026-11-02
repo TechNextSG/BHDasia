@@ -439,7 +439,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div></div>
 </footer>
 </div>
-<script src="shared.js?v=25"></script>
+<script src="shared.js?v=26"></script>
 <script src="gdpr-consent.js?v=1"></script>
 <script>
 var CT_ENDPOINT = 'https://formsubmit.co/ajax/' + 'bonjour' + '@' + 'bhdasia.com', CT_LOADED = Date.now();
@@ -470,6 +470,23 @@ document.getElementById('contact-form').addEventListener('submit', function(e){
   btn.classList.add('loading');
   btn.disabled = true;
   btn.childNodes[0].textContent = 'Sending…';
+  /* Email ON HOLD (shared.js BHD_LEAD_EMAIL_ON): log the enquiry to the Lead Capture sheet instead. */
+  if (window.BHD_LEAD_EMAIL_ON === false) {
+    var fd = new FormData(form), sd = {source: 'BHDasia Contact Form', inquiry: 'Contact form enquiry'};
+    fd.forEach(function(v, k){ if (k.charAt(0) !== '_') { sd[k] = v; } });
+    sd.name = sd.name || sd.fullname || '';
+    fetch(BHD_LEAD_SHEET, {method: 'POST', mode: 'no-cors', body: new URLSearchParams(sd)}).then(function(){
+      btn.classList.remove('loading');
+      form.querySelectorAll('.form-group,.form-submit').forEach(function(el){ el.style.display='none'; });
+      document.getElementById('form-success').style.display = 'block';
+    }).catch(function(){
+      btn.classList.remove('loading');
+      btn.disabled = false;
+      btn.childNodes[0].textContent = 'Send Message';
+      alert('Connection error. Please email us at bonjour@bhdasia.com');
+    });
+    return;
+  }
   fetch(CT_ENDPOINT, {
     method: 'POST',
     headers: {'Accept': 'application/json'},
@@ -496,6 +513,9 @@ document.getElementById('newsletter-form').addEventListener('submit', function(e
   var input = this.querySelector('input[type="email"]');
   if(!input.value.trim()){ return; }
   try{
+    if (window.BHD_LEAD_EMAIL_ON === false) {
+      fetch(BHD_LEAD_SHEET, {method:'POST', mode:'no-cors', body: new URLSearchParams({source:'Newsletter signup — contact.html', inquiry:'Newsletter signup', email: input.value.trim()})}).catch(function(){});
+    } else
     fetch('https://formsubmit.co/ajax/bonjour@bhdasia.com', {
       method:'POST', headers:{'Content-Type':'application/json','Accept':'application/json'},
       body: JSON.stringify({ _subject:'New newsletter signup — BHD Asia', _template:'table', Email: input.value.trim(), Source:'Newsletter signup — contact.html' })

@@ -668,7 +668,12 @@
 // ── Email a form submission straight to Isabelle (FormSubmit) ────────────────
 // Called alongside the existing Google Sheet POST so every enquiry both logs
 // to the sheet AND lands in bonjour@bhdasia.com's inbox.
+// ON HOLD (2026-11-02, client request): set BHD_LEAD_EMAIL_ON = true to resume
+// the emails. While false, leads still log to the Google Sheet only.
+var BHD_LEAD_EMAIL_ON = false;
+var BHD_LEAD_SHEET = 'https://script.google.com/macros/s/AKfycbxkv934L8ffTxU1TPUiw3jn9Hu6KmdE0Ol1CcJRB_vWstls2xiZHHb-LErG5qHXdTuX/exec';
 function bhdEmailLead(data){
+  if(!BHD_LEAD_EMAIL_ON){ return Promise.resolve(); }
   try{
     data = data || {};
     var payload = {
