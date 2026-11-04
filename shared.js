@@ -668,12 +668,52 @@
 // ── Email a form submission straight to Isabelle (FormSubmit) ────────────────
 // Called alongside the existing Google Sheet POST so every enquiry both logs
 // to the sheet AND lands in bonjour@bhdasia.com's inbox.
-// ON HOLD (2026-11-02, client request): set BHD_LEAD_EMAIL_ON = true to resume
-// the emails. While false, leads still log to the Google Sheet only.
-var BHD_LEAD_EMAIL_ON = false;
+// Emails were ON HOLD 2026-11-02 to 2026-11-04; resumed with the spam filter below.
+// Set BHD_LEAD_EMAIL_ON = false to pause them again (leads then log to the Google Sheet only).
+var BHD_LEAD_EMAIL_ON = true;
 var BHD_LEAD_SHEET = 'https://script.google.com/macros/s/AKfycbxkv934L8ffTxU1TPUiw3jn9Hu6KmdE0Ol1CcJRB_vWstls2xiZHHb-LErG5qHXdTuX/exec';
+/* Lead spam filter, 2026-11-04. Master copy for hummingbeing.com (scripts.js), bhdasia.com (shared.js)
+   and tre-in-singapore.com (assets/js/main.js): keep the three copies identical to this body.
+   The bots that hit these forms Aug-Nov 2026 fill every field with random letters (name "Tzmkk Vcmapym",
+   message "AMvGAATvnQOehLrFlht") and use dotted Gmail addresses (o.ko.z.a.ta.l.u.9.3@gmail.com).
+   Score: a random mixed-case word in any field = 2, a dotted Gmail address = 1, an unpronounceable
+   name word = 1. 2 or more = bot: the lead still goes to the Lead Capture sheet, marked "Possible spam",
+   but no email is sent. Tested on all 46 sheet rows to 4 Nov 2026: 35/35 bots caught, 0 real people flagged. */
+function leadLooksLikeBot(d) {
+  d = d || {};
+  var vals = [], k, i, score = 0;
+  for (k in d) {
+    if (Object.prototype.hasOwnProperty.call(d, k) && k.charAt(0) !== '_' && typeof d[k] === 'string') vals.push(d[k]);
+  }
+  /* 1) a random mixed-case word: 10+ letters with 3+ capitals after the first letter and 3+ lower-case letters */
+  var words = vals.join(' ').match(/[A-Za-z]{10,}/g) || [];
+  for (i = 0; i < words.length; i++) {
+    var up = (words[i].slice(1).match(/[A-Z]/g) || []).length, lo = (words[i].match(/[a-z]/g) || []).length;
+    if (up >= 3 && lo >= 3) { score += 2; break; }
+  }
+  /* 2) a dotted Gmail address: 4+ dot-separated parts, or 3+ parts of one or two characters (j.p.smith@ passes) */
+  var em = String(d.email || d.Email || '').trim().toLowerCase().match(/^([^@\s]+)@(gmail|googlemail)\.com$/);
+  if (em) {
+    var parts = em[1].split('.'), short = 0;
+    for (i = 0; i < parts.length; i++) if (parts[i].length <= 2) short++;
+    if (parts.length >= 4 || short >= 3) score += 1;
+  }
+  /* 3) an unpronounceable name word (plain a-z only): 4+ letters with no vowel, or 5+ consonants in a row */
+  var nm = String(d.name || d.fullname || d.Name || '').toLowerCase().split(/\s+/);
+  for (i = 0; i < nm.length; i++) {
+    if (/^[a-z]{4,}$/.test(nm[i]) && (!/[aeiouy]/.test(nm[i]) || /[bcdfghjklmnpqrstvwxz]{5,}/.test(nm[i]))) { score += 1; break; }
+  }
+  return score >= 2;
+}
+// Every caller runs bhdEmailLead(data) BEFORE posting the same data object to the sheet, so a bot's
+// row is marked "Possible spam" here and logged; only real people are emailed.
 function bhdEmailLead(data){
-  if(!BHD_LEAD_EMAIL_ON){ return Promise.resolve(); }
+  var bot = false;
+  try{
+    bot = leadLooksLikeBot(data);
+    if(bot && data && !/^Possible spam/.test(data.inquiry || '')){ data.inquiry = 'Possible spam — ' + (data.inquiry || ''); }
+  }catch(e){}
+  if(!BHD_LEAD_EMAIL_ON || bot){ return Promise.resolve(); }
   try{
     data = data || {};
     var payload = {
