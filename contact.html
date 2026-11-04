@@ -492,26 +492,26 @@ document.getElementById('contact-form').addEventListener('submit', function(e){
     });
     return;
   }
-  ctLogged.catch(function(){});
-  fetch(CT_ENDPOINT, {
+  /* The email is best-effort: FormSubmit has outages (all requests 522 on 4 Nov 2026). The sheet row is the record,
+     so the thank-you shows once the sheet send has gone out; only if that fails does the email result decide. */
+  var ctMail = fetch(CT_ENDPOINT, {
     method: 'POST',
     headers: {'Accept': 'application/json'},
     body: new FormData(form)
-  }).then(function(r){
+  }).then(function(r){ if(!r.ok){ throw new Error('Not sent'); } });
+  ctMail.catch(function(){});
+  function ctDone(){
     btn.classList.remove('loading');
-    if(r.ok){
-      form.querySelectorAll('.form-group,.form-submit').forEach(function(el){ el.style.display='none'; });
-      document.getElementById('form-success').style.display = 'block';
-    } else {
+    form.querySelectorAll('.form-group,.form-submit').forEach(function(el){ el.style.display='none'; });
+    document.getElementById('form-success').style.display = 'block';
+  }
+  ctLogged.then(ctDone, function(){
+    ctMail.then(ctDone, function(){
+      btn.classList.remove('loading');
       btn.disabled = false;
       btn.childNodes[0].textContent = 'Send Message';
-      alert('Something went wrong. Please email us at bonjour@bhdasia.com');
-    }
-  }).catch(function(){
-    btn.classList.remove('loading');
-    btn.disabled = false;
-    btn.childNodes[0].textContent = 'Send Message';
-    alert('Connection error. Please email us at bonjour@bhdasia.com');
+      alert('Connection error. Please email us at bonjour@bhdasia.com');
+    });
   });
 });
 document.getElementById('newsletter-form').addEventListener('submit', function(e){
