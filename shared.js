@@ -144,6 +144,16 @@
       btns:[{t:'Event Details',u:'event-tre-module1-online-scotland'},{t:'Register',u:'event-tre-module1-online-scotland#register'}]
     },
     {
+      re:/(shaking|shaping|tre for coaches)/,
+      a:"<strong>Shaking to Shaping — TRE™ for Coaches</strong> is an ICF-accredited 3-hour in-person workshop in Singapore, in collaboration with Simba Stenqvist, led by Global TRE™ Certifying Trainers Isabelle Claus Teixeira and Simba Stenqvist. 3 ICF CCEs (1.5 Resource Development + 1.5 Core Competencies). Three dates, same workshop: Wednesday 24 February, Wednesday 30 June or Tuesday 2 November 2027, 7–10PM Singapore time. S$149 per session (S$129 with a discount code). TRE™ personal sessions are not included and can be added at S$180 each.",
+      btns:[{t:'Event Details',u:'event-shaking-to-shaping-singapore'},{t:'Register',u:'event-shaking-to-shaping-singapore#register'}]
+    },
+    {
+      re:/(lisbon|lisboa|portugal)/,
+      a:"<strong>TRE™ in Lisboa, Portugal (2027)</strong>, led by Isabelle Claus Teixeira: ICF-accredited <strong>Module 1</strong> on 28–30 May 2027 (the 21 ICF CCEUs need the additional 4-hour Self-Care & Presence for Coaches session on 30 May, 14:00–18:00), from €739 early bird until 31 March 2027, then €799. The full <strong>TRE™ Certification — Lisboa 2027</strong> (Module 1 28–30 May, Module 2 1–4 June, Module 3 22–24 October): €2,949 early bird paid in full until 31 March 2027, regular €3,499, or 3 instalments. Only 25 places.",
+      btns:[{t:'Module 1 Lisbon',u:'event-tre-module1-lisbon'},{t:'Full Certification',u:'event-tre-certification-lisbon'}]
+    },
+    {
       re:/(intro(duction)? (to )?tre|tre thailand)/,
       a:"<strong>Introduction to TRE™</strong> is a 2-hour in-person workshop for the general public in Singapore, in collaboration with TRE Thailand and Simba Stenqvist, led by Global TRE™ Certifying Trainers Isabelle Claus Teixeira and Simba Stenqvist. Three dates, same content: Tuesday 23 February, Tuesday 29 June or Wednesday 3 November 2027, 7–9PM Singapore time. S$88 per session (S$66 with a discount code). TRE™ personal sessions are not included and can be added at S$180 each.",
       btns:[{t:'Event Details',u:'event-intro-tre-singapore-2027'},{t:'Register',u:'event-intro-tre-singapore-2027#register'}]
@@ -515,6 +525,15 @@
        title:'Introduction to TRE&trade;',
        desc:'A 2-hour in-person workshop for the general public in Singapore, with Isabelle Claus Teixeira and Simba Stenqvist. Choose one of three dates. S$88.',
        venue:'Singapore',url:'event-intro-tre-singapore-2027#register',cta:'Register'}},
+    {id:'shaking-to-shaping-singapore-2027-feb',page:'event-shaking-to-shaping-singapore',start:'2027-02-24T19:00:00+08:00',end:'2027-02-24T22:00:00+08:00',soldOut:false,
+     cdTitle:'Shaking to Shaping &middot; TRE&trade; for Coaches &middot; Singapore',
+     cdMeta:'Wednesday, 24 February 2027 &middot; 7&ndash;10PM SGT &middot; In Person &middot; S$149',
+     link:'event-shaking-to-shaping-singapore#register',linkText:'Register Now',
+     card:{img:'event-shaking-to-shaping-singapore.webp?v=1',alt:'Shaking to Shaping &mdash; TRE&trade; for Coaches, in person in Singapore, 2027, with Isabelle Claus Teixeira and Simba Stenqvist',
+       tag:'In Person &middot; 3 ICF CCEs',date:'24 Feb, 30 Jun &amp; 2 Nov 2027 &nbsp;&middot;&nbsp; 7&ndash;10PM &middot; In Person',
+       title:'Shaking to Shaping &mdash; TRE&trade; for Coaches',
+       desc:'An ICF-accredited 3-hour TRE&trade; workshop for coaches in Singapore, with Isabelle Claus Teixeira and Simba Stenqvist. 3 ICF CCEs. Choose one of three dates. S$149.',
+       venue:'Singapore',url:'event-shaking-to-shaping-singapore#register',cta:'Register'}},
     {id:'cert-2027',page:'event-certification-2027',start:'2027-02-27T09:00:00+08:00',soldOut:false,
      cdTitle:'Become a Certified TRE&trade; Provider &middot; 2027 Cohort &middot; Singapore',
      cdMeta:'Module 1: 27&ndash;28 February 2027 &middot; In-Person &middot; Singapore',
@@ -551,6 +570,24 @@
        title:'Refresher Packages &mdash; TRE&trade; Provider Certification 2027',
        desc:'For accredited TRE&trade; Providers and trainees: 4 options from S$2,200 early bird until 31 Jan 2027 (regular from S$2,900).',
        venue:'Singapore',url:'event-certification-2027-refresher',cta:'Details'}},
+    {id:'tre-module1-lisbon',page:'event-tre-module1-lisbon',start:'2027-05-28T10:00:00+01:00',end:'2027-05-30T18:00:00+01:00',soldOut:false,
+     cdTitle:'TRE&trade; Module 1 &middot; Lisbon, Portugal',
+     cdMeta:'28&ndash;30 May 2027 &middot; In Person &middot; Lisboa &middot; from &euro;739',
+     link:'event-tre-module1-lisbon#register',linkText:'Register Now',
+     card:{img:'card-event-lisbon-module1.webp?v=2',alt:'TRE&trade; Module 1 Lisboa, Portugal, 28&ndash;30 May 2027',
+       tag:'Lisboa &middot; 21 ICF CCEUs',date:'28&ndash;30 May 2027 &nbsp;&middot;&nbsp; In Person &middot; Lisboa',
+       title:'TRE&trade; Module 1 &mdash; Lisbon',
+       desc:'ICF-accredited TRE&trade; Module 1 in Lisboa with Isabelle Claus Teixeira, assisted by Saymara Ryon. The 21 ICF CCEUs require the additional 4-hour Self-Care &amp; Presence for Coaches session (30 May, 14:00&ndash;18:00). From &euro;739 early bird until 31 March 2027.',
+       venue:'Lisboa, Portugal',url:'event-tre-module1-lisbon',cta:'Details'}},
+    {id:'tre-certification-lisbon',page:'event-tre-certification-lisbon',start:'2027-05-28T10:00:00+01:00',end:'2027-10-24T18:00:00+01:00',soldOut:false,
+     cdTitle:'TRE&trade; Certification &middot; Lisboa 2027',
+     cdMeta:'Module 1: 28&ndash;30 May 2027 &middot; In Person &middot; Lisboa',
+     link:'event-tre-certification-lisbon#register',linkText:'Register Now',
+     card:{img:'event-lisbon-certification.webp?v=2',alt:'TRE&trade; Certification, Portugal 2027 cohort in Lisboa',
+       tag:'Certification &middot; Lisboa',date:'May&ndash;Oct 2027 &nbsp;&middot;&nbsp; In Person &middot; Lisboa',
+       title:'TRE&trade; Certification &mdash; Lisboa 2027',
+       desc:'The complete Global TRE&trade; Provider Certification in Lisboa: Module 1 28&ndash;30 May, Module 2 1&ndash;4 June, Module 3 22&ndash;24 October 2027, with Isabelle Claus Teixeira. 21 ICF CCEs for Module 1. Early bird &euro;2,949 paid in full until 31 March 2027.',
+       venue:'Lisboa, Portugal',url:'event-tre-certification-lisbon',cta:'Details'}},
     {id:'tre-scotland-online',page:'event-tre-module1-online-scotland',start:'2027-06-18T14:00:00+01:00',end:'2027-06-20T18:00:00+01:00',soldOut:false,
      cdTitle:'TRE&trade; Module 1 ONLINE with TRE Scotland',
      cdMeta:'18&ndash;20 June 2027 &middot; Live Online &middot; UK time',
@@ -560,6 +597,15 @@
        title:'TRE&trade; Module 1 ONLINE with TRE Scotland',
        desc:'ICF-accredited TRE&trade; Module 1 taught online by Isabelle Claus Teixeira with TRE Scotland. Limited to 15 participants. Early bird &pound;488 until 31 May 2027, then &pound;589.',
        venue:'Online',url:'event-tre-module1-online-scotland',cta:'Details'}},
+    {id:'shaking-to-shaping-singapore-2027-jun',page:'event-shaking-to-shaping-singapore',start:'2027-06-30T19:00:00+08:00',end:'2027-06-30T22:00:00+08:00',soldOut:false,
+     cdTitle:'Shaking to Shaping &middot; TRE&trade; for Coaches &middot; Singapore',
+     cdMeta:'Wednesday, 30 June 2027 &middot; 7&ndash;10PM SGT &middot; In Person &middot; S$149',
+     link:'event-shaking-to-shaping-singapore#register',linkText:'Register Now',
+     card:{img:'event-shaking-to-shaping-singapore.webp?v=1',alt:'Shaking to Shaping &mdash; TRE&trade; for Coaches, in person in Singapore, 2027, with Isabelle Claus Teixeira and Simba Stenqvist',
+       tag:'In Person &middot; 3 ICF CCEs',date:'30 Jun &amp; 2 Nov 2027 &nbsp;&middot;&nbsp; 7&ndash;10PM &middot; In Person',
+       title:'Shaking to Shaping &mdash; TRE&trade; for Coaches',
+       desc:'An ICF-accredited 3-hour TRE&trade; workshop for coaches in Singapore, with Isabelle Claus Teixeira and Simba Stenqvist. 3 ICF CCEs. Choose 30 June or 2 November 2027. S$149.',
+       venue:'Singapore',url:'event-shaking-to-shaping-singapore#register',cta:'Register'}},
     {id:'intro-tre-singapore-2027-jun',page:'event-intro-tre-singapore-2027',start:'2027-06-29T19:00:00+08:00',end:'2027-06-29T21:00:00+08:00',soldOut:false,
      cdTitle:'Introduction to TRE&trade; &middot; In Person &middot; Singapore',
      cdMeta:'Tuesday, 29 June 2027 &middot; 7&ndash;9PM SGT &middot; In Person &middot; S$88',
@@ -569,6 +615,15 @@
        title:'Introduction to TRE&trade;',
        desc:'A 2-hour in-person workshop for the general public in Singapore, with Isabelle Claus Teixeira and Simba Stenqvist. Choose 29 June or 3 November 2027. S$88.',
        venue:'Singapore',url:'event-intro-tre-singapore-2027#register',cta:'Register'}},
+    {id:'shaking-to-shaping-singapore-2027-nov',page:'event-shaking-to-shaping-singapore',start:'2027-11-02T19:00:00+08:00',end:'2027-11-02T22:00:00+08:00',soldOut:false,
+     cdTitle:'Shaking to Shaping &middot; TRE&trade; for Coaches &middot; Singapore',
+     cdMeta:'Tuesday, 2 November 2027 &middot; 7&ndash;10PM SGT &middot; In Person &middot; S$149',
+     link:'event-shaking-to-shaping-singapore#register',linkText:'Register Now',
+     card:{img:'event-shaking-to-shaping-singapore.webp?v=1',alt:'Shaking to Shaping &mdash; TRE&trade; for Coaches, in person in Singapore, 2027, with Isabelle Claus Teixeira and Simba Stenqvist',
+       tag:'In Person &middot; 3 ICF CCEs',date:'2 November 2027 &nbsp;&middot;&nbsp; 7&ndash;10PM &middot; In Person',
+       title:'Shaking to Shaping &mdash; TRE&trade; for Coaches',
+       desc:'An ICF-accredited 3-hour TRE&trade; workshop for coaches in Singapore, with Isabelle Claus Teixeira and Simba Stenqvist. 3 ICF CCEs. S$149.',
+       venue:'Singapore',url:'event-shaking-to-shaping-singapore#register',cta:'Register'}},
     {id:'intro-tre-singapore-2027-nov',page:'event-intro-tre-singapore-2027',start:'2027-11-03T19:00:00+08:00',end:'2027-11-03T21:00:00+08:00',soldOut:false,
      cdTitle:'Introduction to TRE&trade; &middot; In Person &middot; Singapore',
      cdMeta:'Wednesday, 3 November 2027 &middot; 7&ndash;9PM SGT &middot; In Person &middot; S$88',
@@ -775,7 +830,7 @@ function bhdEmailLead(data){
 // #reg-step2, then calls bhdRegGate(REG) with its config:
 //   slug, title, sheet, event, source, price, note, codeNote?,
 //   pay:[{label,url}|{label,value}],
-//   discount?:{hash:<sha256 hex of the UPPERCASE code>, price, pay:[{label,url}]}
+//   discount?:{hash:<sha256 hex of the UPPERCASE code, or a list of them>, price, pay:[{label,url}]}
 // The lead goes out via bhdEmailLead + the Apps Script sheet (keepalive). Then step 2 shows;
 // when the event has exactly ONE payment link, the visitor is taken there in the same tab after
 // ~1.5 s (a valid discount code picks the discounted link). Several payment options (Wise +
@@ -838,7 +893,7 @@ function bhdRegGate(REG){
     var waitSends=new Promise(function(res){Promise.all(sends).then(res,res);setTimeout(res,1500)});
     var first=data.name.split(/\s+/)[0];
     Promise.all([hashP,waitSends]).then(function(r){
-      var disc=!!(REG.discount&&r[0]&&r[0]===REG.discount.hash),url=autoUrl(!!code,disc);
+      var disc=!!(REG.discount&&r[0]&&[].concat(REG.discount.hash).indexOf(r[0])>-1),url=autoUrl(!!code,disc);
       store('set',JSON.stringify({first:first,code:!!code,disc:disc}));
       show2(first,!!code,disc,!!url);btn.disabled=false;btn.textContent='Continue to registration →';focusBox();
       if(url)setTimeout(function(){window.location.href=url},1500);
