@@ -12,13 +12,13 @@
   'use strict';
   var PRIVACY = '/privacy#partners';
   var COMPANY = 'Business &amp; Human Development Consulting Pte Ltd';
-  var EMAIL = 'bonjour@bhdasia.com';
+  var EMAIL = 'bonjour&#64;bhd<span style="display:none">-no-spam</span>asia&#46;com';
   var KEY = 'gdpr-consent-v1';
   var TICKET = 'a[href*="buy.stripe.com"],a[href*="checkout.stripe.com"],a[href*="atelierdesuflet.ro/"][href$=".html"],a[href*="paypal.com"],a[href*="paypal.me"],a[href*="wise.com/pay"],a[href*="eventbrite."],a[data-ticket]';
 
   var TXT_MKT = 'I agree to receive newsletters, promotional offers, and direct marketing communications from ' + COMPANY + ' via email and SMS.';
   var TXT_JV = 'I agree that ' + COMPANY + ' may share my personal contact details (email and phone number) with our trusted partners, associates, and joint venture (JV) partners so they may send me marketing communications directly. You can view our full list of partner categories in our <a href="' + PRIVACY + '" target="_blank" rel="noopener">Privacy Policy</a>.';
-  var TXT_NOTE = 'You can withdraw your consent or unsubscribe at any time by clicking the &ldquo;Unsubscribe&rdquo; link at the bottom of any marketing email or by contacting us at <a href="mailto:' + EMAIL + '">' + EMAIL + '</a>. For more information on how we handle your personal data, please read our <a href="' + PRIVACY + '" target="_blank" rel="noopener">Privacy Policy</a>.';
+  var TXT_NOTE = 'You can withdraw your consent or unsubscribe at any time by clicking the &ldquo;Unsubscribe&rdquo; link at the bottom of any marketing email or by contacting us at ' + EMAIL + '. For more information on how we handle your personal data, please read our <a href="' + PRIVACY + '" target="_blank" rel="noopener">Privacy Policy</a>.';
 
   function store(v) {
     try { if (v === undefined) return JSON.parse(localStorage.getItem(KEY) || 'null'); localStorage.setItem(KEY, JSON.stringify(v)); } catch (e) {}

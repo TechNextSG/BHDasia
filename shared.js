@@ -182,7 +182,7 @@
     },
     {
       re:/^(no|nope|nah|not now|later)$/,
-      a:"No problem at all! Feel free to come back anytime. You can always reach us at <a href='mailto:bonjour@bhdasia.com'>bonjour@bhdasia.com</a>.",
+      a:"No problem at all! Feel free to come back anytime. You can always reach us at bonjour&#64;bhd<span style='display:none'>-no-spam</span>asia&#46;com.",
       btns:[]
     },
 
@@ -209,7 +209,7 @@
     },
     {
       re:/(contact|email|phone|call|reach|whatsapp|enquire|inquire|message|get in touch|speak|talk|connect)/,
-      a:"You can reach us by email at <a href='mailto:bonjour@bhdasia.com'>bonjour@bhdasia.com</a>, call or WhatsApp <strong>+81 80 6515 1778</strong>, or fill in our online contact form.",
+      a:"You can reach us by email at bonjour&#64;bhd<span style='display:none'>-no-spam</span>asia&#46;com, call or WhatsApp <strong>+81 80 6515 1778</strong>, or fill in our online contact form.",
       btns:[{t:'Contact Form',u:'contact'}]
     },
     {
@@ -264,13 +264,13 @@
     },
     {
       re:/(thank|thanks|cheers|appreciate|great|perfect|helpful|awesome|wonderful)/,
-      a:"You're very welcome! Feel free to ask anything else, or reach us at <a href='mailto:bonjour@bhdasia.com'>bonjour@bhdasia.com</a>.",
+      a:"You're very welcome! Feel free to ask anything else, or reach us at bonjour&#64;bhd<span style='display:none'>-no-spam</span>asia&#46;com.",
       btns:[]
     },
     {re:/(bye|goodbye|see you|farewell|that.?s all)/, a:"Thanks for visiting BHD Asia. Have a wonderful day! 😊", btns:[]}
   ];
 
-  var FALLBACK_A = "I can help with our <strong>services</strong>, <strong>TRE™ workshops</strong>, <strong>pricing</strong>, <strong>events</strong>, <strong>location</strong> and <strong>contact</strong>. For anything specific, reach Isabelle at <a href='mailto:bonjour@bhdasia.com'>bonjour@bhdasia.com</a> or WhatsApp +81 80 6515 1778.";
+  var FALLBACK_A = "I can help with our <strong>services</strong>, <strong>TRE™ workshops</strong>, <strong>pricing</strong>, <strong>events</strong>, <strong>location</strong> and <strong>contact</strong>. For anything specific, reach Isabelle at bonjour&#64;bhd<span style='display:none'>-no-spam</span>asia&#46;com or WhatsApp +81 80 6515 1778.";
   var FALLBACK_BTNS = [{t:'Services',u:'services'},{t:'Events',u:'events'},{t:'Contact Us',u:'contact'}];
 
   function answerFor(raw){
@@ -699,8 +699,8 @@
 
 // ── Email a form submission straight to Isabelle (FormSubmit) ────────────────
 // Called alongside the existing Google Sheet POST so every enquiry both logs
-// to the sheet AND lands in bonjour@bhdasia.com's inbox.
-// 4 Nov 2026: the emails to bonjour@bhdasia.com now come from the Lead Capture Apps Script itself (one email per real lead, rows marked "Possible spam" are not emailed), not FormSubmit (it was down). So this stays false: the sheet send IS the email. true would ALSO email through FormSubmit = duplicates.
+// to the sheet AND lands in Isabelle's inbox.
+// 4 Nov 2026: the emails to Isabelle's inbox now come from the Lead Capture Apps Script itself (one email per real lead, rows marked "Possible spam" are not emailed), not FormSubmit (it was down). So this stays false: the sheet send IS the email. true would ALSO email through FormSubmit = duplicates.
 var BHD_LEAD_EMAIL_ON = false;
 var BHD_LEAD_SHEET = 'https://script.google.com/macros/s/AKfycbxkv934L8ffTxU1TPUiw3jn9Hu6KmdE0Ol1CcJRB_vWstls2xiZHHb-LErG5qHXdTuX/exec';
 /* Lead spam filter, 2026-11-04. Master copy for hummingbeing.com (scripts.js), bhdasia.com (shared.js)
@@ -761,7 +761,7 @@ function bhdEmailLead(data){
       Consent: data.gdpr_consent || (window.gdprConsentSummary ? window.gdprConsentSummary() : '')
     };
     // keepalive: the send survives a navigation (register gate redirects to the payment page)
-    return fetch('https://formsubmit.co/ajax/bonjour@bhdasia.com', {
+    return fetch('https://formsubmit.co/ajax/' + 'bonjour' + '@' + 'bhdasia.com', {
       method: 'POST',
       keepalive: true,
       headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
@@ -922,7 +922,7 @@ function bhdRegGate(REG){
       var li = document.createElement('li'); li.className = 'nav-extra';
       li.innerHTML =
         '<div class="ne-row">' +
-          '<a href="mailto:bonjour@bhdasia.com"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6.5 8.5 6.5 8.5-6.5"/></svg>bonjour@bhdasia.com</a>' +
+          '<span style="display:inline-flex;align-items:center;gap:.5rem;padding:.35rem 0;color:var(--warm-body);font-size:.95rem;font-family:DM Sans,sans-serif"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6.5 8.5 6.5 8.5-6.5"/></svg>bonjour&#64;bhd<span style="display:none">-no-spam</span>asia&#46;com</span>' +
           '<a href="https://wa.me/818065151778" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M4 20l1.3-3.9A8 8 0 1 1 8 19z"/><path d="M9.5 9.5c.3 1.8 2.2 3.8 4 4.2l1.2-1.1 1.8.9c-.3 1-1.2 1.6-2.2 1.5-3.2-.3-6.3-3.4-6.6-6.6-.1-1 .5-1.9 1.5-2.2l.9 1.8z"/></svg>WhatsApp</a>' +
         '</div>' +
         '<div class="ne-soc">' +
