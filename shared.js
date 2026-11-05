@@ -182,7 +182,7 @@
     },
     {
       re:/^(no|nope|nah|not now|later)$/,
-      a:"No problem at all! Feel free to come back anytime. You can always reach us at bonjour&#64;bhd<span style='display:none'>-no-spam</span>asia&#46;com.",
+      a:"No problem at all! Feel free to come back anytime. You can always reach us at <span>bonjour&#64;bhd<span style='display:none'>-no-spam</span>asia&#46;com</span>.",
       btns:[]
     },
 
@@ -209,7 +209,7 @@
     },
     {
       re:/(contact|email|phone|call|reach|whatsapp|enquire|inquire|message|get in touch|speak|talk|connect)/,
-      a:"You can reach us by email at bonjour&#64;bhd<span style='display:none'>-no-spam</span>asia&#46;com, call or WhatsApp <strong>+81 80 6515 1778</strong>, or fill in our online contact form.",
+      a:"You can reach us by email at <span>bonjour&#64;bhd<span style='display:none'>-no-spam</span>asia&#46;com</span>, call or WhatsApp <strong>+81 80 6515 1778</strong>, or fill in our online contact form.",
       btns:[{t:'Contact Form',u:'contact'}]
     },
     {
@@ -264,13 +264,13 @@
     },
     {
       re:/(thank|thanks|cheers|appreciate|great|perfect|helpful|awesome|wonderful)/,
-      a:"You're very welcome! Feel free to ask anything else, or reach us at bonjour&#64;bhd<span style='display:none'>-no-spam</span>asia&#46;com.",
+      a:"You're very welcome! Feel free to ask anything else, or reach us at <span>bonjour&#64;bhd<span style='display:none'>-no-spam</span>asia&#46;com</span>.",
       btns:[]
     },
     {re:/(bye|goodbye|see you|farewell|that.?s all)/, a:"Thanks for visiting BHD Asia. Have a wonderful day! 😊", btns:[]}
   ];
 
-  var FALLBACK_A = "I can help with our <strong>services</strong>, <strong>TRE™ workshops</strong>, <strong>pricing</strong>, <strong>events</strong>, <strong>location</strong> and <strong>contact</strong>. For anything specific, reach Isabelle at bonjour&#64;bhd<span style='display:none'>-no-spam</span>asia&#46;com or WhatsApp +81 80 6515 1778.";
+  var FALLBACK_A = "I can help with our <strong>services</strong>, <strong>TRE™ workshops</strong>, <strong>pricing</strong>, <strong>events</strong>, <strong>location</strong> and <strong>contact</strong>. For anything specific, reach Isabelle at <span>bonjour&#64;bhd<span style='display:none'>-no-spam</span>asia&#46;com</span> or WhatsApp +81 80 6515 1778.";
   var FALLBACK_BTNS = [{t:'Services',u:'services'},{t:'Events',u:'events'},{t:'Contact Us',u:'contact'}];
 
   function answerFor(raw){
@@ -922,7 +922,7 @@ function bhdRegGate(REG){
       var li = document.createElement('li'); li.className = 'nav-extra';
       li.innerHTML =
         '<div class="ne-row">' +
-          '<span style="display:inline-flex;align-items:center;gap:.5rem;padding:.35rem 0;color:var(--warm-body);font-size:.95rem;font-family:DM Sans,sans-serif"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6.5 8.5 6.5 8.5-6.5"/></svg>bonjour&#64;bhd<span style="display:none">-no-spam</span>asia&#46;com</span>' +
+          '<span style="display:inline-flex;align-items:center;gap:.5rem;padding:.35rem 0;color:var(--warm-body);font-size:.95rem;font-family:DM Sans,sans-serif"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6.5 8.5 6.5 8.5-6.5"/></svg><span>bonjour&#64;bhd<span style="display:none">-no-spam</span>asia&#46;com</span></span>' +
           '<a href="https://wa.me/818065151778" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M4 20l1.3-3.9A8 8 0 1 1 8 19z"/><path d="M9.5 9.5c.3 1.8 2.2 3.8 4 4.2l1.2-1.1 1.8.9c-.3 1-1.2 1.6-2.2 1.5-3.2-.3-6.3-3.4-6.6-6.6-.1-1 .5-1.9 1.5-2.2l.9 1.8z"/></svg>WhatsApp</a>' +
         '</div>' +
         '<div class="ne-soc">' +

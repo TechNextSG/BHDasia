@@ -235,7 +235,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <span style="display:block;width:100%;text-align:center;padding:12px;margin-bottom:14px;background:#6b7280;color:#fff;border-radius:var(--r-md);font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase">Online &middot; 3 Sep 2026 &mdash; Event Ended</span>
         <a class="et_pb_button" style="width:100%;text-align:center;justify-content:center;margin-bottom:10px" href="events">See Upcoming Events &rarr;</a>
         <a class="et_pb_button btn-outline" style="width:100%;text-align:center;justify-content:center" href="event-shaking-shaping">Bucharest Sessions (20 &amp; 24 Oct) &rarr;</a>
-        <p class="evt-reg-alt" style="margin-top:14px">Questions? Email bonjour&#64;bhd<span style="display:none">-no-spam</span>asia&#46;com</p>
+        <p class="evt-reg-alt" style="margin-top:14px">Questions? Email <span>bonjour&#64;bhd<span style="display:none">-no-spam</span>asia&#46;com</span></p>
       </div>
     </div>
     <img src="poster-shaking.webp" alt="From Shaking to Shaping — A Coaching Experience Using TRE™, led by Isabelle Claus Teixeira" width="1080" height="1380" loading="lazy" decoding="async" style="width:100%;height:auto;display:block;border-radius:var(--r-lg);box-shadow:0 12px 30px rgba(7,24,38,.14);margin-top:22px"/>
@@ -277,7 +277,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
     <div class="footer-widget"><h4>Navigate</h4><ul><li><a href="./">Home</a></li><li><a href="services">Services</a></li><li><a href="about">About</a></li><li><a href="events">Events</a></li><li><a href="partners">Partners</a></li><li><a href="contact">Contact</a></li><li><a href="https://hummingbeing.com/" target="_blank" rel="noopener">HummingBeing</a></li></ul></div>
     <div class="footer-widget"><h4>Legal</h4><ul><li><a href="privacy">Privacy Statement</a></li><li><a href="terms">Terms &amp; Conditions</a></li><li><a href="code">Code of Practice</a></li><li><a href="inclusivity">Inclusivity Statement</a></li></ul></div>
-    <div class="footer-widget"><h4>Contact</h4><p>50 Raffles Place, Singapore Land Tower #30-00<br>Singapore 048623</p><p>+81 806515 1778</p><p>bonjour&#64;bhd<span style="display:none">-no-spam</span>asia&#46;com</p><p><a href="contact">Book a Discovery Call &rarr;</a></p></div>
+    <div class="footer-widget"><h4>Contact</h4><p>50 Raffles Place, Singapore Land Tower #30-00<br>Singapore 048623</p><p>+81 806515 1778</p><p><span>bonjour&#64;bhd<span style="display:none">-no-spam</span>asia&#46;com</span></p><p><a href="contact">Book a Discovery Call &rarr;</a></p></div>
   </div></div>
   <div id="footer-bottom"><div class="container">
     <div id="footer-info"><span>&copy; 2026 BHD Asia. All rights reserved.</span></div>
@@ -286,8 +286,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div></div>
 </footer>
 </div>
-<script src="shared.js?v=30"></script>
-<script src="gdpr-consent.js?v=2"></script>
+<script src="shared.js?v=31"></script>
+<script src="gdpr-consent.js?v=3"></script>
 <script>
 function submitReg(e){e.preventDefault();var form=document.getElementById('evt-reg-form');var btn=form.querySelector('button[type="submit"]');btn.disabled=true;btn.textContent='Sending…';var data={source:'BHDasia Event — Shaking to Shaping Romania',event:form.event.value,inquiry:'Event registration enquiry',name:form.name.value,email:form.email.value,phone:form.phone.value,message:form.message.value};bhdEmailLead(data);fetch('https://script.google.com/macros/s/AKfycbxkv934L8ffTxU1TPUiw3jn9Hu6KmdE0Ol1CcJRB_vWstls2xiZHHb-LErG5qHXdTuX/exec',{method:'POST',mode:'no-cors',body:new URLSearchParams(data)}).then(function(){form.style.display='none';document.getElementById('reg-success').style.display='block'}).catch(function(){window.location.href='mailto:'+'bonjour'+'@'+'bhdasia.com'+'?subject='+encodeURIComponent('Workshop Registration: '+data.event)+'&body='+encodeURIComponent('Name: '+data.name+'\nEmail: '+data.email+'\nEvent: '+data.event+'\nMessage: '+(data.message||'—'))});}
 </script>

@@ -12,7 +12,7 @@
   'use strict';
   var PRIVACY = '/privacy#partners';
   var COMPANY = 'Business &amp; Human Development Consulting Pte Ltd';
-  var EMAIL = 'bonjour&#64;bhd<span style="display:none">-no-spam</span>asia&#46;com';
+  var EMAIL = '<span>bonjour&#64;bhd<span style="display:none">-no-spam</span>asia&#46;com</span>';
   var KEY = 'gdpr-consent-v1';
   var TICKET = 'a[href*="buy.stripe.com"],a[href*="checkout.stripe.com"],a[href*="atelierdesuflet.ro/"][href$=".html"],a[href*="paypal.com"],a[href*="paypal.me"],a[href*="wise.com/pay"],a[href*="eventbrite."],a[data-ticket]';
 
