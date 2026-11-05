@@ -365,7 +365,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </footer>
 </div>
 <script src="shared.js?v=32"></script>
-<script src="gdpr-consent.js?v=3"></script>
+<script src="gdpr-consent.js?v=4"></script>
 <script>
 function submitReg(e){e.preventDefault();var form=document.getElementById('evt-reg-form');var btn=form.querySelector('button[type="submit"]');var err=document.getElementById('reg-error');if(err)err.hidden=true;btn.disabled=true;btn.textContent='Sending…';var data={source:'BHDasia Event — TRE Module 1 Lisboa, Portugal (28–30 May 2027)',event:form.event.value,inquiry:'Event registration enquiry',name:form.name.value,email:form.email.value,phone:form.phone.value,message:form.message.value};bhdEmailLead(data);fetch('https://script.google.com/macros/s/AKfycbxkv934L8ffTxU1TPUiw3jn9Hu6KmdE0Ol1CcJRB_vWstls2xiZHHb-LErG5qHXdTuX/exec',{method:'POST',mode:'no-cors',body:new URLSearchParams(data)}).then(function(){form.style.display='none';document.getElementById('reg-success').style.display='block'}).catch(function(){btn.disabled=false;btn.textContent='Register Now →';if(err)err.hidden=false});}
 </script>

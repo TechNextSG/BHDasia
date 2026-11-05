@@ -1,13 +1,15 @@
 /* GDPR consent (client request 2026-10-20, Isabelle Claus Teixeira).
    Adds the two marketing-consent boxes + the withdrawal notice to EVERY form on the page that collects an
    email address (forms drawn later by JavaScript too), and gates ticket links (Stripe, webshops, PayPal, Wise)
-   behind the same two boxes.
-   - Event / registration / ticket forms: BOTH boxes required (the form cannot be sent until ticked).
+   behind a one-time pop-up offering the same two (optional) boxes.
+   - Event / registration / ticket forms (owner decision 2026-11-05): both boxes OPTIONAL (unticked by default);
+     the one required box is the processing consent (name="consent") - the form's own, or added here when the
+     registration form has none.
    - Newsletter sign-up (email only): box 1 required, box 2 optional.
    - Contact / enquiry / booking forms: both optional (unticked by default).
    The choice is written into a hidden field "gdpr_consent" in the form (sent with the lead) and kept in
-   window.gdprConsentSummary() for the forms that build their payload by hand. A form sent with both boxes
-   ticked, or the ticket pop-up, remembers the consent on this browser so the payment links open directly. */
+   window.gdprConsentSummary() for the forms that build their payload by hand. A registration form sent, or the
+   ticket pop-up answered, is remembered on this browser so the payment links open directly afterwards. */
 (function () {
   'use strict';
   var PRIVACY = '/privacy#partners';
@@ -18,13 +20,14 @@
 
   var TXT_MKT = 'I agree to receive newsletters, promotional offers, and direct marketing communications from ' + COMPANY + ' via email and SMS.';
   var TXT_JV = 'I agree that ' + COMPANY + ' may share my personal contact details (email and phone number) with our trusted partners, associates, and joint venture (JV) partners so they may send me marketing communications directly. You can view our full list of partner categories in our <a href="' + PRIVACY + '" target="_blank" rel="noopener">Privacy Policy</a>.';
+  var TXT_PROC = 'I agree that my details will be collected and used to process my registration and to contact me about this event, in line with the <a href="' + PRIVACY.split('#')[0] + '" target="_blank" rel="noopener">Privacy Policy</a>.';
   var TXT_NOTE = 'You can withdraw your consent or unsubscribe at any time by clicking the &ldquo;Unsubscribe&rdquo; link at the bottom of any marketing email or by contacting us at ' + EMAIL + '. For more information on how we handle your personal data, please read our <a href="' + PRIVACY + '" target="_blank" rel="noopener">Privacy Policy</a>.';
 
   function store(v) {
     try { if (v === undefined) return JSON.parse(localStorage.getItem(KEY) || 'null'); localStorage.setItem(KEY, JSON.stringify(v)); } catch (e) {}
     return null;
   }
-  function both() { var s = store(); return !!(s && s.m && s.p); }
+  function seen() { return !!store(); }
   function summary(m, p, ts) {
     return 'Marketing email/SMS: ' + (m ? 'YES' : 'no') + ' | Share with partners/JV: ' + (p ? 'YES' : 'no') + ' | ' + (ts || new Date().toISOString());
   }
@@ -71,10 +74,11 @@
     return 'enq';
   }
 
-  function box(req1, req2, idp) {
+  function box(req1, req2, idp, proc) {
     var d = document.createElement('div'); d.className = 'gdpr-box';
     var star = ' <b class="gdpr-req" aria-hidden="true">*</b>';
     d.innerHTML =
+      (proc ? '<label><input type="checkbox" name="consent" value="yes" data-gdpr="c" required aria-required="true" id="' + idp + 'c"><span>' + TXT_PROC + star + '</span></label>' : '') +
       '<label><input type="checkbox" data-gdpr="m"' + (req1 ? ' required aria-required="true"' : '') + ' id="' + idp + 'm"><span>' + TXT_MKT + (req1 ? star : '') + '</span></label>' +
       '<label><input type="checkbox" data-gdpr="p"' + (req2 ? ' required aria-required="true"' : '') + ' id="' + idp + 'p"><span>' + TXT_JV + (req2 ? star : '') + '</span></label>' +
       '<p class="gdpr-note">' + TXT_NOTE + '</p>' +
@@ -86,13 +90,14 @@
   function add(form) {
     if (form.__gdpr || !form.querySelector('input[type="email"]')) return;
     form.__gdpr = 1; n++;
-    var k = kind(form), r1 = k !== 'enq', r2 = k === 'reg';
+    var k = kind(form), r1 = k === 'news', r2 = false;
+    var addProc = k === 'reg' && !form.querySelector('input[type="checkbox"][name="consent"]');
     /* the old optional "Keep me informed about future events" box is replaced by the marketing box */
     var upd = form.querySelector('input[type="checkbox"][name="updates"]');
     if (upd) { var ul = upd.closest('label'); if (ul) ul.parentNode.removeChild(ul); }
     var hid = document.createElement('input'); hid.type = 'hidden'; hid.name = 'gdpr_consent';
     hid.value = summary(false, false);
-    var b = box(r1, r2, 'gdpr' + n);
+    var b = box(r1, r2, 'gdpr' + n, addProc);
     form.appendChild(hid);
     var btn = form.querySelector('button[type="submit"],input[type="submit"],button:not([type])');
     /* put the box above the button, but keep it a direct child of the form (or of the button's wrapper) */
@@ -103,17 +108,18 @@
     else if (anchor && anchor.parentNode) anchor.parentNode.insertBefore(b, anchor);
     else form.appendChild(b);
     var m = b.querySelector('[data-gdpr="m"]'), p = b.querySelector('[data-gdpr="p"]'), err = b.querySelector('.gdpr-err');
+    var c = b.querySelector('[data-gdpr="c"]'); if (c) c.addEventListener('change', function () { if (err) err.hidden = true; });
     function sync() { hid.value = summary(m.checked, p.checked); last = hid.value; if (err) err.hidden = true; }
     m.addEventListener('change', sync); p.addEventListener('change', sync);
     form.__gdprCheck = function () {
-      var miss = (r1 && !m.checked) ? m : (r2 && !p.checked) ? p : null;
+      var miss = (c && !c.checked) ? c : (r1 && !m.checked) ? m : null;
       if (miss) {
-        err.textContent = r2 ? 'Please tick both consent boxes to continue.' : 'Please tick the consent box to subscribe.';
+        err.textContent = miss === c ? 'Please tick the box to agree to the processing of your details.' : 'Please tick the consent box to subscribe.';
         err.hidden = false; miss.focus(); return false;
       }
       var ts = new Date().toISOString();
       hid.value = summary(m.checked, p.checked, ts); last = hid.value;
-      if (m.checked && p.checked) store({ m: 1, p: 1, ts: ts, page: location.pathname });
+      if (k === 'reg' || (m.checked && p.checked)) store({ m: m.checked ? 1 : 0, p: p.checked ? 1 : 0, ts: ts, page: location.pathname });
       return true;
     };
   }
@@ -131,23 +137,21 @@
     if (!f.__gdprCheck()) { e.preventDefault(); e.stopImmediatePropagation(); }
   }, true);
 
-  /* ticket links: both boxes first */
+  /* ticket links: a one-time pop-up with the two OPTIONAL boxes */
   function pop(go) {
     css();
     var prev = document.activeElement;
     var w = document.createElement('div'); w.className = 'gdpr-pop';
     w.innerHTML = '<div role="dialog" aria-modal="true" aria-labelledby="gdpr-pop-h"><h2 id="gdpr-pop-h">Before you buy your ticket</h2>' +
-      '<p class="gdpr-lead">Please tick both boxes to continue to the secure payment page.</p></div>';
-    var inner = w.firstChild, b = box(true, true, 'gdprpop');
+      '<p class="gdpr-lead">Optional: tick a box below if you would like to hear from us. You can continue to the secure payment page either way.</p></div>';
+    var inner = w.firstChild, b = box(false, false, 'gdprpop');
     b.querySelector('.gdpr-err').remove();
     inner.appendChild(b);
     var acts = document.createElement('div'); acts.className = 'gdpr-acts';
-    acts.innerHTML = '<button type="button" class="gdpr-no">Cancel</button><button type="button" class="gdpr-go" disabled>Continue to payment</button>';
+    acts.innerHTML = '<button type="button" class="gdpr-no">Cancel</button><button type="button" class="gdpr-go">Continue to payment</button>';
     inner.appendChild(acts);
     document.body.appendChild(w);
     var m = b.querySelector('[data-gdpr="m"]'), p = b.querySelector('[data-gdpr="p"]'), ok = acts.querySelector('.gdpr-go');
-    function sync() { ok.disabled = !(m.checked && p.checked); }
-    m.addEventListener('change', sync); p.addEventListener('change', sync);
     function close() { document.removeEventListener('keydown', key, true); w.remove(); if (prev && prev.focus) prev.focus(); }
     function key(e) {
       if (e.key === 'Escape') { e.preventDefault(); close(); }
@@ -161,16 +165,15 @@
     w.addEventListener('click', function (e) { if (e.target === w) close(); });
     acts.querySelector('.gdpr-no').addEventListener('click', close);
     ok.addEventListener('click', function () {
-      if (!(m.checked && p.checked)) return;
       var ts = new Date().toISOString();
-      store({ m: 1, p: 1, ts: ts, page: location.pathname }); last = summary(true, true, ts);
+      store({ m: m.checked ? 1 : 0, p: p.checked ? 1 : 0, ts: ts, page: location.pathname }); last = summary(m.checked, p.checked, ts);
       close(); go();
     });
     m.focus();
   }
   document.addEventListener('click', function (e) {
     var a = e.target && e.target.closest ? e.target.closest(TICKET) : null;
-    if (!a || both()) return;
+    if (!a || seen()) return;
     e.preventDefault(); e.stopImmediatePropagation();
     pop(function () {
       if (a.target === '_blank') window.open(a.href, '_blank', 'noopener'); else window.location.href = a.href;
