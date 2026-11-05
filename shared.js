@@ -143,6 +143,11 @@
       a:"<strong>TRE™ Module 1 ONLINE with TRE Scotland</strong> runs online (UK time) on 18–20 June 2027, led by Isabelle Claus Teixeira with TRE Scotland. It carries 21 ICF CCEUs and is limited to 15 participants. Early bird £488 until 31 May 2027, then £589. Personal TRE™ sessions are not included and can be added at £85 each.",
       btns:[{t:'Event Details',u:'event-tre-module1-online-scotland'},{t:'Register',u:'event-tre-module1-online-scotland#register'}]
     },
+    {
+      re:/(intro(duction)? (to )?tre|tre thailand)/,
+      a:"<strong>Introduction to TRE™</strong> is a 2-hour in-person workshop for the general public in Singapore, in collaboration with TRE Thailand and Simba Stenqvist, led by Global TRE™ Certifying Trainers Isabelle Claus Teixeira and Simba Stenqvist. Three dates, same content: Tuesday 23 February, Tuesday 29 June or Wednesday 3 November 2027, 7–9PM Singapore time. S$88 per session (S$66 with a discount code). TRE™ personal sessions are not included and can be added at S$180 each.",
+      btns:[{t:'Event Details',u:'event-intro-tre-singapore-2027'},{t:'Register',u:'event-intro-tre-singapore-2027#register'}]
+    },
 
     // ── Single-word / short exact-match handlers ──────────────
     {
@@ -501,6 +506,15 @@
        title:'TRE&trade; Provider Certification &mdash; Module 3',
        desc:'The final module of the Global TRE&trade; Provider Certification &mdash; certification weekend with Isabelle Claus Teixeira, Global TRE&trade; Certifying Trainer. The 2026 intake is now closed.',
        venue:'Singapore',url:'event-certification#register',cta:'Register'}},
+    {id:'intro-tre-singapore-2027-feb',page:'event-intro-tre-singapore-2027',start:'2027-02-23T19:00:00+08:00',end:'2027-02-23T21:00:00+08:00',soldOut:false,
+     cdTitle:'Introduction to TRE&trade; &middot; In Person &middot; Singapore',
+     cdMeta:'Tuesday, 23 February 2027 &middot; 7&ndash;9PM SGT &middot; In Person &middot; S$88',
+     link:'event-intro-tre-singapore-2027#register',linkText:'Register Now',
+     card:{img:'event-intro-tre-singapore-2027.webp?v=1',alt:'Introduction to TRE&trade; &mdash; in person in Singapore, 2027, with Isabelle Claus Teixeira and Simba Stenqvist',
+       tag:'In Person &middot; Singapore',date:'23 Feb, 29 Jun &amp; 3 Nov 2027 &nbsp;&middot;&nbsp; 7&ndash;9PM &middot; In Person',
+       title:'Introduction to TRE&trade;',
+       desc:'A 2-hour in-person workshop for the general public in Singapore, with Isabelle Claus Teixeira and Simba Stenqvist. Choose one of three dates. S$88.',
+       venue:'Singapore',url:'event-intro-tre-singapore-2027#register',cta:'Register'}},
     {id:'cert-2027',page:'event-certification-2027',start:'2027-02-27T09:00:00+08:00',soldOut:false,
      cdTitle:'Become a Certified TRE&trade; Provider &middot; 2027 Cohort &middot; Singapore',
      cdMeta:'Module 1: 27&ndash;28 February 2027 &middot; In-Person &middot; Singapore',
@@ -545,7 +559,25 @@
        tag:'Live Online &middot; 21 ICF CCEUs',date:'18&ndash;20 June 2027 &nbsp;&middot;&nbsp; Live Online &middot; UK time',
        title:'TRE&trade; Module 1 ONLINE with TRE Scotland',
        desc:'ICF-accredited TRE&trade; Module 1 taught online by Isabelle Claus Teixeira with TRE Scotland. Limited to 15 participants. Early bird &pound;488 until 31 May 2027, then &pound;589.',
-       venue:'Online',url:'event-tre-module1-online-scotland',cta:'Details'}}
+       venue:'Online',url:'event-tre-module1-online-scotland',cta:'Details'}},
+    {id:'intro-tre-singapore-2027-jun',page:'event-intro-tre-singapore-2027',start:'2027-06-29T19:00:00+08:00',end:'2027-06-29T21:00:00+08:00',soldOut:false,
+     cdTitle:'Introduction to TRE&trade; &middot; In Person &middot; Singapore',
+     cdMeta:'Tuesday, 29 June 2027 &middot; 7&ndash;9PM SGT &middot; In Person &middot; S$88',
+     link:'event-intro-tre-singapore-2027#register',linkText:'Register Now',
+     card:{img:'event-intro-tre-singapore-2027.webp?v=1',alt:'Introduction to TRE&trade; &mdash; in person in Singapore, 2027, with Isabelle Claus Teixeira and Simba Stenqvist',
+       tag:'In Person &middot; Singapore',date:'29 Jun &amp; 3 Nov 2027 &nbsp;&middot;&nbsp; 7&ndash;9PM &middot; In Person',
+       title:'Introduction to TRE&trade;',
+       desc:'A 2-hour in-person workshop for the general public in Singapore, with Isabelle Claus Teixeira and Simba Stenqvist. Choose 29 June or 3 November 2027. S$88.',
+       venue:'Singapore',url:'event-intro-tre-singapore-2027#register',cta:'Register'}},
+    {id:'intro-tre-singapore-2027-nov',page:'event-intro-tre-singapore-2027',start:'2027-11-03T19:00:00+08:00',end:'2027-11-03T21:00:00+08:00',soldOut:false,
+     cdTitle:'Introduction to TRE&trade; &middot; In Person &middot; Singapore',
+     cdMeta:'Wednesday, 3 November 2027 &middot; 7&ndash;9PM SGT &middot; In Person &middot; S$88',
+     link:'event-intro-tre-singapore-2027#register',linkText:'Register Now',
+     card:{img:'event-intro-tre-singapore-2027.webp?v=1',alt:'Introduction to TRE&trade; &mdash; in person in Singapore, 2027, with Isabelle Claus Teixeira and Simba Stenqvist',
+       tag:'In Person &middot; Singapore',date:'3 November 2027 &nbsp;&middot;&nbsp; 7&ndash;9PM &middot; In Person',
+       title:'Introduction to TRE&trade;',
+       desc:'A 2-hour in-person workshop for the general public in Singapore, with Isabelle Claus Teixeira and Simba Stenqvist. S$88.',
+       venue:'Singapore',url:'event-intro-tre-singapore-2027#register',cta:'Register'}}
   ];
   window.BHD_EVENTS=EVENTS;
 
