@@ -386,7 +386,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div></div>
 </footer>
 </div>
-<script src="shared.js?v=33"></script>
+<script src="shared.js?v=34"></script>
 <script src="gdpr-consent.js?v=4"></script>
 <script>
 function submitReg(e){e.preventDefault();var form=document.getElementById('evt-reg-form');var btn=form.querySelector('button[type="submit"]');var err=document.getElementById('reg-error');if(err)err.hidden=true;btn.disabled=true;btn.textContent='Sending…';var data={source:'BHDasia Event — TRE Certification Lisboa 2027 (Portugal cohort)',event:form.event.value,inquiry:'Event registration enquiry',name:form.name.value,email:form.email.value,phone:form.phone.value,message:'Payment plan: '+form.payment_plan.value+(form.message.value?'\n'+form.message.value:'')};bhdEmailLead(data);fetch('https://script.google.com/macros/s/AKfycbxkv934L8ffTxU1TPUiw3jn9Hu6KmdE0Ol1CcJRB_vWstls2xiZHHb-LErG5qHXdTuX/exec',{method:'POST',mode:'no-cors',body:new URLSearchParams(data)}).then(function(){form.style.display='none';document.getElementById('reg-success').style.display='block'}).catch(function(){btn.disabled=false;btn.textContent='Reserve My Place →';if(err)err.hidden=false});}
