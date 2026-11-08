@@ -533,3 +533,18 @@ html body .ab-story .ab-stop-i{width:32px!important;height:32px!important;displa
 html body .ab-story .ab-stop-i svg{width:22px!important;height:22px!important}
 html body .ab-story .ab-stop p{font-size:14.5px!important;line-height:1.6!important;color:#4b5163!important;padding-top:5px!important}
 @media (max-width:900px){html body .ab-story .ab-story-grid{align-items:start!important}}
+/* FAQs (Services + Home): compact, question clearly larger than answer, small calm toggle (8 Nov) */
+html body .sv-acc-btn{padding:14px 0!important;gap:16px!important;font:600 16px/1.4 'Plus Jakarta Sans',Inter,sans-serif!important;color:#14244a!important;min-height:0!important}
+html body .sv-acc-h{margin:0!important;font-size:16px!important}
+html body .sv-acc-p p{font-size:14.5px!important;line-height:1.6!important;color:#5a6072!important;margin:0!important;max-width:68ch}
+html body .sv-acc-p>div{padding:0 0 14px!important}
+html body .sv-acc-item{border-bottom:1px solid #ECE5D9!important}
+html body .sv-acc-x{flex:0 0 28px!important;width:28px!important;height:28px!important;background:#fff!important;border:1px solid #E6DCC8!important}
+html body .sv-acc-x::before,html body .sv-acc-x::after{width:10px!important;height:1.6px!important;margin:-.8px 0 0 -5px!important;background:#14244a!important}
+html body .sv-acc-btn[aria-expanded="true"] .sv-acc-x{background:#14244a!important;border-color:#14244a!important}
+html body .sv-acc-btn[aria-expanded="true"] .sv-acc-x::before,html body .sv-acc-btn[aria-expanded="true"] .sv-acc-x::after{background:#fff!important}
+html body .sv-acc-btn:hover .sv-acc-x{border-color:#14244a!important}
+html body .hx-faq-item summary{padding:14px 0!important;gap:16px!important;font:600 16px/1.4 'Plus Jakarta Sans',Inter,sans-serif!important;color:#14244a!important}
+html body .hx-faq-item .hx-faq-a{font-size:14.5px!important;line-height:1.6!important;color:#5a6072!important;margin:0!important;padding:0 0 14px!important;max-width:68ch}
+html body .hx-faq-ic{width:28px!important;height:28px!important;flex:0 0 28px!important}
+html body .hx-faq-ic svg{width:14px!important;height:14px!important}
