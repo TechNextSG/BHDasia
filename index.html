@@ -543,6 +543,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   var last = -1, i;
   try { last = parseInt(localStorage.getItem('bhdHeroV'), 10); } catch (e) {}
   do { i = Math.floor(Math.random() * V.length); } while (i === last);
+  if (/bot|crawl|spider|slurp|mediapartners|lighthouse|google|bing|yandex|duckduck|baidu|facebookexternalhit|linkedin/i.test(navigator.userAgent)) i = 0;
   var m = location.search.match(/[?&]hero=(\d)/); if (m) i = +m[1] % V.length;
   try { localStorage.setItem('bhdHeroV', String(i)); } catch (e) {}
   var v = V[i]; s.setAttribute('data-v', String(i));
