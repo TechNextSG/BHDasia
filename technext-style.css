@@ -548,3 +548,48 @@ html body .hx-faq-item summary{padding:14px 0!important;gap:16px!important;font:
 html body .hx-faq-item .hx-faq-a{font-size:14.5px!important;line-height:1.6!important;color:#5a6072!important;margin:0!important;padding:0 0 14px!important;max-width:68ch}
 html body .hx-faq-ic{width:28px!important;height:28px!important;flex:0 0 28px!important}
 html body .hx-faq-ic svg{width:14px!important;height:14px!important}
+/* ===== MOBILE AUDIT fixes (8 Nov 2026) ===== */
+/* phone menu: the white + glow link style is for the header over a dark hero; inside the light menu panel it is navy */
+html body.mobile-nav-open #top-menu-nav a,html body.mobile-nav-open #top-menu a{color:#14244a!important;text-shadow:none!important}
+html body.mobile-nav-open #top-menu :is(.current-menu-item,.current_page_item)>a{color:#8f5a00!important}
+html body.mobile-nav-open #top-menu a svg,html body.mobile-nav-open #top-menu a::after{color:#8f5a00!important;stroke:currentColor}
+/* refund note: one paragraph, link inline */
+@media (max-width:600px){html body p.ev-refund{display:block!important;padding-left:24px!important;position:relative}
+  html body p.ev-refund svg{position:absolute;left:0;top:2px;margin:0!important}
+  html body p.ev-refund a{display:inline!important;margin-left:4px}}
+@media (max-width:700px){
+  /* filter pills wrap instead of running off the screen; selected pill carries its own colour */
+  html body .ev-pills{flex-wrap:wrap!important;overflow:visible!important;border-radius:16px!important;gap:4px!important;padding:4px!important}
+  html body .ev-pills .ev-ind{display:none!important}
+  html body .ev-pill{min-height:38px!important;padding:0 12px!important;font-size:13.5px!important;gap:6px!important}
+  html body .ev-pill[aria-selected="true"]{background:#F2C46D!important}
+  /* next-event key numbers: compact 2 x 2, number beside label */
+  html body .ev-next-card .ev-stats-row{grid-template-columns:1fr 1fr!important;gap:0!important;margin-top:12px!important;padding-top:4px!important}
+  html body .ev-next-card .ev-stat{flex-direction:row!important;align-items:baseline!important;gap:8px!important;padding:8px 8px 8px 0!important;border:0!important}
+  html body .ev-next-card .ev-stat-n{font-size:20px!important}
+  html body .ev-next-card .ev-stat-l{font-size:12.5px!important;line-height:1.3!important}
+  html body .ev-next-card .ev-tiles .ev-tile{min-width:0!important;padding:8px 4px 6px!important}
+  html body .ev-next-card .countdown-timer.ev-tiles{display:grid!important;grid-template-columns:repeat(4,1fr)!important;gap:6px!important}}
+/* mobile audit round 2 (8 Nov) */
+/* every red "non-refundable" box becomes the same quiet line as the Events page */
+html body :is(.evt-refund-note,.hx-notice){background:none!important;border:0!important;border-radius:0!important;box-shadow:none!important;padding:0 0 0 22px!important;position:relative;
+  font-size:13px!important;font-weight:500!important;line-height:1.55!important;color:#5a6072!important;margin-top:12px!important}
+html body :is(.evt-refund-note,.hx-notice)::before{content:"";position:absolute;left:0;top:2px;width:14px;height:14px;border-radius:50%;border:1.6px solid #8f5a00;box-sizing:border-box}
+html body :is(.evt-refund-note,.hx-notice)::after{content:"i";position:absolute;left:0;top:2px;width:14px;line-height:14px;text-align:center;font:700 9px/14px Inter,sans-serif;color:#8f5a00}
+html body .hx-notice svg{display:none!important}
+html body .hx-notice :is(strong,b){font-weight:600!important;color:#5a6072!important}
+/* privacy: plain links in legal text are navy and underlined */
+html body :is(.legal-content,.legal-body,main) p a[href^="http"]{color:#14244a!important;text-decoration:underline;text-underline-offset:3px}
+@media (max-width:560px){
+  /* newsletter: field and button stack instead of the button breaking out of the pill */
+  html body form.newsletter-form{flex-direction:column!important;align-items:stretch!important;border-radius:16px!important;padding:6px!important;gap:6px!important}
+  html body form.newsletter-form input[type=email]{height:44px!important}
+  html body form.newsletter-form button{width:100%!important}
+  /* home hero: the three key numbers fit on one row */
+  html body .tn-hero-isa .tn-proof{gap:14px!important;flex-wrap:nowrap!important}
+  html body .tn-hero-isa .tn-proof li{font-size:12px!important;white-space:nowrap}
+  html body .tn-hero-isa .tn-proof b{font-size:19px!important}}
+html body .hx-notice{display:block!important}
+/* phone menu: out-rank style.css L1255/L1317 (white + glow for the header over a dark hero) */
+html body.mobile-nav-open #main-header:not(.zz-a):not(.zz-b):not(.zz-c) #top-menu > li > a{color:#14244a!important;-webkit-text-fill-color:#14244a!important;text-shadow:none!important}
+html body.mobile-nav-open #main-header:not(.zz-a):not(.zz-b):not(.zz-c) #top-menu > li:is(.current-menu-item,.current_page_item) > a{color:#8f5a00!important;-webkit-text-fill-color:#8f5a00!important}
