@@ -25,7 +25,7 @@ window.BHD_CALM = true;
     '<div class="bi-stage"><i class="bi-rip"></i><i class="bi-rip"></i><i class="bi-rip"></i>' +
     '<svg class="bi-art" viewBox="0 0 240 240"><circle class="bi-c1" cx="120" cy="120" r="108" pathLength="1"/>' +
     '<circle class="bi-c2" cx="120" cy="120" r="92"/><circle class="bi-dot" cx="120" cy="12" r="3.5"/></svg>' +
-    '<span class="bi-mask"><img class="bi-logo" src="/bhd-logo.png" alt="" width="96" height="96"></span></div>' +
+    '<span class="bi-mask"><img class="bi-logo" src="/bhd-logo.webp" alt="" width="96" height="96"></span></div>' +
     '<p class="bi-word">' + word('BHD', 'bi-l', 0) + '<span class="bi-gap"></span>' + word('Asia', 'bi-l bi-l2', 3) + '</p>' +
     '<p class="bi-tag">' + tag + '</p><i class="bi-bar"></i>';
   document.body.appendChild(o);
