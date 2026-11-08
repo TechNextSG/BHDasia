@@ -593,3 +593,9 @@ html body .hx-notice{display:block!important}
 /* phone menu: out-rank style.css L1255/L1317 (white + glow for the header over a dark hero) */
 html body.mobile-nav-open #main-header:not(.zz-a):not(.zz-b):not(.zz-c) #top-menu > li > a{color:#14244a!important;-webkit-text-fill-color:#14244a!important;text-shadow:none!important}
 html body.mobile-nav-open #main-header:not(.zz-a):not(.zz-b):not(.zz-c) #top-menu > li:is(.current-menu-item,.current_page_item) > a{color:#8f5a00!important;-webkit-text-fill-color:#8f5a00!important}
+/* newsletter: the button is a pill inside the pill field (must come after the one-button-format rule) */
+html body form.newsletter-form button{border-radius:999px!important}
+html body form.newsletter-form{border-radius:999px!important}
+@media (max-width:560px){html body form.newsletter-form{border-radius:24px!important}}
+/* the one-button rule's :is() list contains #form-btn, which gives it ID weight - so the pill needs an ID selector too */
+html body #newsletter-form button,html body form#newsletter-form button[type=submit]{border-radius:999px!important}
