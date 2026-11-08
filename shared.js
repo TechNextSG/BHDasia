@@ -209,8 +209,8 @@
     },
     {
       re:/(event|events|workshop|workshops|upcoming|module|when|next date|schedule|calendar|dates?|availability|timetable|course|training|certif)/,
-      a:"Our next workshops: <strong>TRE™ for Personal Use (Module 1)</strong> — <strong>29–30 Aug 2026</strong>, and <strong>TRE™ Certification (Module 2)</strong> — 26–27 Sep 2026. Both in-person, Singapore.",
-      btns:[{t:'View All Events',u:'events'},{t:'Reserve a Spot',u:'contact'}]
+      a:"Coming up: <strong>The Body in the Room</strong> with Aun Ali (online, 25 Nov 2026), <strong>Breath as a medicine</strong> with Ania Zielińska (online, 15 Dec 2026), <strong>The Art of Conscious Rest</strong> with Olga Titkova (online, 24 Jan 2027), <strong>Introduction to TRE™</strong> and <strong>Shaking to Shaping — TRE™ for Coaches</strong> in Singapore (from 23 and 24 Feb 2027), the <strong>2027 Singapore TRE™ Provider Certification</strong> (Module 1 on 24–25 Apr 2027, early bird until 31 Mar 2027), <strong>TRE™ Module 1 in Lisbon</strong> (28–30 May 2027) and <strong>TRE™ Module 1 ONLINE with TRE Scotland</strong> (18–20 Jun 2027). The 2026 Singapore certification intake is closed.",
+      btns:[{t:'View All Events',u:'events'},{t:'2027 Certification',u:'event-certification-2027'}]
     },
     {
       re:/(price|pricing|cost|fee|how much|rate|sgd|dollar|package|invest|money|budget|afford|pay|payment)/,
