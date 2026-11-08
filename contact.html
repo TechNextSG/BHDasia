@@ -357,8 +357,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <p class="ct-err" id="ct-err-fullname" aria-live="polite"></p>
           </div>
           <div class="form-group">
-            <label class="ct-lbl" for="phone">Phone</label>
-            <div class="field-wrap"><input type="tel" id="phone" name="phone" placeholder="+65 0000 0000" autocomplete="tel"/></div>
+            <label class="ct-lbl" for="phone">Phone / WhatsApp *</label>
+            <div class="field-wrap"><input type="tel" id="phone" name="phone" placeholder="+65 0000 0000" autocomplete="tel" aria-describedby="ct-err-phone" required/></div>
+            <p class="ct-err" id="ct-err-phone" aria-live="polite"></p>
           </div>
           <div class="form-group ct-span2">
             <label class="ct-lbl" for="message">Message *</label>
@@ -442,15 +443,22 @@ document.getElementById('contact-form').addEventListener('submit', function(e){
   if(!valid){ return; }
   var btn = document.getElementById('form-btn');
   var form = document.getElementById('contact-form');
-  /* Spam guard: honeypot filled, sent within 3 s of page load, or links in the name/phone = bot.
-     Show the normal success state but send nothing. */
-  var nameVal = document.getElementById('fullname').value, phoneVal = document.getElementById('phone').value;
-  if(form.querySelector('[name="_honey"]').value || (Date.now() - CT_LOADED) < 3000 ||
-     /https?:|www\.|\.com\b/i.test(nameVal + ' ' + phoneVal) || /[^0-9+()\-.\s]/.test(phoneVal)){
+  /* Phone is required (email + phone are the priority for every lead): a wrong number gets a message, never a silent drop. */
+  var nameVal = document.getElementById('fullname').value, phoneVal = document.getElementById('phone').value.trim(), phoneDigits = phoneVal.replace(/\D/g, '');
+  if (/[^0-9+()\-.\s]/.test(phoneVal) || phoneDigits.length < 8 || phoneDigits.length > 15) {
+    var pe = document.getElementById('phone'), pm = document.getElementById('ct-err-phone');
+    pe.classList.add('error', 'ct-bad'); pe.setAttribute('aria-invalid', 'true');
+    if (pm) pm.textContent = phoneVal ? 'Please check the number: digits only, with your country code.' : 'Please add a phone or WhatsApp number.';
+    pe.focus(); return;
+  }
+  /* Spam guard: only a filled honeypot is thrown away. Sent within 3 s of page load or a link in the name is LOGGED as
+     "Possible spam" (sheet only, no email) so a fast real person is never lost. */
+  if (form.querySelector('[name="_honey"]').value) {
     form.querySelectorAll('.form-group,.form-submit').forEach(function(el){ el.style.display='none'; });
     document.getElementById('form-success').style.display = 'block';
     return;
   }
+  var ctSuspect = (Date.now() - CT_LOADED) < 3000 || /https?:|www\.|\.com\b/i.test(nameVal);
   btn.classList.add('loading');
   btn.disabled = true;
   btn.childNodes[0].textContent = 'Sending…';
@@ -461,6 +469,7 @@ document.getElementById('contact-form').addEventListener('submit', function(e){
   sd.name = sd.name || sd.fullname || '';
   var ctBot = false;
   try { ctBot = leadLooksLikeBot(sd); } catch (x) {}
+  if (ctSuspect) { ctBot = true; }
   if (ctBot) { sd.inquiry = 'Possible spam — ' + sd.inquiry; }
   var ctLogged = fetch(BHD_LEAD_SHEET, {method: 'POST', mode: 'no-cors', body: new URLSearchParams(sd)});
   if (window.BHD_LEAD_EMAIL_ON === false || ctBot) {
@@ -504,7 +513,9 @@ document.getElementById('newsletter-form').addEventListener('submit', function(e
   if(!input.value.trim()){ return; }
   try{
     /* every sign-up logs to the Lead Capture sheet; it is also emailed to bonjour@ while emails are on */
-    fetch(BHD_LEAD_SHEET, {method:'POST', mode:'no-cors', body: new URLSearchParams({source:'Newsletter signup — contact.html', inquiry:'Newsletter signup', email: input.value.trim()})}).catch(function(){});
+    var nd = {source:'Newsletter signup — contact.html', inquiry:'Newsletter signup', email: input.value.trim()};
+    try { if (leadLooksLikeBot(nd)) { nd.inquiry = 'Possible spam — ' + nd.inquiry; } } catch (x) {}
+    fetch(BHD_LEAD_SHEET, {method:'POST', mode:'no-cors', body: new URLSearchParams(nd)}).catch(function(){});
     if (window.BHD_LEAD_EMAIL_ON !== false)
     fetch('https://formsubmit.co/ajax/' + 'bonjour' + '@' + 'bhdasia.com', {
       method:'POST', headers:{'Content-Type':'application/json','Accept':'application/json'},
@@ -582,6 +593,7 @@ document.getElementById('newsletter-form').addEventListener('submit', function(e
   var RULES = {
     email: function(el){ var v = el.value.trim(); if (!v) return 'Please enter your email address.'; if (el.validity && el.validity.typeMismatch) return 'Please check your email address, for example name@company.com.'; return ''; },
     fullname: function(el){ return el.value.trim() ? '' : 'Please enter your full name.'; },
+    phone: function(el){ var v = el.value.trim(), d = v.replace(/\D/g, ''); if (!v) return 'Please add a phone or WhatsApp number.'; if (/[^0-9+()\-.\s]/.test(v) || d.length < 8 || d.length > 15) return 'Please check the number: digits only, with your country code.'; return ''; },
     message: function(el){ return el.value.trim() ? '' : 'Please tell us a little about how we can help.'; }
   };
   function show(el, text){

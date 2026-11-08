@@ -810,7 +810,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <label class="tn-f"><span>Your name <i>*</i></span><input type="text" name="fullname" autocomplete="name" required></label>
         </div>
         <div class="tn-row">
-          <label class="tn-f"><span>Phone</span><input type="tel" name="phone" autocomplete="tel" inputmode="tel" placeholder="+65 0000 0000"></label>
+          <label class="tn-f"><span>Phone / WhatsApp <i>*</i></span><input type="tel" name="phone" autocomplete="tel" inputmode="tel" required placeholder="+65 0000 0000"></label>
           <label class="tn-f"><span>What would help most?</span>
             <select name="enquiry">
               <option value="">Choose one</option>
@@ -822,7 +822,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </select></label>
         </div>
         <button type="submit" class="tn-btn tn-btn-pri tn-btn-block" id="tn-hero-btn"><span>Request my discovery call</span><svg class="tn-ar" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></button>
-        <p class="tn-form-err" role="alert" hidden>Please add your email and name.</p>
+        <p class="tn-form-err" role="alert" hidden>Please add your email, name and phone number.</p>
       </form>
       <div class="tn-form-ok" hidden role="status" tabindex="-1">
         <svg class="tn-ok-ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M7.5 12.5l3 3 6-6.5"/></svg>
@@ -1165,14 +1165,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   form.addEventListener('submit',function(e){
     e.preventDefault();
     var em=form.email.value.trim(), nm=form.fullname.value.trim(), ph=form.phone.value.trim();
-    form.email.classList.toggle('error',!em); form.fullname.classList.toggle('error',!nm);
-    if(!em||!nm||!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(em)){ err.hidden=false; return; }
+    /* email + phone are the priority for every lead (owner rule): both required; a phone needs 8-15 digits and only + ( ) - . spaces */
+    var emOk=/^[^@\s]+@[^@\s]+\.[^@\s]{2,}$/.test(em), dg=ph.replace(/\D/g,''), phOk=!/[^0-9+()\-.\s]/.test(ph)&&dg.length>=8&&dg.length<=15;
+    form.email.classList.toggle('error',!emOk); form.fullname.classList.toggle('error',!nm); form.phone.classList.toggle('error',!phOk);
+    if(!emOk||!nm||!phOk){
+      err.textContent=(emOk&&nm)?'Please add a phone or WhatsApp number we can reach you on (digits only, with your country code).':'Please add your email, name and phone number.';
+      err.hidden=false; (!emOk?form.email:!nm?form.fullname:form.phone).focus(); return; }
     err.hidden=true;
     var c=form.querySelector('[name="consent"][required]'); if(c&&!c.checked){ c.focus(); return; }
-    if(form._honey.value||(Date.now()-t0)<3000||/https?:|www\.|\.com\b/i.test(nm+' '+ph)||/[^0-9+()\-.\s]/.test(ph)){ done(); return; }
+    /* only a filled honeypot is thrown away; too fast or a link in the name is logged as Possible spam (sheet only, no email) */
+    if(form._honey.value){ done(); return; }
+    var suspect=(Date.now()-t0)<3000||/https?:|www\.|\.com\b/i.test(nm);
     var sd={source:'BHDasia Home Hero Form', inquiry:'Discovery call request'+(form.enquiry.value?' - '+form.enquiry.value:''),
             email:em, name:nm, fullname:nm, phone:ph, enquiry:form.enquiry.value,
             gdpr_consent:(window.gdprConsentSummary?window.gdprConsentSummary(form):'')};
+    if(suspect) sd.inquiry='Possible spam — '+sd.inquiry;
     btn.disabled=true; btn.querySelector('span').textContent='Sending...';
     try{ if(window.bhdEmailLead) bhdEmailLead(sd); }catch(x){}
     var sheet=(typeof BHD_LEAD_SHEET!=='undefined')?fetch(BHD_LEAD_SHEET,{method:'POST',mode:'no-cors',body:new URLSearchParams(sd)}):Promise.resolve();
