@@ -408,3 +408,64 @@ html body #main-header.hdr-onlight:not(.et-fixed-header):not(.hdr-solid) .mobile
 .au-arc{-webkit-mask:radial-gradient(farthest-side,transparent calc(100% - 4px),#000 calc(100% - 3px));mask:radial-gradient(farthest-side,transparent calc(100% - 4px),#000 calc(100% - 3px))}
 .au-a1{filter:drop-shadow(0 0 6px rgba(var(--au1),.9))}
 @media (max-width:700px){.hv-aura{width:122%!important;top:52%!important}}
+/* rays: subtle HummingBeing gold hairlines instead of broad beams (owner 8 Nov: "ray is too much, make it subtle") */
+.au-rays{background:repeating-conic-gradient(from 0deg,rgba(var(--au1),0) 0deg,rgba(var(--au1),.16) .35deg,rgba(var(--au1),0) .8deg,rgba(var(--au1),0) 12deg)!important;
+  -webkit-mask:radial-gradient(circle,transparent 33%,rgba(0,0,0,.9) 38%,rgba(0,0,0,.35) 50%,transparent 60%)!important;mask:radial-gradient(circle,transparent 33%,rgba(0,0,0,.9) 38%,rgba(0,0,0,.35) 50%,transparent 60%)!important;
+  animation-duration:120s!important;opacity:.85}
+/* owner 8 Nov: no rays at all */
+.au-rays{display:none!important}
+/* the ray element is gone, so the pulse waves are now the 4th-6th <i>: keep their stagger */
+.au-wave:nth-of-type(4){animation-delay:0s}.au-wave:nth-of-type(5){animation-delay:2.2s}.au-wave:nth-of-type(6){animation-delay:4.4s}
+
+/* ===== ONE DESIGN PER HERO SLIDE (owner 8 Nov: "use different design different hero section slides", no rays) =====
+   0 Orbits: comet arcs + sparkle orbits (canvas)      1 Breath: inhaling glow + calm pulse waves
+   2 Liquid aurora: drifting colour fields             3 Halo of light: counter-turning tick rings + spotlight + rising motes (canvas) */
+.au-breath,.au-halo{display:none}
+.au-breath{inset:16%;background:radial-gradient(circle,rgba(var(--au1),.75) 0%,rgba(var(--au2),.35) 45%,rgba(var(--au1),0) 70%);filter:blur(26px);animation:au-breathe 6s ease-in-out infinite}
+@keyframes au-breathe{0%,100%{transform:scale(.88);opacity:.55}50%{transform:scale(1.14);opacity:.95}}
+.au-halo{-webkit-mask:radial-gradient(farthest-side,transparent calc(100% - 7px),#000 calc(100% - 6px));mask:radial-gradient(farthest-side,transparent calc(100% - 7px),#000 calc(100% - 6px))}
+.au-h1{inset:13%;background:repeating-conic-gradient(rgba(var(--au2),.85) 0 .5deg,transparent .5deg 5deg);animation:au-spin 48s linear infinite}
+.au-h2{inset:7%;background:repeating-conic-gradient(rgba(var(--au1),.55) 0 .35deg,transparent .35deg 2.5deg);animation:au-spin 72s linear infinite reverse;opacity:.8}
+/* slide 0 - Orbits */
+.tn-hero-isa[data-v="0"] :is(.au-blob,.au-wave){display:none}
+.tn-hero-isa[data-v="0"] .au-b1{display:block;opacity:.55}
+/* slide 1 - Breath */
+.tn-hero-isa[data-v="1"] :is(.au-arc,.au-blob){display:none}
+.tn-hero-isa[data-v="1"] .au-breath{display:block}
+/* slide 2 - Liquid aurora */
+.tn-hero-isa[data-v="2"] :is(.au-arc,.au-wave){display:none}
+.tn-hero-isa[data-v="2"] .au-blob{opacity:1;filter:blur(52px)}
+/* slide 3 - Halo of light */
+.tn-hero-isa[data-v="3"] :is(.au-arc,.au-wave,.au-blob){display:none}
+.tn-hero-isa[data-v="3"] :is(.au-halo,.au-breath){display:block}
+.tn-hero-isa[data-v="3"] .au-breath{inset:20%;animation-duration:9s;opacity:.7}
+@media (prefers-reduced-motion:reduce){.au-breath,.au-halo{animation:none!important}}
+/* specificity: ".hv-aura i" shows every layer, so the slide-only layers must be hidden with a stronger selector */
+.hv-aura i.au-breath,.hv-aura i.au-halo{display:none}
+.tn-hero-isa[data-v="1"] .hv-aura i.au-breath,.tn-hero-isa[data-v="3"] .hv-aura i.au-breath,.tn-hero-isa[data-v="3"] .hv-aura i.au-halo{display:block}
+
+/* ===== NON-ROUND, DYNAMIC HERO BACKDROPS (owner 8 Nov: "don't always do orbiting circles, round - be creative") =====
+   The circular aura layers are retired; the canvas draws each slide's concept. The disc behind Isabelle becomes a
+   different shape per slide (drawn on ::before so the ring's own entrance/breathe animations keep working). */
+.hv-aura{display:none!important}
+.tn-hero-isa .tn-art-ring{background:none!important;box-shadow:none!important;border-radius:0!important;opacity:1!important}
+.tn-hero-isa .tn-art-ring::before{content:"";position:absolute;inset:0;pointer-events:none}
+/* 0 Silk ribbons: a slanted soft panel, gently drifting */
+.tn-hero-isa[data-v="0"] .tn-art-ring::before{inset:2% 10%;border-radius:42px;transform:skewX(-9deg) rotate(4deg);
+  background:linear-gradient(160deg,#FFF6E4 0%,#FDE6BC 55%,#F7D49A 100%);box-shadow:inset 0 0 0 1px rgba(242,196,109,.45);animation:bd-drift 11s ease-in-out infinite}
+@keyframes bd-drift{0%,100%{transform:skewX(-9deg) rotate(4deg) translateY(0)}50%{transform:skewX(-6deg) rotate(2deg) translateY(-10px)}}
+/* 1 Living threads: an organic shape that slowly morphs, like a body settling */
+.tn-hero-isa[data-v="1"] .tn-art-ring::before{inset:4%;background:radial-gradient(120% 100% at 40% 30%,#FFF4E8 0%,#FFE0C4 60%,#FBCFA6 100%);
+  border-radius:58% 42% 47% 53% / 46% 55% 45% 54%;animation:bd-morph 14s ease-in-out infinite}
+@keyframes bd-morph{0%,100%{border-radius:58% 42% 47% 53% / 46% 55% 45% 54%}33%{border-radius:44% 56% 60% 40% / 56% 42% 58% 44%}66%{border-radius:52% 48% 38% 62% / 40% 60% 46% 54%}}
+/* 2 Growth paths: a soft diamond that rocks a little */
+.tn-hero-isa[data-v="2"] .tn-art-ring::before{inset:13%;border-radius:48px;transform:rotate(45deg);
+  background:linear-gradient(135deg,#FFFFFF 0%,#ECE8F7 55%,#DCD6EF 100%);box-shadow:inset 0 0 0 1px rgba(140,128,210,.28);animation:bd-rock 12s ease-in-out infinite}
+@keyframes bd-rock{0%,100%{transform:rotate(45deg) scale(1)}50%{transform:rotate(39deg) scale(1.04)}}
+/* 3 Guilloche: the arch photo is the shape; no disc */
+.tn-hero-isa[data-v="3"] .tn-art-ring::before{display:none}
+@media (prefers-reduced-motion:reduce){.tn-hero-isa .tn-art-ring::before{animation:none!important}}
+
+/* ===== HUMMINGBEING CONCEPT (owner 8 Nov: "why push shapes behind Isabelle's image? use the concept of HummingBeing") =====
+   Nothing behind Isabelle: no disc, no panel, no aura. The background is HummingBeing's silk (hero-art.js), cleared behind her. */
+.tn-hero-isa .tn-art-ring,.tn-hero-isa .tn-art-arch,.tn-hero-isa .hv-aura{display:none!important}
