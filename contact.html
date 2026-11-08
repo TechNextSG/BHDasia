@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
+<script>try{if(!sessionStorage.getItem("bhdIntro")&&!matchMedia("(prefers-reduced-motion: reduce)").matches){var d=document.documentElement;d.classList.add("intro-on");setTimeout(function(){d.classList.remove("intro-on")},4500)}}catch(e){}</script>
+
 <meta charset="UTF-8"/>
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -223,7 +225,18 @@ html body .ct-cta.cta-strip p{color:var(--warm-body);font-size:17px;line-height:
 <script type="application/ld+json" id="bhd-ld">{"@context":"https://schema.org","@graph":[{"@type":["Organization","ProfessionalService"],"@id":"https://bhdasia.com/#organization","name":"BHD Asia","legalName":"Business & Human Development Consulting Pte Ltd","alternateName":["BHD Asia Singapore","Business and Human Development Consulting"],"url":"https://bhdasia.com/","logo":{"@type":"ImageObject","url":"https://bhdasia.com/favicon-192.png","width":192,"height":192},"image":"https://bhdasia.com/isagrey.jpg","description":"Boutique HR consulting, executive coaching and resilience-building consultancy founded in Singapore in 2012. BHD Asia co-designs leadership development, organisation development and TRE™ programmes for organisations across Europe, the US, Asia, Japan and Russia.","slogan":"Highlight, Enhance and Appreciate Human in Business.","foundingDate":"2012","foundingLocation":"Singapore","founder":{"@id":"https://bhdasia.com/isabelle#person"},"employee":[{"@id":"https://bhdasia.com/isabelle#person"},{"@id":"https://bhdasia.com/jasmine#person"},{"@id":"https://bhdasia.com/simba#person"},{"@id":"https://bhdasia.com/rina#person"}],"address":{"@type":"PostalAddress","streetAddress":"50 Raffles Place, Singapore Land Tower #30-00","addressLocality":"Singapore","postalCode":"048623","addressCountry":"SG"},"telephone":"+81 80 6515 1778","identifier":{"@type":"PropertyValue","propertyID":"UEN (ACRA)","value":"201201974K"},"areaServed":["Singapore","Asia","Japan","Europe","United States","Middle East"],"knowsLanguage":["en","fr","es"],"knowsAbout":["Executive coaching","Leadership development","Organisation development","HR consulting","Talent management","Psychological safety","Resilience building","Burnout prevention","Somatic coaching","TRE™ (Tension & Trauma Releasing Exercises)","Global TRE™ Provider Certification","Change management","Conflict resolution"],"sameAs":["https://www.facebook.com/bhdasia/","https://www.instagram.com/isabelleclausteixeira_bhd/","https://www.youtube.com/@IsabelleClausTeixeira","https://www.linkedin.com/in/isabelleclausteixeira/"],"contactPoint":{"@type":"ContactPoint","contactType":"customer service","telephone":"+81 80 6515 1778","availableLanguage":["English","French","Spanish"],"url":"https://bhdasia.com/contact"}},{"@type":"WebSite","@id":"https://bhdasia.com/#website","url":"https://bhdasia.com/","name":"BHD Asia","inLanguage":"en","publisher":{"@id":"https://bhdasia.com/#organization"}},{"@type":"ContactPage","@id":"https://bhdasia.com/contact#webpage","url":"https://bhdasia.com/contact","name":"Contact BHD Asia | Book a Free Discovery Call in Singapore","description":"Start the conversation with BHD Asia. Book a free 30-minute discovery call or send us a message — all engagements begin with a no-commitment conversation.","inLanguage":"en","isPartOf":{"@id":"https://bhdasia.com/#website"},"about":{"@id":"https://bhdasia.com/#organization"},"publisher":{"@id":"https://bhdasia.com/#organization"},"dateModified":"2026-09-29","primaryImageOfPage":{"@type":"ImageObject","url":"https://bhdasia.com/isagrey.jpg"},"breadcrumb":{"@id":"https://bhdasia.com/contact#breadcrumb"}},{"@type":"BreadcrumbList","@id":"https://bhdasia.com/contact#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://bhdasia.com/"},{"@type":"ListItem","position":2,"name":"Contact BHD Asia","item":"https://bhdasia.com/contact"}]}]}</script>
 <link rel="preload" href="/fonts/tn/inter-latin.woff2" as="font" type="font/woff2" crossorigin/>
 <link rel="preload" href="/fonts/tn/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin/>
-<link rel="stylesheet" href="/technext-style.css?v=3"/>
+<link rel="stylesheet" href="/technext-style.css?v=26"/>
+<style id="ct-simple">
+/* Contact page simplified (8 Nov 2026): no copy buttons, no duplicate Calendly card, plain contact list */
+.ct-copy,.ct-book{display:none!important}
+html body .ct-panel.ct-panel{background:none!important;border:0!important;box-shadow:none!important;padding:0!important;border-radius:0!important}
+html body .ct-panel .ct-row{padding:16px 0!important;border-bottom:1px solid #ECE5D9}
+html body .ct-panel .ct-row:last-child{border-bottom:0}
+.ct-wrap{padding:56px 0 64px!important}
+.ct-news{padding:40px 0 56px!important}
+.ct-cal-line{margin:18px 0 0;font-size:14px;color:#4b5163}
+.ct-cal-line a{color:#14244a;font-weight:600}
+</style>
 </head>
 <body class="page et_fixed_nav et_divi_theme">
 <!-- Google Tag Manager (noscript) -->
@@ -247,7 +260,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <li class="menu-item"><a href="services">Services</a></li>
           <li class="menu-item"><a href="about">About</a></li>
           <li class="menu-item"><a href="events">Events</a></li>
-          <li class="menu-item"><a href="partners">Partners</a></li>
           <li class="menu-item current-menu-item"><a href="contact">Contact</a></li>
         </ul>
       </nav>
@@ -260,9 +272,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div id="et-main-area" tabindex="-1">
 <div class="page-title-wrap">
-  <video class="page-hero-video" aria-hidden="true" tabindex="-1" autoplay muted loop playsinline preload="none" poster="hero-home.webp">
-    <source src="hero-home.mp4?v=2" type="video/mp4">
-  </video>
+  <img class="page-hero-video" src="/hero-home.webp" alt="" aria-hidden="true" width="1600" height="893" fetchpriority="high" decoding="async">
   <div class="page-hero-overlay"></div>
   <div class="container">
         <span class="section-label">Get in Touch</span>
@@ -323,35 +333,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <p class="ct-vh" id="ct-copy-live" aria-live="polite"></p>
         </div>
 
-        <div class="ct-book ct-rv ct-d2">
-          <span class="ct-book-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18M8 14h.01M12 14h.01M16 14h.01M8 17.5h.01M12 17.5h.01"/></svg></span>
-          <span class="ct-kick">Prefer to talk?</span>
-          <h3 class="ct-h3">Book a time via Calendly</h3>
-          <p>All engagements begin with a discovery call.</p>
-          <a class="et_pb_button" href="https://calendly.com/bhdasia/tre-certification-intake-call" target="_blank" rel="noopener">Book via Calendly</a>
-        </div>
+        <p class="ct-cal-line">Prefer to pick a time? <a href="https://calendly.com/bhdasia/30min" target="_blank" rel="noopener">Book on Calendly</a></p>
       </div>
 
       <div class="ct-formcard ct-rv ct-d2" id="ct-formcard">
         <h3 class="ct-h3">Send a Message</h3>
-        <p class="ct-formnote">Choose a topic, then add your details.</p>
+        <p class="ct-formnote">Add your details and a short message.</p>
         <!-- FormSubmit: emails every submission to Isabelle's inbox. The endpoint is set in the script below, NOT in action=,
              so form-crawling spam bots (which POST straight to the action URL) can no longer reach the inbox. -->
 <form id="contact-form" class="ct-form" action="#" method="post">
 <input type="hidden" name="_subject" value="New enquiry from BHD Asia website"/>
 <input type="hidden" name="_template" value="table"/>
 <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off"/>
-          <fieldset class="form-group ct-topics">
-            <legend>What can we help with? <span>(optional)</span></legend>
-            <div class="ct-chips">
-              <label class="ct-chip"><input type="radio" name="enquiry" value="Organisation development" data-ct-ph="Tell us about your organisation and what you would like to work on."/><span class="ct-chip-t"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Organisation development</span></label>
-              <label class="ct-chip"><input type="radio" name="enquiry" value="Resilience and TRE&trade; workshops" data-ct-ph="Tell us about your team and the kind of session you have in mind."/><span class="ct-chip-t"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Resilience &amp; TRE&trade; workshops</span></label>
-              <label class="ct-chip"><input type="radio" name="enquiry" value="Individual or executive coaching" data-ct-ph="Tell us a little about yourself and what you would like from coaching."/><span class="ct-chip-t"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Individual or executive coaching</span></label>
-              <label class="ct-chip"><input type="radio" name="enquiry" value="Global TRE&trade; Provider Certification" data-ct-ph="Tell us about your background and your interest in the certification."/><span class="ct-chip-t"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Global TRE&trade; Provider Certification</span></label>
-              <label class="ct-chip"><input type="radio" name="enquiry" value="Something else" data-ct-ph="How can we help you?"/><span class="ct-chip-t"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Something else</span></label>
-            </div>
-          </fieldset>
-          <div class="ct-fields">
+                    <div class="ct-fields">
           <div class="form-group ct-span2">
             <label class="ct-lbl" for="email">Email *</label>
             <div class="field-wrap"><input type="email" id="email" name="email" placeholder="your@email.com" autocomplete="email" aria-describedby="ct-err-email" required/></div>
@@ -388,7 +382,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="ct-news-copy ct-rv">
       <span class="ct-news-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6.5 8.5 6.5 8.5-6.5"/></svg></span>
       <h3 id="ct-news-title">Get Leadership Insights &amp; Updates</h3>
-      <p>Have a question or just want to get in touch? Message us below — or join our list for coaching insights, event news, and resources.</p>
+      <p>Join our list for coaching insights, event news and resources from Isabelle and the BHD Asia team.</p>
     </div>
     <div class="ct-rv ct-d1">
       <form id="newsletter-form" class="newsletter-form ct-news-form" action="#" method="post" novalidate>
@@ -404,16 +398,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 
 
-<div class="cta-strip ct-cta">
-  <div class="container">
-    <div class="ct-cta-card ct-rv">
-    <h2>Ready to Take the Next Step?</h2>
-    <p>All our engagements start with a conversation &mdash; no commitment required.</p>
-    <a class="et_pb_button" href="/#book" data-cta="page-book">Book a Discovery Call</a>
-    <a class="et_pb_button btn-outline" href="services">Explore Our Services</a>
-    </div>
-  </div>
-</div>
+
 <footer id="main-footer">
   <div id="footer-widgets"><div class="container">
     <div class="footer-widget">
@@ -427,18 +412,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <a href="https://www.linkedin.com/in/isabelleclausteixeira/" target="_blank" rel="noopener" class="footer-soc-btn" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
       </div>
     </div>
-    <div class="footer-widget"><h4>Navigate</h4><ul><li><a href="./">Home</a></li><li><a href="services">Services</a></li><li><a href="about">About</a></li><li><a href="events">Events</a></li><li><a href="partners">Partners</a></li><li><a href="contact">Contact</a></li><li><a href="https://hummingbeing.com/" target="_blank" rel="noopener">HummingBeing</a></li></ul></div>
-    <div class="footer-widget"><h4>Legal</h4><ul><li><a href="privacy">Privacy Statement</a></li><li><a href="terms">Terms &amp; Conditions</a></li><li><a href="code">Code of Practice</a></li><li><a href="inclusivity">Inclusivity Statement</a></li></ul></div>
-    <div class="footer-widget"><h4>Contact</h4><p>50 Raffles Place, Singapore Land Tower #30-00<br>Singapore 048623</p><p>+81 806515 1778</p><p><span>bonjour&#64;bhd<span style="display:none">-no-spam</span>asia&#46;com</span></p><p><a href="/#book" data-cta="page-book">Book a Discovery Call &rarr;</a></p></div>
+    <div class="footer-widget"><h4>Navigate</h4><ul><li><a href="./">Home</a></li><li><a href="services">Services</a></li><li><a href="about">About</a></li><li><a href="events">Events</a></li><li><a href="contact">Contact</a></li><li><a href="https://hummingbeing.com/" target="_blank" rel="noopener">HummingBeing</a></li></ul></div>
+    <div class="footer-widget"><h4>Legal</h4><ul><li><a href="privacy">Privacy Statement</a></li><li><a href="terms">Terms &amp; Conditions</a></li><li><a href="inclusivity">Inclusivity Statement</a></li></ul></div>
+    <div class="footer-widget"><h4>Contact</h4><p class="ft-addr">Singapore Land Tower, #30-00<br>50 Raffles Place<br>Singapore 048623</p><p><a href="tel:+818065151778">+81 80 6515 1778</a></p><p><span>bonjour&#64;bhd<span style="display:none">-no-spam</span>asia&#46;com</span></p><p><a href="/#book" data-cta="page-book">Book a free discovery call &rarr;</a></p></div>
   </div></div>
   <div id="footer-bottom"><div class="container">
     <div id="footer-info"><span>&copy; 2026 BHD Asia. All rights reserved.</span></div>
-    <div class="footer-bottom-links"><a href="privacy">Privacy Policy</a><a href="terms">Terms of Service</a></div>
+    
     <div id="footer-credit">Powered by <a href="https://technext.asia" target="_blank" rel="noopener">TechNext</a></div>
   </div></div>
 </footer>
 </div>
-<script src="shared.js?v=36"></script>
+<script src="shared.js?v=41"></script>
 <script src="gdpr-consent.js?v=4"></script>
 <script>
 var CT_ENDPOINT = 'https://formsubmit.co/ajax/' + 'bonjour' + '@' + 'bhdasia.com', CT_LOADED = Date.now();
@@ -675,7 +660,7 @@ document.getElementById('newsletter-form').addEventListener('submit', function(e
       var card = document.getElementById('ct-formcard'); if (!card) return;
       e.preventDefault();
       card.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
-      var first = card.querySelector('input[name="enquiry"]');
+      var first = card.querySelector('#email');
       if (first) setTimeout(function(){ first.focus({ preventScroll: true }); }, reduce ? 0 : 600);
     });
   });

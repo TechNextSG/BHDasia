@@ -121,3 +121,295 @@ html body a.et_pb_button.et_pb_button.on-dark:not(.btn-outline):not(.btn-white-o
   --t:#14244a!important;--ft:#14244a!important;color:#14244a!important;-webkit-text-fill-color:#14244a!important}
 html body :is(.page-hero-ctas,.evt-hero-ctas) a.et_pb_button.et_pb_button:not(.btn-outline):not(.btn-white-outline) *,
 html body a.et_pb_button.et_pb_button.on-dark:not(.btn-outline):not(.btn-white-outline) *{color:#14244a!important;-webkit-text-fill-color:#14244a!important;stroke:#14244a}
+
+/* ---------- CALM (owner 8 Nov 2026: smoother, no glow on cards, less interaction; only the home hero animates) ---------- */
+html body :is(.ev-glow,.v11-glow,.warm-blobs,.hx-glow,.ec-glow,.card-glow,.pp-ring,[class*="spotlight"]){display:none!important}
+html body :is(.card,.pillar-card,.value-card,.mission-card,.coaching-package,.service-category,.team-card,.event-card,.ec,.home-evt-card,.tn-card,.ab-pick,.sv-jump-a,.tn-mate)::before,
+html body :is(.card,.pillar-card,.value-card,.mission-card,.coaching-package,.service-category,.team-card,.event-card,.ec,.home-evt-card,.tn-card,.tn-mate)::after{background-image:none!important;opacity:0!important}
+html body :is(.card,.pillar-card,.value-card,.coaching-package,.service-category,.team-card,.event-card,.ec,.home-evt-card,.tn-card,.tn-mate,.ab-pick){
+  transform:none!important;transition:box-shadow .3s ease,border-color .3s ease!important}
+html body :is(.card,.pillar-card,.value-card,.coaching-package,.service-category,.team-card,.event-card,.ec,.home-evt-card,.tn-card,.tn-mate,.ab-pick):hover{
+  transform:none!important;box-shadow:0 2px 6px rgba(20,36,74,.05),0 18px 36px -26px rgba(20,36,74,.28)!important}
+html body .home-evt-card img,html body .ec img{transform:none!important}
+/* buttons: no magnetic pull, no shine sweep; a 1px lift only */
+html body :is(.et_pb_button,.ec-btn,.header-contact-btn,.tn-btn){transform:none!important;background-image:none!important}
+html body :is(.et_pb_button,.ec-btn,.header-contact-btn,.tn-btn)::before,html body :is(.et_pb_button,.ec-btn,.header-contact-btn)::after{display:none!important}
+html body :is(.et_pb_button,.ec-btn,.header-contact-btn,.tn-btn):hover{transform:translateY(-1px)!important}
+/* reveals: shorter and smaller */
+html body .hx-live .hx-rv{translate:0 8px!important;transition:opacity .45s ease var(--d,0ms),translate .5s ease var(--d,0ms)!important}
+html body .hx-live .hx-rv.hx-in{translate:0 0!important}
+html body [class*="-rv"]:not(.hx-rv){transition-duration:.45s!important}
+
+/* ---------- ALL CARDS: plain (owner 8 Nov 2026: "fix all cards, simplified, no glow") ---------- */
+html body :is(.home-countdown,.hx-cd,.ab-val,.sv-card,.sv-fig,.ct-panel,.ev-next-card,.evt-card,.ev-rc,.pt-list,.pt-panel,.bio-pc,.bio-ai-card,.home-evt-card,.ec,.hx-pil-media){
+  background-image:none!important}
+html body :is(.home-countdown,.hx-cd,.ab-val,.sv-card,.ct-panel,.ev-next-card,.evt-card,.ev-rc,.pt-list,.pt-panel,.bio-pc,.bio-ai-card,.home-evt-card,.ec){
+  background-color:#fff!important;border:1px solid var(--line)!important;border-radius:16px!important;
+  box-shadow:0 1px 2px rgba(20,36,74,.04),0 10px 26px -22px rgba(20,36,74,.25)!important}
+html body :is(.ab-wrap,.ct-book,.sv-cta-in,.ev-cta-in,.pt-cta-card,.ct-cta-card,.hx-cta){background-image:none!important}
+html body :is(.home-countdown,.hx-cd,.ab-val,.ab-wrap,.sv-card,.sv-fig,.ct-panel,.ct-book,.ev-next-card,.evt-card,.ev-rc,.pt-list,.pt-panel,.bio-pc,.bio-ai-card,.home-evt-card,.ec,.hx-pil-media,.sv-cta-in,.ev-cta-in,.pt-cta-card,.ct-cta-card)::before,
+html body :is(.home-countdown,.hx-cd,.ab-val,.ab-wrap,.sv-card,.sv-fig,.ct-panel,.ct-book,.ev-next-card,.evt-card,.ev-rc,.pt-list,.pt-panel,.bio-pc,.bio-ai-card,.home-evt-card,.ec,.hx-pil-media,.sv-cta-in,.ev-cta-in,.pt-cta-card,.ct-cta-card)::after{
+  background-image:none!important;box-shadow:none!important;opacity:0!important}
+
+/* ---------- welcome intro (HummingBeing gold hairlines) ---------- */
+html.intro-on body{overflow:hidden}
+html.intro-on::after{content:"";position:fixed;inset:0;z-index:2147482000;background:#FFFDF9}
+#bhd-intro{position:fixed;inset:0;z-index:2147483000;display:grid;place-content:center;justify-items:center;gap:26px;cursor:pointer;
+  background:radial-gradient(circle at 1px 1px,rgba(20,36,74,.06) 1px,transparent 1.6px) 0 0/24px 24px,radial-gradient(60% 60% at 50% 45%,#FFF4DC 0%,#FFFDF9 70%);
+  transition:opacity .7s cubic-bezier(.2,.8,.2,1),visibility .7s}
+#bhd-intro .bi-stage{position:relative;width:200px;height:200px;display:grid;place-items:center}
+#bhd-intro .bi-art{position:absolute;inset:0;width:100%;height:100%;overflow:visible;transform:rotate(-90deg)}
+#bhd-intro circle{fill:none;stroke-linecap:round}
+#bhd-intro .bi-c1{stroke:#D6A852;stroke-width:1.1;stroke-dasharray:1;stroke-dashoffset:1}
+#bhd-intro .bi-c2{stroke:rgba(20,36,74,.22);stroke-width:.8;stroke-dasharray:1;stroke-dashoffset:1}
+#bhd-intro .bi-dot{fill:#D6A852;stroke:none;opacity:0;transform-origin:120px 120px}
+#bhd-intro .bi-logo{position:relative;width:88px;height:auto;opacity:0;transform:scale(.86);filter:blur(4px)}
+#bhd-intro .bi-tag{margin:0;font:600 12px/1.4 Inter,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#6b7080;opacity:0;transform:translateY(8px)}
+#bhd-intro.bi-go .bi-c1{stroke-dashoffset:0;transition:stroke-dashoffset 1.1s cubic-bezier(.65,0,.35,1)}
+#bhd-intro.bi-go .bi-c2{stroke-dashoffset:0;transition:stroke-dashoffset 1.2s cubic-bezier(.65,0,.35,1) .15s}
+#bhd-intro.bi-go .bi-dot{opacity:1;transition:opacity .3s ease 1s;animation:bi-orbit 2.4s cubic-bezier(.45,0,.55,1) 1s}
+#bhd-intro.bi-go .bi-logo{opacity:1;transform:none;filter:none;transition:opacity .7s ease .35s,transform .9s cubic-bezier(.2,.8,.2,1) .35s,filter .7s ease .35s}
+#bhd-intro.bi-go .bi-tag{opacity:1;transform:none;transition:opacity .6s ease .8s,transform .7s cubic-bezier(.2,.8,.2,1) .8s}
+#bhd-intro.bi-out{opacity:0;visibility:hidden}
+#bhd-intro.bi-out .bi-stage{transform:scale(1.06);transition:transform .7s cubic-bezier(.2,.8,.2,1)}
+@keyframes bi-orbit{to{transform:rotate(360deg)}}
+@media (max-width:560px){#bhd-intro .bi-stage{width:160px;height:160px}#bhd-intro .bi-logo{width:70px}#bhd-intro .bi-tag{font-size:10.5px;padding:0 24px;text-align:center}}
+
+/* ---------- COMPACT: tighter sections everywhere except heroes and event pages (handled in event-detail.css) ---------- */
+html body:not(.evt-live) #et-main-area > section:not([class*="hero"]):not(.page-hero):not(.tn-hero),
+html body:not(.evt-live) #et-main-area > div > section:not([class*="hero"]):not(.page-hero){
+  padding-top:clamp(44px,5.5vw,72px)!important;padding-bottom:clamp(44px,5.5vw,72px)!important}
+html body:not(.evt-live) :is(.ab-head,.sv-head,.ct-head,.hx-head,.tn-head,.section-head){margin-bottom:28px!important}
+
+/* ---------- ICONS: one line style, bare, a small response on hover ---------- */
+html body :is(.tn-ic,.ab-val-i,.ab-stop-i,.ct-ico,.ct-news-ico,.ops-ico,.sv-tab-i,.hx-pil-n,.value-card-icon,.icf-icon,.hx-faq-ic) svg{
+  fill:none;stroke-width:1.75!important;stroke-linecap:round;stroke-linejoin:round;transition:transform .25s cubic-bezier(.2,.8,.2,1),color .2s,stroke .2s}
+html body :is(.hx-pil-n,.footer-soc-btn,.hx-faq-ic){background:none!important;background-image:none!important;border:0!important;box-shadow:none!important;width:auto!important;height:auto!important;border-radius:0!important}
+html body .hx-pil-n{color:#8f5a00!important}
+html body .hx-pil-tab[aria-selected="true"] .hx-pil-n{background:none!important;color:#14244a!important;transform:none!important}
+html body .footer-soc-btn{color:rgba(255,255,255,.75)!important;padding:6px!important}
+html body .footer-soc-btn:hover{color:#F2C46D!important}
+html body .hx-faq-ic{color:#8f5a00!important}
+/* the hover response: the icon lifts 2px and takes the ink colour when its card/link/tab is hovered */
+html body :is(a,button,li,.tn-card,.ab-val,.ct-detail,.contact-detail,.hx-pil-tab,.sv-tab):hover > :is(.tn-ic,.ab-val-i,.ab-stop-i,.ct-ico,.ops-ico,.sv-tab-i,.hx-pil-n,.value-card-icon,.icf-icon),
+html body :is(a,button,li,.tn-card,.ab-val,.hx-pil-tab,.sv-tab):hover :is(.tn-ic,.ab-val-i svg,.ct-ico svg,.sv-tab-i svg,.hx-pil-n svg){transform:translateY(-2px);color:#14244a!important;stroke:#14244a}
+html body .footer-soc-btn:hover svg{transform:translateY(-2px)}
+@media (prefers-reduced-motion:reduce){html body :is(a,button,li,.tn-card,.ab-val,.hx-pil-tab,.sv-tab):hover :is(.tn-ic,.ab-val-i svg,.ct-ico svg,.sv-tab-i svg,.hx-pil-n svg){transform:none}}
+
+/* footer social: filled brand glyphs, bare, visible (fix 8 Nov) */
+html body .footer-soc-btn{display:inline-flex!important;align-items:center;justify-content:center;width:36px!important;height:36px!important;padding:0!important;opacity:1!important;visibility:visible!important}
+html body .footer-soc-btn svg{width:18px!important;height:18px!important;fill:currentColor!important;stroke:none!important;display:block!important;opacity:1!important;transition:transform .2s,color .2s}
+
+/* ---------- GDPR consent: same required wording, compact and quiet everywhere (fix 8 Nov) ---------- */
+html body .gdpr-box{margin:12px 0 0!important;padding:0!important;font-size:12px!important;line-height:1.45!important;color:#6b7080!important}
+html body .gdpr-box label{display:flex!important;align-items:flex-start;gap:9px!important;margin:0 0 8px!important;font-size:12px!important;line-height:1.45!important;color:#4b5163!important;font-weight:400!important}
+html body .gdpr-box label span,html body .gdpr-box label a{font-size:12px!important;line-height:1.45!important}
+html body .gdpr-box input[type=checkbox]{flex:none;width:16px!important;height:16px!important;margin:1px 0 0!important;accent-color:#14244a}
+html body .gdpr-box :is(p,.gdpr-note,small){font-size:11.5px!important;line-height:1.5!important;color:#7a7f8e!important;margin:6px 0 0!important}
+html body .gdpr-box a{color:#14244a!important;font-weight:600}
+
+/* eyebrow label, site-wide (was only on the homepage) */
+html body .tn-eyebrow{font:700 12px/1.3 Inter,sans-serif!important;letter-spacing:.12em!important;text-transform:uppercase;color:#8f5a00!important;margin:0 0 12px}
+
+/* phone menu: the "Contact" pill follows the button system (was marigold + white text, 1.6:1) */
+@media (max-width:980px){
+  html body #top-menu > li:last-child > a{background:#14244a!important;color:#fff!important;-webkit-text-fill-color:#fff!important;border-color:#14244a!important;text-shadow:none!important}
+  html body #top-menu > li:last-child > a:hover{background:#24386A!important}
+}
+
+/* ---------- events countdown: compact, no rolling digits, no accent bars (owner 8 Nov) ---------- */
+html body .countdown-timer.ev-tiles{gap:8px!important;align-items:stretch}
+html body .ev-tiles .ev-tile{min-width:64px!important;width:auto!important;padding:10px 10px 8px!important;border-radius:12px!important;
+  background:#fff!important;background-image:none!important;border:1px solid #ECE5D9!important;box-shadow:none!important;transform:none!important}
+html body .ev-tiles .ev-tile::before,html body .ev-tiles .ev-tile::after,html body .ev-tile-bar{display:none!important}
+html body .ev-tiles .c-n{font:800 26px/1.05 'Plus Jakarta Sans',Inter,sans-serif!important;color:#14244a!important;font-variant-numeric:tabular-nums;letter-spacing:-.01em;
+  transform:none!important;animation:none!important;transition:none!important;overflow:visible!important;height:auto!important}
+html body .ev-tiles .c-n *{animation:none!important;transition:none!important}
+html body .ev-tiles .ev-tile-l{font:600 10.5px/1.2 Inter,sans-serif!important;letter-spacing:.1em!important;color:#6b7080!important;margin-top:4px!important}
+/* stat row under the countdown: plain numbers, no peach tiles */
+html body .ev-stat-n{background:none!important;background-image:none!important;width:auto!important;height:auto!important;min-width:0!important;padding:0!important;border-radius:0!important;box-shadow:none!important;
+  font:800 1.6rem/1 'Plus Jakarta Sans',Inter,sans-serif!important;color:#14244a!important}
+html body .ev-stats-row .ev-stat{gap:10px!important}
+html body .ev-roll{display:none!important}
+html body .ev-js .ev-tile .c-n{position:static!important;width:auto!important;height:auto!important;margin:0!important;overflow:visible!important;clip:auto!important;clip-path:none!important;white-space:nowrap}
+html body .ev-next-card{padding:28px 32px!important}
+html body .ev-next-card .countdown-timer{align-self:center}
+html body .ev-next-card :is(h2,h3,.countdown-title){font-size:clamp(1.3rem,2.2vw,1.7rem)!important}
+html body .ev-next-card .ev-stats-row{margin-top:20px!important;padding-top:14px!important}
+@media (max-width:700px){html body .ev-next-card{padding:22px 18px!important}}
+
+/* ===== audit fixes (independent review, 8 Nov) ===== */
+/* 1 contact list on phone: nothing pushed off the left edge, icons visible */
+@media (max-width:760px){html body .ct-panel .ct-row{margin-left:0!important;transform:none!important;padding-left:0!important;display:flex!important;gap:12px!important}
+  html body .ct-panel .ct-ico{display:inline-flex!important;flex:none}
+  html body .ct-wrap .container,html body .ct-wrap{overflow:visible!important}}
+/* 2 sold out / ended buttons readable (beats style.css forced white text) */
+html body a.ec-btn.ec-btn.ec-btn-sold,html body a.ec-btn.ec-btn.ec-btn-ended,html body .ec-btn.ec-btn.ec-btn-sold,html body .ec-btn.ec-btn.ec-btn-ended{
+  background:#EFEDE8!important;border:1px solid #E1DCD2!important;color:#5b6070!important;-webkit-text-fill-color:#5b6070!important;--t:#5b6070!important;--ft:#5b6070!important}
+/* 3 quote: solid navy, no fading gradient text */
+html body .bio-quote-t,html body .bio-quote-t *{background:none!important;-webkit-text-fill-color:#14244a!important;color:#14244a!important;opacity:1!important}
+/* 4 event cards: date tile moves to the image's bottom-right so it no longer covers poster text */
+html body .ev-cal{top:auto!important;bottom:10px!important;right:10px!important;transform:scale(.86)!important;transform-origin:bottom right}
+/* 5 phone: filter pills and package tabs wrap instead of being cut off */
+@media (max-width:760px){html body .ev-filters{flex-wrap:wrap!important;overflow:visible!important;gap:8px!important}
+  html body .sv-pkg-tabs,html body [role=tablist]:has(.sv-pkg-tab){flex-wrap:wrap!important;overflow:visible!important}}
+/* 7 CTA bands: flat navy, no red hairline, one width */
+html body :is(.hx-cta,.sv-cta-in,.ab-cta > .ab-wrap,.ev-cta-in,.pt-cta-card,.ct-cta-card,.bio-cta > .container,.cta-strip > .container){
+  background:#14244a!important;background-image:none!important;box-shadow:none!important;max-width:1216px!important;margin-left:auto!important;margin-right:auto!important;border:0!important}
+html body :is(.hx-cta,.sv-cta-in,.ab-wrap,.ev-cta-in,.pt-cta-card,.ct-cta-card,.bio-cta,.cta-strip) :is(.red-line,.cta-line,[class*="hairline"],[class*="-rule"]){display:none!important}
+html body :is(.sv-cta-in,.ab-cta > .ab-wrap,.ev-cta-in,.bio-cta > .container,.cta-strip > .container)::before,
+html body :is(.sv-cta-in,.ab-cta > .ab-wrap,.ev-cta-in,.bio-cta > .container,.cta-strip > .container)::after{display:none!important}
+/* 8 inner heroes: text starts on the same left edge as the page content */
+html body .page-hero .container,html body .page-hero [class*="hero-inner"],html body .page-hero [class*="hero-content"]{margin-left:auto!important;margin-right:auto!important;max-width:1216px!important;text-align:left!important;padding-left:16px!important;padding-right:16px!important}
+html body .page-hero :is(h1,.page-hero-sub){margin-left:0!important;text-align:left!important}
+html body .page-hero .page-hero-ctas{justify-content:flex-start!important}
+html body .isa-hero-photo{object-position:72% 30%!important}
+/* 10 stat tiles on bio pages: plain numbers on a divider row */
+html body .bio-stats{gap:0!important}
+html body .bio-stats > *{background:none!important;border:0!important;box-shadow:none!important;border-radius:0!important;border-right:1px solid #ECE5D9!important;padding:4px 18px!important}
+html body .bio-stats > *:last-child{border-right:0!important}
+html body .bio-stat-n{background:none!important;color:#14244a!important}
+/* 15 package price: no dashed amber rule */
+html body .sv-pkg [class*="price"]::after,html body .sv-pkg [class*="price"] + [class*="dash"],html body .sv-pkg [class*="dashes"]{display:none!important}
+/* 18 phone event pages: room for the sticky register bar */
+@media (max-width:760px){html body.evt-live{padding-bottom:84px!important}}
+/* 19 footer: last contact link readable */
+html body #main-footer .footer-widget a{color:rgba(255,255,255,.86)!important}
+html body #main-footer .footer-widget a:hover{color:#F2C46D!important}
+/* 20 newsletter: no orphan icon, tidy two-column */
+html body .ct-news-ico{display:none!important}
+/* 14 Isabelle "three areas" cards: no pale decorative numerals */
+html body .bio-pc-num{display:none!important}
+/* inner heroes (page-title-wrap): text on the page's left edge */
+html body .page-title-wrap .container{max-width:1216px!important;margin-left:auto!important;margin-right:auto!important;padding-left:16px!important;padding-right:16px!important;text-align:left!important}
+html body .page-title-wrap :is(h1,.page-hero-sub,.section-label){margin-left:0!important;text-align:left!important}
+html body .page-title-wrap .page-hero-ctas{justify-content:flex-start!important}
+html body .page-title-wrap .container{width:100%!important;flex:1 1 100%!important}
+html body .page-title-wrap{justify-content:flex-start!important}
+/* Isabelle page: her photo on the right half, navy on the left for the text */
+html body .page-title-wrap:has(.isa-hero-photo){background:#14244a!important}
+html body .page-title-wrap .isa-hero-photo{left:auto!important;right:0!important;width:56%!important;height:100%!important;object-fit:cover!important;object-position:50% 22%!important;transform:none!important}
+html body .page-title-wrap:has(.isa-hero-photo) .page-hero-overlay{background:linear-gradient(90deg,#14244a 0%,#14244a 44%,rgba(20,36,74,.55) 62%,rgba(20,36,74,.08) 100%)!important}
+@media (max-width:760px){html body .page-title-wrap .isa-hero-photo{width:100%!important;object-position:70% 20%!important}
+  html body .page-title-wrap:has(.isa-hero-photo) .page-hero-overlay{background:linear-gradient(180deg,rgba(20,36,74,.55),rgba(20,36,74,.88))!important}}
+/* footer: line icons (Instagram, YouTube) stay outlined; filled glyphs (Facebook, LinkedIn) stay filled */
+html body .footer-soc-btn svg[fill="none"]{fill:none!important;stroke:currentColor!important;stroke-width:2!important}
+html body .footer-soc-btn svg[fill="none"] *{fill:none!important}
+/* no highlighter marks on text anywhere (owner 8 Nov) */
+html body .ab-mark,html body mark{background:none!important;background-image:none!important;padding:0!important;color:inherit!important;transition:none!important}
+html body .ct-panel a,html body .ct-row a{background-image:none!important}
+html body .ct-panel a:hover,html body .ct-row a:hover{text-decoration:underline;text-underline-offset:3px}
+/* events: compact next-event card (8 Nov) - one box, not a card in a card */
+html body .ev-next{padding:28px 0!important}
+html body .ev-next-card{padding:22px 28px!important}
+html body .ev-next-card .countdown-section.ev-cd{padding:0!important;margin:0!important;background:none!important;border:0!important;box-shadow:none!important;border-radius:0!important}
+html body .ev-next-card .ev-cd-inner{gap:24px!important;align-items:center!important}
+html body .ev-next-card .countdown-title{margin:4px 0 8px!important;font-size:clamp(1.2rem,1.9vw,1.5rem)!important}
+html body .ev-next-card :is(.countdown-meta,.ev-local){font-size:14.5px!important;line-height:1.5!important;margin:0 0 4px!important}
+html body .ev-next-card .ev-cd-actions{margin-top:14px!important;gap:10px!important}
+html body .ev-next-card .ev-cd-actions .et_pb_button{padding:9px 18px!important;font-size:14.5px!important;min-height:0!important}
+html body .ev-next-card .ev-stats{margin:0!important}
+html body .ev-next-card .ev-stats-row{margin-top:16px!important;padding-top:6px!important}
+html body .ev-next-card .ev-stat{padding:8px 16px 4px 0!important;margin:0!important}
+html body .ev-next-card .ev-stat-n{font-size:22px!important;line-height:1!important}
+html body .ev-next-card .ev-stat-l{font-size:13.5px!important}
+html body .ev-next-card .ev-tiles .ev-tile{min-width:56px!important;padding:8px 8px 6px!important}
+html body .ev-next-card .ev-tiles .c-n{font-size:22px!important}
+@media (max-width:700px){html body .ev-next-card{padding:18px 16px!important}html body .ev-next-card .ev-cd-inner{gap:16px!important}}
+/* contact newsletter: the icon column is gone, so the copy is one column */
+html body .ct-news-copy{display:block!important}
+html body .ct-news-copy h3{margin:0 0 6px!important}
+/* footer: one tidy grid (8 Nov) - same width as the page, one type size, aligned columns */
+html body #footer-widgets{padding:56px 0 40px!important}
+html body #footer-widgets .container,html body #footer-bottom .container{max-width:1216px!important;width:calc(100% - 48px)!important;margin:0 auto!important;padding:0!important}
+html body #footer-widgets .container{display:grid!important;grid-template-columns:minmax(0,1.5fr) minmax(0,.8fr) minmax(0,.9fr) minmax(0,1.1fr)!important;gap:32px 48px!important;align-items:start!important}
+html body #main-footer .footer-widget{margin:0!important;padding:0!important;width:auto!important;float:none!important;min-width:0}
+html body #main-footer .footer-brand-name{font-size:22px!important;line-height:1.2!important;margin:0 0 14px!important}
+html body #main-footer .footer-widget h4{font:700 12px/1.2 Inter,sans-serif!important;letter-spacing:.14em!important;color:#F2C46D!important;margin:6px 0 18px!important;padding:0!important}
+html body #main-footer .footer-widget ul{display:grid!important;gap:10px!important;margin:0!important}
+html body #main-footer .footer-widget ul li{margin:0!important}
+html body #main-footer .footer-widget :is(ul li a,p,p a){font-size:15px!important;line-height:1.5!important;font-weight:400!important}
+html body #main-footer .footer-widget p{color:rgba(255,255,255,.72)!important;margin:0 0 10px!important;padding:0!important;max-width:34ch}
+html body #main-footer .footer-widget:first-child p+p{font-size:13.5px!important;color:rgba(255,255,255,.55)!important}
+html body #main-footer .footer-widget a{display:inline!important}
+html body #main-footer .footer-widget ul li a{display:inline-block!important}
+html body #main-footer .footer-widget p:last-child a{color:#F2C46D!important;font-weight:600!important}
+html body #main-footer .footer-social{gap:6px!important;margin:18px 0 0 -9px!important}
+html body .footer-soc-btn svg[fill="none"] [fill="currentColor"]{fill:currentColor!important;stroke:none!important}
+html body #footer-bottom{padding:18px 0!important}
+html body #footer-bottom .container{display:flex!important;justify-content:space-between!important;align-items:center!important;gap:12px 24px!important;flex-wrap:wrap!important}
+html body :is(#footer-info,#footer-credit,#footer-credit a){font-size:13px!important}
+@media (max-width:980px){html body #footer-widgets .container{grid-template-columns:1fr 1fr!important;gap:32px!important}}
+@media (max-width:560px){html body #footer-widgets{padding:40px 0 28px!important}html body #footer-widgets .container{grid-template-columns:1fr 1fr!important;gap:28px 20px!important}
+  html body #main-footer .footer-widget:first-child,html body #main-footer .footer-widget:last-child{grid-column:1/-1}
+  html body #footer-bottom .container{flex-direction:column!important;align-items:flex-start!important;text-align:left!important}
+  html body :is(#footer-info,#footer-credit){text-align:left!important;width:auto!important}}
+/* footer on phones: compact like desktop (8 Nov) - brand row, Navigate|Legal side by side, tight lists, one-line bottom bar */
+@media (max-width:560px){
+  html body #footer-widgets{padding:28px 0 18px!important}
+  html body #footer-widgets .container{grid-template-columns:1fr 1fr!important;gap:20px 16px!important}
+  html body #main-footer .footer-widget:first-child{display:grid!important;grid-template-columns:1fr auto;align-items:center;column-gap:12px}
+  html body #main-footer .footer-brand-name{font-size:19px!important;margin:0!important}
+  html body #main-footer .footer-social{grid-column:2;grid-row:1;margin:0 -9px 0 0!important;gap:0!important}
+  html body #main-footer .footer-widget:first-child p{grid-column:1/-1;margin:8px 0 0!important;max-width:none}
+  html body #main-footer .footer-widget:first-child p+p{margin-top:2px!important;font-size:12.5px!important}
+  html body #main-footer .footer-widget h4{margin:0 0 10px!important;font-size:11px!important}
+  html body #main-footer .footer-widget ul{gap:6px!important}
+  html body #main-footer .footer-widget :is(ul li a,p,p a){font-size:14px!important;line-height:1.45!important}
+  html body #main-footer .footer-widget:last-child p{margin:0 0 6px!important;max-width:none}
+  html body #footer-bottom{padding:12px 0!important}
+  html body #footer-bottom .container{flex-direction:row!important;justify-content:space-between!important;align-items:center!important;gap:4px 12px!important}
+  html body :is(#footer-info,#footer-credit,#footer-credit a){font-size:12px!important}
+}
+/* events page cards (upcoming + past): compact body, smaller sub text (8 Nov) */
+html body .evt-card .ec-body{padding:16px 18px 18px!important}
+html body .evt-card .ec-tags{margin:0 0 10px!important;gap:6px!important}
+html body .evt-card :is(.ec-loc,.ec-type){font-size:10.5px!important;padding:4px 9px!important;letter-spacing:.08em!important}
+html body .evt-card .ec-date{font-size:13px!important;line-height:1.4!important;margin:0 0 6px!important;gap:6px!important}
+html body .evt-card .ec-date svg{width:14px!important;height:14px!important}
+html body .evt-card h3{font-size:1.02rem!important;line-height:1.3!important;margin:0 0 6px!important}
+html body .evt-card .ec-body>p{font-size:13.5px!important;line-height:1.5!important;color:#5a6072!important;margin:0 0 12px!important;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+html body .evt-card .ec-footer{padding-top:12px!important}
+html body .evt-card .ec-price{font-size:16px!important;line-height:1.3!important;margin:0 0 10px!important}
+html body .evt-card .ec-price span{font-size:12.5px!important;margin-top:2px!important}
+html body .evt-card .ec-ctas{gap:8px!important}
+html body .evt-card .ec-btn{font-size:13.5px!important;padding:0 12px!important;min-height:38px!important;border-radius:10px!important}
+html body .evt-card :is(.ev-cal b){font-size:18px!important}
+html body .evt-card .ev-when{font-size:11.5px!important;padding:5px 10px!important}
+/* buttons line up with the text above them (theme gave every button an 8px left margin) */
+html body .et_pb_button{margin-left:0!important}
+html body .et_pb_button:not(:last-child){margin-right:10px!important}
+html body .et_pb_button:last-child{margin-right:0!important}
+/* chat assistant: bigger panel, smaller text, clean interface (8 Nov) */
+html body #bhd-chat{width:410px!important;height:620px!important;max-height:calc(100vh - 120px)!important;max-width:calc(100vw - 32px)!important;border-radius:18px!important;overflow:hidden!important;border:1px solid #ECE5D9!important;box-shadow:0 24px 60px -20px rgba(20,36,74,.35)!important;background:#fff!important}
+html body #bhd-chat .bhd-chat-head{background:#fff!important;border-bottom:1px solid #ECE5D9!important;padding:14px 14px 14px 18px!important}
+html body #bhd-chat .bhd-chat-title{font:700 15px/1.3 'Plus Jakarta Sans',Inter,sans-serif!important;color:#14244a!important}
+html body #bhd-chat .bhd-chat-status{font-size:12px!important;color:#6b7080!important;display:flex;align-items:center;gap:6px}
+html body #bhd-chat .bhd-chat-status::before{display:none!important}
+html body #bhd-chat .bhd-status-dot{width:7px;height:7px;border-radius:50%;background:#22c55e;display:inline-block}
+html body #bhd-chat .bhd-chat-close{width:32px!important;height:32px!important;border-radius:50%!important;font-size:22px!important;color:#14244a!important;background:none!important}
+html body #bhd-chat .bhd-chat-close:hover{background:#F4EFE6!important}
+html body #bhd-chat .bhd-chat-msgs{background:#FAF6EF!important;padding:16px!important;gap:10px!important}
+html body #bhd-chat .bhd-msg{font-size:13.5px!important;line-height:1.5!important;padding:10px 13px!important;max-width:88%!important;box-shadow:none!important}
+html body #bhd-chat .bhd-msg-bot{background:#fff!important;border:1px solid #ECE5D9!important;color:#2d3348!important;border-radius:14px 14px 14px 4px!important}
+html body #bhd-chat .bhd-msg-user{background:#14244a!important;color:#fff!important;border:0!important;border-radius:14px 14px 4px 14px!important}
+html body #bhd-chat .bhd-msg-label{font-size:10px!important;letter-spacing:.12em!important;color:#8f5a00!important;margin-bottom:4px!important}
+html body #bhd-chat .bhd-msg-bot a{color:#14244a!important}
+html body #bhd-chat .bhd-msg-btns{gap:6px!important;margin-top:8px!important}
+html body #bhd-chat .bhd-msg-btn{font-size:12px!important;font-weight:600!important;padding:5px 11px!important;border:1px solid #14244a!important;color:#14244a!important;background:#fff!important;border-radius:999px!important}
+html body #bhd-chat .bhd-msg-btn:hover{background:#14244a!important;color:#fff!important}
+html body #bhd-chat .bhd-chat-quick{background:#fff!important;border-top:1px solid #ECE5D9!important;padding:10px 12px 4px!important;gap:6px!important}
+html body #bhd-chat .bhd-quick-btn{font-size:12px!important;font-weight:500!important;padding:5px 11px!important;border:1px solid #E6DCC8!important;color:#14244a!important;background:#FFFDF9!important;border-radius:999px!important;box-shadow:none!important}
+html body #bhd-chat .bhd-quick-btn:hover{background:#FFF3DF!important;border-color:#F2C46D!important}
+html body #bhd-chat .bhd-chat-input{display:flex!important;align-items:center!important;gap:8px!important;padding:8px 12px 12px!important;background:#fff!important;border-top:0!important}
+html body #bhd-chat .bhd-chat-input input{flex:1;min-width:0;height:42px!important;margin:0!important;padding:0 16px!important;font-size:13.5px!important;border:1px solid #D8DEE9!important;border-radius:999px!important;background:#fff!important;box-shadow:none!important;outline:none!important;color:#14244a!important}
+html body #bhd-chat .bhd-chat-input input:focus{border-color:#14244a!important;box-shadow:0 0 0 3px rgba(20,36,74,.08)!important}
+html body #bhd-chat .bhd-chat-input button{flex:none;width:42px!important;height:42px!important;border-radius:50%!important;background:#14244a!important;color:#fff!important;border:0!important;margin:0!important;padding:0!important;box-shadow:none!important}
+html body #bhd-chat .bhd-chat-input button svg{width:17px!important;height:17px!important;margin-left:-2px}
+html body #bhd-chat .bhd-chat-input button:hover{background:#0d1834!important}
+@media (max-width:480px){html body #bhd-chat{left:12px!important;right:12px!important;width:auto!important;height:min(78vh,640px)!important;bottom:84px!important}}
+/* newsletter: pill button inset evenly inside the pill field */
+html body form.newsletter-form{display:flex!important;align-items:center!important;gap:6px!important;padding:5px!important;background:#fff!important;border:1px solid #E6DCC8!important;border-radius:999px!important;box-shadow:none!important;overflow:hidden}
+html body form.newsletter-form input[type=email]{flex:1;min-width:0;height:44px!important;margin:0!important;padding:0 18px!important;border:0!important;background:none!important;box-shadow:none!important;font-size:15px!important;outline:none}
+html body form.newsletter-form button{flex:none;height:44px!important;min-height:0!important;margin:0!important;padding:0 22px!important;border-radius:999px!important;font-size:14.5px!important;line-height:1!important}
+html body form.newsletter-form:focus-within{border-color:#14244a!important;box-shadow:0 0 0 3px rgba(20,36,74,.08)!important}

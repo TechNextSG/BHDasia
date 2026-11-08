@@ -1,4 +1,26 @@
 window.__bhd960=["card-art-of-conscious-rest.webp", "card-body-in-the-room.webp", "card-breath-as-medicine.webp", "card-bucharest-module1.webp", "card-certification-2027.webp", "card-event-lisbon-module1.webp", "card-feminine-masculine.webp", "card-internal-alchemy.webp", "card-nervous-system.webp", "card-shaking-online.webp", "card-shaking-to-shaping-sep3.webp", "card-shaking-to-shaping.webp", "card-transform-practice.webp", "event-art-of-conscious-rest.webp", "event-body-in-the-room.webp", "event-bucharest-module1.webp", "event-cert-2027-foundational.webp", "event-cert-2027-growth.webp", "event-cert-2027-refresher.webp", "event-cert-2027.webp", "event-feminine-masculine.webp", "event-internal-alchemy.webp", "event-intro-tre-singapore-2027.webp", "event-lisbon-certification.webp", "event-lisbon-module1.webp", "event-module1.webp", "event-module2.webp", "event-shaking-oct8.webp", "event-shaking-shaping.webp", "event-shaking-to-shaping-singapore.webp", "event-tre-scotland-online.webp"];
+/* calm mode (owner 8 Nov 2026: smoother, no glow/tilt/spotlight/auto-advance; only the home hero animates) */
+window.BHD_CALM = true;
+
+/* welcome intro (owner 8 Nov 2026, HummingBeing language): gold hairline circle draws in, BHD mark settles, tagline,
+   then the page is revealed. Once per visit; click/key skips; reduced motion never sees it (head snippet decides). */
+(function () {
+  var d = document.documentElement; if (!d.classList.contains('intro-on')) return;
+  try { sessionStorage.setItem('bhdIntro', '1'); } catch (e) {}
+  var o = document.createElement('div'); o.id = 'bhd-intro'; o.setAttribute('aria-hidden', 'true');
+  o.innerHTML = '<div class="bi-stage"><svg class="bi-art" viewBox="0 0 240 240">' +
+    '<circle class="bi-c1" cx="120" cy="120" r="104" pathLength="1"/><circle class="bi-c2" cx="120" cy="120" r="88" pathLength="1"/>' +
+    '<circle class="bi-dot" cx="120" cy="16" r="3"/></svg>' +
+    '<img class="bi-logo" src="/bhd-logo.png" alt="" width="96" height="96"></div>' +
+    '<p class="bi-tag">Highlight, Enhance and Appreciate Human in Business.</p>';
+  document.body.appendChild(o);
+  requestAnimationFrame(function () { o.classList.add('bi-go'); });
+  var done = false;
+  function out() { if (done) return; done = true; o.classList.add('bi-out'); d.classList.remove('intro-on');
+    setTimeout(function () { o.remove(); }, 750); }
+  setTimeout(out, 1900);
+  o.addEventListener('click', out); document.addEventListener('keydown', out, { once: true });
+})();
 /* clean URLs: someone who lands on /about.html sees /about (index.html -> /) */
 (function () {
   var p = location.pathname;
@@ -164,11 +186,11 @@ window.__bhd960=["card-art-of-conscious-rest.webp", "card-body-in-the-room.webp"
     {
       re:/^how$/,
       a:"Happy to help! Are you asking about <strong>how to book</strong>, <strong>how our sessions work</strong>, or <strong>how much it costs</strong>? Tap a topic below or just type.",
-      btns:[{t:'How to Book',u:'contact'},{t:'Pricing',u:'services'},{t:'Our Approach',u:'about'}]
+      btns:[{t:'How to book',u:'/#book'},{t:'Pricing',u:'services'},{t:'Our Approach',u:'about'}]
     },
     {
       re:/^(who|whose)$/,
-      a:"We're <strong>BHD Asia</strong> (Business and Human Development Consulting Pte Ltd) — led by <strong>Isabelle Claus Teixeira</strong>, 27+ years in HR &amp; coaching.",
+      a:"We're <strong>BHD Asia</strong> (Business and Human Development Consulting Pte Ltd) — led by <strong>Isabelle Claus Teixeira</strong>, 30+ years in HR &amp; coaching.",
       btns:[{t:'Meet the Team',u:'about'},{t:'About Isabelle',u:'isabelle'}]
     },
     {
@@ -178,18 +200,18 @@ window.__bhd960=["card-art-of-conscious-rest.webp", "card-body-in-the-room.webp"
     },
     {
       re:/^why$/,
-      a:"<strong>Why BHD Asia?</strong> We co-design bespoke solutions — not off-the-shelf programmes. 27+ years across 9 countries, blending executive coaching, somatic methods, and real HR expertise.",
-      btns:[{t:'Our Story',u:'about'},{t:'Book a Free Call',u:'contact'}]
+      a:"<strong>Why BHD Asia?</strong> We co-design bespoke solutions — not off-the-shelf programmes. 30+ years across 9 countries, blending executive coaching, somatic methods, and real HR expertise.",
+      btns:[{t:'Our Story',u:'about'},{t:'Book a free call',u:'/#book'}]
     },
     {
       re:/^(help|\?+|start|menu|topics?|options?)$/,
       a:"Here's what I can help with:<br>• <strong>Services</strong> — what we offer<br>• <strong>TRE™ workshops</strong> — dates &amp; pricing<br>• <strong>Coaching</strong> — executive &amp; career<br>• <strong>Events</strong> — upcoming workshops<br>• <strong>Team</strong> — about Isabelle<br>• <strong>Location &amp; online</strong> — where we work<br>• <strong>Contact</strong> — how to reach us<br><br>Just type any topic!",
-      btns:[{t:'Services',u:'services'},{t:'Events',u:'events'},{t:'Contact',u:'contact'}]
+      btns:[{t:'Services',u:'services'},{t:'Events',u:'events'},{t:'Book a discovery call',u:'/#book'}]
     },
     {
       re:/^(yes|yeah|yep|yup|ok|okay|sure|go ahead|sounds good)$/,
       a:"Great! What would you like to know? Ask about our <strong>services</strong>, <strong>pricing</strong>, <strong>TRE™ workshops</strong>, or how to <strong>book a session</strong>.",
-      btns:[{t:'Services',u:'services'},{t:'Events',u:'events'},{t:'Contact',u:'contact'}]
+      btns:[{t:'Services',u:'services'},{t:'Events',u:'events'},{t:'Book a discovery call',u:'/#book'}]
     },
     {
       re:/^(no|nope|nah|not now|later)$/,
@@ -201,12 +223,12 @@ window.__bhd960=["card-art-of-conscious-rest.webp", "card-body-in-the-room.webp"
     {
       re:/(service|services|offer|offering|programme|programs?|help with|what do you|what you do|specialise|specialize|expertise|capabilities?|solutions?)/,
       a:"We focus on three areas: <strong>Organisation Development</strong>, <strong>Resilience Building</strong> (TRE™, somatic coaching, stress &amp; burnout), and <strong>Individual Development</strong> (executive, career &amp; transition coaching). Each solution is co-designed with you.",
-      btns:[{t:'View All Services',u:'services'},{t:'Book a Free Call',u:'contact'}]
+      btns:[{t:'View All Services',u:'services'},{t:'Book a free call',u:'/#book'}]
     },
     {
       re:/(\btre\b|tension|trauma|somatic|tremor|neurogenic|releasing exercise|nervous system|body.?based|bodywork)/,
       a:"<strong>TRE™ (Tension &amp; Trauma Releasing Exercises)</strong> is a neurogenic method that helps the body release deep muscle tension and stress without detailed discussion of past events. We run open workshops — Module 1 (personal use) and Modules 2/3 (provider certification).",
-      btns:[{t:'See TRE™ Events',u:'events'},{t:'Enquire Now',u:'contact'}]
+      btns:[{t:'See TRE™ Events',u:'events'},{t:'Ask Isabelle about TRE™',u:'/#book'}]
     },
     {
       re:/(event|events|workshop|workshops|upcoming|module|when|next date|schedule|calendar|dates?|availability|timetable|course|training|certif)/,
@@ -214,23 +236,38 @@ window.__bhd960=["card-art-of-conscious-rest.webp", "card-body-in-the-room.webp"
       btns:[{t:'View All Events',u:'events'},{t:'2027 Certification',u:'event-certification-2027'}]
     },
     {
+      re:/(coach\w*[^.?!]{0,40}(cost|price|pric|fee|how much|rate|package))|((cost|price|pric|fee|how much|rate)[^.?!]{0,40}coach)/,
+      a:"Our <strong>Corporate Coaching Package starts from SGD 6,000</strong> for eight one-on-one sessions, including an initial diagnostic and a follow-up review. Other programmes are priced to the engagement after a free discovery call.",
+      btns:[{t:'Book a discovery call',u:'/#book'},{t:'Coaching packages',u:'services#packages'}]
+    },
+    {
+      re:/(book|booking|appointment|discovery|free call|book a call|schedule a call|consult|get started|next step|1.?on.?1|one.?on.?one)/,
+      a:"The first step is a <strong>free 30-minute discovery call with Isabelle</strong>. Leave your details in the booking form and we reply within one business day, or pick a time straight away.",
+      btns:[{t:'Book a discovery call',u:'/#book'},{t:'Pick a time now',u:'https://calendly.com/bhdasia/30min'}]
+    },
+    {
+      re:/(partner|affiliat|accredit|network|\bicf\b|glocoach|coaching solution|stakeholder cent|member of)/,
+      a:"Isabelle and BHD Asia work with the <strong>ICF</strong> (certified member), <strong>GloCoach</strong>, <strong>The Coaching Solution</strong> (UK), <strong>Stakeholder Centered Coaching</strong> (Marshall Goldsmith method), the TRE&trade; networks in France and Iberoam&eacute;rica, <strong>TRE&trade; for All</strong>, and sister brands Living with the Spirit, Languages &agrave; Gogo and Brainz Magazine.",
+      btns:[{t:'Partners & affiliations',u:'about#partners'},{t:'Book a discovery call',u:'/#book'}]
+    },
+    {
       re:/(price|pricing|cost|fee|how much|rate|sgd|dollar|package|invest|money|budget|afford|pay|payment)/,
-      a:"The 2026 TRE™ certification intake is closed. The <strong>2027 Singapore cohort</strong> opens with Module 1 on 24–25 April 2027, co-taught by Isabelle Claus Teixeira and Simba Stenqvist, with <strong>early-bird pricing until 31 March 2027</strong>: Growth Package S$5,888, Foundational Package S$4,888 and Refresher Packages from S$2,200 (regular prices S$6,888, S$5,888 and from S$2,900). Card charges are added on top of every instalment; payment is by credit card only. You can also pay the full package price at registration instead of three instalments. Our 8-week individual coaching package is <strong>SGD 2,200</strong>. Group and corporate rates on request.",
-      btns:[{t:'Full Pricing',u:'services'},{t:'Ask About Rates',u:'contact'}]
+      a:"Executive coaching: the <strong>Corporate Coaching Package starts from SGD 6,000</strong> for eight sessions. TRE&trade; certification: the 2026 intake is closed. The <strong>2027 Singapore cohort</strong> opens with Module 1 on 24–25 April 2027, co-taught by Isabelle Claus Teixeira and Simba Stenqvist, with <strong>early-bird pricing until 31 March 2027</strong>: Growth Package S$5,888, Foundational Package S$4,888 and Refresher Packages from S$2,200 (regular prices S$6,888, S$5,888 and from S$2,900). Card charges are added on top of every instalment; payment is by credit card only. You can also pay the full package price at registration instead of three instalments. Our 8-week individual coaching package is <strong>SGD 2,200</strong>. Group and corporate rates on request.",
+      btns:[{t:'Full Pricing',u:'services'},{t:'Get a quote on a call',u:'/#book'}]
     },
     {
       re:/(contact|email|phone|call|reach|whatsapp|enquire|inquire|message|get in touch|speak|talk|connect)/,
       a:"You can reach us by email at <span>bonjour&#64;bhd<span style='display:none'>-no-spam</span>asia&#46;com</span>, call or WhatsApp <strong>+81 80 6515 1778</strong>, or fill in our online contact form.",
-      btns:[{t:'Contact Form',u:'contact'}]
+      btns:[{t:'Book a discovery call',u:'/#book'},{t:'Contact page',u:'contact'}]
     },
     {
       re:/(location|where|address|office|located|based|singapore|raffles|online|virtual|remote|in.?person|hybrid)/,
       a:"Based at <strong>50 Raffles Place, Singapore Land Tower #30-00, Singapore 048623</strong>. We also work remotely with clients across Asia Pacific, Japan, Europe, and beyond.",
-      btns:[{t:'Contact Us',u:'contact'},{t:'About BHD Asia',u:'about'}]
+      btns:[{t:'Book a discovery call',u:'/#book'},{t:'About BHD Asia',u:'about'}]
     },
     {
       re:/(isabelle|founder|who runs|co.?founder|director|team|staff|people|credentials?|qualif)/,
-      a:"<strong>Isabelle Claus Teixeira</strong> is our founder — 27+ years in HR leadership across 9 countries, certified coach since 2012, TRE™ provider, and Forbes Coaches Council contributor.",
+      a:"<strong>Isabelle Claus Teixeira</strong> is our Co-Founder and Director: 30+ years of senior HR leadership across 9 countries, certified leadership coach since 2012 with 1,800+ coaching hours, and a Global TRE™ Certifying Trainer.",
       btns:[{t:'Meet Isabelle',u:'isabelle'},{t:'Our Team',u:'about#team'}]
     },
     {
@@ -241,12 +278,12 @@ window.__bhd960=["card-art-of-conscious-rest.webp", "card-body-in-the-room.webp"
     {
       re:/(hr|human.?resource|talent|organisat|organizat|culture|change.?management|facilitat|corporate|leadership.?develop|workforce)/,
       a:"Our <strong>Organisation Development</strong> practice covers HR &amp; Talent Management advisory, high-performing team facilitation, culture transformation, leadership development, and change management.",
-      btns:[{t:'Org Development',u:'services'},{t:'Talk to Us',u:'contact'}]
+      btns:[{t:'Org Development',u:'services'},{t:'Talk about your organisation',u:'/#book'}]
     },
     {
       re:/(mediat|conflict|dispute|disagree|difficult.?conversation|resolution|simi)/,
       a:"We facilitate <em>Challenging Conversations &amp; Constructive Conflict</em> workshops and support leaders and teams with professional conflict resolution.",
-      btns:[{t:'Our Services',u:'services'},{t:'Book a Consult',u:'contact'}]
+      btns:[{t:'Our Services',u:'services'},{t:'Book a discovery call',u:'/#book'}]
     },
     {
       re:/(about|company|bhd|background|history|who are you|what is bhd|mission|values?|philosophy|approach|methodology|how.*work|how does)/,
@@ -255,18 +292,18 @@ window.__bhd960=["card-art-of-conscious-rest.webp", "card-body-in-the-room.webp"
     },
     {
       re:/(book|booking|appointment|sign.?up|register|enrol|enroll|reserve|1.?on.?1|one.?on.?one|free call|consult|discovery|get started|next step|how do i|how to)/,
-      a:"To book, use our <a href='contact'>Contact form</a> or WhatsApp <strong>+81 80 6515 1778</strong> to schedule a free discovery conversation — no commitment needed.",
-      btns:[{t:'Book a Free 1:1',u:'contact'}]
+      a:"The first step is a <strong>free 30-minute discovery call</strong>. Leave your details in the booking form and we reply within one business day, or pick a time straight away.",
+      btns:[{t:'Book a free 1:1',u:'/#book'}]
     },
     {
       re:/(coaching|executive.?coach|leadership.?coach|career.?coach|transition.?coach|performance.?coach|life.?coach|personal.?develop|growth|goal)/,
       a:"Our coaching covers <strong>Executive Coaching</strong>, <strong>Transition Coaching</strong>, <strong>Performance Coaching</strong>, <strong>Career Coaching</strong>, Self-Awareness Development, and 360° Debriefs — all fully co-designed.",
-      btns:[{t:'Coaching Services',u:'services'},{t:'Book a Consult',u:'contact'}]
+      btns:[{t:'Coaching Services',u:'services'},{t:'Book a discovery call',u:'/#book'}]
     },
     {
       re:/(partner|associate|network|client|clients|who.*(work|worked)|companies|testimonial|review|results|forbes|icf|noomii)/,
-      a:"We've worked with ByteDance (TikTok), Novartis, Philips, VISA, Mastercard, Heineken APAC, and more. Isabelle is a Forbes Coaches Council contributor and ICF-certified coach.",
-      btns:[{t:'Our Partners',u:'partners'},{t:'Our Story',u:'about'}]
+      a:"We've worked with ByteDance (TikTok), Novartis, Philips, VISA, Mastercard, Heineken APAC, and more. Isabelle is an ICF-certified leadership coach and a Global TRE&trade; Certifying Trainer.",
+      btns:[{t:'Partners & affiliations',u:'about#partners'},{t:'Book a discovery call',u:'/#book'}]
     },
     {
       re:/(^(hi|hello|hey|hiya|greetings|yo|howdy|sup)$|^good (morning|afternoon|evening)|how are you)/,
@@ -282,7 +319,7 @@ window.__bhd960=["card-art-of-conscious-rest.webp", "card-body-in-the-room.webp"
   ];
 
   var FALLBACK_A = "I can help with our <strong>services</strong>, <strong>TRE™ workshops</strong>, <strong>pricing</strong>, <strong>events</strong>, <strong>location</strong> and <strong>contact</strong>. For anything specific, reach Isabelle at <span>bonjour&#64;bhd<span style='display:none'>-no-spam</span>asia&#46;com</span> or WhatsApp +81 80 6515 1778.";
-  var FALLBACK_BTNS = [{t:'Services',u:'services'},{t:'Events',u:'events'},{t:'Contact Us',u:'contact'}];
+  var FALLBACK_BTNS = [{t:'Services',u:'services'},{t:'Events',u:'events'},{t:'Book a discovery call',u:'/#book'}];
 
   function answerFor(raw){
     var t = raw.toLowerCase().replace(/['".,!?;:()–—]/g,' ').replace(/\s+/g,' ').trim();
@@ -294,7 +331,7 @@ window.__bhd960=["card-art-of-conscious-rest.webp", "card-body-in-the-room.webp"
     if(t.length <= 25){
       return {
         a:"I'm not sure about <em>\"" + esc(raw.trim().substring(0,40)) + "\"</em> — try asking about <strong>services</strong>, <strong>pricing</strong>, <strong>TRE™ workshops</strong>, <strong>events</strong>, or <strong>contact</strong>.",
-        btns:[{t:'Services',u:'services'},{t:'Events',u:'events'},{t:'Contact',u:'contact'}]
+        btns:[{t:'Services',u:'services'},{t:'Events',u:'events'},{t:'Book a discovery call',u:'/#book'}]
       };
     }
     return {a:FALLBACK_A, btns:FALLBACK_BTNS};
@@ -654,7 +691,7 @@ window.__bhd960=["card-art-of-conscious-rest.webp", "card-body-in-the-room.webp"
   var homeGrid=document.querySelector('.home-events-grid');
   if(homeGrid){
     var hl=activeEvents(),seen={},feat=[],h;
-    for(h=0;h<hl.length&&feat.length<2;h++){
+    for(h=0;h<hl.length&&feat.length<3;h++){
       if(hl[h].card&&!seen[hl[h].page]){seen[hl[h].page]=1;feat.push(hl[h]);}
     }
     if(feat.length){
@@ -957,7 +994,7 @@ function bhdRegGate(REG){
       if (!fine) return;
       b.addEventListener('pointerenter', function (e) { setXY(b, e); });
       if (reduce) return;
-      b.addEventListener('pointermove', function (e) {
+      if (!window.BHD_CALM) b.addEventListener('pointermove', function (e) {
         var r = b.getBoundingClientRect();
         var dx = e.clientX - (r.left + r.width / 2), dy = e.clientY - (r.top + r.height / 2);
         b.style.setProperty('--mx', (dx * .18).toFixed(1) + 'px');
@@ -1025,14 +1062,14 @@ function bhdRegGate(REG){
   /* hero: parallax + pointer glow */
   var img = $('.evt-hero-img', hero);
   var glow = document.createElement('span'); glow.className = 'ev-glow'; glow.setAttribute('aria-hidden', 'true');
-  hero.insertBefore(glow, $('.evt-hero-inner', hero));
-  if (!reduce && img) {
+  if (!window.BHD_CALM) hero.insertBefore(glow, $('.evt-hero-inner', hero));
+  if (!reduce && !window.BHD_CALM && img) {
     var tick = false;
     window.addEventListener('scroll', function () {
       if (tick) return; tick = true;
       requestAnimationFrame(function () { tick = false; var y = window.scrollY || 0; if (y < hero.offsetHeight + 200) img.style.setProperty('--ev-py', (y * .2).toFixed(1) + 'px'); });
     }, { passive: true });
-    if (fine) hero.addEventListener('pointermove', function (e) {
+    if (fine && !window.BHD_CALM) hero.addEventListener('pointermove', function (e) {
       var r = hero.getBoundingClientRect(), x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height;
       hero.style.setProperty('--ev-gx', (x * 100).toFixed(1) + '%'); hero.style.setProperty('--ev-gy', (y * 100).toFixed(1) + '%');
       img.style.setProperty('--ev-px', ((.5 - x) * 16).toFixed(1) + 'px');
@@ -1143,6 +1180,7 @@ function bhdRegGate(REG){
     });
   }
   function blobs() {
+    if (window.BHD_CALM) return;
     if (reduce) return;
     document.querySelectorAll('.hero, .page-title-wrap, .evt-hero').forEach(function (h) {
       if (h.querySelector('.warm-blobs')) return;
@@ -1172,6 +1210,7 @@ function bhdRegGate(REG){
   var INNER = '.hx-cta, .sv-cta-in, .ev-cta-in, .pt-cta-card, .ct-cta-card, .ct-book, .ab-wrap';
   var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
   function init() {
+    if (window.BHD_CALM) return;
     var cards = [].slice.call(document.querySelectorAll(SEL)).filter(function (el) {
       return !(el.matches('.cta-strip > .container') && el.querySelector(INNER));
     });
@@ -1220,7 +1259,7 @@ function bhdRegGate(REG){
    visitor hovers, reads (text selected), uses the keyboard in it, or has just
    picked an item; picks up the count again once they leave. */
 (function () {
-  if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if (window.BHD_CALM || (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches)) return;
   var STEP = 3000, HOLD = 6000, units = [];
   window.__bhdAuto = units;
   function vis(el) { return !!(el && el.offsetParent !== null && getComputedStyle(el).visibility !== 'hidden'); }
