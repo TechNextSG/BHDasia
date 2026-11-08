@@ -154,26 +154,59 @@ html body :is(.home-countdown,.hx-cd,.ab-val,.ab-wrap,.sv-card,.sv-fig,.ct-panel
 /* ---------- welcome intro (HummingBeing gold hairlines) ---------- */
 html.intro-on body{overflow:hidden}
 html.intro-on::after{content:"";position:fixed;inset:0;z-index:2147482000;background:#FFFDF9}
-#bhd-intro{position:fixed;inset:0;z-index:2147483000;display:grid;place-content:center;justify-items:center;gap:26px;cursor:pointer;
-  background:radial-gradient(circle at 1px 1px,rgba(20,36,74,.06) 1px,transparent 1.6px) 0 0/24px 24px,radial-gradient(60% 60% at 50% 45%,#FFF4DC 0%,#FFFDF9 70%);
-  transition:opacity .7s cubic-bezier(.2,.8,.2,1),visibility .7s}
-#bhd-intro .bi-stage{position:relative;width:200px;height:200px;display:grid;place-items:center}
-#bhd-intro .bi-art{position:absolute;inset:0;width:100%;height:100%;overflow:visible;transform:rotate(-90deg)}
+#bhd-intro{position:fixed;inset:0;z-index:2147483000;display:grid;place-content:center;justify-items:center;gap:14px;cursor:pointer;overflow:hidden;
+  background:#FFFDF9;clip-path:circle(150% at 50% 50%)}
+#bhd-intro .bi-glow{position:absolute;left:50%;top:50%;width:120vmax;height:120vmax;transform:translate(-50%,-50%) scale(.2);border-radius:50%;opacity:0;
+  background:radial-gradient(circle,#FFF0D4 0%,#FFF6E6 30%,rgba(255,253,249,0) 60%)}
+#bhd-intro .bi-motes{position:absolute;left:50%;top:44%;width:0;height:0}
+#bhd-intro .bi-m{position:absolute;left:0;top:0;width:var(--s);height:var(--s);border-radius:50%;background:#D6A852;opacity:0;transform:translate(var(--x),var(--y))}
+#bhd-intro .bi-stage{position:relative;width:210px;height:210px;display:grid;place-items:center;margin-bottom:6px}
+#bhd-intro .bi-rip{position:absolute;inset:0;border-radius:50%;border:1px solid rgba(214,168,82,.55);opacity:0;transform:scale(.4)}
+#bhd-intro .bi-art{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
 #bhd-intro circle{fill:none;stroke-linecap:round}
-#bhd-intro .bi-c1{stroke:#D6A852;stroke-width:1.1;stroke-dasharray:1;stroke-dashoffset:1}
-#bhd-intro .bi-c2{stroke:rgba(20,36,74,.22);stroke-width:.8;stroke-dasharray:1;stroke-dashoffset:1}
+#bhd-intro .bi-c1{stroke:#D6A852;stroke-width:1.3;stroke-dasharray:1;stroke-dashoffset:1;transform:rotate(-90deg);transform-origin:120px 120px}
+#bhd-intro .bi-c2{stroke:rgba(20,36,74,.28);stroke-width:.9;stroke-dasharray:2 7;opacity:0;transform-origin:120px 120px}
 #bhd-intro .bi-dot{fill:#D6A852;stroke:none;opacity:0;transform-origin:120px 120px}
-#bhd-intro .bi-logo{position:relative;width:88px;height:auto;opacity:0;transform:scale(.86);filter:blur(4px)}
-#bhd-intro .bi-tag{margin:0;font:600 12px/1.4 Inter,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#6b7080;opacity:0;transform:translateY(8px)}
-#bhd-intro.bi-go .bi-c1{stroke-dashoffset:0;transition:stroke-dashoffset 1.1s cubic-bezier(.65,0,.35,1)}
-#bhd-intro.bi-go .bi-c2{stroke-dashoffset:0;transition:stroke-dashoffset 1.2s cubic-bezier(.65,0,.35,1) .15s}
-#bhd-intro.bi-go .bi-dot{opacity:1;transition:opacity .3s ease 1s;animation:bi-orbit 2.4s cubic-bezier(.45,0,.55,1) 1s}
-#bhd-intro.bi-go .bi-logo{opacity:1;transform:none;filter:none;transition:opacity .7s ease .35s,transform .9s cubic-bezier(.2,.8,.2,1) .35s,filter .7s ease .35s}
-#bhd-intro.bi-go .bi-tag{opacity:1;transform:none;transition:opacity .6s ease .8s,transform .7s cubic-bezier(.2,.8,.2,1) .8s}
-#bhd-intro.bi-out{opacity:0;visibility:hidden}
-#bhd-intro.bi-out .bi-stage{transform:scale(1.06);transition:transform .7s cubic-bezier(.2,.8,.2,1)}
+#bhd-intro .bi-mask{position:relative;display:block;width:92px;height:92px;clip-path:inset(100% 0 0 0)}
+#bhd-intro .bi-logo{width:100%;height:auto;display:block;transform:translateY(40%) scale(.8)}
+#bhd-intro .bi-word{margin:0;display:flex;font:800 30px/1.1 'Plus Jakarta Sans',Inter,sans-serif;letter-spacing:-.02em;color:#14244a;overflow:hidden;padding:2px 4px 4px}
+#bhd-intro .bi-l{display:inline-block;transform:translateY(110%);opacity:0}
+#bhd-intro .bi-l2{color:#B9822A}
+#bhd-intro .bi-gap{width:.28em}
+#bhd-intro .bi-tag{margin:0;font:600 11.5px/1.5 Inter,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#6b7080;text-align:center;max-width:34ch;padding:0 16px}
+#bhd-intro .bi-tag span{display:inline-block;opacity:0;transform:translateY(8px);filter:blur(4px)}
+#bhd-intro .bi-bar{position:absolute;left:50%;bottom:12%;width:140px;height:2px;margin-left:-70px;border-radius:2px;background:rgba(20,36,74,.08);overflow:hidden}
+#bhd-intro .bi-bar::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#F2C46D,#B9822A);transform:scaleX(0);transform-origin:left}
+/* play */
+#bhd-intro.bi-go .bi-glow{animation:bi-glow 1.6s cubic-bezier(.2,.8,.2,1) forwards}
+#bhd-intro.bi-go .bi-m{animation:bi-in 1.25s cubic-bezier(.6,0,.2,1) var(--d) forwards}
+#bhd-intro.bi-go .bi-rip{animation:bi-rip 2.1s cubic-bezier(.2,.8,.2,1) .55s infinite}
+#bhd-intro.bi-go .bi-rip:nth-child(2){animation-delay:1.25s}
+#bhd-intro.bi-go .bi-rip:nth-child(3){animation-delay:1.95s}
+#bhd-intro.bi-go .bi-c1{animation:bi-draw 1.2s cubic-bezier(.65,0,.35,1) .35s forwards}
+#bhd-intro.bi-go .bi-c2{animation:bi-fade .6s ease .6s forwards,bi-spin 9s linear .6s infinite}
+#bhd-intro.bi-go .bi-dot{animation:bi-fade .3s ease 1.3s forwards,bi-orbit 2.2s cubic-bezier(.45,0,.55,1) 1.3s infinite}
+#bhd-intro.bi-go .bi-mask{animation:bi-mask .8s cubic-bezier(.2,.8,.2,1) .75s forwards}
+#bhd-intro.bi-go .bi-logo{animation:bi-logo 1.1s cubic-bezier(.34,1.56,.64,1) .75s forwards}
+#bhd-intro.bi-go .bi-l{animation:bi-up .7s cubic-bezier(.2,.8,.2,1) calc(1.15s + var(--k) * 55ms) forwards}
+#bhd-intro.bi-go .bi-tag span{animation:bi-tag .6s ease calc(1.55s + var(--k) * 60ms) forwards}
+#bhd-intro.bi-go .bi-bar::after{animation:bi-bar 2.3s cubic-bezier(.4,0,.2,1) .2s forwards}
+/* exit: the iris closes onto the page while the stage lifts away */
+#bhd-intro.bi-out{clip-path:circle(0% at 50% 46%);transition:clip-path .95s cubic-bezier(.7,0,.2,1)}
+#bhd-intro.bi-out .bi-stage,#bhd-intro.bi-out .bi-word,#bhd-intro.bi-out .bi-tag{transform:scale(.92);opacity:0;transition:transform .7s cubic-bezier(.7,0,.2,1),opacity .5s ease}
+@keyframes bi-glow{to{opacity:1;transform:translate(-50%,-50%) scale(1)}}
+@keyframes bi-in{0%{opacity:0;transform:translate(var(--x),var(--y)) scale(.6)}35%{opacity:.9}100%{opacity:0;transform:translate(0,0) scale(1.2)}}
+@keyframes bi-rip{0%{opacity:.8;transform:scale(.45)}100%{opacity:0;transform:scale(1.9)}}
+@keyframes bi-draw{to{stroke-dashoffset:0}}
+@keyframes bi-fade{to{opacity:1}}
+@keyframes bi-spin{to{transform:rotate(360deg)}}
 @keyframes bi-orbit{to{transform:rotate(360deg)}}
-@media (max-width:560px){#bhd-intro .bi-stage{width:160px;height:160px}#bhd-intro .bi-logo{width:70px}#bhd-intro .bi-tag{font-size:10.5px;padding:0 24px;text-align:center}}
+@keyframes bi-mask{to{clip-path:inset(-20% -20% -20% -20%)}}
+@keyframes bi-logo{to{transform:none}}
+@keyframes bi-up{to{transform:none;opacity:1}}
+@keyframes bi-tag{to{opacity:1;transform:none;filter:none}}
+@keyframes bi-bar{to{transform:scaleX(1)}}
+@media (max-width:560px){#bhd-intro .bi-stage{width:170px;height:170px}#bhd-intro .bi-mask{width:74px;height:74px}#bhd-intro .bi-word{font-size:25px}#bhd-intro .bi-tag{font-size:10.5px}}
 
 /* ---------- COMPACT: tighter sections everywhere except heroes and event pages (handled in event-detail.css) ---------- */
 html body:not(.evt-live) #et-main-area > section:not([class*="hero"]):not(.page-hero):not(.tn-hero),
@@ -413,3 +446,77 @@ html body form.newsletter-form{display:flex!important;align-items:center!importa
 html body form.newsletter-form input[type=email]{flex:1;min-width:0;height:44px!important;margin:0!important;padding:0 18px!important;border:0!important;background:none!important;box-shadow:none!important;font-size:15px!important;outline:none}
 html body form.newsletter-form button{flex:none;height:44px!important;min-height:0!important;margin:0!important;padding:0 22px!important;border-radius:999px!important;font-size:14.5px!important;line-height:1!important}
 html body form.newsletter-form:focus-within{border-color:#14244a!important;box-shadow:0 0 0 3px rgba(20,36,74,.08)!important}
+/* ===== ONE button format everywhere, with motion (owner 8 Nov 2026: "update all buttons ... proper animation and interaction") =====
+   Same size, radius and type as the home hero buttons. Hover: lift + shadow, arrow slides, a light sweep crosses.
+   Press: sinks. Click: ripple from the pointer (shared.js). Focus: clear ring. Sold-out buttons stay still. */
+html body :is(.et_pb_button,.ec-btn,.btn-outline,.btn-white,.btn-white-outline,.tn-btn,.form-submit button,#form-btn,.newsletter-form button,.evt-reg-form button,.bhd-btn){
+  min-height:48px!important;padding:0 22px!important;border-radius:12px!important;font:600 15px/1.1 'Plus Jakarta Sans',Inter,sans-serif!important;letter-spacing:0!important;
+  display:inline-flex!important;align-items:center;justify-content:center;gap:8px;position:relative!important;overflow:hidden!important;isolation:isolate;
+  cursor:pointer;-webkit-tap-highlight-color:transparent;text-decoration:none!important;
+  transition:transform .28s cubic-bezier(.2,.8,.2,1),box-shadow .3s cubic-bezier(.2,.8,.2,1),background-color .2s ease,border-color .2s ease,color .2s ease!important}
+html body .header-contact-btn{min-height:42px!important;padding:0 18px!important;border-radius:12px!important;font:600 14.5px/1.1 'Plus Jakarta Sans',Inter,sans-serif!important;
+  position:relative!important;overflow:hidden!important;isolation:isolate;transition:transform .28s cubic-bezier(.2,.8,.2,1),box-shadow .3s ease,background-color .2s ease!important}
+/* the sweep (re-uses the old fill layer) */
+html body :is(.et_pb_button,.ec-btn,.btn-outline,.btn-white,.btn-white-outline,.tn-btn-ghost,.header-contact-btn,.form-submit button,#form-btn,.newsletter-form button,.evt-reg-form button)::after{
+  content:""!important;position:absolute!important;inset:0!important;z-index:-1;pointer-events:none;border-radius:inherit;clip-path:none!important;opacity:1!important;
+  background:linear-gradient(105deg,transparent 28%,rgba(255,255,255,.30) 50%,transparent 72%)!important;transform:translateX(-135%)!important;transition:none!important}
+html body :is(.btn-outline,.btn-white-outline,.ec-btn-outline,.tn-btn-ghost)::after{background:linear-gradient(105deg,transparent 28%,rgba(242,196,109,.28) 50%,transparent 72%)!important}
+html body :is(.et_pb_button,.ec-btn,.btn-outline,.btn-white,.btn-white-outline,.tn-btn-ghost,.header-contact-btn,.form-submit button,#form-btn,.newsletter-form button,.evt-reg-form button):is(:hover,:focus-visible)::after{
+  transform:translateX(135%)!important;transition:transform .75s cubic-bezier(.2,.8,.2,1)!important}
+/* lift + shadow, press */
+html body :is(.et_pb_button,.ec-btn,.btn-outline,.btn-white,.btn-white-outline,.tn-btn,.header-contact-btn,.form-submit button,#form-btn,.newsletter-form button,.evt-reg-form button):hover{transform:translateY(-2px)!important}
+html body :is(.et_pb_button:not(.btn-outline):not(.btn-white-outline),.ec-btn-fill,.tn-btn-pri,.header-contact-btn,.form-submit button,#form-btn,.newsletter-form button,.evt-reg-form button):hover{box-shadow:0 14px 28px -14px rgba(20,36,74,.6)!important}
+html body :is(.btn-outline,.btn-white-outline,.ec-btn-outline,.tn-btn-ghost):hover{box-shadow:0 12px 24px -16px rgba(20,36,74,.35)!important;border-color:#14244a!important}
+html body :is(.et_pb_button,.ec-btn,.btn-outline,.btn-white,.btn-white-outline,.tn-btn,.header-contact-btn,.form-submit button,#form-btn,.newsletter-form button,.evt-reg-form button):active{
+  transform:translateY(0) scale(.97)!important;box-shadow:none!important;transition-duration:.1s!important}
+/* arrows */
+html body :is(.btn-arr,.tn-ar){transition:transform .35s cubic-bezier(.34,1.56,.64,1)!important}
+html body :is(.et_pb_button,.ec-btn,.tn-btn,.tn-link):is(:hover,:focus-visible) :is(.btn-arr,.tn-ar){transform:translateX(4px)!important}
+/* focus */
+html body :is(.et_pb_button,.ec-btn,.btn-outline,.btn-white,.btn-white-outline,.tn-btn,.header-contact-btn,.form-submit button,#form-btn,.newsletter-form button,.evt-reg-form button):focus-visible{outline:2px solid #14244a!important;outline-offset:3px!important}
+html body :is(.page-hero-ctas,.evt-hero-ctas) .et_pb_button:focus-visible,html body .et_pb_button.on-dark:focus-visible{outline-color:#fff!important}
+/* click ripple */
+html body .bhd-rip{position:absolute;z-index:-1;border-radius:50%;pointer-events:none;width:12px;height:12px;margin:-6px 0 0 -6px;background:currentColor;opacity:.22;transform:scale(0);animation:bhd-rip .6s cubic-bezier(.2,.8,.2,1) forwards}
+@keyframes bhd-rip{to{transform:scale(var(--r,30));opacity:0}}
+/* sold out / disabled: no motion */
+html body :is(.ec-btn-sold,.et_pb_button[aria-disabled="true"],button:disabled){cursor:default!important;transform:none!important;box-shadow:none!important}
+html body :is(.ec-btn-sold,.et_pb_button[aria-disabled="true"],button:disabled)::after{display:none!important}
+/* event-card buttons keep their compact size */
+html body .evt-card .ec-btn{min-height:40px!important;padding:0 14px!important;font-size:14px!important;border-radius:10px!important}
+html body .header-contact-btn .btn-arr{display:none}
+@media (prefers-reduced-motion:reduce){
+  html body :is(.et_pb_button,.ec-btn,.btn-outline,.btn-white,.btn-white-outline,.tn-btn,.header-contact-btn,.form-submit button,#form-btn,.newsletter-form button,.evt-reg-form button){transform:none!important}
+  html body :is(.et_pb_button,.ec-btn,.btn-outline,.btn-white,.btn-white-outline,.tn-btn-ghost,.header-contact-btn,.form-submit button,#form-btn,.newsletter-form button,.evt-reg-form button)::after,html body .bhd-rip{display:none!important}
+  html body :is(.btn-arr,.tn-ar){transform:none!important}}
+/* footer: compact like the original format (owner 8 Nov) */
+html body #footer-widgets{padding:40px 0 28px!important}
+html body #footer-widgets .container{gap:24px 40px!important}
+html body #main-footer .footer-brand-name{font-size:20px!important;margin:0 0 10px!important}
+html body #main-footer .footer-widget h4{font-size:11px!important;margin:4px 0 12px!important}
+html body #main-footer .footer-widget ul{gap:4px!important}
+html body #main-footer .footer-widget :is(ul li a,p,p a){font-size:14px!important;line-height:1.5!important}
+html body #main-footer .footer-widget p{margin:0 0 6px!important}
+html body #main-footer .footer-widget:first-child p+p{font-size:12.5px!important}
+html body #main-footer .footer-social{margin-top:12px!important}
+html body #footer-bottom{padding:12px 0!important}
+html body :is(#footer-info,#footer-credit,#footer-credit a){font-size:12.5px!important}
+@media (max-width:560px){html body #footer-widgets{padding:24px 0 16px!important}html body #footer-widgets .container{gap:18px 16px!important}
+  html body #main-footer .footer-widget ul{gap:2px!important}html body #main-footer .footer-widget :is(ul li a,p,p a){font-size:13.5px!important}
+  html body #main-footer .footer-widget ul li a{padding:3px 0!important}}
+/* one type scale for section titles on every page (hero H1s untouched): title clearly larger than lead, lead larger than body */
+html body #et-main-area section:not(.tn-hero-isa) h2:not(.bio-vh){font-size:clamp(1.65rem,2.5vw,2.2rem)!important;line-height:1.15!important;letter-spacing:-.02em!important}
+/* About: Why we do what we do + What we stand for - compact, clear hierarchy */
+html body .ab-mv{padding-top:clamp(48px,6vw,72px)!important;padding-bottom:clamp(48px,6vw,72px)!important}
+html body .ab-mv .ab-mv-grid{gap:clamp(32px,5vw,64px)!important;align-items:start!important}
+html body .ab-mv .ab-h2{margin:0 0 14px!important}
+html body .ab-mv .ab-rule{margin:0 0 16px!important}
+html body .ab-mv .ab-statement{font:600 17.5px/1.5 'Plus Jakarta Sans',Inter,sans-serif!important;color:#14244a!important;margin:0 0 16px!important;max-width:40ch}
+html body .ab-mv .ab-mission-copy{display:grid;gap:8px}
+html body .ab-mv .ab-line{font-size:14.5px!important;line-height:1.6!important;color:#4b5163!important;margin:0!important}
+html body .ab-mv .ab-mission-cta{margin-top:20px!important}
+html body .ab-mv .ab-vals{gap:12px!important}
+html body .ab-mv .ab-val{display:grid!important;grid-template-columns:22px minmax(0,1fr);column-gap:12px;align-items:start;padding:18px 20px!important;text-align:left!important}
+html body .ab-mv .ab-val-i{grid-row:1/3;margin:2px 0 0!important;width:22px!important;height:22px!important}
+html body .ab-mv .ab-val-i svg{width:22px!important;height:22px!important}
+html body .ab-mv .ab-val h3{font-size:16px!important;line-height:1.3!important;margin:0 0 6px!important}
+html body .ab-mv .ab-val p{font-size:13.5px!important;line-height:1.55!important;color:#5a6072!important;margin:0!important}

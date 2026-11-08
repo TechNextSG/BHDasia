@@ -2,23 +2,40 @@ window.__bhd960=["card-art-of-conscious-rest.webp", "card-body-in-the-room.webp"
 /* calm mode (owner 8 Nov 2026: smoother, no glow/tilt/spotlight/auto-advance; only the home hero animates) */
 window.BHD_CALM = true;
 
-/* welcome intro (owner 8 Nov 2026, HummingBeing language): gold hairline circle draws in, BHD mark settles, tagline,
-   then the page is revealed. Once per visit; click/key skips; reduced motion never sees it (head snippet decides). */
+/* welcome intro v2 (owner 8 Nov 2026: highly animated). ~2.6 s, once per visit, click/key skips,
+   reduced motion never sees it (head snippet decides). Gold motes stream in, ripples pulse, a hairline ring draws,
+   the BHD mark rises through a mask, "BHD Asia" lifts letter by letter, the tagline follows, then an iris closes
+   onto the page while the hero plays. */
 (function () {
   var d = document.documentElement; if (!d.classList.contains('intro-on')) return;
   try { sessionStorage.setItem('bhdIntro', '1'); } catch (e) {}
   var o = document.createElement('div'); o.id = 'bhd-intro'; o.setAttribute('aria-hidden', 'true');
-  o.innerHTML = '<div class="bi-stage"><svg class="bi-art" viewBox="0 0 240 240">' +
-    '<circle class="bi-c1" cx="120" cy="120" r="104" pathLength="1"/><circle class="bi-c2" cx="120" cy="120" r="88" pathLength="1"/>' +
-    '<circle class="bi-dot" cx="120" cy="16" r="3"/></svg>' +
-    '<img class="bi-logo" src="/bhd-logo.png" alt="" width="96" height="96"></div>' +
-    '<p class="bi-tag">Highlight, Enhance and Appreciate Human in Business.</p>';
+  var motes = '', N = window.innerWidth < 600 ? 18 : 30;
+  for (var i = 0; i < N; i++) {
+    var a = Math.random() * 6.283, r = 46 + Math.random() * 30;
+    motes += '<i class="bi-m" style="--x:' + (Math.cos(a) * r).toFixed(1) + 'vmax;--y:' + (Math.sin(a) * r).toFixed(1) + 'vmax;--d:' +
+      (Math.random() * .5).toFixed(2) + 's;--s:' + (Math.random() * 3 + 2).toFixed(1) + 'px"></i>';
+  }
+  var word = function (t, cls, start) {
+    return t.split('').map(function (c, k) { return '<span class="' + cls + '" style="--k:' + (start + k) + '">' + (c === ' ' ? '&nbsp;' : c) + '</span>'; }).join('');
+  };
+  var tag = 'Highlight, Enhance and Appreciate Human in Business.'.split(' ').map(function (w, k) {
+    return '<span style="--k:' + k + '">' + w + '</span>'; }).join(' ');
+  o.innerHTML = '<div class="bi-glow"></div><div class="bi-motes">' + motes + '</div>' +
+    '<div class="bi-stage"><i class="bi-rip"></i><i class="bi-rip"></i><i class="bi-rip"></i>' +
+    '<svg class="bi-art" viewBox="0 0 240 240"><circle class="bi-c1" cx="120" cy="120" r="108" pathLength="1"/>' +
+    '<circle class="bi-c2" cx="120" cy="120" r="92"/><circle class="bi-dot" cx="120" cy="12" r="3.5"/></svg>' +
+    '<span class="bi-mask"><img class="bi-logo" src="/bhd-logo.png" alt="" width="96" height="96"></span></div>' +
+    '<p class="bi-word">' + word('BHD', 'bi-l', 0) + '<span class="bi-gap"></span>' + word('Asia', 'bi-l bi-l2', 3) + '</p>' +
+    '<p class="bi-tag">' + tag + '</p><i class="bi-bar"></i>';
   document.body.appendChild(o);
-  requestAnimationFrame(function () { o.classList.add('bi-go'); });
+  requestAnimationFrame(function () { requestAnimationFrame(function () { o.classList.add('bi-go'); }); });
   var done = false;
-  function out() { if (done) return; done = true; o.classList.add('bi-out'); d.classList.remove('intro-on');
-    setTimeout(function () { o.remove(); }, 750); }
-  setTimeout(out, 1900);
+  function out() {
+    if (done) return; done = true; o.classList.add('bi-out'); d.classList.remove('intro-on');
+    setTimeout(function () { o.remove(); }, 1000);
+  }
+  setTimeout(out, 2650);
   o.addEventListener('click', out); document.addEventListener('keydown', out, { once: true });
 })();
 /* clean URLs: someone who lands on /about.html sees /about (index.html -> /) */
@@ -985,7 +1002,7 @@ function bhdRegGate(REG){
     document.querySelectorAll(SEL).forEach(function (b) {
       if (b.dataset.bhdBtn) return; b.dataset.bhdBtn = '1';
       if (b.classList.contains('et_pb_button')) b.classList.add(onDark(b) ? 'on-dark' : 'on-light');
-      if (b.tagName === 'A' && b.classList.contains('et_pb_button') && !b.querySelector('.btn-arr, svg')) {
+      if (b.tagName === 'A' && (b.classList.contains('et_pb_button') || b.classList.contains('ec-btn-fill')) && !b.querySelector('.btn-arr, svg')) {
         var lt = b.lastChild;
         if (lt && lt.nodeType === 3) lt.nodeValue = lt.nodeValue.replace(/\s*[→➜⟶]\s*$/, '');
         var s = document.createElement('span'); s.className = 'btn-arr'; s.setAttribute('aria-hidden', 'true'); s.innerHTML = ARROW; b.appendChild(s);
@@ -1373,4 +1390,17 @@ function bhdRegGate(REG){
   }
   if (document.readyState !== 'loading') setTimeout(init, 400);
   else document.addEventListener('DOMContentLoaded', function () { setTimeout(init, 400); });
+})();
+
+/* button click ripple (8 Nov 2026): a soft circle grows from the pointer on every button */
+(function () {
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var SEL = '.et_pb_button,.ec-btn,.btn-outline,.btn-white,.btn-white-outline,.tn-btn,.header-contact-btn,.form-submit button,#form-btn,.newsletter-form button,.evt-reg-form button';
+  document.addEventListener('pointerdown', function (e) {
+    var b = e.target.closest && e.target.closest(SEL); if (!b || b.disabled || b.classList.contains('ec-btn-sold')) return;
+    var r = b.getBoundingClientRect(), s = document.createElement('span'); s.className = 'bhd-rip';
+    s.style.left = (e.clientX - r.left) + 'px'; s.style.top = (e.clientY - r.top) + 'px';
+    s.style.setProperty('--r', Math.ceil(Math.hypot(r.width, r.height) / 6));
+    b.appendChild(s); setTimeout(function () { s.remove(); }, 700);
+  }, { passive: true });
 })();
