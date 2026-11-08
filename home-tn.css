@@ -357,3 +357,54 @@ html body #main-header.hdr-onlight:not(.et-fixed-header):not(.hdr-solid) .mobile
   .tn-hero-isa .tn-float-name{right:0!important;left:auto!important;top:auto!important;bottom:4%!important;max-width:168px!important;padding:8px 11px!important;gap:1px!important}
   .tn-hero-isa .tn-float-name b{font-size:12.5px!important;line-height:1.25!important}
   .tn-hero-isa .tn-float-name span{font-size:11px!important}}
+
+/* ===== HERO AURA (8 Nov 2026, owner: "heavy animation on Isabelle hero section background") =====
+   Layers behind Isabelle: slow light rays, three drifting liquid colour fields, radiating pulse waves and comet arcs
+   sweeping the halo. GPU-only motion (transform/opacity), colours per hero variant, still frame for reduced motion. */
+.tn-hero-isa{--au1:242,196,109;--au2:255,214,160;--au3:150,170,215}
+.tn-hero-isa[data-v="1"]{--au1:255,170,120;--au2:242,196,109;--au3:255,205,170}
+.tn-hero-isa[data-v="2"]{--au1:176,160,235;--au2:242,196,109;--au3:140,180,235}
+.tn-hero-isa[data-v="3"]{--au1:140,170,225;--au2:242,196,109;--au3:205,220,245}
+.hv-aura{position:absolute;left:50%;top:48%;width:min(760px,150%);aspect-ratio:1;transform:translate(-50%,-50%);pointer-events:none;z-index:0;
+  translate:calc(var(--px,0) * 16px) calc(var(--py,0) * 10px);transition:translate 1s cubic-bezier(.2,.8,.2,1)}
+.hv-aura i{position:absolute;display:block;border-radius:50%;will-change:transform}
+/* light rays */
+.au-rays{inset:0;background:repeating-conic-gradient(from 0deg,rgba(var(--au1),0) 0deg,rgba(var(--au1),.30) 3deg,rgba(var(--au1),0) 8deg,rgba(var(--au1),0) 20deg);
+  -webkit-mask:radial-gradient(circle,transparent 31%,#000 40%,rgba(0,0,0,.55) 55%,transparent 70%);mask:radial-gradient(circle,transparent 31%,#000 40%,rgba(0,0,0,.55) 55%,transparent 70%);
+  animation:au-spin 70s linear infinite}
+/* liquid colour fields */
+.au-blob{width:58%;aspect-ratio:1;filter:blur(46px);opacity:.75}
+.au-b1{left:4%;top:8%;background:radial-gradient(circle,rgba(var(--au1),.95) 0%,rgba(var(--au1),0) 68%);animation:au-b1 16s ease-in-out infinite alternate}
+.au-b2{right:2%;top:26%;background:radial-gradient(circle,rgba(var(--au2),.9) 0%,rgba(var(--au2),0) 68%);animation:au-b2 19s ease-in-out infinite alternate}
+.au-b3{left:22%;bottom:2%;background:radial-gradient(circle,rgba(var(--au3),.85) 0%,rgba(var(--au3),0) 68%);animation:au-b3 23s ease-in-out infinite alternate}
+@keyframes au-b1{0%{transform:translate(0,0) scale(1)}50%{transform:translate(22%,14%) scale(1.18)}100%{transform:translate(8%,30%) scale(.92)}}
+@keyframes au-b2{0%{transform:translate(0,0) scale(1.05)}50%{transform:translate(-24%,10%) scale(.9)}100%{transform:translate(-10%,-18%) scale(1.2)}}
+@keyframes au-b3{0%{transform:translate(0,0) scale(.95)}50%{transform:translate(14%,-22%) scale(1.15)}100%{transform:translate(-16%,-8%) scale(1)}}
+/* pulse waves radiating from the halo */
+.au-wave{inset:21%;border:1.5px solid rgba(var(--au1),.6);opacity:0;animation:au-wave 6.6s cubic-bezier(.2,.6,.3,1) infinite}
+.au-wave:nth-of-type(6){animation-delay:2.2s}.au-wave:nth-of-type(7){animation-delay:4.4s}
+@keyframes au-wave{0%{transform:scale(.86);opacity:0}12%{opacity:.85}100%{transform:scale(1.62);opacity:0}}
+/* comet arcs sweeping round the halo */
+.au-arc{-webkit-mask:radial-gradient(farthest-side,transparent calc(100% - 2.5px),#000 calc(100% - 2px));mask:radial-gradient(farthest-side,transparent calc(100% - 2.5px),#000 calc(100% - 2px))}
+.au-a1{inset:17%;background:conic-gradient(from 0deg,transparent 0 62%,rgba(var(--au1),.15) 72%,rgba(var(--au1),.95) 97%,#fff 99.6%,transparent 100%);animation:au-spin 9s linear infinite}
+.au-a2{inset:12%;background:conic-gradient(from 180deg,transparent 0 70%,rgba(var(--au3),.1) 78%,rgba(var(--au3),.85) 98%,transparent 100%);animation:au-spin 14s linear infinite reverse}
+.au-a3{inset:7%;background:conic-gradient(from 90deg,transparent 0 80%,rgba(var(--au2),.08) 86%,rgba(var(--au2),.7) 99%,transparent 100%);animation:au-spin 22s linear infinite;opacity:.8}
+@keyframes au-spin{to{transform:rotate(360deg)}}
+/* entrance: the aura blooms open with the hero */
+.hv-on .hv-aura{opacity:0;scale:.7}
+.hv-go .hv-aura{animation:au-in 1.8s cubic-bezier(.2,.8,.2,1) .05s both}
+@keyframes au-in{from{opacity:0;scale:.7}to{opacity:1;scale:1}}
+/* the photo sits above the aura; the butter halo becomes a little glassy so the light shows through its edge */
+.tn-hero-isa .tn-art-ring{z-index:1}
+.tn-hero-isa .tn-art-isa{z-index:2}
+.tn-hero-isa .tn-float{z-index:3}
+.tn-hero-isa .tn-art-ring{opacity:.92}
+@media (max-width:700px){.hv-aura{width:150%}.au-blob{filter:blur(32px)}.au-rays{animation-duration:90s}}
+@media (prefers-reduced-motion:reduce){.hv-aura,.hv-aura i{animation:none!important}.hv-on .hv-aura{opacity:1!important;scale:1!important}.au-wave{opacity:.35!important;transform:scale(1.2)!important}}
+/* aura: stronger (owner wants it heavy) */
+.au-rays{background:repeating-conic-gradient(from 0deg,rgba(var(--au1),0) 0deg,rgba(var(--au1),.42) 3deg,rgba(var(--au1),0) 8deg,rgba(var(--au1),0) 18deg)}
+.au-blob{opacity:.9}
+.au-wave{border-width:2px;border-color:rgba(var(--au1),.75)}
+.au-arc{-webkit-mask:radial-gradient(farthest-side,transparent calc(100% - 4px),#000 calc(100% - 3px));mask:radial-gradient(farthest-side,transparent calc(100% - 4px),#000 calc(100% - 3px))}
+.au-a1{filter:drop-shadow(0 0 6px rgba(var(--au1),.9))}
+@media (max-width:700px){.hv-aura{width:122%!important;top:52%!important}}

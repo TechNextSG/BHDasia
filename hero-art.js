@@ -34,6 +34,7 @@
       { c: SKY, r: .42, ax: .16, ay: .20, fx: .09, fy: .06, ox: .40, oy: .20, p: 4 },
       { c: [255, 226, 160], r: .36, ax: .20, ay: .10, fx: .06, fy: .11, ox: .60, oy: .80, p: 1 }
     ];
+    ORB = [];   /* orbit radii follow the halo size: re-seed on resize */
   }
 
   /* 0: flowing gold hairlines drawn in left -> right + rings with travelling beads */
@@ -132,12 +133,44 @@
     ctx.beginPath(); ctx.arc(0, 0, R * 1.52, 0, Math.PI * 2 * intro); ctx.stroke(); ctx.restore();
   }
 
+  /* all looks: sparkles on three tilted orbits around Isabelle, with fading trails; front of the orbit = bigger + brighter */
+  var ORB = [];
+  function seedOrbits() {
+    ORB = []; var n = W < 700 ? 14 : 30;
+    for (var i = 0; i < n; i++) {
+      var k = i % 3;
+      ORB.push({ k: k, a: Math.random() * 6.283, s: (0.18 + Math.random() * 0.22) * (k === 1 ? -1 : 1),
+        rx: R * (1.18 + k * 0.2 + Math.random() * 0.06), tilt: [-0.42, 0.5, -0.12][k], flat: [0.34, 0.28, 0.46][k],
+        size: 1.2 + Math.random() * 1.8, gold: Math.random() < 0.72 });
+    }
+  }
+  function orbits(t, intro) {
+    if (!ORB.length) seedOrbits();
+    var ox = cx + px * 0.6, oy = cy + py * 0.6;
+    for (var i = 0; i < ORB.length; i++) {
+      var o = ORB[i], ct = Math.cos(o.tilt), st = Math.sin(o.tilt);
+      for (var j = 7; j >= 0; j--) {                       /* trail: 7 fading steps behind the head */
+        var a = o.a + t * o.s - j * 0.045 * Math.sign(o.s), ex = Math.cos(a) * o.rx, ey = Math.sin(a) * o.rx * o.flat;
+        var x = ox + ex * ct - ey * st, y = oy + ex * st + ey * ct, depth = (Math.sin(a) + 1) / 2;   /* 0 back .. 1 front */
+        var al = (j === 0 ? 0.95 : 0.5 * (1 - j / 8)) * (0.35 + 0.65 * depth) * intro;
+        ctx.fillStyle = o.gold ? rgba(GOLD, al) : rgba(INK, al * 0.55);
+        ctx.beginPath(); ctx.arc(x, y, o.size * (0.6 + 0.8 * depth) * (j === 0 ? 1 : 1 - j / 10), 0, 6.283); ctx.fill();
+        if (j === 0 && depth > 0.75) {                     /* glint when passing in front */
+          var g = ctx.createRadialGradient(x, y, 0, x, y, o.size * 7);
+          g.addColorStop(0, rgba(GOLD, 0.35 * intro)); g.addColorStop(1, rgba(GOLD, 0));
+          ctx.fillStyle = g; ctx.beginPath(); ctx.arc(x, y, o.size * 7, 0, 6.283); ctx.fill();
+        }
+      }
+    }
+  }
+
   var prev = 0;
   function frame(now) {
     var t = (now - t0) / 1000, intro = reduce ? 1 : ease(t / 1.8), dt = prev ? Math.min((now - prev) / 1000, .05) : 0; prev = now;
     px += (mx - px) * .06; py += (my - py) * .06;
     ctx.clearRect(0, 0, W, H);
     if (mode === 1) ripples(t, intro); else if (mode === 2) aurora(t, intro); else if (mode === 3) rise(t, dt, intro); else silk(t, intro);
+    orbits(t, intro);
     if (running) raf = requestAnimationFrame(frame);
   }
 
