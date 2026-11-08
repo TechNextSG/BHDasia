@@ -1,0 +1,84 @@
+/* bhdasia.com - TechNext type + style layer, BHD Asia colours kept (8 Nov 2026).
+   Loaded LAST on every page. Fonts: Plus Jakarta Sans (headings) + Inter (body), self-hosted.
+   Style taken from technext.asia site.css: tight heavy headings, 12px buttons 46px tall,
+   cards with a fine line + soft layered shadow, tracked uppercase eyebrows, 2px hover lift, .96 press.
+   Every colour below is a BHD token (marigold, ink, red, ivory, sand, line). */
+
+@font-face{font-family:'Inter';font-style:normal;font-weight:100 900;font-display:swap;src:url(/fonts/tn/inter-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Inter';font-style:normal;font-weight:100 900;font-display:swap;src:url(/fonts/tn/inter-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:200 800;font-display:swap;src:url(/fonts/tn/plus-jakarta-sans-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:200 800;font-display:swap;src:url(/fonts/tn/plus-jakarta-sans-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+
+/* old font names now resolve to the TechNext fonts (leftover inline styles, shared.js, event-detail.css) */
+@font-face{font-family:'Sora';font-weight:100 900;font-display:swap;src:url(/fonts/tn/plus-jakarta-sans-latin.woff2) format('woff2')}
+@font-face{font-family:'DM Sans';font-weight:100 900;font-display:swap;src:url(/fonts/tn/inter-latin.woff2) format('woff2')}
+@font-face{font-family:'DM Sans';font-style:italic;font-weight:100 900;font-display:swap;src:url(/fonts/tn/inter-latin.woff2) format('woff2')}
+@font-face{font-family:'Figtree';font-weight:100 900;font-display:swap;src:url(/fonts/tn/inter-latin.woff2) format('woff2')}
+
+:root{
+  --font-warm: Inter, system-ui, -apple-system, 'Segoe UI', sans-serif;      /* body (was Figtree) */
+  --font-display: 'Plus Jakarta Sans', Inter, system-ui, sans-serif;          /* headings */
+  /* TechNext shadows, tinted with BHD ink */
+  --shadow-sm: 0 1px 2px rgba(20,36,74,.06), 0 8px 24px -18px rgba(20,36,74,.25);
+  --shadow:    0 2px 6px rgba(20,36,74,.06), 0 24px 48px -28px rgba(20,36,74,.35);
+  --shadow-lg: 0 6px 16px rgba(20,36,74,.08), 0 32px 64px -30px rgba(20,36,74,.40);
+  --shadow-cta: 0 12px 28px -12px rgba(242,161,0,.60);
+  --r: 14px; --r-md: 14px; --r-lg: 20px; --r-btn: 12px;
+  --tn-ease: cubic-bezier(.2,.8,.2,1);
+}
+
+/* ---------- type ---------- */
+html body{font-family:var(--font-warm)!important;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+html body :is(p,li,a,span,button,input,textarea,select,label,small,strong,b,em,dt,dd,blockquote,figcaption,td,th){font-family:var(--font-warm)!important}
+html body :is(h1,h2,h3,h4,h5,h6),
+html body :is(h1,h2,h3,h4,h5,h6) :is(span,a,em,strong,b){font-family:var(--font-display)!important}
+html body :is(h1,h2,h3,h4){letter-spacing:-.015em;text-wrap:balance}
+html body h1{font-weight:800!important;letter-spacing:-.025em!important;line-height:1.06}
+html body h2{font-weight:700;line-height:1.14}
+html body h3{font-weight:700;line-height:1.3}
+html body p{text-wrap:pretty}
+html body :is(p,li,td,dd){overflow-wrap:break-word}
+
+/* eyebrows / labels: TechNext eyebrow (BHD amber ink keeps the colour) */
+html body :is(.section-label,.hero-label,.ec-tags,.hec-tag,.pp-caption-label,.eyebrow,.kicker){
+  font:700 12px/1.3 var(--font-warm)!important;letter-spacing:.12em!important;text-transform:uppercase}
+
+/* ---------- buttons ---------- */
+html body :is(.et_pb_button,.ec-btn,.btn,.btn-outline,.btn-white,.btn-white-outline,.header-contact-btn,.hx-cta-btns a,.hero-ctas a,.page-hero-ctas a,.bhd-btn){
+  border-radius:var(--r-btn)!important;font:600 15px/1 var(--font-warm)!important;letter-spacing:0!important;text-transform:none!important;
+  min-height:46px;padding-left:20px!important;padding-right:20px!important;display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  transition:transform .18s var(--tn-ease),box-shadow .25s var(--tn-ease),background-color .2s,border-color .2s,color .2s!important}
+html body :is(.et_pb_button,.ec-btn,.btn,.btn-outline,.btn-white,.btn-white-outline,.header-contact-btn,.hx-cta-btns a,.hero-ctas a,.page-hero-ctas a,.bhd-btn):hover{transform:translateY(-2px)}
+html body :is(.et_pb_button,.ec-btn,.btn,.btn-outline,.btn-white,.btn-white-outline,.header-contact-btn,.hx-cta-btns a,.hero-ctas a,.page-hero-ctas a,.bhd-btn):active{transform:scale(.96)}
+html body :is(.ec-btn-fill,.header-contact-btn):hover{box-shadow:var(--shadow-cta)}
+html body .header-contact-btn{min-height:42px}
+
+/* ---------- cards: fine line + soft layered shadow (TechNext) ---------- */
+html body :is(.card,.pillar-card,.value-card,.mission-card,.coaching-package,.service-category,.team-card,.event-card,.ec,.stat-box,.contact-detail){
+  border:1px solid var(--line)!important;border-radius:var(--r-lg)!important;box-shadow:var(--shadow-sm);
+  transition:transform .25s var(--tn-ease),box-shadow .25s var(--tn-ease),border-color .25s}
+html body :is(.card,.pillar-card,.value-card,.coaching-package,.service-category,.team-card,.event-card,.ec):hover{
+  transform:translateY(-2px);box-shadow:var(--shadow);border-color:#E6D4B8!important}
+
+/* ---------- light sections: TechNext dotted field, in BHD ink ---------- */
+html body :is(.section-light,.band-cream){
+  background:radial-gradient(circle at 1px 1px,rgba(20,36,74,.07) 1px,transparent 1.5px) 0 0/22px 22px,var(--sand)!important}
+
+/* ---------- forms ---------- */
+html body :is(input,select,textarea):not([type=checkbox]):not([type=radio]){border-radius:10px}
+html body :is(input,select,textarea):focus-visible{outline:2px solid var(--marigold-dk)!important;outline-offset:2px}
+
+/* ---------- icons bare, never on tiles (TechNext rule) ---------- */
+html body :is(.ab-stop-i,.ab-val-i,.ct-ico,.ct-book-ico,.ct-news-ico,.ops-ico,.ev-refund-i,.sv-tab-i,.value-card-icon,.icf-icon){
+  background:none!important;background-image:none!important;box-shadow:none!important;border:0!important;
+  width:auto!important;height:auto!important;min-width:0!important;padding:0!important;border-radius:0!important;color:var(--amber-ink)!important}
+html body :is(.ab-stop-i,.ab-val-i,.ct-ico,.ct-news-ico,.ops-ico,.ev-refund-i,.sv-tab-i,.value-card-icon,.icf-icon) svg[stroke]:not([stroke=none]),
+html body :is(.ab-stop-i,.ab-val-i,.ct-ico,.ct-news-ico,.ops-ico,.ev-refund-i,.sv-tab-i,.value-card-icon,.icf-icon) svg [stroke]:not([stroke=none]){stroke:currentColor!important}
+html body :is(.ab-stop-i,.ab-val-i,.ct-ico,.ct-news-ico,.ops-ico,.sv-tab-i,.value-card-icon,.icf-icon) svg{width:26px;height:26px}
+html body .ct-book-ico{color:var(--marigold)!important}
+html body .ev-refund-i{color:var(--brand-red)!important}
+
+@media (prefers-reduced-motion:reduce){
+  html body *{transition-duration:.01ms!important}
+  html body :is(.et_pb_button,.ec-btn,.btn,.card,.ec,.event-card):hover{transform:none!important}
+}
