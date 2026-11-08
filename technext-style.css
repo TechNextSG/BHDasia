@@ -25,6 +25,12 @@
   --shadow-cta: 0 12px 28px -12px rgba(242,161,0,.60);
   --r: 14px; --r-md: 14px; --r-lg: 20px; --r-btn: 12px;
   --tn-ease: cubic-bezier(.2,.8,.2,1);
+  /* pastel corporate palette (owner 8 Nov 2026: "much more pastel and not strong, more corporate").
+     Same BHD family, softened. Navy carries actions; marigold is only a light accent. */
+  --marigold:#F2C46D; --marigold-dk:#E5B254; --sun:#F1DD9A; --peach:#FFF3DF;
+  --ivory:#FFFDF9; --sand:#FAF6EF; --line:#ECE5D9; --border:#ECE5D9; --off-white:#FAF6EF;
+  --blue:#F2C46D; --blue-dk:#E5B254; --gold:#F1DD9A;
+  --navy-tint:#F2F5FA; --navy-line:#D8DEE9; --btn-ink:#14244a; --btn-ink-hover:#24386A;
 }
 
 /* ---------- type ---------- */
@@ -50,8 +56,34 @@ html body :is(.et_pb_button,.ec-btn,.btn,.btn-outline,.btn-white,.btn-white-outl
   transition:transform .18s var(--tn-ease),box-shadow .25s var(--tn-ease),background-color .2s,border-color .2s,color .2s!important}
 html body :is(.et_pb_button,.ec-btn,.btn,.btn-outline,.btn-white,.btn-white-outline,.header-contact-btn,.hx-cta-btns a,.hero-ctas a,.page-hero-ctas a,.bhd-btn):hover{transform:translateY(-2px)}
 html body :is(.et_pb_button,.ec-btn,.btn,.btn-outline,.btn-white,.btn-white-outline,.header-contact-btn,.hx-cta-btns a,.hero-ctas a,.page-hero-ctas a,.bhd-btn):active{transform:scale(.96)}
-html body :is(.ec-btn-fill,.header-contact-btn):hover{box-shadow:var(--shadow-cta)}
 html body .header-contact-btn{min-height:42px}
+
+/* ---------- ONE button system (owner 8 Nov 2026: "fix all buttons, simplified everything") ----------
+   Primary   = solid navy, white text.        Secondary = white, fine border, navy text.
+   On dark photo heroes / navy cards: primary = white with navy text, secondary = white outline. */
+html body :is(.et_pb_button:not(.btn-outline):not(.btn-white-outline),.ec-btn-fill,.header-contact-btn,.tn-btn-pri,.tn-btn-ink){
+  background:var(--btn-ink)!important;border:1px solid var(--btn-ink)!important;color:#fff!important;box-shadow:0 1px 2px rgba(20,36,74,.12)!important}
+html body :is(.et_pb_button:not(.btn-outline):not(.btn-white-outline),.ec-btn-fill,.header-contact-btn,.tn-btn-pri,.tn-btn-ink):hover{
+  background:var(--btn-ink-hover)!important;border-color:var(--btn-ink-hover)!important;color:#fff!important;box-shadow:0 12px 26px -14px rgba(20,36,74,.55)!important}
+html body :is(.btn-outline,.btn-white-outline,.ec-btn-outline,.tn-btn-ghost,.tn-btn-line){
+  background:#fff!important;border:1px solid var(--navy-line)!important;color:var(--btn-ink)!important;box-shadow:none!important}
+html body :is(.btn-outline,.btn-white-outline,.ec-btn-outline,.tn-btn-ghost,.tn-btn-line):hover{border-color:var(--btn-ink)!important;color:var(--btn-ink)!important;background:#fff!important}
+/* dark contexts */
+html body :is(.page-hero-ctas,.evt-hero-ctas) .et_pb_button:not(.btn-outline):not(.btn-white-outline),
+html body .et_pb_button.on-dark:not(.btn-outline):not(.btn-white-outline){background:#fff!important;border-color:#fff!important;color:var(--btn-ink)!important}
+html body :is(.page-hero-ctas,.evt-hero-ctas) .et_pb_button.on-dark:hover,
+html body :is(.page-hero-ctas,.evt-hero-ctas) .et_pb_button:not(.btn-outline):not(.btn-white-outline):hover,
+html body .et_pb_button.on-dark:not(.btn-outline):not(.btn-white-outline):hover{background:#F2F5FA!important;border-color:#F2F5FA!important;color:var(--btn-ink)!important}
+html body :is(.page-hero-ctas,.evt-hero-ctas) :is(.btn-outline,.btn-white-outline),
+html body .et_pb_button.on-dark:is(.btn-outline,.btn-white-outline){background:transparent!important;border-color:rgba(255,255,255,.6)!important;color:#fff!important}
+html body :is(.page-hero-ctas,.evt-hero-ctas) :is(.btn-outline,.btn-white-outline):hover,
+html body .et_pb_button.on-dark:is(.btn-outline,.btn-white-outline):hover{border-color:#fff!important;background:rgba(255,255,255,.08)!important;color:#fff!important}
+/* the "Add to calendar" button sits on a light card */
+html body .ev-ics{background:#fff!important;border-color:var(--navy-line)!important;color:var(--btn-ink)!important}
+/* sold / ended stay muted */
+html body :is(.ec-btn-sold,.ec-btn-ended){background:#F1EFEA!important;border:1px solid #E4DFD5!important;color:#6f6a64!important;box-shadow:none!important}
+/* button icons follow the text colour */
+html body :is(.et_pb_button,.ec-btn,.header-contact-btn,.tn-btn) svg{stroke:currentColor}
 
 /* ---------- cards: fine line + soft layered shadow (TechNext) ---------- */
 html body :is(.card,.pillar-card,.value-card,.mission-card,.coaching-package,.service-category,.team-card,.event-card,.ec,.stat-box,.contact-detail){
@@ -82,3 +114,10 @@ html body .ev-refund-i{color:var(--brand-red)!important}
   html body *{transition-duration:.01ms!important}
   html body :is(.et_pb_button,.ec-btn,.btn,.card,.ec,.event-card):hover{transform:none!important}
 }
+
+/* dark contexts: white primary needs navy text (beats style.css L1453 which forces #fff + --t/--ft) */
+html body :is(.page-hero-ctas,.evt-hero-ctas) a.et_pb_button.et_pb_button:not(.btn-outline):not(.btn-white-outline),
+html body a.et_pb_button.et_pb_button.on-dark:not(.btn-outline):not(.btn-white-outline){
+  --t:#14244a!important;--ft:#14244a!important;color:#14244a!important;-webkit-text-fill-color:#14244a!important}
+html body :is(.page-hero-ctas,.evt-hero-ctas) a.et_pb_button.et_pb_button:not(.btn-outline):not(.btn-white-outline) *,
+html body a.et_pb_button.et_pb_button.on-dark:not(.btn-outline):not(.btn-white-outline) *{color:#14244a!important;-webkit-text-fill-color:#14244a!important;stroke:#14244a}
