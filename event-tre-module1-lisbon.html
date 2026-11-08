@@ -108,7 +108,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </header>
 <div id="et-main-area" tabindex="-1">
 <div class="evt-hero">
-  <img class="evt-hero-img" src="event-lisbon-module1.webp?v=2" alt="ICF-accredited TRE&trade; Module 1 plus Self-Care &amp; Presence for Coaches, Lisboa, Portugal, 28&ndash;30 May 2027, led by Isabelle Claus Teixeira and Saymara Ryon" width="1920" height="1080" loading="eager"/>
+  <img fetchpriority="high" class="evt-hero-img" src="event-lisbon-module1.webp?v=2" srcset="event-lisbon-module1-960.webp?v=2 960w, event-lisbon-module1.webp?v=2 1920w" sizes="(max-width:900px) 100vw, 60vw" alt="ICF-accredited TRE&trade; Module 1 plus Self-Care &amp; Presence for Coaches, Lisboa, Portugal, 28&ndash;30 May 2027, led by Isabelle Claus Teixeira and Saymara Ryon" width="1920" height="1080" loading="eager"/>
   <div class="evt-hero-overlay"></div>
   <div class="evt-hero-inner">
     <div class="container">
@@ -363,7 +363,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div></div>
 </footer>
 </div>
-<script src="shared.js?v=35"></script>
+<script src="shared.js?v=36"></script>
 <script src="gdpr-consent.js?v=4"></script>
 <script>
 function submitReg(e){e.preventDefault();var form=document.getElementById('evt-reg-form');var btn=form.querySelector('button[type="submit"]');var err=document.getElementById('reg-error');if(err)err.hidden=true;btn.disabled=true;btn.textContent='Sending…';var data={source:'BHDasia Event — TRE Module 1 Lisboa, Portugal (28–30 May 2027)',event:form.event.value,inquiry:'Event registration enquiry',name:form.name.value,email:form.email.value,phone:form.phone.value,message:form.message.value};bhdEmailLead(data);fetch('https://script.google.com/macros/s/AKfycbxkv934L8ffTxU1TPUiw3jn9Hu6KmdE0Ol1CcJRB_vWstls2xiZHHb-LErG5qHXdTuX/exec',{method:'POST',mode:'no-cors',body:new URLSearchParams(data)}).then(function(){form.style.display='none';document.getElementById('reg-success').style.display='block'}).catch(function(){btn.disabled=false;btn.textContent='Register Now →';if(err)err.hidden=false});}

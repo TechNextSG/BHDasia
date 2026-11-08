@@ -1,3 +1,4 @@
+window.__bhd960=["card-art-of-conscious-rest.webp", "card-body-in-the-room.webp", "card-breath-as-medicine.webp", "card-bucharest-module1.webp", "card-certification-2027.webp", "card-event-lisbon-module1.webp", "card-feminine-masculine.webp", "card-internal-alchemy.webp", "card-nervous-system.webp", "card-shaking-online.webp", "card-shaking-to-shaping-sep3.webp", "card-shaking-to-shaping.webp", "card-transform-practice.webp", "event-art-of-conscious-rest.webp", "event-body-in-the-room.webp", "event-bucharest-module1.webp", "event-cert-2027-foundational.webp", "event-cert-2027-growth.webp", "event-cert-2027-refresher.webp", "event-cert-2027.webp", "event-feminine-masculine.webp", "event-internal-alchemy.webp", "event-intro-tre-singapore-2027.webp", "event-lisbon-certification.webp", "event-lisbon-module1.webp", "event-module1.webp", "event-module2.webp", "event-shaking-oct8.webp", "event-shaking-shaping.webp", "event-shaking-to-shaping-singapore.webp", "event-tre-scotland-online.webp"];
 /* clean URLs: someone who lands on /about.html sees /about (index.html -> /) */
 (function () {
   var p = location.pathname;
@@ -660,7 +661,7 @@
       homeGrid.innerHTML=feat.map(function(e){
         var c=e.card,ext=/^https?:/i.test(c.url)?' target="_blank" rel="noopener"':'';
         return '<div class="home-evt-card">'
-          +'<div class="hec-img"><img src="'+c.img+'" alt="'+c.alt+'" width="1920" height="1080" loading="lazy"/></div>'
+          +'<div class="hec-img"><img src="'+c.img+'"'+(function(u){var b=u.split('?'),m=b[0].match(/^(.*)\.webp$/);return m&&window.__bhd960&&window.__bhd960.indexOf(b[0])>-1?' srcset="'+m[1]+'-960.webp'+(b[1]?'?'+b[1]:'')+' 960w, '+u+' 1920w" sizes="(max-width:700px) 100vw, (max-width:1100px) 50vw, 33vw"':''})(c.img)+' alt="'+c.alt+'" width="1920" height="1080" loading="lazy"/></div>'
           +'<div class="hec-body">'
           +'<span class="hec-tag">'+c.tag+'</span>'
           +'<div class="hec-date">'+CAL+c.date+'</div>'
